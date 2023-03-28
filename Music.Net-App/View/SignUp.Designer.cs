@@ -38,8 +38,12 @@
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.iconButtonSignUp = new FontAwesome.Sharp.IconButton();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -80,6 +84,7 @@
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.flowLayoutPanel2.Controls.Add(this.panel2);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 139);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(436, 223);
@@ -145,12 +150,30 @@
             this.iconButtonSignUp.IconChar = FontAwesome.Sharp.IconChar.None;
             this.iconButtonSignUp.IconColor = System.Drawing.Color.Black;
             this.iconButtonSignUp.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButtonSignUp.Location = new System.Drawing.Point(96, 3);
+            this.iconButtonSignUp.Location = new System.Drawing.Point(107, 3);
             this.iconButtonSignUp.Name = "iconButtonSignUp";
             this.iconButtonSignUp.Size = new System.Drawing.Size(223, 33);
             this.iconButtonSignUp.TabIndex = 6;
             this.iconButtonSignUp.Text = "Sign Up";
             this.iconButtonSignUp.UseVisualStyleBackColor = false;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(433, 210);
+            this.panel2.TabIndex = 0;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.25455F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(119, 161);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(193, 39);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Đăng nhập";
             // 
             // SignUp
             // 
@@ -166,7 +189,10 @@
             this.Text = "SignUp";
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
+            this.flowLayoutPanel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -183,5 +209,7 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private FontAwesome.Sharp.IconButton iconButtonSignUp;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label3;
     }
 }
