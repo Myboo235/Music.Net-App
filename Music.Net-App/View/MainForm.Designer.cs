@@ -41,11 +41,11 @@
             this.iconButton7 = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.iconButton8 = new FontAwesome.Sharp.IconButton();
+            this.flowLayoutPanel9 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
             this.flowLayoutPanel8 = new System.Windows.Forms.FlowLayoutPanel();
             this.iconButton5 = new FontAwesome.Sharp.IconButton();
-            this.flowLayoutPanel9 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
@@ -56,9 +56,9 @@
             this.flowLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel5.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.flowLayoutPanel9.SuspendLayout();
             this.flowLayoutPanel6.SuspendLayout();
             this.flowLayoutPanel8.SuspendLayout();
-            this.flowLayoutPanel9.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.SuspendLayout();
@@ -71,7 +71,8 @@
             this.flowLayoutPanel1.Controls.Add(this.Button_Search);
             this.flowLayoutPanel1.Controls.Add(this.Button_Playlist);
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(244, 752);
             this.flowLayoutPanel1.TabIndex = 1;
@@ -169,9 +170,9 @@
             this.flowLayoutPanel3.Controls.Add(this.flowLayoutPanel9);
             this.flowLayoutPanel3.Controls.Add(this.flowLayoutPanel6);
             this.flowLayoutPanel3.Controls.Add(this.flowLayoutPanel8);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(253, 3);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(247, 3);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(700, 752);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(707, 752);
             this.flowLayoutPanel3.TabIndex = 2;
             // 
             // flowLayoutPanel5
@@ -239,6 +240,14 @@
             this.iconButton8.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.iconButton8.UseVisualStyleBackColor = true;
             // 
+            // flowLayoutPanel9
+            // 
+            this.flowLayoutPanel9.Controls.Add(this.axWindowsMediaPlayer1);
+            this.flowLayoutPanel9.Location = new System.Drawing.Point(3, 66);
+            this.flowLayoutPanel9.Name = "flowLayoutPanel9";
+            this.flowLayoutPanel9.Size = new System.Drawing.Size(697, 139);
+            this.flowLayoutPanel9.TabIndex = 4;
+            // 
             // flowLayoutPanel6
             // 
             this.flowLayoutPanel6.Controls.Add(this.iconButton4);
@@ -291,14 +300,6 @@
             this.iconButton5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton5.UseVisualStyleBackColor = true;
             // 
-            // flowLayoutPanel9
-            // 
-            this.flowLayoutPanel9.Controls.Add(this.axWindowsMediaPlayer1);
-            this.flowLayoutPanel9.Location = new System.Drawing.Point(3, 66);
-            this.flowLayoutPanel9.Name = "flowLayoutPanel9";
-            this.flowLayoutPanel9.Size = new System.Drawing.Size(697, 139);
-            this.flowLayoutPanel9.TabIndex = 4;
-            // 
             // flowLayoutPanel4
             // 
             this.flowLayoutPanel4.BackColor = System.Drawing.Color.Black;
@@ -306,7 +307,7 @@
             this.flowLayoutPanel4.Controls.Add(this.iconButton2);
             this.flowLayoutPanel4.Controls.Add(this.iconButton3);
             this.flowLayoutPanel4.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(959, 3);
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(960, 3);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
             this.flowLayoutPanel4.Size = new System.Drawing.Size(221, 752);
             this.flowLayoutPanel4.TabIndex = 3;
@@ -363,7 +364,7 @@
             this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(3, 3);
             this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
             this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
-            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(700, 258);
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(694, 258);
             this.axWindowsMediaPlayer1.TabIndex = 0;
             // 
             // MainForm
@@ -374,6 +375,7 @@
             this.ClientSize = new System.Drawing.Size(1182, 753);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.HelpButton = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
@@ -384,12 +386,15 @@
             this.flowLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel5.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.flowLayoutPanel9.ResumeLayout(false);
             this.flowLayoutPanel6.ResumeLayout(false);
             this.flowLayoutPanel8.ResumeLayout(false);
-            this.flowLayoutPanel9.ResumeLayout(false);
             this.flowLayoutPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             this.ResumeLayout(false);
+
+
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
 
         }
 

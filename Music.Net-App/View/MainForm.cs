@@ -16,11 +16,12 @@ namespace Music.Net_App.View
 
         public MainForm()
         {
-
+            
+            string directory = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug\", "");
             InitializeComponent();
-            axWindowsMediaPlayer1.URL = @"C:\Users\Lenovo\Downloads\video.mp4";
+            axWindowsMediaPlayer1.URL = directory +  @"\Assets\video.mp4";
             axWindowsMediaPlayer1.settings.setMode("loop", true);
-
+            
         }
 
         private void LeftBar_MouseHover(object sender, EventArgs e)
