@@ -16,7 +16,11 @@ namespace Music.Net_App.View
 
         public MainForm()
         {
+
             InitializeComponent();
+            axWindowsMediaPlayer1.URL = @"C:\Users\Lenovo\Downloads\video.mp4";
+            axWindowsMediaPlayer1.settings.setMode("loop", true);
+
         }
 
         private void LeftBar_MouseHover(object sender, EventArgs e)
