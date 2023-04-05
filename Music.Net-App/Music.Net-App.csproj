@@ -40,6 +40,7 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -121,8 +122,9 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\muzira-banner.png" />
-    <Content Include="Assets\video.mp4" />
+    <Content Include="Assets\Images\muzira-banner.png" />
+    <Content Include="Assets\Musics\y2mate.com - DVRST  CLOSE EYES.mp3" />
+    <Content Include="Assets\Videos\video.mp4" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

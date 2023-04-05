@@ -26,7 +26,7 @@ namespace Music.Net_App.View
         private void GetstartedButton_Click(object sender, EventArgs e)
         {
             MainForm main = new MainForm();
-            main.Show();
+            main.ShowDialog();
         }
     }
 }
