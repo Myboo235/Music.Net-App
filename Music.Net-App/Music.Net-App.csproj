@@ -40,6 +40,7 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Messaging" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
@@ -56,11 +57,29 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\HomeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\HomeForm.Designer.cs">
+      <DependentUpon>HomeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\PlaylistForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\PlaylistForm.Designer.cs">
+      <DependentUpon>PlaylistForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\SearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\SearchForm.Designer.cs">
+      <DependentUpon>SearchForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\WelcomeForm.cs">
       <SubType>Form</SubType>
@@ -78,8 +97,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="View\HomeForm.resx">
+      <DependentUpon>HomeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\SearchForm.resx">
+      <DependentUpon>SearchForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\WelcomeForm.resx">
       <DependentUpon>WelcomeForm.cs</DependentUpon>

@@ -15,20 +15,24 @@ namespace Music.Net_App.View
     public partial class MainForm : Form
     {
         
+        private Form currentChildForm;
 
+        private String previousChildFormName = "";
+        private Form previousChildForm ;
+        private Form nextChildForm;
+
+        
+        
         public MainForm()
         {
-            
             string directory = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug\", "");
             InitializeComponent();
-            IntroVideo.URL = directory +  @"\Assets\Videos\video.mp4";
-            IntroVideo.settings.setMode("loop", true );
-            IntroVideo.settings.mute = true;
-            
-            /*        C: \Users\Lenovo\source\repos\Music\MusicApp\Music.Net - App\Assets\Musics\y2mate.com - DVRST  CLOSE EYES.mp3
-            */
-            axWindowsMediaPlayer1.URL = directory + @"\Assets\Musics\y2mate.com - DVRST  CLOSE EYES.mp3";
-            axWindowsMediaPlayer1.Ctlcontrols.stop();
+            /*HomeLayout.Controls.Clear();*/
+            currentChildForm =new HomeForm();
+            OpenChildForm(currentChildForm);
+            resize();
+            MusicPlayer.URL = directory + @"\Assets\Musics\y2mate.com - DVRST  CLOSE EYES.mp3";
+            MusicPlayer.Ctlcontrols.stop();
         }
 
         private void LeftBar_MouseHover(object sender, EventArgs e)
@@ -43,57 +47,127 @@ namespace Music.Net_App.View
             buttonLeft.ForeColor = ColorTranslator.FromHtml("#B2B2B2");
             buttonLeft.BackColor = ColorTranslator.FromHtml("#000000");
         }
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-        private void panelTitleBar_MouseDown(object sender, MouseEventArgs e)
+        private void resize()
         {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
-
-        private void FormMainMenu_Resize(object sender, EventArgs e)
-        {
-            /*if (WindowState == FormWindowState.Maximized)
-                FormBorderStyle = FormBorderStyle.None;
-            else
-                FormBorderStyle = FormBorderStyle.Sizable;
-*/
-            
             MenuBar.Height = this.Height;
             ContactBar.Height = this.Height;
-            HomeLayout.Height= this.Height;
+
+            MainLayout.Size = new Size(this.Width - MenuBar.Width - ContactBar.Width - 30, MainBackGround.Height);
+            UserNav.Width = MainLayout.Width - Button_Back.Width - Button_Next.Width - 120;
+            NavBar.Width = MainLayout.Width;
+            NavForm.Width = MainLayout.Width;
+            NavForm.Height = MainLayout.Height -150;
+
             
-            HomeLayout.Size = new Size(this.Width - MenuBar.Width -ContactBar.Width- 30, this.Height);
-            UserNav.Width = HomeLayout.Width - Button_Back.Width - Button_Next.Width- 120;
+            PlayBar.Width= MainLayout.Width;
+            MusicPlayer.Width = PlayBar.Width - panel3.Width -10 ;
+            if (currentChildForm != null)
+            {
+                currentChildForm.Width = NavForm.Width;
+                currentChildForm.Height = NavForm.Height;
+            }
+        }
+        private void FormMainMenu_Resize(object sender, EventArgs e)
+        {
+            resize();            
+        }
+        private void Button_Search_Click(object sender, EventArgs e)
+        {
+            if (currentChildForm.GetType().Name.ToString() != "SearchForm")
+            {
+                OpenChildForm(new SearchForm());
+                
+            }
+            resize();
+        }
 
-            IntroVideo.Width = VideoPanel.Width - 10;
-            VideoPanel.Width= HomeLayout.Width;
-            VideoPanel.Height= HomeLayout.Height/5;
+        private void OpenChildForm(Form childForm)
+        {
+            //open only form
+            if (currentChildForm != null)
+            {
+                previousChildFormName = currentChildForm.GetType().Name.ToString();
+                previousChildForm = currentChildForm;
 
-            NavBar.Width = HomeLayout.Width;
-            IntroVideo.Width = HomeLayout.Width;
-            RecentPlayed.Width= HomeLayout.Width;
-            TopMixes.Width = HomeLayout.Width;
+                
+                currentChildForm = childForm;
 
-            panel1.Width = HomeLayout.Width;
-            axWindowsMediaPlayer1.Width = HomeLayout.Width- panel3.Width -20;
+                
 
-            /*ContactBar.Location = new Point(0,  ContactBar.Width + MenuBar.Width);*/
+                currentChildForm.TopLevel = false;
+                currentChildForm.FormBorderStyle = FormBorderStyle.None;
+
+                NavForm.Controls.Add(childForm);
+                //NavForm.Tag = childForm;
+
+                childForm.BringToFront();
+                childForm.Show();
+
+                currentChildForm.Width = NavForm.Width;
+                currentChildForm.Height = NavForm.Height;
+
+                //previousChildForm.Close();
+            }    
+        }
+
+        private void Button_Close_ContactBar_Click(object sender, EventArgs e)
+        {
+            if(ContactBar.Width == 40)
+            {
+                ContactBar.Width = 226;
+            }
+            else
+            {
+                MainLayout.Width += ContactBar.Width;
+                ContactBar.Width = 40;
+            }
+            
+            /*HomeLayout.Width += ContactBar.Width;*/
+            resize();
         }
 
         private void Button_Play_Click(object sender, EventArgs e)
         {
-            if (Button_Play.IconChar.ToString() == "Play") {
+            if (Button_Play.IconChar.ToString() == "Play")
+            {
                 Button_Play.IconChar = IconChar.Pause;
-                axWindowsMediaPlayer1.Ctlcontrols.play();
+                MusicPlayer.Ctlcontrols.play();
             }
             else if (Button_Play.IconChar.ToString() == "Pause")
             {
                 Button_Play.IconChar = IconChar.Play;
-                axWindowsMediaPlayer1.Ctlcontrols.pause();
+                MusicPlayer.Ctlcontrols.pause();
             }
+        }
+        private void Button_Home_Click(object sender, EventArgs e)
+        {
+            if(currentChildForm.GetType().Name.ToString() != "HomeForm")
+                OpenChildForm(new HomeForm());
+            resize();
+        }
+
+        private void Button_Back_Click(object sender, EventArgs e)
+        {
+            
+            if (previousChildFormName != "")
+            {
+                MessageBox.Show("Back to  " + previousChildFormName);
+                OpenChildForm(previousChildForm);
+
+            }
+            else
+                MessageBox.Show("No back");
+        }
+
+        private void Button_Menu_Click(object sender, EventArgs e)
+        {
+            if(MenuBar.Width == 55)
+            {
+                MenuBar.Width = 244;
+            }
+            else MenuBar.Width = 55;
+
+            resize();
         }
     }
 }
