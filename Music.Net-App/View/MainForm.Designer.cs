@@ -396,7 +396,7 @@
             this.Button_Playlist.UseVisualStyleBackColor = true;
             // 
             // MainBackGround
-            // 
+
             this.MainBackGround.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.MainBackGround.Controls.Add(this.MenuBar);
             this.MainBackGround.Controls.Add(this.MainLayout);
