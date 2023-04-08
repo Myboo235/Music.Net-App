@@ -34,7 +34,6 @@
             this.Button_Close_ContactBar = new FontAwesome.Sharp.IconButton();
             this.Button_Friends = new FontAwesome.Sharp.IconButton();
             this.Button_Follow = new FontAwesome.Sharp.IconButton();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.MainLayout = new System.Windows.Forms.FlowLayoutPanel();
             this.NavBar = new System.Windows.Forms.FlowLayoutPanel();
             this.Button_Back = new FontAwesome.Sharp.IconButton();
@@ -71,12 +70,11 @@
             this.ContactBar.Controls.Add(this.panel2);
             this.ContactBar.Controls.Add(this.Button_Friends);
             this.ContactBar.Controls.Add(this.Button_Follow);
-            this.ContactBar.Controls.Add(this.iconButton1);
-            this.ContactBar.Dock = System.Windows.Forms.DockStyle.Right;
             this.ContactBar.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.ContactBar.Location = new System.Drawing.Point(949, 3);
+            this.ContactBar.Location = new System.Drawing.Point(940, 3);
+            this.ContactBar.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.ContactBar.Name = "ContactBar";
-            this.ContactBar.Size = new System.Drawing.Size(226, 746);
+            this.ContactBar.Size = new System.Drawing.Size(242, 746);
             this.ContactBar.TabIndex = 3;
             this.ContactBar.WrapContents = false;
             // 
@@ -85,7 +83,7 @@
             this.panel2.Controls.Add(this.Button_Close_ContactBar);
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(218, 45);
+            this.panel2.Size = new System.Drawing.Size(234, 45);
             this.panel2.TabIndex = 7;
             // 
             // Button_Close_ContactBar
@@ -96,9 +94,9 @@
             this.Button_Close_ContactBar.IconColor = System.Drawing.Color.White;
             this.Button_Close_ContactBar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.Button_Close_ContactBar.IconSize = 25;
-            this.Button_Close_ContactBar.Location = new System.Drawing.Point(174, 1);
+            this.Button_Close_ContactBar.Location = new System.Drawing.Point(169, 0);
             this.Button_Close_ContactBar.Name = "Button_Close_ContactBar";
-            this.Button_Close_ContactBar.Size = new System.Drawing.Size(41, 41);
+            this.Button_Close_ContactBar.Size = new System.Drawing.Size(49, 45);
             this.Button_Close_ContactBar.TabIndex = 0;
             this.Button_Close_ContactBar.UseVisualStyleBackColor = false;
             this.Button_Close_ContactBar.Click += new System.EventHandler(this.Button_Close_ContactBar_Click);
@@ -117,7 +115,7 @@
             this.Button_Friends.Name = "Button_Friends";
             this.Button_Friends.Size = new System.Drawing.Size(218, 48);
             this.Button_Friends.TabIndex = 5;
-            this.Button_Friends.Text = "Friends";
+            this.Button_Friends.Text = "   Friends";
             this.Button_Friends.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Button_Friends.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Button_Friends.UseVisualStyleBackColor = true;
@@ -136,23 +134,10 @@
             this.Button_Follow.Name = "Button_Follow";
             this.Button_Follow.Size = new System.Drawing.Size(218, 48);
             this.Button_Follow.TabIndex = 6;
-            this.Button_Follow.Text = "Follow";
+            this.Button_Follow.Text = "   Follow";
             this.Button_Follow.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Button_Follow.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Button_Follow.UseVisualStyleBackColor = true;
-            // 
-            // iconButton1
-            // 
-            this.iconButton1.BackColor = System.Drawing.Color.White;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Deezer;
-            this.iconButton1.IconColor = System.Drawing.Color.Black;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.Location = new System.Drawing.Point(3, 162);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(75, 44);
-            this.iconButton1.TabIndex = 0;
-            this.iconButton1.UseVisualStyleBackColor = false;
             // 
             // MainLayout
             // 
@@ -160,7 +145,8 @@
             this.MainLayout.Controls.Add(this.NavBar);
             this.MainLayout.Controls.Add(this.NavForm);
             this.MainLayout.Controls.Add(this.PlayBar);
-            this.MainLayout.Location = new System.Drawing.Point(247, 3);
+            this.MainLayout.Location = new System.Drawing.Point(244, 3);
+            this.MainLayout.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.MainLayout.Name = "MainLayout";
             this.MainLayout.Size = new System.Drawing.Size(696, 741);
             this.MainLayout.TabIndex = 2;
@@ -236,28 +222,30 @@
             this.NavForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.NavForm.Location = new System.Drawing.Point(3, 67);
             this.NavForm.Name = "NavForm";
-            this.NavForm.Size = new System.Drawing.Size(688, 593);
+            this.NavForm.Size = new System.Drawing.Size(688, 504);
             this.NavForm.TabIndex = 1;
             this.NavForm.Resize += new System.EventHandler(this.FormMainMenu_Resize);
             // 
             // PlayBar
             // 
-            this.PlayBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.PlayBar.BackColor = System.Drawing.Color.Black;
             this.PlayBar.Controls.Add(this.panel3);
             this.PlayBar.Controls.Add(this.MusicPlayer);
-            this.PlayBar.Location = new System.Drawing.Point(3, 666);
+            this.PlayBar.Location = new System.Drawing.Point(0, 577);
+            this.PlayBar.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.PlayBar.Name = "PlayBar";
-            this.PlayBar.Size = new System.Drawing.Size(688, 64);
+            this.PlayBar.Size = new System.Drawing.Size(694, 91);
             this.PlayBar.TabIndex = 8;
             // 
             // panel3
             // 
+            this.panel3.BackColor = System.Drawing.Color.Black;
             this.panel3.Controls.Add(this.Button_Forward);
             this.panel3.Controls.Add(this.Button_Backward);
             this.panel3.Controls.Add(this.Button_Play);
-            this.panel3.Location = new System.Drawing.Point(3, 3);
+            this.panel3.Location = new System.Drawing.Point(6, 17);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(179, 47);
+            this.panel3.Size = new System.Drawing.Size(179, 58);
             this.panel3.TabIndex = 8;
             // 
             // Button_Forward
@@ -290,7 +278,7 @@
             // 
             // Button_Play
             // 
-            this.Button_Play.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.Button_Play.BackColor = System.Drawing.Color.Black;
             this.Button_Play.FlatAppearance.BorderSize = 0;
             this.Button_Play.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Button_Play.ForeColor = System.Drawing.Color.White;
@@ -308,10 +296,10 @@
             // MusicPlayer
             // 
             this.MusicPlayer.Enabled = true;
-            this.MusicPlayer.Location = new System.Drawing.Point(185, 0);
+            this.MusicPlayer.Location = new System.Drawing.Point(205, 0);
             this.MusicPlayer.Name = "MusicPlayer";
             this.MusicPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("MusicPlayer.OcxState")));
-            this.MusicPlayer.Size = new System.Drawing.Size(497, 138);
+            this.MusicPlayer.Size = new System.Drawing.Size(477, 138);
             this.MusicPlayer.TabIndex = 7;
             // 
             // MenuBar
@@ -454,7 +442,6 @@
         private FontAwesome.Sharp.IconButton Button_Close_ContactBar;
         private FontAwesome.Sharp.IconButton Button_Friends;
         private FontAwesome.Sharp.IconButton Button_Follow;
-        private FontAwesome.Sharp.IconButton iconButton1;
         private System.Windows.Forms.FlowLayoutPanel MainLayout;
         private System.Windows.Forms.FlowLayoutPanel NavBar;
         private FontAwesome.Sharp.IconButton Button_Back;

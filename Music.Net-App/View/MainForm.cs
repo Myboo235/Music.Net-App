@@ -52,10 +52,10 @@ namespace Music.Net_App.View
             MenuBar.Height = this.Height;
             ContactBar.Height = this.Height;
 
-            MainLayout.Size = new Size(this.Width - MenuBar.Width - ContactBar.Width - 30, MainBackGround.Height);
+            MainLayout.Size = new Size(this.Width - MenuBar.Width - ContactBar.Width - 18, MainBackGround.Height);
             UserNav.Width = MainLayout.Width - Button_Back.Width - Button_Next.Width - 120;
             NavBar.Width = MainLayout.Width;
-            NavForm.Width = MainLayout.Width;
+            NavForm.Width = MainLayout.Width-10;
             NavForm.Height = MainLayout.Height -150;
 
             
@@ -112,16 +112,22 @@ namespace Music.Net_App.View
 
         private void Button_Close_ContactBar_Click(object sender, EventArgs e)
         {
-            if(ContactBar.Width == 40)
+            /*panel2.Left  -= (ContactBar.Width - 10);*/
+            
+            //panel2.Width += (ContactBar.Width + 45);
+            if (ContactBar.Width == 55)
             {
-                ContactBar.Width = 226;
+                Button_Close_ContactBar.Dock = DockStyle.Right;
+                //panel2.Width = ContactBar.Width;
+                ContactBar.Width = 250;
             }
             else
             {
+                Button_Close_ContactBar.Dock = DockStyle.Left;
                 MainLayout.Width += ContactBar.Width;
-                ContactBar.Width = 40;
+                ContactBar.Width = 55;
             }
-            
+
             /*HomeLayout.Width += ContactBar.Width;*/
             resize();
         }
