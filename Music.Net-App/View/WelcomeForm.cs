@@ -18,7 +18,7 @@ namespace Music.Net_App.View
         {
             InitializeComponent();
             string directory = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug\", "");
-            pictureBox1.Image = Image.FromFile(directory + @"\Assets\muzira-banner.png"); ;
+            pictureBox1.Image = Image.FromFile(directory + @"\Assets\muzira-banner.png");
             pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
 
         }
@@ -26,7 +26,7 @@ namespace Music.Net_App.View
         private void GetstartedButton_Click(object sender, EventArgs e)
         {
             MainForm main = new MainForm();
-            main.Show();
+            main.ShowDialog();
         }
     }
 }

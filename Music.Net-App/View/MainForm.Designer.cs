@@ -29,72 +29,312 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.ContactBar = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.Button_Close_ContactBar = new FontAwesome.Sharp.IconButton();
+            this.Button_Friends = new FontAwesome.Sharp.IconButton();
+            this.Button_Follow = new FontAwesome.Sharp.IconButton();
+            this.MainLayout = new System.Windows.Forms.FlowLayoutPanel();
+            this.NavBar = new System.Windows.Forms.FlowLayoutPanel();
+            this.Button_Back = new FontAwesome.Sharp.IconButton();
+            this.Button_Next = new FontAwesome.Sharp.IconButton();
+            this.UserNav = new System.Windows.Forms.Panel();
+            this.Button_User = new FontAwesome.Sharp.IconButton();
+            this.NavForm = new System.Windows.Forms.FlowLayoutPanel();
+            this.PlayBar = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.Button_Forward = new FontAwesome.Sharp.IconButton();
+            this.Button_Backward = new FontAwesome.Sharp.IconButton();
+            this.Button_Play = new FontAwesome.Sharp.IconButton();
+            this.MusicPlayer = new AxWMPLib.AxWindowsMediaPlayer();
+            this.MenuBar = new System.Windows.Forms.FlowLayoutPanel();
+            this.Button_Menu = new FontAwesome.Sharp.IconButton();
             this.Button_Home = new FontAwesome.Sharp.IconButton();
             this.Button_Search = new FontAwesome.Sharp.IconButton();
             this.Button_Playlist = new FontAwesome.Sharp.IconButton();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
-            this.iconButton6 = new FontAwesome.Sharp.IconButton();
-            this.iconButton7 = new FontAwesome.Sharp.IconButton();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.iconButton8 = new FontAwesome.Sharp.IconButton();
-            this.flowLayoutPanel9 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
-            this.iconButton4 = new FontAwesome.Sharp.IconButton();
-            this.flowLayoutPanel8 = new System.Windows.Forms.FlowLayoutPanel();
-            this.iconButton5 = new FontAwesome.Sharp.IconButton();
-            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.iconButton3 = new FontAwesome.Sharp.IconButton();
-            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
-            this.flowLayoutPanel1.SuspendLayout();
-            this.flowLayoutPanel2.SuspendLayout();
-            this.flowLayoutPanel3.SuspendLayout();
-            this.flowLayoutPanel5.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.flowLayoutPanel9.SuspendLayout();
-            this.flowLayoutPanel6.SuspendLayout();
-            this.flowLayoutPanel8.SuspendLayout();
-            this.flowLayoutPanel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
+            this.MainBackGround = new System.Windows.Forms.FlowLayoutPanel();
+            this.ContactBar.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.MainLayout.SuspendLayout();
+            this.NavBar.SuspendLayout();
+            this.PlayBar.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MusicPlayer)).BeginInit();
+            this.MenuBar.SuspendLayout();
+            this.MainBackGround.SuspendLayout();
             this.SuspendLayout();
             // 
-            // flowLayoutPanel1
+            // ContactBar
             // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.Black;
-            this.flowLayoutPanel1.Controls.Add(this.iconButton1);
-            this.flowLayoutPanel1.Controls.Add(this.Button_Home);
-            this.flowLayoutPanel1.Controls.Add(this.Button_Search);
-            this.flowLayoutPanel1.Controls.Add(this.Button_Playlist);
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(244, 752);
-            this.flowLayoutPanel1.TabIndex = 1;
-            this.flowLayoutPanel1.WrapContents = false;
+            this.ContactBar.BackColor = System.Drawing.Color.Black;
+            this.ContactBar.Controls.Add(this.panel2);
+            this.ContactBar.Controls.Add(this.Button_Friends);
+            this.ContactBar.Controls.Add(this.Button_Follow);
+            this.ContactBar.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.ContactBar.Location = new System.Drawing.Point(940, 3);
+            this.ContactBar.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.ContactBar.Name = "ContactBar";
+            this.ContactBar.Size = new System.Drawing.Size(242, 746);
+            this.ContactBar.TabIndex = 3;
+            this.ContactBar.WrapContents = false;
             // 
-            // iconButton1
+            // panel2
             // 
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Ellipsis;
-            this.iconButton1.IconColor = System.Drawing.Color.White;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 40;
-            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.Location = new System.Drawing.Point(3, 3);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(48, 48);
-            this.iconButton1.TabIndex = 5;
-            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton1.UseVisualStyleBackColor = true;
+            this.panel2.Controls.Add(this.Button_Close_ContactBar);
+            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(234, 45);
+            this.panel2.TabIndex = 7;
+            // 
+            // Button_Close_ContactBar
+            // 
+            this.Button_Close_ContactBar.BackColor = System.Drawing.Color.Black;
+            this.Button_Close_ContactBar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button_Close_ContactBar.IconChar = FontAwesome.Sharp.IconChar.Xmark;
+            this.Button_Close_ContactBar.IconColor = System.Drawing.Color.White;
+            this.Button_Close_ContactBar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.Button_Close_ContactBar.IconSize = 25;
+            this.Button_Close_ContactBar.Location = new System.Drawing.Point(169, 0);
+            this.Button_Close_ContactBar.Name = "Button_Close_ContactBar";
+            this.Button_Close_ContactBar.Size = new System.Drawing.Size(49, 45);
+            this.Button_Close_ContactBar.TabIndex = 0;
+            this.Button_Close_ContactBar.UseVisualStyleBackColor = false;
+            this.Button_Close_ContactBar.Click += new System.EventHandler(this.Button_Close_ContactBar_Click);
+            // 
+            // Button_Friends
+            // 
+            this.Button_Friends.FlatAppearance.BorderSize = 0;
+            this.Button_Friends.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button_Friends.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.Button_Friends.IconChar = FontAwesome.Sharp.IconChar.UserGroup;
+            this.Button_Friends.IconColor = System.Drawing.Color.White;
+            this.Button_Friends.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.Button_Friends.IconSize = 40;
+            this.Button_Friends.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Button_Friends.Location = new System.Drawing.Point(3, 54);
+            this.Button_Friends.Name = "Button_Friends";
+            this.Button_Friends.Size = new System.Drawing.Size(218, 48);
+            this.Button_Friends.TabIndex = 5;
+            this.Button_Friends.Text = "   Friends";
+            this.Button_Friends.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Button_Friends.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Button_Friends.UseVisualStyleBackColor = true;
+            // 
+            // Button_Follow
+            // 
+            this.Button_Follow.FlatAppearance.BorderSize = 0;
+            this.Button_Follow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button_Follow.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.Button_Follow.IconChar = FontAwesome.Sharp.IconChar.UserTag;
+            this.Button_Follow.IconColor = System.Drawing.Color.White;
+            this.Button_Follow.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.Button_Follow.IconSize = 40;
+            this.Button_Follow.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Button_Follow.Location = new System.Drawing.Point(3, 108);
+            this.Button_Follow.Name = "Button_Follow";
+            this.Button_Follow.Size = new System.Drawing.Size(218, 48);
+            this.Button_Follow.TabIndex = 6;
+            this.Button_Follow.Text = "   Follow";
+            this.Button_Follow.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Button_Follow.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Button_Follow.UseVisualStyleBackColor = true;
+            // 
+            // MainLayout
+            // 
+            this.MainLayout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.MainLayout.Controls.Add(this.NavBar);
+            this.MainLayout.Controls.Add(this.NavForm);
+            this.MainLayout.Controls.Add(this.PlayBar);
+            this.MainLayout.Location = new System.Drawing.Point(244, 3);
+            this.MainLayout.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.MainLayout.Name = "MainLayout";
+            this.MainLayout.Size = new System.Drawing.Size(696, 741);
+            this.MainLayout.TabIndex = 2;
+            // 
+            // NavBar
+            // 
+            this.NavBar.Controls.Add(this.Button_Back);
+            this.NavBar.Controls.Add(this.Button_Next);
+            this.NavBar.Controls.Add(this.UserNav);
+            this.NavBar.Controls.Add(this.Button_User);
+            this.NavBar.Location = new System.Drawing.Point(3, 3);
+            this.NavBar.Name = "NavBar";
+            this.NavBar.Size = new System.Drawing.Size(693, 58);
+            this.NavBar.TabIndex = 0;
+            // 
+            // Button_Back
+            // 
+            this.Button_Back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button_Back.IconChar = FontAwesome.Sharp.IconChar.CircleChevronLeft;
+            this.Button_Back.IconColor = System.Drawing.Color.White;
+            this.Button_Back.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.Button_Back.IconSize = 35;
+            this.Button_Back.Location = new System.Drawing.Point(3, 3);
+            this.Button_Back.Name = "Button_Back";
+            this.Button_Back.Size = new System.Drawing.Size(50, 45);
+            this.Button_Back.TabIndex = 0;
+            this.Button_Back.UseVisualStyleBackColor = true;
+            this.Button_Back.Click += new System.EventHandler(this.Button_Back_Click);
+            // 
+            // Button_Next
+            // 
+            this.Button_Next.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button_Next.IconChar = FontAwesome.Sharp.IconChar.CircleChevronRight;
+            this.Button_Next.IconColor = System.Drawing.Color.White;
+            this.Button_Next.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.Button_Next.IconSize = 35;
+            this.Button_Next.Location = new System.Drawing.Point(59, 3);
+            this.Button_Next.Name = "Button_Next";
+            this.Button_Next.Size = new System.Drawing.Size(50, 45);
+            this.Button_Next.TabIndex = 1;
+            this.Button_Next.UseVisualStyleBackColor = true;
+            // 
+            // UserNav
+            // 
+            this.UserNav.Location = new System.Drawing.Point(112, 0);
+            this.UserNav.Margin = new System.Windows.Forms.Padding(0);
+            this.UserNav.Name = "UserNav";
+            this.UserNav.Size = new System.Drawing.Size(486, 48);
+            this.UserNav.TabIndex = 2;
+            // 
+            // Button_User
+            // 
+            this.Button_User.FlatAppearance.BorderSize = 0;
+            this.Button_User.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button_User.ForeColor = System.Drawing.Color.White;
+            this.Button_User.IconChar = FontAwesome.Sharp.IconChar.CircleUser;
+            this.Button_User.IconColor = System.Drawing.Color.White;
+            this.Button_User.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.Button_User.IconSize = 35;
+            this.Button_User.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Button_User.Location = new System.Drawing.Point(598, 0);
+            this.Button_User.Margin = new System.Windows.Forms.Padding(0);
+            this.Button_User.Name = "Button_User";
+            this.Button_User.Size = new System.Drawing.Size(90, 45);
+            this.Button_User.TabIndex = 0;
+            this.Button_User.Text = "User";
+            this.Button_User.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Button_User.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.Button_User.UseVisualStyleBackColor = true;
+            // 
+            // NavForm
+            // 
+            this.NavForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.NavForm.Location = new System.Drawing.Point(3, 67);
+            this.NavForm.Name = "NavForm";
+            this.NavForm.Size = new System.Drawing.Size(688, 504);
+            this.NavForm.TabIndex = 1;
+            this.NavForm.Resize += new System.EventHandler(this.FormMainMenu_Resize);
+            // 
+            // PlayBar
+            // 
+            this.PlayBar.BackColor = System.Drawing.Color.Black;
+            this.PlayBar.Controls.Add(this.panel3);
+            this.PlayBar.Controls.Add(this.MusicPlayer);
+            this.PlayBar.Location = new System.Drawing.Point(0, 577);
+            this.PlayBar.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.PlayBar.Name = "PlayBar";
+            this.PlayBar.Size = new System.Drawing.Size(694, 91);
+            this.PlayBar.TabIndex = 8;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.Black;
+            this.panel3.Controls.Add(this.Button_Forward);
+            this.panel3.Controls.Add(this.Button_Backward);
+            this.panel3.Controls.Add(this.Button_Play);
+            this.panel3.Location = new System.Drawing.Point(6, 17);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(179, 58);
+            this.panel3.TabIndex = 8;
+            // 
+            // Button_Forward
+            // 
+            this.Button_Forward.FlatAppearance.BorderSize = 0;
+            this.Button_Forward.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button_Forward.IconChar = FontAwesome.Sharp.IconChar.Forward;
+            this.Button_Forward.IconColor = System.Drawing.Color.White;
+            this.Button_Forward.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.Button_Forward.IconSize = 30;
+            this.Button_Forward.Location = new System.Drawing.Point(123, 5);
+            this.Button_Forward.Name = "Button_Forward";
+            this.Button_Forward.Size = new System.Drawing.Size(56, 44);
+            this.Button_Forward.TabIndex = 1;
+            this.Button_Forward.UseVisualStyleBackColor = true;
+            // 
+            // Button_Backward
+            // 
+            this.Button_Backward.FlatAppearance.BorderSize = 0;
+            this.Button_Backward.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button_Backward.IconChar = FontAwesome.Sharp.IconChar.Backward;
+            this.Button_Backward.IconColor = System.Drawing.Color.White;
+            this.Button_Backward.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.Button_Backward.IconSize = 30;
+            this.Button_Backward.Location = new System.Drawing.Point(-6, 3);
+            this.Button_Backward.Name = "Button_Backward";
+            this.Button_Backward.Size = new System.Drawing.Size(56, 44);
+            this.Button_Backward.TabIndex = 1;
+            this.Button_Backward.UseVisualStyleBackColor = true;
+            // 
+            // Button_Play
+            // 
+            this.Button_Play.BackColor = System.Drawing.Color.Black;
+            this.Button_Play.FlatAppearance.BorderSize = 0;
+            this.Button_Play.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button_Play.ForeColor = System.Drawing.Color.White;
+            this.Button_Play.IconChar = FontAwesome.Sharp.IconChar.Play;
+            this.Button_Play.IconColor = System.Drawing.Color.White;
+            this.Button_Play.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.Button_Play.IconSize = 30;
+            this.Button_Play.Location = new System.Drawing.Point(56, 5);
+            this.Button_Play.Name = "Button_Play";
+            this.Button_Play.Size = new System.Drawing.Size(53, 42);
+            this.Button_Play.TabIndex = 0;
+            this.Button_Play.UseVisualStyleBackColor = false;
+            this.Button_Play.Click += new System.EventHandler(this.Button_Play_Click);
+            // 
+            // MusicPlayer
+            // 
+            this.MusicPlayer.Enabled = true;
+            this.MusicPlayer.Location = new System.Drawing.Point(205, 0);
+            this.MusicPlayer.Name = "MusicPlayer";
+            this.MusicPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("MusicPlayer.OcxState")));
+            this.MusicPlayer.Size = new System.Drawing.Size(477, 138);
+            this.MusicPlayer.TabIndex = 7;
+            // 
+            // MenuBar
+            // 
+            this.MenuBar.BackColor = System.Drawing.Color.Black;
+            this.MenuBar.Controls.Add(this.Button_Menu);
+            this.MenuBar.Controls.Add(this.Button_Home);
+            this.MenuBar.Controls.Add(this.Button_Search);
+            this.MenuBar.Controls.Add(this.Button_Playlist);
+            this.MenuBar.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.MenuBar.Location = new System.Drawing.Point(0, 0);
+            this.MenuBar.Margin = new System.Windows.Forms.Padding(0);
+            this.MenuBar.Name = "MenuBar";
+            this.MenuBar.Size = new System.Drawing.Size(244, 752);
+            this.MenuBar.TabIndex = 1;
+            this.MenuBar.WrapContents = false;
+            // 
+            // Button_Menu
+            // 
+            this.Button_Menu.FlatAppearance.BorderSize = 0;
+            this.Button_Menu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button_Menu.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.Button_Menu.IconChar = FontAwesome.Sharp.IconChar.Ellipsis;
+            this.Button_Menu.IconColor = System.Drawing.Color.White;
+            this.Button_Menu.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.Button_Menu.IconSize = 40;
+            this.Button_Menu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Button_Menu.Location = new System.Drawing.Point(3, 3);
+            this.Button_Menu.Name = "Button_Menu";
+            this.Button_Menu.Size = new System.Drawing.Size(54, 48);
+            this.Button_Menu.TabIndex = 5;
+            this.Button_Menu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Button_Menu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Button_Menu.UseVisualStyleBackColor = true;
+            this.Button_Menu.Click += new System.EventHandler(this.Button_Menu_Click);
             // 
             // Button_Home
             // 
@@ -110,10 +350,11 @@
             this.Button_Home.Name = "Button_Home";
             this.Button_Home.Size = new System.Drawing.Size(231, 48);
             this.Button_Home.TabIndex = 2;
-            this.Button_Home.Text = "Home";
+            this.Button_Home.Text = "    Home";
             this.Button_Home.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Button_Home.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Button_Home.UseVisualStyleBackColor = true;
+            this.Button_Home.Click += new System.EventHandler(this.Button_Home_Click);
             // 
             // Button_Search
             // 
@@ -129,10 +370,11 @@
             this.Button_Search.Name = "Button_Search";
             this.Button_Search.Size = new System.Drawing.Size(231, 48);
             this.Button_Search.TabIndex = 3;
-            this.Button_Search.Text = "Search";
+            this.Button_Search.Text = "   Search";
             this.Button_Search.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Button_Search.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Button_Search.UseVisualStyleBackColor = true;
+            this.Button_Search.Click += new System.EventHandler(this.Button_Search_Click);
             // 
             // Button_Playlist
             // 
@@ -148,291 +390,76 @@
             this.Button_Playlist.Name = "Button_Playlist";
             this.Button_Playlist.Size = new System.Drawing.Size(231, 48);
             this.Button_Playlist.TabIndex = 4;
-            this.Button_Playlist.Text = "Your Playlist";
+            this.Button_Playlist.Text = "   Your Playlist";
             this.Button_Playlist.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Button_Playlist.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Button_Playlist.UseVisualStyleBackColor = true;
             // 
-            // flowLayoutPanel2
+            // MainBackGround
             // 
-            this.flowLayoutPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.flowLayoutPanel2.Controls.Add(this.flowLayoutPanel1);
-            this.flowLayoutPanel2.Controls.Add(this.flowLayoutPanel3);
-            this.flowLayoutPanel2.Controls.Add(this.flowLayoutPanel4);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(1185, 755);
-            this.flowLayoutPanel2.TabIndex = 2;
-            // 
-            // flowLayoutPanel3
-            // 
-            this.flowLayoutPanel3.Controls.Add(this.flowLayoutPanel5);
-            this.flowLayoutPanel3.Controls.Add(this.flowLayoutPanel9);
-            this.flowLayoutPanel3.Controls.Add(this.flowLayoutPanel6);
-            this.flowLayoutPanel3.Controls.Add(this.flowLayoutPanel8);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(247, 3);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(707, 752);
-            this.flowLayoutPanel3.TabIndex = 2;
-            // 
-            // flowLayoutPanel5
-            // 
-            this.flowLayoutPanel5.Controls.Add(this.iconButton6);
-            this.flowLayoutPanel5.Controls.Add(this.iconButton7);
-            this.flowLayoutPanel5.Controls.Add(this.panel1);
-            this.flowLayoutPanel5.Location = new System.Drawing.Point(3, 3);
-            this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-            this.flowLayoutPanel5.Size = new System.Drawing.Size(697, 57);
-            this.flowLayoutPanel5.TabIndex = 0;
-            // 
-            // iconButton6
-            // 
-            this.iconButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton6.IconChar = FontAwesome.Sharp.IconChar.CircleChevronLeft;
-            this.iconButton6.IconColor = System.Drawing.Color.White;
-            this.iconButton6.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton6.IconSize = 35;
-            this.iconButton6.Location = new System.Drawing.Point(3, 3);
-            this.iconButton6.Name = "iconButton6";
-            this.iconButton6.Size = new System.Drawing.Size(50, 45);
-            this.iconButton6.TabIndex = 0;
-            this.iconButton6.UseVisualStyleBackColor = true;
-            // 
-            // iconButton7
-            // 
-            this.iconButton7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton7.IconChar = FontAwesome.Sharp.IconChar.CircleChevronRight;
-            this.iconButton7.IconColor = System.Drawing.Color.White;
-            this.iconButton7.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton7.IconSize = 35;
-            this.iconButton7.Location = new System.Drawing.Point(59, 3);
-            this.iconButton7.Name = "iconButton7";
-            this.iconButton7.Size = new System.Drawing.Size(50, 45);
-            this.iconButton7.TabIndex = 1;
-            this.iconButton7.UseVisualStyleBackColor = true;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.iconButton8);
-            this.panel1.Location = new System.Drawing.Point(112, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(585, 45);
-            this.panel1.TabIndex = 2;
-            // 
-            // iconButton8
-            // 
-            this.iconButton8.FlatAppearance.BorderSize = 0;
-            this.iconButton8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton8.ForeColor = System.Drawing.Color.White;
-            this.iconButton8.IconChar = FontAwesome.Sharp.IconChar.CircleUser;
-            this.iconButton8.IconColor = System.Drawing.Color.White;
-            this.iconButton8.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton8.IconSize = 35;
-            this.iconButton8.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.iconButton8.Location = new System.Drawing.Point(495, 6);
-            this.iconButton8.Margin = new System.Windows.Forms.Padding(0);
-            this.iconButton8.Name = "iconButton8";
-            this.iconButton8.Size = new System.Drawing.Size(90, 36);
-            this.iconButton8.TabIndex = 0;
-            this.iconButton8.Text = "User";
-            this.iconButton8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.iconButton8.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.iconButton8.UseVisualStyleBackColor = true;
-            // 
-            // flowLayoutPanel9
-            // 
-            this.flowLayoutPanel9.Controls.Add(this.axWindowsMediaPlayer1);
-            this.flowLayoutPanel9.Location = new System.Drawing.Point(3, 66);
-            this.flowLayoutPanel9.Name = "flowLayoutPanel9";
-            this.flowLayoutPanel9.Size = new System.Drawing.Size(697, 139);
-            this.flowLayoutPanel9.TabIndex = 4;
-            // 
-            // flowLayoutPanel6
-            // 
-            this.flowLayoutPanel6.Controls.Add(this.iconButton4);
-            this.flowLayoutPanel6.Location = new System.Drawing.Point(3, 211);
-            this.flowLayoutPanel6.Name = "flowLayoutPanel6";
-            this.flowLayoutPanel6.Size = new System.Drawing.Size(697, 55);
-            this.flowLayoutPanel6.TabIndex = 1;
-            // 
-            // iconButton4
-            // 
-            this.iconButton4.FlatAppearance.BorderSize = 0;
-            this.iconButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton4.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton4.IconColor = System.Drawing.Color.White;
-            this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton4.IconSize = 40;
-            this.iconButton4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton4.Location = new System.Drawing.Point(3, 3);
-            this.iconButton4.Name = "iconButton4";
-            this.iconButton4.Size = new System.Drawing.Size(159, 36);
-            this.iconButton4.TabIndex = 3;
-            this.iconButton4.Text = "Recent Played";
-            this.iconButton4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton4.UseVisualStyleBackColor = true;
-            // 
-            // flowLayoutPanel8
-            // 
-            this.flowLayoutPanel8.Controls.Add(this.iconButton5);
-            this.flowLayoutPanel8.Location = new System.Drawing.Point(3, 272);
-            this.flowLayoutPanel8.Name = "flowLayoutPanel8";
-            this.flowLayoutPanel8.Size = new System.Drawing.Size(697, 55);
-            this.flowLayoutPanel8.TabIndex = 3;
-            // 
-            // iconButton5
-            // 
-            this.iconButton5.FlatAppearance.BorderSize = 0;
-            this.iconButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton5.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.iconButton5.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton5.IconColor = System.Drawing.Color.White;
-            this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton5.IconSize = 40;
-            this.iconButton5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton5.Location = new System.Drawing.Point(3, 3);
-            this.iconButton5.Name = "iconButton5";
-            this.iconButton5.Size = new System.Drawing.Size(159, 36);
-            this.iconButton5.TabIndex = 3;
-            this.iconButton5.Text = "Your Top Mixes";
-            this.iconButton5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton5.UseVisualStyleBackColor = true;
-            // 
-            // flowLayoutPanel4
-            // 
-            this.flowLayoutPanel4.BackColor = System.Drawing.Color.Black;
-            this.flowLayoutPanel4.Controls.Add(this.panel2);
-            this.flowLayoutPanel4.Controls.Add(this.iconButton2);
-            this.flowLayoutPanel4.Controls.Add(this.iconButton3);
-            this.flowLayoutPanel4.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(960, 3);
-            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(221, 752);
-            this.flowLayoutPanel4.TabIndex = 3;
-            this.flowLayoutPanel4.WrapContents = false;
-            // 
-            // flowLayoutPanel4
-            // 
-            this.flowLayoutPanel4.BackColor = System.Drawing.Color.Black;
-            this.flowLayoutPanel4.Controls.Add(this.panel2);
-            this.flowLayoutPanel4.Controls.Add(this.iconButton2);
-            this.flowLayoutPanel4.Controls.Add(this.iconButton3);
-            this.flowLayoutPanel4.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(959, 3);
-            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(221, 752);
-            this.flowLayoutPanel4.TabIndex = 3;
-            this.flowLayoutPanel4.WrapContents = false;
-            // 
-            // panel2
-            // 
-            this.panel2.Location = new System.Drawing.Point(3, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(218, 24);
-            this.panel2.TabIndex = 7;
-            // 
-            // iconButton2
-            // 
-            this.iconButton2.FlatAppearance.BorderSize = 0;
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.UserGroup;
-            this.iconButton2.IconColor = System.Drawing.Color.White;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 40;
-            this.iconButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton2.Location = new System.Drawing.Point(3, 33);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(218, 48);
-            this.iconButton2.TabIndex = 5;
-            this.iconButton2.Text = "Friends";
-            this.iconButton2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton2.UseVisualStyleBackColor = true;
-            // 
-            // iconButton3
-            // 
-            this.iconButton3.FlatAppearance.BorderSize = 0;
-            this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.UserTag;
-            this.iconButton3.IconColor = System.Drawing.Color.White;
-            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton3.IconSize = 40;
-            this.iconButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton3.Location = new System.Drawing.Point(3, 87);
-            this.iconButton3.Name = "iconButton3";
-            this.iconButton3.Size = new System.Drawing.Size(218, 48);
-            this.iconButton3.TabIndex = 6;
-            this.iconButton3.Text = "Follow";
-            this.iconButton3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton3.UseVisualStyleBackColor = true;
-            // 
-            // axWindowsMediaPlayer1
-            // 
-            this.axWindowsMediaPlayer1.Enabled = true;
-            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(3, 3);
-            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
-            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
-            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(694, 258);
-            this.axWindowsMediaPlayer1.TabIndex = 0;
+            this.MainBackGround.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.MainBackGround.Controls.Add(this.MenuBar);
+            this.MainBackGround.Controls.Add(this.MainLayout);
+            this.MainBackGround.Controls.Add(this.ContactBar);
+            this.MainBackGround.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MainBackGround.Location = new System.Drawing.Point(0, 0);
+            this.MainBackGround.Name = "MainBackGround";
+            this.MainBackGround.Size = new System.Drawing.Size(1182, 744);
+            this.MainBackGround.TabIndex = 2;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1182, 753);
-            this.Controls.Add(this.flowLayoutPanel2);
+            this.ClientSize = new System.Drawing.Size(1182, 744);
+            this.Controls.Add(this.MainBackGround);
             this.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.HelpButton = true;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MinimumSize = new System.Drawing.Size(1200, 791);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel2.ResumeLayout(false);
-            this.flowLayoutPanel3.ResumeLayout(false);
-            this.flowLayoutPanel5.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.flowLayoutPanel9.ResumeLayout(false);
-            this.flowLayoutPanel6.ResumeLayout(false);
-            this.flowLayoutPanel8.ResumeLayout(false);
-            this.flowLayoutPanel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
+            this.Resize += new System.EventHandler(this.FormMainMenu_Resize);
+            this.ContactBar.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.MainLayout.ResumeLayout(false);
+            this.NavBar.ResumeLayout(false);
+            this.PlayBar.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.MusicPlayer)).EndInit();
+            this.MenuBar.ResumeLayout(false);
+            this.MainBackGround.ResumeLayout(false);
             this.ResumeLayout(false);
-
-
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
 
         }
 
         #endregion
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+
+        private System.Windows.Forms.FlowLayoutPanel ContactBar;
+        private System.Windows.Forms.Panel panel2;
+        private FontAwesome.Sharp.IconButton Button_Close_ContactBar;
+        private FontAwesome.Sharp.IconButton Button_Friends;
+        private FontAwesome.Sharp.IconButton Button_Follow;
+        private System.Windows.Forms.FlowLayoutPanel MainLayout;
+        private System.Windows.Forms.FlowLayoutPanel NavBar;
+        private FontAwesome.Sharp.IconButton Button_Back;
+        private FontAwesome.Sharp.IconButton Button_Next;
+        private System.Windows.Forms.Panel UserNav;
+        private FontAwesome.Sharp.IconButton Button_User;
+        private System.Windows.Forms.FlowLayoutPanel NavForm;
+        private System.Windows.Forms.Panel PlayBar;
+        private System.Windows.Forms.Panel panel3;
+        private FontAwesome.Sharp.IconButton Button_Forward;
+        private FontAwesome.Sharp.IconButton Button_Backward;
+        private FontAwesome.Sharp.IconButton Button_Play;
+        private AxWMPLib.AxWindowsMediaPlayer MusicPlayer;
+        private System.Windows.Forms.FlowLayoutPanel MenuBar;
+        private FontAwesome.Sharp.IconButton Button_Menu;
         private FontAwesome.Sharp.IconButton Button_Home;
         private FontAwesome.Sharp.IconButton Button_Search;
         private FontAwesome.Sharp.IconButton Button_Playlist;
-        private FontAwesome.Sharp.IconButton iconButton1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
-        private FontAwesome.Sharp.IconButton iconButton2;
-        private FontAwesome.Sharp.IconButton iconButton6;
-        private FontAwesome.Sharp.IconButton iconButton7;
-        private System.Windows.Forms.Panel panel1;
-        private FontAwesome.Sharp.IconButton iconButton8;
-        private FontAwesome.Sharp.IconButton iconButton3;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel6;
-        private FontAwesome.Sharp.IconButton iconButton4;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel8;
-        private FontAwesome.Sharp.IconButton iconButton5;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel9;
-        private System.Windows.Forms.Panel panel2;
-        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
+        private System.Windows.Forms.FlowLayoutPanel MainBackGround;
     }
 }
