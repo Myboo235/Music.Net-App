@@ -148,6 +148,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Images\muzira-banner.png" />
+    <Content Include="Assets\Images\Song-icon.jpg" />
     <Content Include="Assets\Musics\y2mate.com - DVRST  CLOSE EYES.mp3" />
     <Content Include="Assets\Videos\video.mp4" />
   </ItemGroup>

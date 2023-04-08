@@ -56,11 +56,11 @@ namespace Music.Net_App.View
             UserNav.Width = MainLayout.Width - Button_Back.Width - Button_Next.Width - 120;
             NavBar.Width = MainLayout.Width;
             NavForm.Width = MainLayout.Width-10;
-            NavForm.Height = MainLayout.Height -150;
+            NavForm.Height = MainLayout.Height -PlayBar.Height-80;
 
             
             PlayBar.Width= MainLayout.Width;
-            MusicPlayer.Width = PlayBar.Width - panel3.Width -10 ;
+            MusicPlayer.Width = PlayBar.Width - panel3.Width -50 ;
             if (currentChildForm != null)
             {
                 currentChildForm.Width = NavForm.Width;
