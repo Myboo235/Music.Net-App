@@ -32,6 +32,9 @@
             this.ContactBar = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.Button_Close_ContactBar = new FontAwesome.Sharp.IconButton();
+            this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.Button_Friends = new FontAwesome.Sharp.IconButton();
             this.Button_Follow = new FontAwesome.Sharp.IconButton();
             this.MainLayout = new System.Windows.Forms.FlowLayoutPanel();
@@ -41,7 +44,7 @@
             this.UserNav = new System.Windows.Forms.Panel();
             this.Button_User = new FontAwesome.Sharp.IconButton();
             this.NavForm = new System.Windows.Forms.FlowLayoutPanel();
-            this.PlayBar = new System.Windows.Forms.Panel();
+            this.PlayBar = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.Button_Forward = new FontAwesome.Sharp.IconButton();
             this.Button_Backward = new FontAwesome.Sharp.IconButton();
@@ -66,21 +69,26 @@
             // 
             // ContactBar
             // 
+            this.ContactBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ContactBar.BackColor = System.Drawing.Color.Black;
             this.ContactBar.Controls.Add(this.panel2);
             this.ContactBar.Controls.Add(this.Button_Friends);
             this.ContactBar.Controls.Add(this.Button_Follow);
             this.ContactBar.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.ContactBar.Location = new System.Drawing.Point(940, 3);
+            this.ContactBar.Location = new System.Drawing.Point(948, 3);
             this.ContactBar.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.ContactBar.Name = "ContactBar";
-            this.ContactBar.Size = new System.Drawing.Size(242, 746);
+            this.ContactBar.Size = new System.Drawing.Size(248, 602);
             this.ContactBar.TabIndex = 3;
             this.ContactBar.WrapContents = false;
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.Button_Close_ContactBar);
+            this.panel2.Controls.Add(this.guna2ControlBox3);
+            this.panel2.Controls.Add(this.guna2ControlBox1);
+            this.panel2.Controls.Add(this.guna2ControlBox2);
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(234, 45);
@@ -90,16 +98,51 @@
             // 
             this.Button_Close_ContactBar.BackColor = System.Drawing.Color.Black;
             this.Button_Close_ContactBar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Button_Close_ContactBar.IconChar = FontAwesome.Sharp.IconChar.Xmark;
+            this.Button_Close_ContactBar.IconChar = FontAwesome.Sharp.IconChar.ChevronRight;
             this.Button_Close_ContactBar.IconColor = System.Drawing.Color.White;
             this.Button_Close_ContactBar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.Button_Close_ContactBar.IconSize = 25;
-            this.Button_Close_ContactBar.Location = new System.Drawing.Point(169, 0);
+            this.Button_Close_ContactBar.Location = new System.Drawing.Point(169, 3);
             this.Button_Close_ContactBar.Name = "Button_Close_ContactBar";
-            this.Button_Close_ContactBar.Size = new System.Drawing.Size(49, 45);
+            this.Button_Close_ContactBar.Size = new System.Drawing.Size(49, 39);
             this.Button_Close_ContactBar.TabIndex = 0;
             this.Button_Close_ContactBar.UseVisualStyleBackColor = false;
             this.Button_Close_ContactBar.Click += new System.EventHandler(this.Button_Close_ContactBar_Click);
+            // 
+            // guna2ControlBox3
+            // 
+            this.guna2ControlBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox3.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
+            this.guna2ControlBox3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.guna2ControlBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2ControlBox3.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBox3.Location = new System.Drawing.Point(58, 3);
+            this.guna2ControlBox3.Name = "guna2ControlBox3";
+            this.guna2ControlBox3.Size = new System.Drawing.Size(50, 39);
+            this.guna2ControlBox3.TabIndex = 9;
+            // 
+            // guna2ControlBox1
+            // 
+            this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.guna2ControlBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBox1.Location = new System.Drawing.Point(114, 2);
+            this.guna2ControlBox1.Name = "guna2ControlBox1";
+            this.guna2ControlBox1.Size = new System.Drawing.Size(50, 40);
+            this.guna2ControlBox1.TabIndex = 8;
+            // 
+            // guna2ControlBox2
+            // 
+            this.guna2ControlBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
+            this.guna2ControlBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.guna2ControlBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2ControlBox2.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBox2.Location = new System.Drawing.Point(3, 3);
+            this.guna2ControlBox2.Name = "guna2ControlBox2";
+            this.guna2ControlBox2.Size = new System.Drawing.Size(50, 39);
+            this.guna2ControlBox2.TabIndex = 10;
             // 
             // Button_Friends
             // 
@@ -141,6 +184,8 @@
             // 
             // MainLayout
             // 
+            this.MainLayout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.MainLayout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.MainLayout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.MainLayout.Controls.Add(this.NavBar);
             this.MainLayout.Controls.Add(this.NavForm);
@@ -148,7 +193,7 @@
             this.MainLayout.Location = new System.Drawing.Point(244, 3);
             this.MainLayout.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.MainLayout.Name = "MainLayout";
-            this.MainLayout.Size = new System.Drawing.Size(696, 741);
+            this.MainLayout.Size = new System.Drawing.Size(704, 602);
             this.MainLayout.TabIndex = 2;
             // 
             // NavBar
@@ -222,20 +267,21 @@
             this.NavForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.NavForm.Location = new System.Drawing.Point(3, 67);
             this.NavForm.Name = "NavForm";
-            this.NavForm.Size = new System.Drawing.Size(688, 504);
+            this.NavForm.Size = new System.Drawing.Size(698, 427);
             this.NavForm.TabIndex = 1;
             this.NavForm.Resize += new System.EventHandler(this.FormMainMenu_Resize);
             // 
             // PlayBar
             // 
-            this.PlayBar.BackColor = System.Drawing.Color.Black;
+            this.PlayBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PlayBar.BackColor = System.Drawing.Color.White;
             this.PlayBar.Controls.Add(this.panel3);
             this.PlayBar.Controls.Add(this.MusicPlayer);
-            this.PlayBar.Location = new System.Drawing.Point(0, 577);
-            this.PlayBar.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.PlayBar.Location = new System.Drawing.Point(3, 500);
             this.PlayBar.Name = "PlayBar";
-            this.PlayBar.Size = new System.Drawing.Size(694, 91);
-            this.PlayBar.TabIndex = 8;
+            this.PlayBar.Size = new System.Drawing.Size(698, 100);
+            this.PlayBar.TabIndex = 9;
             // 
             // panel3
             // 
@@ -243,7 +289,7 @@
             this.panel3.Controls.Add(this.Button_Forward);
             this.panel3.Controls.Add(this.Button_Backward);
             this.panel3.Controls.Add(this.Button_Play);
-            this.panel3.Location = new System.Drawing.Point(6, 17);
+            this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(179, 58);
             this.panel3.TabIndex = 8;
@@ -295,15 +341,18 @@
             // 
             // MusicPlayer
             // 
+            this.MusicPlayer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.MusicPlayer.Enabled = true;
-            this.MusicPlayer.Location = new System.Drawing.Point(205, 0);
+            this.MusicPlayer.Location = new System.Drawing.Point(188, 3);
             this.MusicPlayer.Name = "MusicPlayer";
             this.MusicPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("MusicPlayer.OcxState")));
-            this.MusicPlayer.Size = new System.Drawing.Size(477, 138);
+            this.MusicPlayer.Size = new System.Drawing.Size(505, 142);
             this.MusicPlayer.TabIndex = 7;
             // 
             // MenuBar
             // 
+            this.MenuBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.MenuBar.BackColor = System.Drawing.Color.Black;
             this.MenuBar.Controls.Add(this.Button_Menu);
             this.MenuBar.Controls.Add(this.Button_Home);
@@ -313,7 +362,7 @@
             this.MenuBar.Location = new System.Drawing.Point(0, 0);
             this.MenuBar.Margin = new System.Windows.Forms.Padding(0);
             this.MenuBar.Name = "MenuBar";
-            this.MenuBar.Size = new System.Drawing.Size(244, 752);
+            this.MenuBar.Size = new System.Drawing.Size(244, 608);
             this.MenuBar.TabIndex = 1;
             this.MenuBar.WrapContents = false;
             // 
@@ -394,6 +443,7 @@
             this.Button_Playlist.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Button_Playlist.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Button_Playlist.UseVisualStyleBackColor = true;
+            this.Button_Playlist.Click += new System.EventHandler(this.Button_Playlist_Click);
             // 
             // MainBackGround
             // 
@@ -404,7 +454,7 @@
             this.MainBackGround.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainBackGround.Location = new System.Drawing.Point(0, 0);
             this.MainBackGround.Name = "MainBackGround";
-            this.MainBackGround.Size = new System.Drawing.Size(1182, 744);
+            this.MainBackGround.Size = new System.Drawing.Size(1223, 791);
             this.MainBackGround.TabIndex = 2;
             // 
             // MainForm
@@ -412,7 +462,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1182, 744);
+            this.ClientSize = new System.Drawing.Size(1223, 791);
             this.Controls.Add(this.MainBackGround);
             this.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HelpButton = true;
@@ -448,8 +498,6 @@
         private FontAwesome.Sharp.IconButton Button_Next;
         private System.Windows.Forms.Panel UserNav;
         private FontAwesome.Sharp.IconButton Button_User;
-        private System.Windows.Forms.FlowLayoutPanel NavForm;
-        private System.Windows.Forms.Panel PlayBar;
         private System.Windows.Forms.Panel panel3;
         private FontAwesome.Sharp.IconButton Button_Forward;
         private FontAwesome.Sharp.IconButton Button_Backward;
@@ -461,5 +509,10 @@
         private FontAwesome.Sharp.IconButton Button_Search;
         private FontAwesome.Sharp.IconButton Button_Playlist;
         private System.Windows.Forms.FlowLayoutPanel MainBackGround;
+        private System.Windows.Forms.FlowLayoutPanel PlayBar;
+        private System.Windows.Forms.FlowLayoutPanel NavForm;
+        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox3;
+        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
+        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
     }
 }

@@ -20,12 +20,12 @@ namespace Music.Net_App.View
         private String previousChildFormName = "";
         private Form previousChildForm ;
         private Form nextChildForm;
+        string directory = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug\", "");
 
-        
-        
+
+
         public MainForm()
         {
-            string directory = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug\", "");
             InitializeComponent();
             /*HomeLayout.Controls.Clear();*/
             currentChildForm =new HomeForm();
@@ -49,22 +49,23 @@ namespace Music.Net_App.View
         }
         private void resize()
         {
-            MenuBar.Height = this.Height;
-            ContactBar.Height = this.Height;
+            //MenuBar.Height = this.Height;
+            //ContactBar.Height = this.Height;
 
-            MainLayout.Size = new Size(this.Width - MenuBar.Width - ContactBar.Width - 18, MainBackGround.Height);
+            MainLayout.Size = new Size(MainBackGround.Width - MenuBar.Width - ContactBar.Width, MainBackGround.Height);
             UserNav.Width = MainLayout.Width - Button_Back.Width - Button_Next.Width - 120;
             NavBar.Width = MainLayout.Width;
-            NavForm.Width = MainLayout.Width-10;
-            NavForm.Height = MainLayout.Height -PlayBar.Height-80;
 
-            
+            NavForm.Width = MainLayout.Width-10;
+            NavForm.Height = MainLayout.Height - PlayBar.Height - 120;
+ 
             PlayBar.Width= MainLayout.Width;
+
             MusicPlayer.Width = PlayBar.Width - panel3.Width -50 ;
             if (currentChildForm != null)
             {
                 currentChildForm.Width = NavForm.Width;
-                currentChildForm.Height = NavForm.Height;
+                //NavForm.Height = currentChildForm.Height;
             }
         }
         private void FormMainMenu_Resize(object sender, EventArgs e)
@@ -86,28 +87,25 @@ namespace Music.Net_App.View
             //open only form
             if (currentChildForm != null)
             {
+                NavForm.Controls.Remove(currentChildForm);
                 previousChildFormName = currentChildForm.GetType().Name.ToString();
                 previousChildForm = currentChildForm;
 
-                
                 currentChildForm = childForm;
-
-                
-
                 currentChildForm.TopLevel = false;
                 currentChildForm.FormBorderStyle = FormBorderStyle.None;
 
                 NavForm.Controls.Add(childForm);
-                //NavForm.Tag = childForm;
 
                 childForm.BringToFront();
                 childForm.Show();
 
-                currentChildForm.Width = NavForm.Width;
-                currentChildForm.Height = NavForm.Height;
+                NavForm.Margin = new Padding(0,0,0,50);
 
                 //previousChildForm.Close();
-            }    
+            }
+
+            resize();
         }
 
         private void Button_Close_ContactBar_Click(object sender, EventArgs e)
@@ -117,12 +115,14 @@ namespace Music.Net_App.View
             //panel2.Width += (ContactBar.Width + 45);
             if (ContactBar.Width == 55)
             {
+                Button_Close_ContactBar.IconChar = IconChar.ChevronRight;
                 Button_Close_ContactBar.Dock = DockStyle.Right;
                 //panel2.Width = ContactBar.Width;
                 ContactBar.Width = 250;
             }
             else
             {
+                Button_Close_ContactBar.IconChar = IconChar.ChevronLeft;
                 Button_Close_ContactBar.Dock = DockStyle.Left;
                 MainLayout.Width += ContactBar.Width;
                 ContactBar.Width = 55;
@@ -175,5 +175,13 @@ namespace Music.Net_App.View
 
             resize();
         }
+
+        private void Button_Playlist_Click(object sender, EventArgs e)
+        {
+            if (currentChildForm.GetType().Name.ToString() != "PlaylistForm")
+                OpenChildForm(new PlaylistForm());
+            resize();
+        }
+
     }
 }

@@ -59,7 +59,7 @@
             this.VideoPanel.Controls.Add(this.IntroVideo);
             this.VideoPanel.Location = new System.Drawing.Point(3, 3);
             this.VideoPanel.Name = "VideoPanel";
-            this.VideoPanel.Size = new System.Drawing.Size(697, 139);
+            this.VideoPanel.Size = new System.Drawing.Size(697, 362);
             this.VideoPanel.TabIndex = 4;
             // 
             // IntroVideo
@@ -68,13 +68,13 @@
             this.IntroVideo.Location = new System.Drawing.Point(3, 3);
             this.IntroVideo.Name = "IntroVideo";
             this.IntroVideo.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("IntroVideo.OcxState")));
-            this.IntroVideo.Size = new System.Drawing.Size(694, 314);
+            this.IntroVideo.Size = new System.Drawing.Size(694, 465);
             this.IntroVideo.TabIndex = 0;
             // 
             // RecentPlayed
             // 
             this.RecentPlayed.Controls.Add(this.iconButton4);
-            this.RecentPlayed.Location = new System.Drawing.Point(3, 148);
+            this.RecentPlayed.Location = new System.Drawing.Point(3, 371);
             this.RecentPlayed.Name = "RecentPlayed";
             this.RecentPlayed.Size = new System.Drawing.Size(697, 55);
             this.RecentPlayed.TabIndex = 1;
@@ -100,7 +100,7 @@
             // TopMixes
             // 
             this.TopMixes.Controls.Add(this.iconButton5);
-            this.TopMixes.Location = new System.Drawing.Point(3, 209);
+            this.TopMixes.Location = new System.Drawing.Point(3, 432);
             this.TopMixes.Name = "TopMixes";
             this.TopMixes.Size = new System.Drawing.Size(697, 55);
             this.TopMixes.TabIndex = 3;

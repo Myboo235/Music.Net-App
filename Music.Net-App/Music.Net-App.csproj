@@ -36,12 +36,18 @@
     <Reference Include="FontAwesome.Sharp, Version=6.3.0.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
       <HintPath>..\packages\FontAwesome.Sharp.6.3.0\lib\net472\FontAwesome.Sharp.dll</HintPath>
     </Reference>
+    <Reference Include="Guna.UI2, Version=2.0.4.4, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.4\lib\net472\Guna.UI2.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
     <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Messaging" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -57,29 +63,41 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\HomeForm.cs">
+    <Compile Include="View\Listener\HomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\HomeForm.Designer.cs">
+    <Compile Include="View\Listener\HomeForm.Designer.cs">
       <DependentUpon>HomeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\MainForm.cs">
+    <Compile Include="View\Listener\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\MainForm.Designer.cs">
+    <Compile Include="View\Listener\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\PlaylistForm.cs">
+    <Compile Include="View\Listener\PlaylistForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\PlaylistForm.Designer.cs">
+    <Compile Include="View\Listener\PlaylistForm.Designer.cs">
       <DependentUpon>PlaylistForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\SearchForm.cs">
+    <Compile Include="View\Listener\SearchForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\SearchForm.Designer.cs">
+    <Compile Include="View\Listener\SearchForm.Designer.cs">
       <DependentUpon>SearchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\SignIn-UpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\SignIn-UpForm.Designer.cs">
+      <DependentUpon>SignIn-UpForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Test.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Test.Designer.cs">
+      <DependentUpon>Test.cs</DependentUpon>
     </Compile>
     <Compile Include="View\WelcomeForm.cs">
       <SubType>Form</SubType>
@@ -97,14 +115,23 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="View\HomeForm.resx">
+    <EmbeddedResource Include="View\Listener\HomeForm.resx">
       <DependentUpon>HomeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\MainForm.resx">
+    <EmbeddedResource Include="View\Listener\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\SearchForm.resx">
+    <EmbeddedResource Include="View\Listener\PlaylistForm.resx">
+      <DependentUpon>PlaylistForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Listener\SearchForm.resx">
       <DependentUpon>SearchForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\SignIn-UpForm.resx">
+      <DependentUpon>SignIn-UpForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Test.resx">
+      <DependentUpon>Test.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\WelcomeForm.resx">
       <DependentUpon>WelcomeForm.cs</DependentUpon>
@@ -146,6 +173,7 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Images\Heart.jpg" />
     <Content Include="Assets\Images\muzira-banner.png" />
     <Content Include="Assets\Images\Song-icon.jpg" />
     <Content Include="Assets\Musics\y2mate.com - DVRST  CLOSE EYES.mp3" />
