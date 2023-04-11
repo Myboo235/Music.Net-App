@@ -147,9 +147,10 @@
             this.flowLayoutPanel3.Controls.Add(this.flowLayoutPanel4);
             this.flowLayoutPanel3.Controls.Add(this.flowLayoutPanel5);
             this.flowLayoutPanel3.Controls.Add(this.flowLayoutPanel6);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(12, 72);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(1213, 495);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(1228, 677);
             this.flowLayoutPanel3.TabIndex = 2;
             // 
             // LikedSong_Panel
@@ -441,8 +442,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.ClientSize = new System.Drawing.Size(1237, 643);
+            this.ClientSize = new System.Drawing.Size(1237, 675);
             this.Controls.Add(this.flowLayoutPanel3);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "PlaylistForm";
             this.Text = "PlaylistForm";
             this.Resize += new System.EventHandler(this.PlaylistForm_Resize);

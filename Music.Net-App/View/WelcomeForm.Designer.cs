@@ -85,13 +85,13 @@
             // 
             // GetstartedButton
             // 
+            resources.ApplyResources(this.GetstartedButton, "GetstartedButton");
             this.GetstartedButton.BorderRadius = 25;
             this.GetstartedButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.GetstartedButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.GetstartedButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.GetstartedButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.GetstartedButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(119)))), ((int)(((byte)(45)))));
-            resources.ApplyResources(this.GetstartedButton, "GetstartedButton");
             this.GetstartedButton.ForeColor = System.Drawing.Color.Black;
             this.GetstartedButton.Name = "GetstartedButton";
             this.GetstartedButton.Click += new System.EventHandler(this.GetstartedButton_Click);
