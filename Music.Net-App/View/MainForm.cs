@@ -175,5 +175,11 @@ namespace Music.Net_App.View
 
             resize();
         }
+
+        private void Button_User_Click(object sender, EventArgs e)
+        {
+            FormAccount formAccount = new FormAccount();
+            formAccount.ShowDialog();
+        }
     }
 }

@@ -46,22 +46,22 @@
             this.Button_Forward = new FontAwesome.Sharp.IconButton();
             this.Button_Backward = new FontAwesome.Sharp.IconButton();
             this.Button_Play = new FontAwesome.Sharp.IconButton();
+            this.MusicPlayer = new AxWMPLib.AxWindowsMediaPlayer();
             this.MenuBar = new System.Windows.Forms.FlowLayoutPanel();
             this.Button_Menu = new FontAwesome.Sharp.IconButton();
             this.Button_Home = new FontAwesome.Sharp.IconButton();
             this.Button_Search = new FontAwesome.Sharp.IconButton();
             this.Button_Playlist = new FontAwesome.Sharp.IconButton();
             this.MainBackGround = new System.Windows.Forms.FlowLayoutPanel();
-            this.MusicPlayer = new AxWMPLib.AxWindowsMediaPlayer();
             this.ContactBar.SuspendLayout();
             this.panel2.SuspendLayout();
             this.MainLayout.SuspendLayout();
             this.NavBar.SuspendLayout();
             this.PlayBar.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MusicPlayer)).BeginInit();
             this.MenuBar.SuspendLayout();
             this.MainBackGround.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MusicPlayer)).BeginInit();
             this.SuspendLayout();
             // 
             // ContactBar
@@ -216,6 +216,7 @@
             this.Button_User.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Button_User.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.Button_User.UseVisualStyleBackColor = true;
+            this.Button_User.Click += new System.EventHandler(this.Button_User_Click);
             // 
             // NavForm
             // 
@@ -292,6 +293,15 @@
             this.Button_Play.TabIndex = 0;
             this.Button_Play.UseVisualStyleBackColor = false;
             this.Button_Play.Click += new System.EventHandler(this.Button_Play_Click);
+            // 
+            // MusicPlayer
+            // 
+            this.MusicPlayer.Enabled = true;
+            this.MusicPlayer.Location = new System.Drawing.Point(205, 0);
+            this.MusicPlayer.Name = "MusicPlayer";
+            this.MusicPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("MusicPlayer.OcxState")));
+            this.MusicPlayer.Size = new System.Drawing.Size(477, 138);
+            this.MusicPlayer.TabIndex = 7;
             // 
             // MenuBar
             // 
@@ -398,15 +408,6 @@
             this.MainBackGround.Size = new System.Drawing.Size(1182, 853);
             this.MainBackGround.TabIndex = 2;
             // 
-            // MusicPlayer
-            // 
-            this.MusicPlayer.Enabled = true;
-            this.MusicPlayer.Location = new System.Drawing.Point(205, 0);
-            this.MusicPlayer.Name = "MusicPlayer";
-            this.MusicPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("MusicPlayer.OcxState")));
-            this.MusicPlayer.Size = new System.Drawing.Size(477, 138);
-            this.MusicPlayer.TabIndex = 7;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
@@ -421,7 +422,6 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
-     
             this.Resize += new System.EventHandler(this.FormMainMenu_Resize);
             this.ContactBar.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -429,9 +429,9 @@
             this.NavBar.ResumeLayout(false);
             this.PlayBar.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.MusicPlayer)).EndInit();
             this.MenuBar.ResumeLayout(false);
             this.MainBackGround.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.MusicPlayer)).EndInit();
             this.ResumeLayout(false);
 
         }
