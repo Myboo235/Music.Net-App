@@ -43,10 +43,11 @@
             this.Button_Next = new FontAwesome.Sharp.IconButton();
             this.UserNav = new System.Windows.Forms.Panel();
             this.Button_User = new FontAwesome.Sharp.IconButton();
+            this.NavForm = new System.Windows.Forms.Panel();
             this.PlayBar = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.Button_Forward = new FontAwesome.Sharp.IconButton();
             this.Button_Backward = new FontAwesome.Sharp.IconButton();
+            this.Button_Forward = new FontAwesome.Sharp.IconButton();
             this.Button_Play = new FontAwesome.Sharp.IconButton();
             this.MusicPlayer = new AxWMPLib.AxWindowsMediaPlayer();
             this.MenuBar = new System.Windows.Forms.FlowLayoutPanel();
@@ -55,7 +56,8 @@
             this.Button_Search = new FontAwesome.Sharp.IconButton();
             this.Button_Playlist = new FontAwesome.Sharp.IconButton();
             this.MainBackGround = new System.Windows.Forms.FlowLayoutPanel();
-            this.NavForm = new System.Windows.Forms.Panel();
+            this.Button_LogOut = new FontAwesome.Sharp.IconButton();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.ContactBar.SuspendLayout();
             this.panel2.SuspendLayout();
             this.MainLayout.SuspendLayout();
@@ -76,10 +78,10 @@
             this.ContactBar.Controls.Add(this.Button_Friends);
             this.ContactBar.Controls.Add(this.Button_Follow);
             this.ContactBar.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.ContactBar.Location = new System.Drawing.Point(945, 3);
-            this.ContactBar.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.ContactBar.Location = new System.Drawing.Point(945, 0);
+            this.ContactBar.Margin = new System.Windows.Forms.Padding(0, 0, 0, 3);
             this.ContactBar.Name = "ContactBar";
-            this.ContactBar.Size = new System.Drawing.Size(248, 740);
+            this.ContactBar.Size = new System.Drawing.Size(248, 746);
             this.ContactBar.TabIndex = 3;
             this.ContactBar.WrapContents = false;
             // 
@@ -91,7 +93,7 @@
             this.panel2.Controls.Add(this.guna2ControlBox2);
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(234, 45);
+            this.panel2.Size = new System.Drawing.Size(235, 45);
             this.panel2.TabIndex = 7;
             // 
             // Button_Close_ContactBar
@@ -102,9 +104,9 @@
             this.Button_Close_ContactBar.IconColor = System.Drawing.Color.White;
             this.Button_Close_ContactBar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.Button_Close_ContactBar.IconSize = 25;
-            this.Button_Close_ContactBar.Location = new System.Drawing.Point(169, 3);
+            this.Button_Close_ContactBar.Location = new System.Drawing.Point(190, 3);
             this.Button_Close_ContactBar.Name = "Button_Close_ContactBar";
-            this.Button_Close_ContactBar.Size = new System.Drawing.Size(49, 39);
+            this.Button_Close_ContactBar.Size = new System.Drawing.Size(55, 39);
             this.Button_Close_ContactBar.TabIndex = 0;
             this.Button_Close_ContactBar.UseVisualStyleBackColor = false;
             this.Button_Close_ContactBar.Click += new System.EventHandler(this.Button_Close_ContactBar_Click);
@@ -116,7 +118,7 @@
             this.guna2ControlBox3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.guna2ControlBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2ControlBox3.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox3.Location = new System.Drawing.Point(58, 3);
+            this.guna2ControlBox3.Location = new System.Drawing.Point(59, 3);
             this.guna2ControlBox3.Name = "guna2ControlBox3";
             this.guna2ControlBox3.Size = new System.Drawing.Size(50, 39);
             this.guna2ControlBox3.TabIndex = 9;
@@ -127,7 +129,7 @@
             this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.guna2ControlBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(114, 2);
+            this.guna2ControlBox1.Location = new System.Drawing.Point(115, 2);
             this.guna2ControlBox1.Name = "guna2ControlBox1";
             this.guna2ControlBox1.Size = new System.Drawing.Size(50, 40);
             this.guna2ControlBox1.TabIndex = 8;
@@ -139,7 +141,7 @@
             this.guna2ControlBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.guna2ControlBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2ControlBox2.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox2.Location = new System.Drawing.Point(3, 3);
+            this.guna2ControlBox2.Location = new System.Drawing.Point(4, 3);
             this.guna2ControlBox2.Name = "guna2ControlBox2";
             this.guna2ControlBox2.Size = new System.Drawing.Size(50, 39);
             this.guna2ControlBox2.TabIndex = 10;
@@ -193,8 +195,9 @@
             this.MainLayout.Location = new System.Drawing.Point(241, 3);
             this.MainLayout.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.MainLayout.Name = "MainLayout";
-            this.MainLayout.Size = new System.Drawing.Size(704, 740);
+            this.MainLayout.Size = new System.Drawing.Size(704, 743);
             this.MainLayout.TabIndex = 2;
+            this.MainLayout.Resize += new System.EventHandler(this.FormMainMenu_Resize);
             // 
             // NavBar
             // 
@@ -204,7 +207,7 @@
             this.NavBar.Controls.Add(this.Button_User);
             this.NavBar.Location = new System.Drawing.Point(3, 3);
             this.NavBar.Name = "NavBar";
-            this.NavBar.Size = new System.Drawing.Size(693, 58);
+            this.NavBar.Size = new System.Drawing.Size(698, 58);
             this.NavBar.TabIndex = 0;
             // 
             // Button_Back
@@ -262,6 +265,15 @@
             this.Button_User.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.Button_User.UseVisualStyleBackColor = true;
             // 
+            // NavForm
+            // 
+            this.NavForm.Location = new System.Drawing.Point(0, 64);
+            this.NavForm.Margin = new System.Windows.Forms.Padding(0);
+            this.NavForm.Name = "NavForm";
+            this.NavForm.Size = new System.Drawing.Size(703, 572);
+            this.NavForm.TabIndex = 10;
+            this.NavForm.Resize += new System.EventHandler(this.FormMainMenu_Resize);
+            // 
             // PlayBar
             // 
             this.PlayBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -269,10 +281,10 @@
             this.PlayBar.BackColor = System.Drawing.Color.Black;
             this.PlayBar.Controls.Add(this.panel3);
             this.PlayBar.Controls.Add(this.MusicPlayer);
-            this.PlayBar.Location = new System.Drawing.Point(0, 463);
+            this.PlayBar.Location = new System.Drawing.Point(0, 636);
             this.PlayBar.Margin = new System.Windows.Forms.Padding(0);
             this.PlayBar.Name = "PlayBar";
-            this.PlayBar.Size = new System.Drawing.Size(703, 105);
+            this.PlayBar.Size = new System.Drawing.Size(704, 105);
             this.PlayBar.TabIndex = 9;
             this.PlayBar.WrapContents = false;
             // 
@@ -288,20 +300,6 @@
             this.panel3.Size = new System.Drawing.Size(179, 58);
             this.panel3.TabIndex = 8;
             // 
-            // Button_Forward
-            // 
-            this.Button_Forward.FlatAppearance.BorderSize = 0;
-            this.Button_Forward.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Button_Forward.IconChar = FontAwesome.Sharp.IconChar.Forward;
-            this.Button_Forward.IconColor = System.Drawing.Color.White;
-            this.Button_Forward.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.Button_Forward.IconSize = 30;
-            this.Button_Forward.Location = new System.Drawing.Point(123, 5);
-            this.Button_Forward.Name = "Button_Forward";
-            this.Button_Forward.Size = new System.Drawing.Size(56, 44);
-            this.Button_Forward.TabIndex = 1;
-            this.Button_Forward.UseVisualStyleBackColor = true;
-            // 
             // Button_Backward
             // 
             this.Button_Backward.FlatAppearance.BorderSize = 0;
@@ -315,6 +313,20 @@
             this.Button_Backward.Size = new System.Drawing.Size(56, 44);
             this.Button_Backward.TabIndex = 1;
             this.Button_Backward.UseVisualStyleBackColor = true;
+            // 
+            // Button_Forward
+            // 
+            this.Button_Forward.FlatAppearance.BorderSize = 0;
+            this.Button_Forward.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button_Forward.IconChar = FontAwesome.Sharp.IconChar.Forward;
+            this.Button_Forward.IconColor = System.Drawing.Color.White;
+            this.Button_Forward.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.Button_Forward.IconSize = 30;
+            this.Button_Forward.Location = new System.Drawing.Point(123, 5);
+            this.Button_Forward.Name = "Button_Forward";
+            this.Button_Forward.Size = new System.Drawing.Size(56, 44);
+            this.Button_Forward.TabIndex = 1;
+            this.Button_Forward.UseVisualStyleBackColor = true;
             // 
             // Button_Play
             // 
@@ -352,11 +364,13 @@
             this.MenuBar.Controls.Add(this.Button_Home);
             this.MenuBar.Controls.Add(this.Button_Search);
             this.MenuBar.Controls.Add(this.Button_Playlist);
+            this.MenuBar.Controls.Add(this.panel1);
+            this.MenuBar.Controls.Add(this.Button_LogOut);
             this.MenuBar.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.MenuBar.Location = new System.Drawing.Point(0, 0);
             this.MenuBar.Margin = new System.Windows.Forms.Padding(0);
             this.MenuBar.Name = "MenuBar";
-            this.MenuBar.Size = new System.Drawing.Size(241, 746);
+            this.MenuBar.Size = new System.Drawing.Size(241, 749);
             this.MenuBar.TabIndex = 1;
             this.MenuBar.WrapContents = false;
             // 
@@ -451,14 +465,35 @@
             this.MainBackGround.Size = new System.Drawing.Size(1223, 773);
             this.MainBackGround.TabIndex = 2;
             // 
-            // NavForm
+            // Button_LogOut
             // 
-            this.NavForm.Location = new System.Drawing.Point(0, 64);
-            this.NavForm.Margin = new System.Windows.Forms.Padding(0);
-            this.NavForm.Name = "NavForm";
-            this.NavForm.Size = new System.Drawing.Size(703, 399);
-            this.NavForm.TabIndex = 10;
-            this.NavForm.Resize += new System.EventHandler(this.FormMainMenu_Resize);
+            this.Button_LogOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.Button_LogOut.FlatAppearance.BorderSize = 0;
+            this.Button_LogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button_LogOut.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.Button_LogOut.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
+            this.Button_LogOut.IconColor = System.Drawing.Color.White;
+            this.Button_LogOut.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.Button_LogOut.IconSize = 40;
+            this.Button_LogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Button_LogOut.Location = new System.Drawing.Point(3, 688);
+            this.Button_LogOut.Name = "Button_LogOut";
+            this.Button_LogOut.Size = new System.Drawing.Size(231, 48);
+            this.Button_LogOut.TabIndex = 6;
+            this.Button_LogOut.Text = "   Log Out";
+            this.Button_LogOut.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Button_LogOut.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Button_LogOut.UseVisualStyleBackColor = true;
+            this.Button_LogOut.Click += new System.EventHandler(this.Button_LogOut_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel1.Location = new System.Drawing.Point(3, 219);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(235, 463);
+            this.panel1.TabIndex = 6;
             // 
             // MainForm
             // 
@@ -517,5 +552,7 @@
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
         private System.Windows.Forms.Panel NavForm;
+        private System.Windows.Forms.Panel panel1;
+        private FontAwesome.Sharp.IconButton Button_LogOut;
     }
 }
