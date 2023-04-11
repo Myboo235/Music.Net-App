@@ -28,12 +28,12 @@ namespace Music.Net_App.View
         {
             InitializeComponent();
             /*HomeLayout.Controls.Clear();*/
-            currentChildForm =new Form();
-            currentChildForm.Show();
-            OpenChildForm(currentChildForm);
+            currentChildForm =new HomeForm();
+            OpenChildForm(new HomeForm());
             resize();
             MusicPlayer.URL = directory + @"\Assets\Musics\y2mate.com - DVRST  CLOSE EYES.mp3";
             MusicPlayer.Ctlcontrols.stop();
+            this.FormBorderStyle = FormBorderStyle.None;
         }
 
         private void LeftBar_MouseHover(object sender, EventArgs e)
@@ -52,6 +52,8 @@ namespace Music.Net_App.View
         {
             MainLayout.Size = new Size(MainBackGround.Width - MenuBar.Width - ContactBar.Width, MainBackGround.Height);
             UserNav.Width = MainLayout.Width - Button_Back.Width - Button_Next.Width - 120;
+
+            panel1.Height = MenuBar.Height -48*5 -70 ;
             NavBar.Width = MainLayout.Width;
 
             NavForm.Width = MainLayout.Width-10;
@@ -79,7 +81,7 @@ namespace Music.Net_App.View
         }
         private void Button_Search_Click(object sender, EventArgs e)
         {
-            PlayBar.Visible = false;
+            //PlayBar.Visible = false;
             if (currentChildForm.GetType().Name.ToString() != "SearchForm")
             {
                 OpenChildForm(new SearchForm());
@@ -184,5 +186,9 @@ namespace Music.Net_App.View
             resize();
         }
 
+        private void Button_LogOut_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
