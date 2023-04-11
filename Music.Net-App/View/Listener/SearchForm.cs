@@ -25,7 +25,7 @@ namespace Music.Net_App.View
             flowLayoutPanel2.Width = this.Width;
             guna2TextBox1.Size = new Size(this.Width - 280, 47);
             flowLayoutPanel3.Width= this.Width;
-            flowLayoutPanel3.Height= this.Height-150;
+            //flowLayoutPanel3.Height= this.Height-150;
             /*if (tb!=null)
             {
                 foreach(PictureBox t in tb)

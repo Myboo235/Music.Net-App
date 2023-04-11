@@ -115,9 +115,9 @@
             // 
             this.flowLayoutPanel3.AutoScroll = true;
             this.flowLayoutPanel3.BackColor = System.Drawing.Color.Black;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 171);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(12, 171);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(696, 402);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(672, 535);
             this.flowLayoutPanel3.TabIndex = 4;
             // 
             // SearchForm
