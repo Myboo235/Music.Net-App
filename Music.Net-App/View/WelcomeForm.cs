@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,19 +15,20 @@ namespace Music.Net_App.View
 {
     public partial class WelcomeForm : Form
     {
+        string directory = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug\", "");
         public WelcomeForm()
         {
             InitializeComponent();
-            string directory = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug\", "");
             pictureBox1.Image = Image.FromFile(directory + @"\Assets\Images\muzira-banner.png");
-            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
-
+            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage; 
         }
 
         private void GetstartedButton_Click(object sender, EventArgs e)
         {
-            MainForm main = new MainForm();
+            Hide();
+            SignIn_UpForm main = new SignIn_UpForm();
             main.ShowDialog();
+            Close();
         }
     }
 }
