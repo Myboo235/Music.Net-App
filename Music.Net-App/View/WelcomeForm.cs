@@ -27,6 +27,7 @@ namespace Music.Net_App.View
         {
             MainForm main = new MainForm();
             main.ShowDialog();
+            //tét
         }
     }
 }
