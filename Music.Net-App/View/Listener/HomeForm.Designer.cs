@@ -68,7 +68,7 @@
             this.IntroVideo.Location = new System.Drawing.Point(3, 3);
             this.IntroVideo.Name = "IntroVideo";
             this.IntroVideo.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("IntroVideo.OcxState")));
-            this.IntroVideo.Size = new System.Drawing.Size(694, 465);
+            this.IntroVideo.Size = new System.Drawing.Size(688, 404);
             this.IntroVideo.TabIndex = 0;
             // 
             // RecentPlayed

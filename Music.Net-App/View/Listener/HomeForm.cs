@@ -37,7 +37,7 @@ namespace Music.Net_App.View
             
             IntroVideo.Width = VideoPanel.Width - 10;
             VideoPanel.Width = HomeLayout.Width;
-            VideoPanel.Height = HomeLayout.Height / 5;
+            VideoPanel.Height = HomeLayout.Height / 3;
 
             IntroVideo.Width = HomeLayout.Width;
             RecentPlayed.Width = HomeLayout.Width;
