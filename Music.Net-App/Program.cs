@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using Music.Net_App.View;
-
+using Music.Net_App.View.Listener;
 
 namespace Music.Net_App
 {
@@ -19,7 +19,7 @@ namespace Music.Net_App
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            Application.Run(new MinimizeForm());
         }
     }
 }

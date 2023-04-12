@@ -33,6 +33,7 @@ namespace Music.Net_App.View
             resize();
             MusicPlayer.URL = directory + @"\Assets\Musics\y2mate.com - DVRST  CLOSE EYES.mp3";
             MusicPlayer.Ctlcontrols.stop();
+            
             this.FormBorderStyle = FormBorderStyle.None;
         }
 
@@ -56,12 +57,13 @@ namespace Music.Net_App.View
             panel1.Height = MenuBar.Height -48*5 -70 ;
             NavBar.Width = MainLayout.Width;
 
-            NavForm.Width = MainLayout.Width-10;
+            NavForm.Width = MainLayout.Width-6;
             NavForm.Height = MainLayout.Height - PlayBar.Height - NavBar.Height -10;
  
-            PlayBar.Width= MainLayout.Width;
+            PlayBar.Width= MainLayout.Width-10;
+            MusicPlayer.Width = MainLayout.Width;
 
-            MusicPlayer.Width = PlayBar.Width - panel3.Width -50 ;
+            //MusicPlayer.Width = PlayBar.Width - panel3.Width -50 ;
             if (currentChildForm != null)
             {
                 /*if (currentChildForm.Height > NavForm.Height)
@@ -189,6 +191,11 @@ namespace Music.Net_App.View
         private void Button_LogOut_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void Button_Forward_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
