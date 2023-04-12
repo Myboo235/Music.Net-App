@@ -28,8 +28,8 @@ namespace Music.Net_App.View
         {
             InitializeComponent();
             /*HomeLayout.Controls.Clear();*/
-            currentChildForm =new HomeForm();
-            OpenChildForm(new HomeForm());
+            currentChildForm =new MainForm();
+            OpenChildForm(new MainForm());
             resize();
             MusicPlayer.URL = directory + @"\Assets\Musics\y2mate.com - DVRST  CLOSE EYES.mp3";
             MusicPlayer.Ctlcontrols.stop();
@@ -151,7 +151,7 @@ namespace Music.Net_App.View
         private void Button_Home_Click(object sender, EventArgs e)
         {
             if(currentChildForm.GetType().Name.ToString() != "HomeForm")
-                OpenChildForm(new HomeForm());
+                OpenChildForm(new MainForm());
             resize();
         }
 
@@ -193,8 +193,8 @@ namespace Music.Net_App.View
 
         private void Button_User_Click(object sender, EventArgs e)
         {
-            FormAccount formAccount = new FormAccount();
-            formAccount.ShowDialog();
+         /*   FormAccount formAccount = new FormAccount();
+            formAccount.ShowDialog();*/
         }
     }
 }

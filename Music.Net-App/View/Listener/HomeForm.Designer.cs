@@ -11,14 +11,6 @@
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
 
         #region Windows Form Designer generated code
 
@@ -41,7 +33,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.IntroVideo)).BeginInit();
             this.RecentPlayed.SuspendLayout();
             this.TopMixes.SuspendLayout();
-            this.SuspendLayout();
+         
             // 
             // HomeLayout
             // 
@@ -124,21 +116,7 @@
             this.iconButton5.UseVisualStyleBackColor = true;
             // 
             // HomeForm
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.ClientSize = new System.Drawing.Size(696, 726);
-            this.Controls.Add(this.HomeLayout);
-            this.Name = "HomeForm";
-            this.Text = "HomeForm";
-            this.Resize += new System.EventHandler(this.HomeForm_Resize);
-            this.HomeLayout.ResumeLayout(false);
-            this.VideoPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.IntroVideo)).EndInit();
-            this.RecentPlayed.ResumeLayout(false);
-            this.TopMixes.ResumeLayout(false);
-            this.ResumeLayout(false);
+       
 
         }
 
