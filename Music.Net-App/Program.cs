@@ -19,7 +19,7 @@ namespace Music.Net_App
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MinimizeForm());
+            Application.Run(new MainForm());
         }
     }
 }

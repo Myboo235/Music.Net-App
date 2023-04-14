@@ -14,7 +14,7 @@ namespace Music.Net_App.View
 
     public partial class PlaylistForm : Form
     {
-        string directory = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug\", "");
+        string directory = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug", "");
         private List<FlowLayoutPanel> tb = new List<FlowLayoutPanel>();
         public Image SetImageOpacity(Image image, float opacity)
         {

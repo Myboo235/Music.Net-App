@@ -1,4 +1,5 @@
 ﻿using FontAwesome.Sharp;
+using Music.Net_App.View.Listener;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -150,6 +151,31 @@ namespace Music.Net_App.View
                 MusicPlayer.Ctlcontrols.pause();
             }
         }
+
+        private void Button_LogOut_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void Button_Forward_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Button_Compress_Click(object sender, EventArgs e)
+        {
+            Hide();
+            MinimizeForm m = new MinimizeForm();
+            m.FormClosed += new FormClosedEventHandler(Form_Closed);
+            m.Show();
+            
+        }
+        void Form_Closed(object sender, FormClosedEventArgs e)
+        {
+            MinimizeForm frm = (MinimizeForm)sender;
+            MessageBox.Show(frm.Name);
+            Show();
+        }
         private void Button_Home_Click(object sender, EventArgs e)
         {
             if(currentChildForm.GetType().Name.ToString() != "HomeForm")
@@ -188,14 +214,6 @@ namespace Music.Net_App.View
             resize();
         }
 
-        private void Button_LogOut_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void Button_Forward_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

@@ -46,9 +46,9 @@
             this.NavForm = new System.Windows.Forms.Panel();
             this.PlayBar = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.Button_Play = new FontAwesome.Sharp.IconButton();
             this.Button_Backward = new FontAwesome.Sharp.IconButton();
             this.Button_Forward = new FontAwesome.Sharp.IconButton();
-            this.Button_Play = new FontAwesome.Sharp.IconButton();
             this.MusicPlayer = new AxWMPLib.AxWindowsMediaPlayer();
             this.MenuBar = new System.Windows.Forms.FlowLayoutPanel();
             this.Button_Menu = new FontAwesome.Sharp.IconButton();
@@ -58,6 +58,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.Button_LogOut = new FontAwesome.Sharp.IconButton();
             this.MainBackGround = new System.Windows.Forms.FlowLayoutPanel();
+            this.Button_Repeat = new FontAwesome.Sharp.IconButton();
+            this.Button_Random = new FontAwesome.Sharp.IconButton();
+            this.Button_Compress = new FontAwesome.Sharp.IconButton();
+            this.Button_Add = new FontAwesome.Sharp.IconButton();
             this.ContactBar.SuspendLayout();
             this.panel2.SuspendLayout();
             this.MainLayout.SuspendLayout();
@@ -292,28 +296,53 @@
             // panel3
             // 
             this.panel3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel3.BackColor = System.Drawing.Color.DimGray;
+            this.panel3.BackColor = System.Drawing.Color.Transparent;
+            this.panel3.Controls.Add(this.Button_Add);
+            this.panel3.Controls.Add(this.Button_Compress);
+            this.panel3.Controls.Add(this.Button_Random);
+            this.panel3.Controls.Add(this.Button_Repeat);
             this.panel3.Controls.Add(this.Button_Play);
             this.panel3.Controls.Add(this.Button_Backward);
             this.panel3.Controls.Add(this.Button_Forward);
-            this.panel3.Location = new System.Drawing.Point(185, 0);
+            this.panel3.Location = new System.Drawing.Point(130, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(334, 58);
+            this.panel3.Size = new System.Drawing.Size(443, 58);
             this.panel3.TabIndex = 8;
+            // 
+            // Button_Play
+            // 
+            this.Button_Play.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Button_Play.BackColor = System.Drawing.Color.Transparent;
+            this.Button_Play.FlatAppearance.BorderSize = 0;
+            this.Button_Play.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.Button_Play.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button_Play.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Button_Play.IconChar = FontAwesome.Sharp.IconChar.Play;
+            this.Button_Play.IconColor = System.Drawing.Color.White;
+            this.Button_Play.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.Button_Play.IconSize = 35;
+            this.Button_Play.Location = new System.Drawing.Point(198, 5);
+            this.Button_Play.Name = "Button_Play";
+            this.Button_Play.Size = new System.Drawing.Size(53, 49);
+            this.Button_Play.TabIndex = 0;
+            this.Button_Play.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Button_Play.UseVisualStyleBackColor = false;
+            this.Button_Play.Click += new System.EventHandler(this.Button_Play_Click);
             // 
             // Button_Backward
             // 
             this.Button_Backward.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Button_Backward.FlatAppearance.BorderSize = 0;
+            this.Button_Backward.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.Button_Backward.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Button_Backward.IconChar = FontAwesome.Sharp.IconChar.Backward;
             this.Button_Backward.IconColor = System.Drawing.Color.White;
             this.Button_Backward.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.Button_Backward.IconSize = 30;
-            this.Button_Backward.Location = new System.Drawing.Point(82, 5);
+            this.Button_Backward.IconSize = 35;
+            this.Button_Backward.Location = new System.Drawing.Point(136, 5);
             this.Button_Backward.Name = "Button_Backward";
-            this.Button_Backward.Size = new System.Drawing.Size(56, 44);
+            this.Button_Backward.Size = new System.Drawing.Size(56, 49);
             this.Button_Backward.TabIndex = 1;
             this.Button_Backward.UseVisualStyleBackColor = true;
             // 
@@ -321,35 +350,18 @@
             // 
             this.Button_Forward.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Button_Forward.FlatAppearance.BorderSize = 0;
+            this.Button_Forward.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.Button_Forward.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Button_Forward.IconChar = FontAwesome.Sharp.IconChar.Forward;
             this.Button_Forward.IconColor = System.Drawing.Color.White;
             this.Button_Forward.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.Button_Forward.IconSize = 30;
-            this.Button_Forward.Location = new System.Drawing.Point(193, 3);
+            this.Button_Forward.IconSize = 35;
+            this.Button_Forward.Location = new System.Drawing.Point(247, 5);
             this.Button_Forward.Name = "Button_Forward";
-            this.Button_Forward.Size = new System.Drawing.Size(56, 44);
+            this.Button_Forward.Size = new System.Drawing.Size(56, 49);
             this.Button_Forward.TabIndex = 1;
             this.Button_Forward.UseVisualStyleBackColor = true;
             this.Button_Forward.Click += new System.EventHandler(this.Button_Forward_Click);
-            // 
-            // Button_Play
-            // 
-            this.Button_Play.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Button_Play.BackColor = System.Drawing.Color.Transparent;
-            this.Button_Play.FlatAppearance.BorderSize = 0;
-            this.Button_Play.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Button_Play.ForeColor = System.Drawing.Color.White;
-            this.Button_Play.IconChar = FontAwesome.Sharp.IconChar.Play;
-            this.Button_Play.IconColor = System.Drawing.Color.White;
-            this.Button_Play.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.Button_Play.IconSize = 30;
-            this.Button_Play.Location = new System.Drawing.Point(144, 5);
-            this.Button_Play.Name = "Button_Play";
-            this.Button_Play.Size = new System.Drawing.Size(53, 42);
-            this.Button_Play.TabIndex = 0;
-            this.Button_Play.UseVisualStyleBackColor = false;
-            this.Button_Play.Click += new System.EventHandler(this.Button_Play_Click);
             // 
             // MusicPlayer
             // 
@@ -501,6 +513,72 @@
             this.MainBackGround.Size = new System.Drawing.Size(1223, 773);
             this.MainBackGround.TabIndex = 2;
             // 
+            // Button_Repeat
+            // 
+            this.Button_Repeat.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Button_Repeat.BackColor = System.Drawing.Color.Transparent;
+            this.Button_Repeat.FlatAppearance.BorderSize = 0;
+            this.Button_Repeat.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.Button_Repeat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button_Repeat.IconChar = FontAwesome.Sharp.IconChar.Repeat;
+            this.Button_Repeat.IconColor = System.Drawing.Color.White;
+            this.Button_Repeat.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.Button_Repeat.IconSize = 30;
+            this.Button_Repeat.Location = new System.Drawing.Point(309, 22);
+            this.Button_Repeat.Name = "Button_Repeat";
+            this.Button_Repeat.Size = new System.Drawing.Size(76, 32);
+            this.Button_Repeat.TabIndex = 2;
+            this.Button_Repeat.UseVisualStyleBackColor = false;
+            // 
+            // Button_Random
+            // 
+            this.Button_Random.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Button_Random.BackColor = System.Drawing.Color.Transparent;
+            this.Button_Random.FlatAppearance.BorderSize = 0;
+            this.Button_Random.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.Button_Random.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button_Random.IconChar = FontAwesome.Sharp.IconChar.Random;
+            this.Button_Random.IconColor = System.Drawing.Color.White;
+            this.Button_Random.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.Button_Random.IconSize = 30;
+            this.Button_Random.Location = new System.Drawing.Point(57, 22);
+            this.Button_Random.Name = "Button_Random";
+            this.Button_Random.Size = new System.Drawing.Size(75, 32);
+            this.Button_Random.TabIndex = 2;
+            this.Button_Random.UseVisualStyleBackColor = false;
+            // 
+            // Button_Compress
+            // 
+            this.Button_Compress.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Button_Compress.FlatAppearance.BorderSize = 0;
+            this.Button_Compress.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.Button_Compress.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button_Compress.IconChar = FontAwesome.Sharp.IconChar.CompressAlt;
+            this.Button_Compress.IconColor = System.Drawing.Color.White;
+            this.Button_Compress.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.Button_Compress.IconSize = 30;
+            this.Button_Compress.Location = new System.Drawing.Point(368, 22);
+            this.Button_Compress.Name = "Button_Compress";
+            this.Button_Compress.Size = new System.Drawing.Size(72, 32);
+            this.Button_Compress.TabIndex = 3;
+            this.Button_Compress.UseVisualStyleBackColor = true;
+            this.Button_Compress.Click += new System.EventHandler(this.Button_Compress_Click);
+            // 
+            // Button_Add
+            // 
+            this.Button_Add.FlatAppearance.BorderSize = 0;
+            this.Button_Add.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.Button_Add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button_Add.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
+            this.Button_Add.IconColor = System.Drawing.Color.White;
+            this.Button_Add.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.Button_Add.IconSize = 30;
+            this.Button_Add.Location = new System.Drawing.Point(3, 22);
+            this.Button_Add.Name = "Button_Add";
+            this.Button_Add.Size = new System.Drawing.Size(77, 32);
+            this.Button_Add.TabIndex = 4;
+            this.Button_Add.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
@@ -560,5 +638,9 @@
         private System.Windows.Forms.Panel NavForm;
         private System.Windows.Forms.Panel panel1;
         private FontAwesome.Sharp.IconButton Button_LogOut;
+        private FontAwesome.Sharp.IconButton Button_Random;
+        private FontAwesome.Sharp.IconButton Button_Repeat;
+        private FontAwesome.Sharp.IconButton Button_Add;
+        private FontAwesome.Sharp.IconButton Button_Compress;
     }
 }
