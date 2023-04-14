@@ -33,7 +33,7 @@ namespace Music.Net_App.View
                 label1.Text = "Sign up for free \nMuzira account";
                 label4.Visible = false;
                 guna2TextBox3.Visible = true;
-                guna2Button1.Text = "SIGN IN";
+                guna2Button1.Text = "SIGN UP";
                 label2.Text = "Already have an account. ";
                 Button_SignUp.Text = "SIGN IN";
             }
@@ -42,7 +42,7 @@ namespace Music.Net_App.View
                 label1.Text = "Log in to continue.";
                 label4.Visible = true;
                 guna2TextBox3.Visible = false;
-                guna2Button1.Text = "SIGN UP";
+                guna2Button1.Text = "LOG IN";
                 label2.Text = "Don't have an account ?";
                 Button_SignUp.Text = "SIGN UP";
             }

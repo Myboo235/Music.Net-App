@@ -46,6 +46,10 @@
             this.NavForm = new System.Windows.Forms.Panel();
             this.PlayBar = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.Button_Add = new FontAwesome.Sharp.IconButton();
+            this.Button_Compress = new FontAwesome.Sharp.IconButton();
+            this.Button_Random = new FontAwesome.Sharp.IconButton();
+            this.Button_Repeat = new FontAwesome.Sharp.IconButton();
             this.Button_Play = new FontAwesome.Sharp.IconButton();
             this.Button_Backward = new FontAwesome.Sharp.IconButton();
             this.Button_Forward = new FontAwesome.Sharp.IconButton();
@@ -58,19 +62,19 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.Button_LogOut = new FontAwesome.Sharp.IconButton();
             this.MainBackGround = new System.Windows.Forms.FlowLayoutPanel();
-            this.Button_Repeat = new FontAwesome.Sharp.IconButton();
-            this.Button_Random = new FontAwesome.Sharp.IconButton();
-            this.Button_Compress = new FontAwesome.Sharp.IconButton();
-            this.Button_Add = new FontAwesome.Sharp.IconButton();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.ContactBar.SuspendLayout();
             this.panel2.SuspendLayout();
             this.MainLayout.SuspendLayout();
             this.NavBar.SuspendLayout();
+            this.NavForm.SuspendLayout();
             this.PlayBar.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MusicPlayer)).BeginInit();
             this.MenuBar.SuspendLayout();
             this.MainBackGround.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // ContactBar
@@ -268,9 +272,11 @@
             this.Button_User.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Button_User.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.Button_User.UseVisualStyleBackColor = true;
+            this.Button_User.Click += new System.EventHandler(this.Button_User_Click);
             // 
             // NavForm
             // 
+            this.NavForm.Controls.Add(this.panel4);
             this.NavForm.Location = new System.Drawing.Point(0, 64);
             this.NavForm.Margin = new System.Windows.Forms.Padding(0);
             this.NavForm.Name = "NavForm";
@@ -309,6 +315,72 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(443, 58);
             this.panel3.TabIndex = 8;
+            // 
+            // Button_Add
+            // 
+            this.Button_Add.FlatAppearance.BorderSize = 0;
+            this.Button_Add.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.Button_Add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button_Add.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
+            this.Button_Add.IconColor = System.Drawing.Color.White;
+            this.Button_Add.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.Button_Add.IconSize = 30;
+            this.Button_Add.Location = new System.Drawing.Point(3, 22);
+            this.Button_Add.Name = "Button_Add";
+            this.Button_Add.Size = new System.Drawing.Size(77, 32);
+            this.Button_Add.TabIndex = 4;
+            this.Button_Add.UseVisualStyleBackColor = true;
+            // 
+            // Button_Compress
+            // 
+            this.Button_Compress.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Button_Compress.FlatAppearance.BorderSize = 0;
+            this.Button_Compress.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.Button_Compress.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button_Compress.IconChar = FontAwesome.Sharp.IconChar.CompressAlt;
+            this.Button_Compress.IconColor = System.Drawing.Color.White;
+            this.Button_Compress.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.Button_Compress.IconSize = 30;
+            this.Button_Compress.Location = new System.Drawing.Point(368, 22);
+            this.Button_Compress.Name = "Button_Compress";
+            this.Button_Compress.Size = new System.Drawing.Size(72, 32);
+            this.Button_Compress.TabIndex = 3;
+            this.Button_Compress.UseVisualStyleBackColor = true;
+            this.Button_Compress.Click += new System.EventHandler(this.Button_Compress_Click);
+            // 
+            // Button_Random
+            // 
+            this.Button_Random.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Button_Random.BackColor = System.Drawing.Color.Transparent;
+            this.Button_Random.FlatAppearance.BorderSize = 0;
+            this.Button_Random.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.Button_Random.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button_Random.IconChar = FontAwesome.Sharp.IconChar.Random;
+            this.Button_Random.IconColor = System.Drawing.Color.White;
+            this.Button_Random.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.Button_Random.IconSize = 30;
+            this.Button_Random.Location = new System.Drawing.Point(57, 22);
+            this.Button_Random.Name = "Button_Random";
+            this.Button_Random.Size = new System.Drawing.Size(75, 32);
+            this.Button_Random.TabIndex = 2;
+            this.Button_Random.UseVisualStyleBackColor = false;
+            // 
+            // Button_Repeat
+            // 
+            this.Button_Repeat.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Button_Repeat.BackColor = System.Drawing.Color.Transparent;
+            this.Button_Repeat.FlatAppearance.BorderSize = 0;
+            this.Button_Repeat.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.Button_Repeat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button_Repeat.IconChar = FontAwesome.Sharp.IconChar.Repeat;
+            this.Button_Repeat.IconColor = System.Drawing.Color.White;
+            this.Button_Repeat.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.Button_Repeat.IconSize = 30;
+            this.Button_Repeat.Location = new System.Drawing.Point(309, 22);
+            this.Button_Repeat.Name = "Button_Repeat";
+            this.Button_Repeat.Size = new System.Drawing.Size(76, 32);
+            this.Button_Repeat.TabIndex = 2;
+            this.Button_Repeat.UseVisualStyleBackColor = false;
             // 
             // Button_Play
             // 
@@ -513,71 +585,23 @@
             this.MainBackGround.Size = new System.Drawing.Size(1223, 773);
             this.MainBackGround.TabIndex = 2;
             // 
-            // Button_Repeat
+            // panel4
             // 
-            this.Button_Repeat.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Button_Repeat.BackColor = System.Drawing.Color.Transparent;
-            this.Button_Repeat.FlatAppearance.BorderSize = 0;
-            this.Button_Repeat.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.Button_Repeat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Button_Repeat.IconChar = FontAwesome.Sharp.IconChar.Repeat;
-            this.Button_Repeat.IconColor = System.Drawing.Color.White;
-            this.Button_Repeat.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.Button_Repeat.IconSize = 30;
-            this.Button_Repeat.Location = new System.Drawing.Point(309, 22);
-            this.Button_Repeat.Name = "Button_Repeat";
-            this.Button_Repeat.Size = new System.Drawing.Size(76, 32);
-            this.Button_Repeat.TabIndex = 2;
-            this.Button_Repeat.UseVisualStyleBackColor = false;
+            this.panel4.Controls.Add(this.button1);
+            this.panel4.Location = new System.Drawing.Point(501, 3);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(200, 100);
+            this.panel4.TabIndex = 0;
+            this.panel4.Visible = false;
             // 
-            // Button_Random
+            // button1
             // 
-            this.Button_Random.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Button_Random.BackColor = System.Drawing.Color.Transparent;
-            this.Button_Random.FlatAppearance.BorderSize = 0;
-            this.Button_Random.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.Button_Random.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Button_Random.IconChar = FontAwesome.Sharp.IconChar.Random;
-            this.Button_Random.IconColor = System.Drawing.Color.White;
-            this.Button_Random.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.Button_Random.IconSize = 30;
-            this.Button_Random.Location = new System.Drawing.Point(57, 22);
-            this.Button_Random.Name = "Button_Random";
-            this.Button_Random.Size = new System.Drawing.Size(75, 32);
-            this.Button_Random.TabIndex = 2;
-            this.Button_Random.UseVisualStyleBackColor = false;
-            // 
-            // Button_Compress
-            // 
-            this.Button_Compress.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Button_Compress.FlatAppearance.BorderSize = 0;
-            this.Button_Compress.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.Button_Compress.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Button_Compress.IconChar = FontAwesome.Sharp.IconChar.CompressAlt;
-            this.Button_Compress.IconColor = System.Drawing.Color.White;
-            this.Button_Compress.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.Button_Compress.IconSize = 30;
-            this.Button_Compress.Location = new System.Drawing.Point(368, 22);
-            this.Button_Compress.Name = "Button_Compress";
-            this.Button_Compress.Size = new System.Drawing.Size(72, 32);
-            this.Button_Compress.TabIndex = 3;
-            this.Button_Compress.UseVisualStyleBackColor = true;
-            this.Button_Compress.Click += new System.EventHandler(this.Button_Compress_Click);
-            // 
-            // Button_Add
-            // 
-            this.Button_Add.FlatAppearance.BorderSize = 0;
-            this.Button_Add.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.Button_Add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Button_Add.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
-            this.Button_Add.IconColor = System.Drawing.Color.White;
-            this.Button_Add.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.Button_Add.IconSize = 30;
-            this.Button_Add.Location = new System.Drawing.Point(3, 22);
-            this.Button_Add.Name = "Button_Add";
-            this.Button_Add.Size = new System.Drawing.Size(77, 32);
-            this.Button_Add.TabIndex = 4;
-            this.Button_Add.UseVisualStyleBackColor = true;
+            this.button1.Location = new System.Drawing.Point(20, 21);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(154, 48);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -598,11 +622,13 @@
             this.panel2.ResumeLayout(false);
             this.MainLayout.ResumeLayout(false);
             this.NavBar.ResumeLayout(false);
+            this.NavForm.ResumeLayout(false);
             this.PlayBar.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.MusicPlayer)).EndInit();
             this.MenuBar.ResumeLayout(false);
             this.MainBackGround.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -642,5 +668,7 @@
         private FontAwesome.Sharp.IconButton Button_Repeat;
         private FontAwesome.Sharp.IconButton Button_Add;
         private FontAwesome.Sharp.IconButton Button_Compress;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button button1;
     }
 }
