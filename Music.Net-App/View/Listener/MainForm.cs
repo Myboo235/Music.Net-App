@@ -167,6 +167,7 @@ namespace Music.Net_App.View
             Hide();
             MinimizeForm m = new MinimizeForm();
             m.FormClosed += new FormClosedEventHandler(Form_Closed);
+           
             m.Show();
             
         }
@@ -214,6 +215,16 @@ namespace Music.Net_App.View
             resize();
         }
 
-        
+        private void Button_User_Click(object sender, EventArgs e)
+        {
+            if (panel4.Visible)
+            {
+                panel4.Visible = false;
+                panel4.SendToBack();
+                return;
+            }
+            panel4.Visible= true;
+            panel4.BringToFront();
+        }
     }
 }
