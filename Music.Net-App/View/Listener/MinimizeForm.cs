@@ -21,5 +21,10 @@ namespace Music.Net_App.View.Listener
         {
 
         }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

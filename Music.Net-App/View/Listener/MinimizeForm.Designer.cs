@@ -37,6 +37,7 @@
             this.Button_Forward = new FontAwesome.Sharp.IconButton();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.MusicPlayer = new AxWMPLib.AxWindowsMediaPlayer();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MusicPlayer)).BeginInit();
             this.SuspendLayout();
@@ -51,13 +52,14 @@
             // 
             this.panel3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel3.BackColor = System.Drawing.Color.DimGray;
+            this.panel3.Controls.Add(this.iconButton1);
             this.panel3.Controls.Add(this.Button_Play);
             this.panel3.Controls.Add(this.Button_Backward);
             this.panel3.Controls.Add(this.Button_Forward);
-            this.panel3.Location = new System.Drawing.Point(2, 337);
+            this.panel3.Location = new System.Drawing.Point(2, 341);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(395, 51);
+            this.panel3.Size = new System.Drawing.Size(395, 59);
             this.panel3.TabIndex = 9;
             // 
             // Button_Play
@@ -71,7 +73,7 @@
             this.Button_Play.IconColor = System.Drawing.Color.White;
             this.Button_Play.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.Button_Play.IconSize = 30;
-            this.Button_Play.Location = new System.Drawing.Point(174, 1);
+            this.Button_Play.Location = new System.Drawing.Point(174, 5);
             this.Button_Play.Name = "Button_Play";
             this.Button_Play.Size = new System.Drawing.Size(53, 42);
             this.Button_Play.TabIndex = 0;
@@ -87,7 +89,7 @@
             this.Button_Backward.IconColor = System.Drawing.Color.White;
             this.Button_Backward.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.Button_Backward.IconSize = 30;
-            this.Button_Backward.Location = new System.Drawing.Point(112, 1);
+            this.Button_Backward.Location = new System.Drawing.Point(112, 5);
             this.Button_Backward.Name = "Button_Backward";
             this.Button_Backward.Size = new System.Drawing.Size(56, 44);
             this.Button_Backward.TabIndex = 1;
@@ -102,7 +104,7 @@
             this.Button_Forward.IconColor = System.Drawing.Color.White;
             this.Button_Forward.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.Button_Forward.IconSize = 30;
-            this.Button_Forward.Location = new System.Drawing.Point(223, -1);
+            this.Button_Forward.Location = new System.Drawing.Point(223, 3);
             this.Button_Forward.Name = "Button_Forward";
             this.Button_Forward.Size = new System.Drawing.Size(56, 44);
             this.Button_Forward.TabIndex = 1;
@@ -127,6 +129,21 @@
             this.MusicPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("MusicPlayer.OcxState")));
             this.MusicPlayer.Size = new System.Drawing.Size(395, 168);
             this.MusicPlayer.TabIndex = 8;
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.FlatAppearance.BorderSize = 0;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.ExpandAlt;
+            this.iconButton1.IconColor = System.Drawing.Color.White;
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.IconSize = 30;
+            this.iconButton1.Location = new System.Drawing.Point(302, 9);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(84, 38);
+            this.iconButton1.TabIndex = 2;
+            this.iconButton1.UseVisualStyleBackColor = true;
+            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
             // 
             // MinimizeForm
             // 
@@ -157,5 +174,6 @@
         private FontAwesome.Sharp.IconButton Button_Forward;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
         private AxWMPLib.AxWindowsMediaPlayer MusicPlayer;
+        private FontAwesome.Sharp.IconButton iconButton1;
     }
 }
