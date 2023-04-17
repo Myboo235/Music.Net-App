@@ -226,5 +226,6 @@ namespace Music.Net_App.View
             panel4.Visible= true;
             panel4.BringToFront();
         }
+
     }
 }
