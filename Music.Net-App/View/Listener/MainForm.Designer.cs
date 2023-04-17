@@ -44,6 +44,10 @@
             this.UserNav = new System.Windows.Forms.Panel();
             this.Button_User = new FontAwesome.Sharp.IconButton();
             this.NavForm = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.iconButton4 = new FontAwesome.Sharp.IconButton();
+            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.PlayBar = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.Button_Add = new FontAwesome.Sharp.IconButton();
@@ -62,19 +66,18 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.Button_LogOut = new FontAwesome.Sharp.IconButton();
             this.MainBackGround = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.iconButton3 = new FontAwesome.Sharp.IconButton();
             this.ContactBar.SuspendLayout();
             this.panel2.SuspendLayout();
             this.MainLayout.SuspendLayout();
             this.NavBar.SuspendLayout();
             this.NavForm.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.PlayBar.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MusicPlayer)).BeginInit();
             this.MenuBar.SuspendLayout();
             this.MainBackGround.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // ContactBar
@@ -283,6 +286,81 @@
             this.NavForm.Size = new System.Drawing.Size(703, 520);
             this.NavForm.TabIndex = 10;
             this.NavForm.Resize += new System.EventHandler(this.FormMainMenu_Resize);
+            // 
+            // panel4
+            // 
+            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(83)))), ((int)(((byte)(83)))));
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.iconButton3);
+            this.panel4.Controls.Add(this.iconButton4);
+            this.panel4.Controls.Add(this.iconButton2);
+            this.panel4.Controls.Add(this.iconButton1);
+            this.panel4.Location = new System.Drawing.Point(481, 3);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(220, 256);
+            this.panel4.TabIndex = 0;
+            this.panel4.Visible = false;
+            // 
+            // iconButton4
+            // 
+            this.iconButton4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconButton4.FlatAppearance.BorderSize = 0;
+            this.iconButton4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
+            this.iconButton4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.iconButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton4.Font = new System.Drawing.Font("Segoe UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton4.ForeColor = System.Drawing.Color.White;
+            this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconButton4.IconColor = System.Drawing.Color.Black;
+            this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton4.Location = new System.Drawing.Point(-1, 131);
+            this.iconButton4.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.iconButton4.Name = "iconButton4";
+            this.iconButton4.Size = new System.Drawing.Size(221, 58);
+            this.iconButton4.TabIndex = 0;
+            this.iconButton4.Text = "Setting";
+            this.iconButton4.UseVisualStyleBackColor = true;
+            // 
+            // iconButton2
+            // 
+            this.iconButton2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconButton2.FlatAppearance.BorderSize = 0;
+            this.iconButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
+            this.iconButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton2.Font = new System.Drawing.Font("Segoe UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton2.ForeColor = System.Drawing.Color.White;
+            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconButton2.IconColor = System.Drawing.Color.Black;
+            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton2.Location = new System.Drawing.Point(-1, -4);
+            this.iconButton2.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.iconButton2.Name = "iconButton2";
+            this.iconButton2.Size = new System.Drawing.Size(221, 65);
+            this.iconButton2.TabIndex = 0;
+            this.iconButton2.Text = "Account";
+            this.iconButton2.UseVisualStyleBackColor = true;
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconButton1.FlatAppearance.BorderSize = 0;
+            this.iconButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
+            this.iconButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.Font = new System.Drawing.Font("Segoe UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton1.ForeColor = System.Drawing.Color.White;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconButton1.IconColor = System.Drawing.Color.Black;
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.Location = new System.Drawing.Point(-1, 67);
+            this.iconButton1.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(221, 58);
+            this.iconButton1.TabIndex = 0;
+            this.iconButton1.Text = "Profile";
+            this.iconButton1.UseVisualStyleBackColor = true;
             // 
             // PlayBar
             // 
@@ -585,23 +663,25 @@
             this.MainBackGround.Size = new System.Drawing.Size(1223, 773);
             this.MainBackGround.TabIndex = 2;
             // 
-            // panel4
+            // iconButton3
             // 
-            this.panel4.Controls.Add(this.button1);
-            this.panel4.Location = new System.Drawing.Point(501, 3);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(200, 100);
-            this.panel4.TabIndex = 0;
-            this.panel4.Visible = false;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(20, 21);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(154, 48);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.iconButton3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconButton3.FlatAppearance.BorderSize = 0;
+            this.iconButton3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
+            this.iconButton3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton3.Font = new System.Drawing.Font("Segoe UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton3.ForeColor = System.Drawing.Color.White;
+            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconButton3.IconColor = System.Drawing.Color.Black;
+            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton3.Location = new System.Drawing.Point(-1, 195);
+            this.iconButton3.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.iconButton3.Name = "iconButton3";
+            this.iconButton3.Size = new System.Drawing.Size(221, 58);
+            this.iconButton3.TabIndex = 0;
+            this.iconButton3.Text = "Log out";
+            this.iconButton3.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -623,12 +703,12 @@
             this.MainLayout.ResumeLayout(false);
             this.NavBar.ResumeLayout(false);
             this.NavForm.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
             this.PlayBar.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.MusicPlayer)).EndInit();
             this.MenuBar.ResumeLayout(false);
             this.MainBackGround.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -669,6 +749,9 @@
         private FontAwesome.Sharp.IconButton Button_Add;
         private FontAwesome.Sharp.IconButton Button_Compress;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button button1;
+        private FontAwesome.Sharp.IconButton iconButton4;
+        private FontAwesome.Sharp.IconButton iconButton2;
+        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton iconButton3;
     }
 }

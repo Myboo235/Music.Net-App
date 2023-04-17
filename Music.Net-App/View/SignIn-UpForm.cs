@@ -30,7 +30,7 @@ namespace Music.Net_App.View
         {
             if(Button_SignUp.Text == "SIGN UP")
             {
-                label1.Text = "Sign up for free \nMuzira account";
+                label1.Text = "Sign up for free\nMuzira account";
                 label4.Visible = false;
                 guna2TextBox3.Visible = true;
                 guna2Button1.Text = "SIGN UP";
