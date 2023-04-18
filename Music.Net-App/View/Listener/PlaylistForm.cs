@@ -70,7 +70,7 @@ namespace Music.Net_App.View
 
         private void PlaylistForm_Resize(object sender, EventArgs e)
         {
-            flowLayoutPanel3.Width = this.Width-10;
+            flowLayoutPanel3.Width = this.Width-9;
             flowLayoutPanel3.Height = this.Height - 10;
         }
     }
