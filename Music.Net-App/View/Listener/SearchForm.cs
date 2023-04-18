@@ -22,9 +22,9 @@ namespace Music.Net_App.View
         int w;
         private void SearchForm_Resize(object sender, EventArgs e)
         {
-            flowLayoutPanel2.Width = this.Width;
+            flowLayoutPanel2.Width = this.Width-9;
             guna2TextBox1.Size = new Size(this.Width - 280, 47);
-            flowLayoutPanel3.Width= this.Width;
+            flowLayoutPanel3.Width= this.Width-21;
             //flowLayoutPanel3.Height= this.Height-150;
             /*if (tb!=null)
             {
