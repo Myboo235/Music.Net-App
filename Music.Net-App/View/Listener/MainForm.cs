@@ -58,7 +58,7 @@ namespace Music.Net_App.View
             panel1.Height = MenuBar.Height -48*5 -70 ;
             NavBar.Width = MainLayout.Width;
 
-            NavForm.Width = MainLayout.Width-6;
+            NavForm.Width = MainLayout.Width;
             NavForm.Height = MainLayout.Height - PlayBar.Height - NavBar.Height -10;
  
             PlayBar.Width= MainLayout.Width-10;
@@ -227,5 +227,11 @@ namespace Music.Net_App.View
             panel4.BringToFront();
         }
 
+        private void Button_Profile_Click(object sender, EventArgs e)
+        {
+            if (currentChildForm.GetType().Name.ToString() != "ProfileForm")
+                OpenChildForm(new ProfileForm());
+            resize();
+        }
     }
 }
