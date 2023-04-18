@@ -93,16 +93,6 @@
     <Compile Include="BLL\PlaylistBLL.cs" />
     <Compile Include="BLL\SongBLL.cs" />
     <Compile Include="BLL\UserBLL.cs" />
-    <Compile Include="DAL\MusicAppModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MusicAppModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\MusicAppModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MusicAppModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\Listener\AccountForm.cs">
@@ -205,13 +195,6 @@
     <EmbeddedResource Include="View\WelcomeForm.resx">
       <DependentUpon>WelcomeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="DAL\MusicAppModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MusicAppModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="DAL\MusicAppModel.edmx.diagram">
-      <DependentUpon>MusicAppModel.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -256,10 +239,6 @@
     <Content Include="Assets\Musics\y2mate.com - DVRST  CLOSE EYES.mp3" />
     <Content Include="Assets\Videos\video.mp4" />
     <Content Include="DAL\Huy\Huy.txt" />
-    <Content Include="DAL\MusicAppModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>MusicAppModel.Context.cs</LastGenOutput>
-    </Content>
     <Content Include="DAL\Viet\Viet.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
