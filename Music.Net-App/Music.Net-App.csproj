@@ -137,13 +137,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\Listener\HomeForm.Designer.cs">
-      <DependentUpon>HomeForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\Listener\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Listener\MainForm.Designer.cs">
+    <Compile Include="View\Listener\MainForm.designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Listener\MinimizeForm.cs">
@@ -188,6 +185,9 @@
     <Compile Include="View\WelcomeForm.Designer.cs">
       <DependentUpon>WelcomeForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="DAL\Viet\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -275,8 +275,8 @@
     <Content Include="DAL\Huy\Huy.txt" />
     <Content Include="DAL\Viet\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
       <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
     </Content>
     <Content Include="DAL\Viet\Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

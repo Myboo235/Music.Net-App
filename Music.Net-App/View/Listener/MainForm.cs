@@ -29,13 +29,15 @@ namespace Music.Net_App.View
         {
             InitializeComponent();
             /*HomeLayout.Controls.Clear();*/
-            currentChildForm =new MainForm();
-            OpenChildForm(new MainForm());
+
             resize();
             MusicPlayer.URL = directory + @"\Assets\Musics\y2mate.com - DVRST  CLOSE EYES.mp3";
             MusicPlayer.Ctlcontrols.stop();
             
             this.FormBorderStyle = FormBorderStyle.None;
+            customizeDesing();
+            currentChildForm = new HomeForm();
+            OpenChildForm(new HomeForm());
         }
 
         private void LeftBar_MouseHover(object sender, EventArgs e)
@@ -180,7 +182,7 @@ namespace Music.Net_App.View
         private void Button_Home_Click(object sender, EventArgs e)
         {
             if(currentChildForm.GetType().Name.ToString() != "HomeForm")
-                OpenChildForm(new HomeForm());
+                OpenChildForm(new MainForm());
             resize();
         }
 
@@ -219,6 +221,45 @@ namespace Music.Net_App.View
         {
          /*   FormAccount formAccount = new FormAccount();
             formAccount.ShowDialog();*/
+        }
+
+        private void Button_User_Click(object sender, EventArgs e)
+        {
+
+            panelUser.Visible = true;
+           
+
+
+        }
+
+
+
+
+        private void customizeDesing()
+        {
+            
+            panelUser.Visible = false;
+
+        } 
+   
+
+        private void iconButtonAccount_Click(object sender, EventArgs e)
+        {
+            FormAccount f2 = new FormAccount();
+            f2.ShowDialog();
+        }
+
+        private void iconButtonLogout_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Do you want logout", "Logout", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Close();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                //do something else
+            }
         }
     }
 }

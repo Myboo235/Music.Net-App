@@ -4,29 +4,34 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="08a997ea90ee4d8f93961bda5269c3a5" Name="Diagram1">
-        <EntityTypeShape EntityType="MusicNetAppModel.Album" Width="1.5" PointX="5.25" PointY="7" IsExpanded="true" />
-        <EntityTypeShape EntityType="MusicNetAppModel.AlbumSong" Width="1.5" PointX="7.5" PointY="13.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="MusicNetAppModel.Artist" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
-        <EntityTypeShape EntityType="MusicNetAppModel.Country" Width="1.5" PointX="0.75" PointY="9.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="MusicNetAppModel.Genre" Width="1.5" PointX="6" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="MusicNetAppModel.Listener" Width="1.5" PointX="3" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MusicNetAppModel.ListeningHistory" Width="1.5" PointX="5.25" PointY="11.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="MusicNetAppModel.Playlist" Width="1.5" PointX="8.25" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MusicNetAppModel.PlaylistSong" Width="1.5" PointX="10.5" PointY="9.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="MusicNetAppModel.Single" Width="1.5" PointX="8.25" PointY="5.125" IsExpanded="true" />
+      <Diagram DiagramId="4bd0314725de4a93aa3b63d70197ad97" Name="Diagram1" ZoomLevel="55">
+        <EntityTypeShape EntityType="MusicNetAppModel.Album" Width="1.5" PointX="5.25" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicNetAppModel.AlbumSong" Width="1.5" PointX="7.5" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicNetAppModel.Artist" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicNetAppModel.Country" Width="1.5" PointX="0.75" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicNetAppModel.Genre" Width="1.5" PointX="6" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicNetAppModel.Listener" Width="1.5" PointX="3" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicNetAppModel.ListeningHistory" Width="1.5" PointX="5.25" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicNetAppModel.Playlist" Width="1.5" PointX="8.25" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicNetAppModel.PlaylistSong" Width="1.5" PointX="10.5" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicNetAppModel.Single" Width="1.5" PointX="8.25" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicNetAppModel.Song" Width="1.5" PointX="5.25" PointY="23.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicNetAppModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="MusicNetAppModel.FK__Album__ArtistID__47DBAE45" ManuallyRouted="false" />
         <AssociationConnector Association="MusicNetAppModel.FK__Album__GenreID__46E78A0C" ManuallyRouted="false" />
         <AssociationConnector Association="MusicNetAppModel.FK__AlbumSong__Album__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="MusicNetAppModel.FK__AlbumSong__SongI__52593CB8" ManuallyRouted="false" />
         <AssociationConnector Association="MusicNetAppModel.FK__Artists__Country__3D5E1FD2" ManuallyRouted="false" />
         <AssociationConnector Association="MusicNetAppModel.FK__Listening__Artis__5812160E" ManuallyRouted="false" />
         <AssociationConnector Association="MusicNetAppModel.FK__Playlist__Artist__440B1D61" ManuallyRouted="false" />
         <AssociationConnector Association="MusicNetAppModel.FK__Single__ArtistID__4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="MusicNetAppModel.FK__Song__ArtistID__403A8C7D" ManuallyRouted="false" />
         <AssociationConnector Association="MusicNetAppModel.FK__Listeners__Count__3A81B327" ManuallyRouted="false" />
         <AssociationConnector Association="MusicNetAppModel.FK__Single__GenreID__4BAC3F29" ManuallyRouted="false" />
         <AssociationConnector Association="MusicNetAppModel.FK__Listening__Liste__571DF1D5" ManuallyRouted="false" />
         <AssociationConnector Association="MusicNetAppModel.FK__Playlist__Listen__4316F928" ManuallyRouted="false" />
         <AssociationConnector Association="MusicNetAppModel.FK__PlaylistS__Playl__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="MusicNetAppModel.FK__PlaylistS__SongI__4F7CD00D" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

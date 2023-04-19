@@ -8,7 +8,6 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace Music.Net_App.View
 {
     public partial class SearchForm : Form
@@ -39,8 +38,17 @@ namespace Music.Net_App.View
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
+            String[] s = new String[5] {
 
-            for (int i = 0; i < 10; i++)
+            "Classical",
+            "Electronic",
+            "Hip-Hop",
+            "Pop",
+            "Rock"
+
+            };
+
+            for (int i = 0; i < 5; i++)
             {
                 PictureBox t = new PictureBox();
                 tb.Add(t);
@@ -50,13 +58,19 @@ namespace Music.Net_App.View
 
                 string directory = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug\", "");
                 t.Image = Image.FromFile(directory + @"\Assets\Images\Song-icon.jpg");
-                
+
                 t.SizeMode = PictureBoxSizeMode.CenterImage;
                 t.Anchor = AnchorStyles.None;
+                  Graphics g = Graphics.FromImage(t.Image);
+         g.DrawString(s[i], new Font("Tahoma", 12), Brushes.Black, new Point(90, 185));
 
                 flowLayoutPanel3.Controls.Add(t);
             }
         }
+
+
+        /*  Graphics g = Graphics.FromImage(t.Image);
+            g.DrawString(s[i], new Font("Tahoma", 30), Brushes.White, new PointF(80, 80));*/
 
     }
 }

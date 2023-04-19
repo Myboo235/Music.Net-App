@@ -21,5 +21,6 @@ namespace Music.Net_App.DAL.Viet
         public Nullable<System.DateTime> DateAdded { get; set; }
     
         public virtual Playlist Playlist { get; set; }
+        public virtual Song Song { get; set; }
     }
 }

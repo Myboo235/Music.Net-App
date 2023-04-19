@@ -43,6 +43,7 @@
             this.Button_Next = new FontAwesome.Sharp.IconButton();
             this.UserNav = new System.Windows.Forms.Panel();
             this.Button_User = new FontAwesome.Sharp.IconButton();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.NavForm = new System.Windows.Forms.Panel();
             this.PlayBar = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -68,9 +69,9 @@
             this.NavBar.SuspendLayout();
             this.PlayBar.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MusicPlayer)).BeginInit();
             this.MenuBar.SuspendLayout();
             this.MainBackGround.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MusicPlayer)).BeginInit();
             this.SuspendLayout();
             // 
             // ContactBar
@@ -209,6 +210,7 @@
             this.NavBar.Controls.Add(this.Button_Next);
             this.NavBar.Controls.Add(this.UserNav);
             this.NavBar.Controls.Add(this.Button_User);
+            this.NavBar.Controls.Add(this.panel4);
             this.NavBar.Location = new System.Drawing.Point(3, 3);
             this.NavBar.Name = "NavBar";
             this.NavBar.Size = new System.Drawing.Size(698, 58);
@@ -246,7 +248,7 @@
             this.UserNav.Location = new System.Drawing.Point(112, 0);
             this.UserNav.Margin = new System.Windows.Forms.Padding(0);
             this.UserNav.Name = "UserNav";
-            this.UserNav.Size = new System.Drawing.Size(486, 48);
+            this.UserNav.Size = new System.Drawing.Size(489, 48);
             this.UserNav.TabIndex = 2;
             // 
             // Button_User
@@ -259,10 +261,10 @@
             this.Button_User.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.Button_User.IconSize = 35;
             this.Button_User.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Button_User.Location = new System.Drawing.Point(598, 0);
+            this.Button_User.Location = new System.Drawing.Point(601, 0);
             this.Button_User.Margin = new System.Windows.Forms.Padding(0);
             this.Button_User.Name = "Button_User";
-            this.Button_User.Size = new System.Drawing.Size(90, 45);
+            this.Button_User.Size = new System.Drawing.Size(96, 45);
             this.Button_User.TabIndex = 0;
             this.Button_User.Text = "User";
             this.Button_User.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -596,14 +598,13 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1223, 773);
             this.Controls.Add(this.MainBackGround);
-            this.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+ //           this.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HelpButton = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(1200, 791);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
-     
             this.Resize += new System.EventHandler(this.FormMainMenu_Resize);
             this.ContactBar.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -611,9 +612,9 @@
             this.NavBar.ResumeLayout(false);
             this.PlayBar.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.MusicPlayer)).EndInit();
             this.MenuBar.ResumeLayout(false);
             this.MainBackGround.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.MusicPlayer)).EndInit();
             this.ResumeLayout(false);
 
         }
