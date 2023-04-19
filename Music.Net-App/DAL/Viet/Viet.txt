@@ -1,1 +1,1 @@
-﻿
+﻿Làm những phần liên quan tới bảng Listener join vs mấy bảng khác

@@ -45,13 +45,16 @@
             // 
             // HomeLayout
             // 
+            this.HomeLayout.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.HomeLayout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.HomeLayout.Controls.Add(this.VideoPanel);
             this.HomeLayout.Controls.Add(this.RecentPlayed);
             this.HomeLayout.Controls.Add(this.TopMixes);
             this.HomeLayout.Location = new System.Drawing.Point(0, 6);
+            this.HomeLayout.Margin = new System.Windows.Forms.Padding(0);
             this.HomeLayout.Name = "HomeLayout";
-            this.HomeLayout.Size = new System.Drawing.Size(688, 523);
+            this.HomeLayout.Size = new System.Drawing.Size(879, 523);
             this.HomeLayout.TabIndex = 3;
             // 
             // VideoPanel
@@ -59,7 +62,7 @@
             this.VideoPanel.Controls.Add(this.IntroVideo);
             this.VideoPanel.Location = new System.Drawing.Point(3, 3);
             this.VideoPanel.Name = "VideoPanel";
-            this.VideoPanel.Size = new System.Drawing.Size(697, 139);
+            this.VideoPanel.Size = new System.Drawing.Size(697, 362);
             this.VideoPanel.TabIndex = 4;
             // 
             // IntroVideo
@@ -68,13 +71,13 @@
             this.IntroVideo.Location = new System.Drawing.Point(3, 3);
             this.IntroVideo.Name = "IntroVideo";
             this.IntroVideo.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("IntroVideo.OcxState")));
-            this.IntroVideo.Size = new System.Drawing.Size(694, 314);
+            this.IntroVideo.Size = new System.Drawing.Size(688, 404);
             this.IntroVideo.TabIndex = 0;
             // 
             // RecentPlayed
             // 
             this.RecentPlayed.Controls.Add(this.iconButton4);
-            this.RecentPlayed.Location = new System.Drawing.Point(3, 148);
+            this.RecentPlayed.Location = new System.Drawing.Point(3, 371);
             this.RecentPlayed.Name = "RecentPlayed";
             this.RecentPlayed.Size = new System.Drawing.Size(697, 55);
             this.RecentPlayed.TabIndex = 1;
@@ -99,8 +102,10 @@
             // 
             // TopMixes
             // 
+            this.TopMixes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TopMixes.Controls.Add(this.iconButton5);
-            this.TopMixes.Location = new System.Drawing.Point(3, 209);
+            this.TopMixes.Location = new System.Drawing.Point(3, 432);
             this.TopMixes.Name = "TopMixes";
             this.TopMixes.Size = new System.Drawing.Size(697, 55);
             this.TopMixes.TabIndex = 3;
@@ -128,8 +133,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.ClientSize = new System.Drawing.Size(696, 560);
+            this.ClientSize = new System.Drawing.Size(878, 726);
             this.Controls.Add(this.HomeLayout);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "HomeForm";
             this.Text = "HomeForm";
             this.Resize += new System.EventHandler(this.HomeForm_Resize);
