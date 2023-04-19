@@ -43,7 +43,11 @@
             this.Button_Next = new FontAwesome.Sharp.IconButton();
             this.UserNav = new System.Windows.Forms.Panel();
             this.Button_User = new FontAwesome.Sharp.IconButton();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.NavForm = new System.Windows.Forms.Panel();
+            this.panelUser = new System.Windows.Forms.Panel();
+            this.iconButtonLogout = new FontAwesome.Sharp.IconButton();
+            this.iconButtonAccount = new FontAwesome.Sharp.IconButton();
             this.PlayBar = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.Button_Backward = new FontAwesome.Sharp.IconButton();
@@ -55,13 +59,15 @@
             this.Button_Home = new FontAwesome.Sharp.IconButton();
             this.Button_Search = new FontAwesome.Sharp.IconButton();
             this.Button_Playlist = new FontAwesome.Sharp.IconButton();
-            this.MainBackGround = new System.Windows.Forms.FlowLayoutPanel();
-            this.Button_LogOut = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Button_LogOut = new FontAwesome.Sharp.IconButton();
+            this.MainBackGround = new System.Windows.Forms.FlowLayoutPanel();
             this.ContactBar.SuspendLayout();
             this.panel2.SuspendLayout();
             this.MainLayout.SuspendLayout();
             this.NavBar.SuspendLayout();
+            this.NavForm.SuspendLayout();
+            this.panelUser.SuspendLayout();
             this.PlayBar.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MusicPlayer)).BeginInit();
@@ -205,6 +211,7 @@
             this.NavBar.Controls.Add(this.Button_Next);
             this.NavBar.Controls.Add(this.UserNav);
             this.NavBar.Controls.Add(this.Button_User);
+            this.NavBar.Controls.Add(this.panel4);
             this.NavBar.Location = new System.Drawing.Point(3, 3);
             this.NavBar.Name = "NavBar";
             this.NavBar.Size = new System.Drawing.Size(698, 58);
@@ -242,7 +249,7 @@
             this.UserNav.Location = new System.Drawing.Point(112, 0);
             this.UserNav.Margin = new System.Windows.Forms.Padding(0);
             this.UserNav.Name = "UserNav";
-            this.UserNav.Size = new System.Drawing.Size(486, 48);
+            this.UserNav.Size = new System.Drawing.Size(489, 48);
             this.UserNav.TabIndex = 2;
             // 
             // Button_User
@@ -255,10 +262,10 @@
             this.Button_User.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.Button_User.IconSize = 35;
             this.Button_User.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Button_User.Location = new System.Drawing.Point(598, 0);
+            this.Button_User.Location = new System.Drawing.Point(601, 0);
             this.Button_User.Margin = new System.Windows.Forms.Padding(0);
             this.Button_User.Name = "Button_User";
-            this.Button_User.Size = new System.Drawing.Size(90, 45);
+            this.Button_User.Size = new System.Drawing.Size(96, 45);
             this.Button_User.TabIndex = 0;
             this.Button_User.Text = "User";
             this.Button_User.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -266,14 +273,70 @@
             this.Button_User.UseVisualStyleBackColor = true;
             this.Button_User.Click += new System.EventHandler(this.Button_User_Click);
             // 
+            // panel4
+            // 
+            this.panel4.Location = new System.Drawing.Point(3, 54);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(108, 93);
+            this.panel4.TabIndex = 3;
+            // 
             // NavForm
             // 
+            this.NavForm.Controls.Add(this.panelUser);
             this.NavForm.Location = new System.Drawing.Point(0, 64);
             this.NavForm.Margin = new System.Windows.Forms.Padding(0);
             this.NavForm.Name = "NavForm";
             this.NavForm.Size = new System.Drawing.Size(703, 572);
             this.NavForm.TabIndex = 10;
             this.NavForm.Resize += new System.EventHandler(this.FormMainMenu_Resize);
+            // 
+            // panelUser
+            // 
+            this.panelUser.Controls.Add(this.iconButtonLogout);
+            this.panelUser.Controls.Add(this.iconButtonAccount);
+            this.panelUser.Location = new System.Drawing.Point(544, 3);
+            this.panelUser.Name = "panelUser";
+            this.panelUser.Size = new System.Drawing.Size(156, 112);
+            this.panelUser.TabIndex = 0;
+            // 
+            // iconButtonLogout
+            // 
+            this.iconButtonLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.iconButtonLogout.FlatAppearance.BorderSize = 0;
+            this.iconButtonLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButtonLogout.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButtonLogout.ForeColor = System.Drawing.Color.White;
+            this.iconButtonLogout.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconButtonLogout.IconColor = System.Drawing.Color.Black;
+            this.iconButtonLogout.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButtonLogout.IconSize = 35;
+            this.iconButtonLogout.Location = new System.Drawing.Point(72, 47);
+            this.iconButtonLogout.Name = "iconButtonLogout";
+            this.iconButtonLogout.Size = new System.Drawing.Size(75, 42);
+            this.iconButtonLogout.TabIndex = 1;
+            this.iconButtonLogout.Text = "Logout";
+            this.iconButtonLogout.UseVisualStyleBackColor = false;
+            this.iconButtonLogout.Click += new System.EventHandler(this.iconButtonLogout_Click);
+            // 
+            // iconButtonAccount
+            // 
+            this.iconButtonAccount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.iconButtonAccount.FlatAppearance.BorderSize = 0;
+            this.iconButtonAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButtonAccount.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButtonAccount.ForeColor = System.Drawing.Color.White;
+            this.iconButtonAccount.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconButtonAccount.IconColor = System.Drawing.Color.White;
+            this.iconButtonAccount.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButtonAccount.IconSize = 35;
+            this.iconButtonAccount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButtonAccount.Location = new System.Drawing.Point(72, 6);
+            this.iconButtonAccount.Name = "iconButtonAccount";
+            this.iconButtonAccount.Size = new System.Drawing.Size(79, 35);
+            this.iconButtonAccount.TabIndex = 0;
+            this.iconButtonAccount.Text = "Account";
+            this.iconButtonAccount.UseVisualStyleBackColor = false;
+            this.iconButtonAccount.Click += new System.EventHandler(this.iconButtonAccount_Click);
             // 
             // PlayBar
             // 
@@ -454,17 +517,14 @@
             this.Button_Playlist.UseVisualStyleBackColor = true;
             this.Button_Playlist.Click += new System.EventHandler(this.Button_Playlist_Click);
             // 
-            // MainBackGround
+            // panel1
             // 
-            this.MainBackGround.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.MainBackGround.Controls.Add(this.MenuBar);
-            this.MainBackGround.Controls.Add(this.MainLayout);
-            this.MainBackGround.Controls.Add(this.ContactBar);
-            this.MainBackGround.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainBackGround.Location = new System.Drawing.Point(0, 0);
-            this.MainBackGround.Name = "MainBackGround";
-            this.MainBackGround.Size = new System.Drawing.Size(1223, 773);
-            this.MainBackGround.TabIndex = 2;
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel1.Location = new System.Drawing.Point(3, 219);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(235, 463);
+            this.panel1.TabIndex = 6;
             // 
             // Button_LogOut
             // 
@@ -487,14 +547,17 @@
             this.Button_LogOut.UseVisualStyleBackColor = true;
             this.Button_LogOut.Click += new System.EventHandler(this.Button_LogOut_Click);
             // 
-            // panel1
+            // MainBackGround
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel1.Location = new System.Drawing.Point(3, 219);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(235, 463);
-            this.panel1.TabIndex = 6;
+            this.MainBackGround.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.MainBackGround.Controls.Add(this.MenuBar);
+            this.MainBackGround.Controls.Add(this.MainLayout);
+            this.MainBackGround.Controls.Add(this.ContactBar);
+            this.MainBackGround.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MainBackGround.Location = new System.Drawing.Point(0, 0);
+            this.MainBackGround.Name = "MainBackGround";
+            this.MainBackGround.Size = new System.Drawing.Size(1223, 773);
+            this.MainBackGround.TabIndex = 2;
             // 
             // MainForm
             // 
@@ -515,6 +578,8 @@
             this.panel2.ResumeLayout(false);
             this.MainLayout.ResumeLayout(false);
             this.NavBar.ResumeLayout(false);
+            this.NavForm.ResumeLayout(false);
+            this.panelUser.ResumeLayout(false);
             this.PlayBar.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.MusicPlayer)).EndInit();
@@ -555,5 +620,9 @@
         private System.Windows.Forms.Panel NavForm;
         private System.Windows.Forms.Panel panel1;
         private FontAwesome.Sharp.IconButton Button_LogOut;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panelUser;
+        private FontAwesome.Sharp.IconButton iconButtonLogout;
+        private FontAwesome.Sharp.IconButton iconButtonAccount;
     }
 }
