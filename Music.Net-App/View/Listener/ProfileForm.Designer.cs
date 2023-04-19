@@ -33,8 +33,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.guna2CustomGradientPanel1.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2CirclePictureBox1
@@ -104,18 +108,51 @@
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(952, 284);
             this.guna2CustomGradientPanel1.TabIndex = 2;
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.flowLayoutPanel1.Controls.Add(this.panel1);
+            this.flowLayoutPanel1.Controls.Add(this.guna2ShadowPanel1);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(4, 288);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(948, 427);
+            this.flowLayoutPanel1.TabIndex = 3;
+            // 
+            // guna2ShadowPanel1
+            // 
+            this.guna2ShadowPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ShadowPanel1.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.guna2ShadowPanel1.Location = new System.Drawing.Point(60, 3);
+            this.guna2ShadowPanel1.Name = "guna2ShadowPanel1";
+            this.guna2ShadowPanel1.Radius = 10;
+            this.guna2ShadowPanel1.ShadowColor = System.Drawing.Color.White;
+            this.guna2ShadowPanel1.ShadowDepth = 80;
+            this.guna2ShadowPanel1.ShadowShift = 20;
+            this.guna2ShadowPanel1.ShadowStyle = Guna.UI2.WinForms.Guna2ShadowPanel.ShadowMode.ForwardDiagonal;
+            this.guna2ShadowPanel1.Size = new System.Drawing.Size(203, 297);
+            this.guna2ShadowPanel1.TabIndex = 0;
+            // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(51, 100);
+            this.panel1.TabIndex = 1;
+            // 
             // ProfileForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(951, 705);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.guna2CustomGradientPanel1);
             this.Name = "ProfileForm";
             this.Text = "ProfileForm";
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             this.guna2CustomGradientPanel1.ResumeLayout(false);
             this.guna2CustomGradientPanel1.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -127,5 +164,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel1;
+        private System.Windows.Forms.Panel panel1;
     }
 }
