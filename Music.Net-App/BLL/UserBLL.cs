@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,7 +17,7 @@ namespace Music.Net_App.BLL
     public class UserBLL
     {
 
-        MusicNetAppEntities1 db = new MusicNetAppEntities1();
+       // MusicNetAppEntities1 db = new MusicNetAppEntities1();
         public bool Login(string username, string password)
         {
             var user = db.Listeners.Where(x => x.Name == username && x.Password == password).FirstOrDefault();
@@ -62,3 +62,4 @@ namespace Music.Net_App.BLL
     }
 }
 
+*/
