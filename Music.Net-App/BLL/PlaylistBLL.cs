@@ -8,5 +8,12 @@ namespace Music.Net_App.BLL
 {
     internal class PlaylistBLL
     {
+        //getAllPlaylist
+        //getPlaylistbyName
+        //getAllPlaylistofUser(id user)
+        //Get all song of Playlist(pl id)
+        //AddSongtoPlaylist(id)
+        //AddPlaylist
+        //ModifyPlaylist
     }
 }

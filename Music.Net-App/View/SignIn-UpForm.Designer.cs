@@ -158,6 +158,7 @@
             this.guna2Button1.TabIndex = 5;
             this.guna2Button1.Text = "Log In";
             this.guna2Button1.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // label2
             // 
