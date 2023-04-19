@@ -45,7 +45,7 @@ namespace Music.Net_App.View
                 PictureBox t = new PictureBox();
                 tb.Add(t);
                 t.Height = 200;
-                t.Width = 194 ;
+                t.Width = 340 ;
                 t.BackColor = Color.Red;
 
                 string directory = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug\", "");
