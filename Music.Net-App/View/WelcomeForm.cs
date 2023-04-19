@@ -22,7 +22,7 @@ namespace Music.Net_App.View
             pictureBox1.Image = Image.FromFile(directory + @"\Assets\Images\muzira-banner.png");
             pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage; 
         }
-
+    
         private void GetstartedButton_Click(object sender, EventArgs e)
         {
             Hide();

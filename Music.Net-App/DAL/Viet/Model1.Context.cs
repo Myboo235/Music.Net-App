@@ -13,10 +13,10 @@ namespace Music.Net_App.DAL.Viet
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class MusicNetAppEntities : DbContext
+    public partial class MusicNetAppEntities2 : DbContext
     {
-        public MusicNetAppEntities()
-            : base("name=MusicNetAppEntities")
+        public MusicNetAppEntities2()
+            : base("name=MusicNetAppEntities2")
         {
         }
     
@@ -35,5 +35,7 @@ namespace Music.Net_App.DAL.Viet
         public virtual DbSet<Playlist> Playlists { get; set; }
         public virtual DbSet<PlaylistSong> PlaylistSongs { get; set; }
         public virtual DbSet<Single> Singles { get; set; }
+        public virtual DbSet<Song> Songs { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }

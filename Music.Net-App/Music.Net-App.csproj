@@ -104,7 +104,7 @@
     <Compile Include="View\Listener\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Listener\MainForm.Designer.cs">
+    <Compile Include="View\Listener\MainForm.designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Listener\MinimizeForm.cs">
@@ -149,6 +149,9 @@
     <Compile Include="View\WelcomeForm.Designer.cs">
       <DependentUpon>WelcomeForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="DAL\Viet\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -208,7 +211,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Folder Include="BLL\" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="AxWMPLib">
@@ -239,8 +242,8 @@
     <Content Include="DAL\Huy\Huy.txt" />
     <Content Include="DAL\Viet\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
       <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
     </Content>
     <Content Include="DAL\Viet\Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
