@@ -24,5 +24,6 @@ namespace Music.Net_App.View.Listener
         {
             return (Image)(new Bitmap(imgToResize, size));
         }
+
     }
 }
