@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Music.Net_App.DAL.Viet;
 using Music.Net_App.View;
 using Music.Net_App.View.Listener;
 
@@ -19,7 +19,8 @@ namespace Music.Net_App
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new WelcomeForm());
+            Application.Run(new FormAccount());
         }
     }
+
 }

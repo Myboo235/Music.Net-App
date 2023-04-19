@@ -43,6 +43,7 @@
             this.Button_Next = new FontAwesome.Sharp.IconButton();
             this.UserNav = new System.Windows.Forms.Panel();
             this.Button_User = new FontAwesome.Sharp.IconButton();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.NavForm = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
@@ -67,6 +68,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.Button_LogOut = new FontAwesome.Sharp.IconButton();
             this.MainBackGround = new System.Windows.Forms.FlowLayoutPanel();
+            this.MusicPlayer = new AxWMPLib.AxWindowsMediaPlayer();
             this.ContactBar.SuspendLayout();
             this.panel2.SuspendLayout();
             this.MainLayout.SuspendLayout();
@@ -216,6 +218,7 @@
             this.NavBar.Controls.Add(this.Button_Next);
             this.NavBar.Controls.Add(this.UserNav);
             this.NavBar.Controls.Add(this.Button_User);
+            this.NavBar.Controls.Add(this.panel4);
             this.NavBar.Location = new System.Drawing.Point(3, 3);
             this.NavBar.Name = "NavBar";
             this.NavBar.Size = new System.Drawing.Size(698, 58);
@@ -253,7 +256,7 @@
             this.UserNav.Location = new System.Drawing.Point(112, 0);
             this.UserNav.Margin = new System.Windows.Forms.Padding(0);
             this.UserNav.Name = "UserNav";
-            this.UserNav.Size = new System.Drawing.Size(486, 48);
+            this.UserNav.Size = new System.Drawing.Size(489, 48);
             this.UserNav.TabIndex = 2;
             // 
             // Button_User
@@ -266,10 +269,10 @@
             this.Button_User.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.Button_User.IconSize = 35;
             this.Button_User.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Button_User.Location = new System.Drawing.Point(598, 0);
+            this.Button_User.Location = new System.Drawing.Point(601, 0);
             this.Button_User.Margin = new System.Windows.Forms.Padding(0);
             this.Button_User.Name = "Button_User";
-            this.Button_User.Size = new System.Drawing.Size(90, 45);
+            this.Button_User.Size = new System.Drawing.Size(96, 45);
             this.Button_User.TabIndex = 0;
             this.Button_User.Text = "User";
             this.Button_User.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -685,6 +688,15 @@
             this.MainBackGround.Size = new System.Drawing.Size(1223, 773);
             this.MainBackGround.TabIndex = 2;
             // 
+            // MusicPlayer
+            // 
+            this.MusicPlayer.Enabled = true;
+            this.MusicPlayer.Location = new System.Drawing.Point(205, 0);
+            this.MusicPlayer.Name = "MusicPlayer";
+            this.MusicPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("MusicPlayer.OcxState")));
+            this.MusicPlayer.Size = new System.Drawing.Size(477, 138);
+            this.MusicPlayer.TabIndex = 7;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
@@ -692,7 +704,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1223, 773);
             this.Controls.Add(this.MainBackGround);
-            this.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+ //           this.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HelpButton = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(1200, 791);

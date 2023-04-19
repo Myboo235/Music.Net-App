@@ -24,6 +24,7 @@ namespace Music.Net_App.View
             InitializeComponent();
             pictureBox1.Image = resizeImage(Image.FromFile(directory + @"\Assets\Images\muzira-banner.png"), new Size(150, 100));
             pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
+
         }
 
         private void Button_SignUp_Click(object sender, EventArgs e)
@@ -36,6 +37,8 @@ namespace Music.Net_App.View
                 guna2Button1.Text = "SIGN UP";
                 label2.Text = "Already have an account. ";
                 Button_SignUp.Text = "SIGN IN";
+                MainForm mainForm = new MainForm();
+                mainForm.Show();
             }
             else
             {
@@ -46,6 +49,9 @@ namespace Music.Net_App.View
                 label2.Text = "Don't have an account ?";
                 Button_SignUp.Text = "SIGN UP";
             }
+
+
+     
 
         }
     }
