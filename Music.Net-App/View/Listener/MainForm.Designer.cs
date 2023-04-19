@@ -43,14 +43,14 @@
             this.Button_Next = new FontAwesome.Sharp.IconButton();
             this.UserNav = new System.Windows.Forms.Panel();
             this.Button_User = new FontAwesome.Sharp.IconButton();
-            this.panel4 = new System.Windows.Forms.Panel();
+     //       this.panel4 = new System.Windows.Forms.Panel();
             this.NavForm = new System.Windows.Forms.Panel();
             this.PlayBar = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.Button_Add = new FontAwesome.Sharp.IconButton();
+  /*          this.Button_Add = new FontAwesome.Sharp.IconButton();
             this.Button_Compress = new FontAwesome.Sharp.IconButton();
             this.Button_Random = new FontAwesome.Sharp.IconButton();
-            this.Button_Repeat = new FontAwesome.Sharp.IconButton();
+            this.Button_Repeat = new FontAwesome.Sharp.IconButton();*/
             this.Button_Play = new FontAwesome.Sharp.IconButton();
             this.Button_Backward = new FontAwesome.Sharp.IconButton();
             this.Button_Forward = new FontAwesome.Sharp.IconButton();
@@ -210,7 +210,7 @@
             this.NavBar.Controls.Add(this.Button_Next);
             this.NavBar.Controls.Add(this.UserNav);
             this.NavBar.Controls.Add(this.Button_User);
-            this.NavBar.Controls.Add(this.panel4);
+      //      this.NavBar.Controls.Add(this.panel4);
             this.NavBar.Location = new System.Drawing.Point(3, 3);
             this.NavBar.Name = "NavBar";
             this.NavBar.Size = new System.Drawing.Size(698, 58);
@@ -270,7 +270,7 @@
             this.Button_User.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Button_User.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.Button_User.UseVisualStyleBackColor = true;
-            this.Button_User.Click += new System.EventHandler(this.Button_User_Click);
+         //   this.Button_User.Click += new System.EventHandler(this.Button_User_Click);
             // 
             // NavForm
             // 
@@ -300,10 +300,10 @@
             // 
             this.panel3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel3.BackColor = System.Drawing.Color.Transparent;
-            this.panel3.Controls.Add(this.Button_Add);
+       /*     this.panel3.Controls.Add(this.Button_Add);
             this.panel3.Controls.Add(this.Button_Compress);
             this.panel3.Controls.Add(this.Button_Random);
-            this.panel3.Controls.Add(this.Button_Repeat);
+            this.panel3.Controls.Add(this.Button_Repeat);*/
             this.panel3.Controls.Add(this.Button_Play);
             this.panel3.Controls.Add(this.Button_Backward);
             this.panel3.Controls.Add(this.Button_Forward);
@@ -315,7 +315,7 @@
             // 
             // Button_Add
             // 
-            this.Button_Add.FlatAppearance.BorderSize = 0;
+       /*     this.Button_Add.FlatAppearance.BorderSize = 0;
             this.Button_Add.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.Button_Add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Button_Add.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
@@ -326,11 +326,11 @@
             this.Button_Add.Name = "Button_Add";
             this.Button_Add.Size = new System.Drawing.Size(77, 32);
             this.Button_Add.TabIndex = 4;
-            this.Button_Add.UseVisualStyleBackColor = true;
+            this.Button_Add.UseVisualStyleBackColor = true;*/
             // 
             // Button_Compress
             // 
-            this.Button_Compress.Anchor = System.Windows.Forms.AnchorStyles.None;
+       /*     this.Button_Compress.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Button_Compress.FlatAppearance.BorderSize = 0;
             this.Button_Compress.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.Button_Compress.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -344,10 +344,10 @@
             this.Button_Compress.TabIndex = 3;
             this.Button_Compress.UseVisualStyleBackColor = true;
             this.Button_Compress.Click += new System.EventHandler(this.Button_Compress_Click);
-            // 
+            // */
             // Button_Random
             // 
-            this.Button_Random.Anchor = System.Windows.Forms.AnchorStyles.None;
+         /*   this.Button_Random.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Button_Random.BackColor = System.Drawing.Color.Transparent;
             this.Button_Random.FlatAppearance.BorderSize = 0;
             this.Button_Random.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -377,7 +377,7 @@
             this.Button_Repeat.Name = "Button_Repeat";
             this.Button_Repeat.Size = new System.Drawing.Size(76, 32);
             this.Button_Repeat.TabIndex = 2;
-            this.Button_Repeat.UseVisualStyleBackColor = false;
+            this.Button_Repeat.UseVisualStyleBackColor = false;*/
             // 
             // Button_Play
             // 

@@ -35,7 +35,6 @@ namespace Music.Net_App.View
             MusicPlayer.Ctlcontrols.stop();
             
             this.FormBorderStyle = FormBorderStyle.None;
-            customizeDesing();
             currentChildForm = new HomeForm();
             OpenChildForm(new HomeForm());
         }
@@ -217,37 +216,9 @@ namespace Music.Net_App.View
             resize();
         }
 
-        private void Button_User_Click(object sender, EventArgs e)
-        {
-         /*   FormAccount formAccount = new FormAccount();
-            formAccount.ShowDialog();*/
-        }
-
-        private void Button_User_Click(object sender, EventArgs e)
-        {
-
-            panelUser.Visible = true;
-           
-
-
-        }
 
 
 
-
-        private void customizeDesing()
-        {
-            
-            panelUser.Visible = false;
-
-        } 
-   
-
-        private void iconButtonAccount_Click(object sender, EventArgs e)
-        {
-            FormAccount f2 = new FormAccount();
-            f2.ShowDialog();
-        }
 
         private void iconButtonLogout_Click(object sender, EventArgs e)
         {
