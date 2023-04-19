@@ -37,13 +37,16 @@
             // 
             // HomeLayout
             // 
+            this.HomeLayout.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.HomeLayout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.HomeLayout.Controls.Add(this.VideoPanel);
             this.HomeLayout.Controls.Add(this.RecentPlayed);
             this.HomeLayout.Controls.Add(this.TopMixes);
             this.HomeLayout.Location = new System.Drawing.Point(0, 6);
+            this.HomeLayout.Margin = new System.Windows.Forms.Padding(0);
             this.HomeLayout.Name = "HomeLayout";
-            this.HomeLayout.Size = new System.Drawing.Size(688, 523);
+            this.HomeLayout.Size = new System.Drawing.Size(879, 523);
             this.HomeLayout.TabIndex = 3;
             // 
             // VideoPanel
@@ -60,7 +63,7 @@
             this.IntroVideo.Location = new System.Drawing.Point(3, 3);
             this.IntroVideo.Name = "IntroVideo";
             this.IntroVideo.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("IntroVideo.OcxState")));
-            this.IntroVideo.Size = new System.Drawing.Size(694, 465);
+            this.IntroVideo.Size = new System.Drawing.Size(688, 404);
             this.IntroVideo.TabIndex = 0;
             // 
             // RecentPlayed
@@ -91,6 +94,8 @@
             // 
             // TopMixes
             // 
+            this.TopMixes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TopMixes.Controls.Add(this.iconButton5);
             this.TopMixes.Location = new System.Drawing.Point(3, 432);
             this.TopMixes.Name = "TopMixes";
@@ -116,7 +121,22 @@
             this.iconButton5.UseVisualStyleBackColor = true;
             // 
             // HomeForm
-       
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.ClientSize = new System.Drawing.Size(878, 726);
+            this.Controls.Add(this.HomeLayout);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "HomeForm";
+            this.Text = "HomeForm";
+            this.Resize += new System.EventHandler(this.HomeForm_Resize);
+            this.HomeLayout.ResumeLayout(false);
+            this.VideoPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.IntroVideo)).EndInit();
+            this.RecentPlayed.ResumeLayout(false);
+            this.TopMixes.ResumeLayout(false);
+            this.ResumeLayout(false);
 
         }
 

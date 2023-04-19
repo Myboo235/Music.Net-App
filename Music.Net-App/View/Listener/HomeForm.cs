@@ -35,9 +35,10 @@ namespace Music.Net_App.View
             //MessageBox.Show(this.Width + this.Height + "");
             HomeLayout.Size = new Size(this.Width, this.Height);
             
-            IntroVideo.Width = VideoPanel.Width - 10;
-            VideoPanel.Width = HomeLayout.Width;
-            VideoPanel.Height = HomeLayout.Height / 5;
+            
+            VideoPanel.Width = HomeLayout.Width-9;
+            IntroVideo.Width = VideoPanel.Width;
+            VideoPanel.Height = HomeLayout.Height / 3;
 
             IntroVideo.Width = HomeLayout.Width;
             RecentPlayed.Width = HomeLayout.Width;

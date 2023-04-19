@@ -1,4 +1,5 @@
 ﻿using FontAwesome.Sharp;
+using Music.Net_App.View.Listener;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -32,6 +33,7 @@ namespace Music.Net_App.View
             resize();
             MusicPlayer.URL = directory + @"\Assets\Musics\y2mate.com - DVRST  CLOSE EYES.mp3";
             MusicPlayer.Ctlcontrols.stop();
+            
             this.FormBorderStyle = FormBorderStyle.None;
             customizeDesing();
             currentChildForm = new HomeForm();
@@ -58,12 +60,13 @@ namespace Music.Net_App.View
             panel1.Height = MenuBar.Height -48*5 -70 ;
             NavBar.Width = MainLayout.Width;
 
-            NavForm.Width = MainLayout.Width-10;
+            NavForm.Width = MainLayout.Width;
             NavForm.Height = MainLayout.Height - PlayBar.Height - NavBar.Height -10;
  
-            PlayBar.Width= MainLayout.Width;
+            PlayBar.Width= MainLayout.Width-10;
+            MusicPlayer.Width = MainLayout.Width;
 
-            MusicPlayer.Width = PlayBar.Width - panel3.Width -50 ;
+            //MusicPlayer.Width = PlayBar.Width - panel3.Width -50 ;
             if (currentChildForm != null)
             {
                 /*if (currentChildForm.Height > NavForm.Height)
@@ -150,6 +153,32 @@ namespace Music.Net_App.View
                 MusicPlayer.Ctlcontrols.pause();
             }
         }
+
+        private void Button_LogOut_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void Button_Forward_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Button_Compress_Click(object sender, EventArgs e)
+        {
+            Hide();
+            MinimizeForm m = new MinimizeForm();
+            m.FormClosed += new FormClosedEventHandler(Form_Closed);
+           
+            m.Show();
+            
+        }
+        void Form_Closed(object sender, FormClosedEventArgs e)
+        {
+            MinimizeForm frm = (MinimizeForm)sender;
+            MessageBox.Show(frm.Name);
+            Show();
+        }
         private void Button_Home_Click(object sender, EventArgs e)
         {
             if(currentChildForm.GetType().Name.ToString() != "HomeForm")
@@ -188,9 +217,23 @@ namespace Music.Net_App.View
             resize();
         }
 
-        private void Button_LogOut_Click(object sender, EventArgs e)
+        private void Button_User_Click(object sender, EventArgs e)
         {
-            Close();
+            if (panel4.Visible)
+            {
+                panel4.Visible = false;
+                panel4.SendToBack();
+                return;
+            }
+            panel4.Visible= true;
+            panel4.BringToFront();
+        }
+
+        private void Button_Profile_Click(object sender, EventArgs e)
+        {
+            if (currentChildForm.GetType().Name.ToString() != "ProfileForm")
+                OpenChildForm(new ProfileForm());
+            resize();
         }
 
         private void Button_User_Click(object sender, EventArgs e)
