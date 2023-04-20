@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Music.Net_App.BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,6 +22,7 @@ namespace Music.Net_App.View
             InitializeComponent();
             pictureBox1.Image = Image.FromFile(directory + @"\Assets\Images\muzira-banner.png");
             pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage; 
+ 
         }
     
         private void GetstartedButton_Click(object sender, EventArgs e)

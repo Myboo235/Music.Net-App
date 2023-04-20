@@ -21,7 +21,6 @@ namespace Music.Net_App.DAL.Viet
             this.ListeningHistories = new HashSet<ListeningHistory>();
             this.Playlists = new HashSet<Playlist>();
             this.Singles = new HashSet<Single>();
-            this.Songs = new HashSet<Song>();
         }
     
         public int ArtistID { get; set; }
@@ -39,7 +38,5 @@ namespace Music.Net_App.DAL.Viet
         public virtual ICollection<Playlist> Playlists { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Single> Singles { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Song> Songs { get; set; }
     }
 }

@@ -12,14 +12,12 @@ namespace Music.Net_App.DAL.Viet
     using System;
     using System.Collections.Generic;
     
-    public partial class PlaylistSong
+    public partial class sysdiagram
     {
-        public int PlayListSongID { get; set; }
-        public Nullable<int> PlaylistID { get; set; }
-        public Nullable<int> SongID { get; set; }
-        public int SongOder { get; set; }
-        public Nullable<System.DateTime> DateAdded { get; set; }
-    
-        public virtual Playlist Playlist { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }
