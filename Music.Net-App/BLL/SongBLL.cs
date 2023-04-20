@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Music.Net_App.BLL
 {
-    internal class SongBLL
+    internal class UserBLL
     {
         // getAllSong
         //getSongbyName() =>> song/artist
