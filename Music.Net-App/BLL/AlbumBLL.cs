@@ -34,7 +34,7 @@ namespace Music.Net_App.BLL
         public List<Album> FindAlbumByName(string name)
         {
             EntitiesMusicNetApp db = new EntitiesMusicNetApp();
-            var n = from Album album in GetAllAlbum()
+            var n = from Album album in db.Albums
                     where album.AlbumName == name
                     select album;
             return n.ToList();

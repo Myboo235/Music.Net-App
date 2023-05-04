@@ -1,1 +1,0 @@
-﻿Làm những phần liên quan tới Genre , Song , Album lấy tên genre ra , tìm bài hát theo tên ..

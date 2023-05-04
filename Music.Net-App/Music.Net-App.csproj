@@ -472,7 +472,6 @@
     <Content Include="Assets\Images\Song-icon.jpg" />
     <Content Include="Assets\Musics\y2mate.com - DVRST  CLOSE EYES.mp3" />
     <Content Include="Assets\Videos\video.mp4" />
-    <Content Include="DAL\Huy\Huy.txt" />
     <Content Include="DAL\ModelMusicNetApp.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ModelMusicNetApp.edmx</DependentUpon>
@@ -483,7 +482,6 @@
       <DependentUpon>ModelMusicNetApp.edmx</DependentUpon>
       <LastGenOutput>ModelMusicNetApp.cs</LastGenOutput>
     </Content>
-    <Content Include="DAL\Viet\Viet.txt" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
