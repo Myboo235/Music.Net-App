@@ -14,6 +14,12 @@ namespace Music.Net_App.DAL
     
     public partial class Album
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Album()
+        {
+            this.AlbumSongs = new HashSet<AlbumSong>();
+        }
+    
         public int AlbumID { get; set; }
         public Nullable<int> ArtistID { get; set; }
         public Nullable<int> GenreID { get; set; }
@@ -24,5 +30,7 @@ namespace Music.Net_App.DAL
     
         public virtual Artist Artist { get; set; }
         public virtual Genre Genre { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<AlbumSong> AlbumSongs { get; set; }
     }
 }

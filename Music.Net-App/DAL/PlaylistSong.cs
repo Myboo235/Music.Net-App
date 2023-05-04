@@ -14,6 +14,7 @@ namespace Music.Net_App.DAL
     
     public partial class PlaylistSong
     {
+        public int PlayListSongID { get; set; }
         public Nullable<int> PlaylistID { get; set; }
         public Nullable<int> SongID { get; set; }
         public int SongOder { get; set; }
