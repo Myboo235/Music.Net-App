@@ -13,7 +13,7 @@ namespace Music.Net_App.View
 {
     public partial class HomeForm : Form
     {
-        public HomeForm()
+        public HomeForm(string theme = null)
         {
 
             string directory = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug\", "");
@@ -24,7 +24,16 @@ namespace Music.Net_App.View
 
             /*        C: \Users\Lenovo\source\repos\Music\MusicApp\Music.Net - App\Assets\Musics\y2mate.com - DVRST  CLOSE EYES.mp3
             */
-
+            if (theme == "light" && theme != null)
+            {
+                MessageBox.Show("Night");
+                TopMixes.BackColor = Color.White;
+                RecentPlayed.BackColor = Color.White;
+                foreach (Control c in this.Controls)
+                {
+                    c.BackColor = Color.White;
+                }
+            }
         }
         private void resize()
         {
