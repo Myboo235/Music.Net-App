@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Music.Net_App.View
+namespace Music.Net_App.View.Listener
 {
-    public partial class PlaylistForm : Form
+    public partial class AccountForm : Form
     {
-        public PlaylistForm()
+        public AccountForm()
         {
             InitializeComponent();
         }

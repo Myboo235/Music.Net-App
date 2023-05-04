@@ -1,6 +1,6 @@
-﻿namespace Music.Net_App.View
+﻿namespace Music.Net_App.View.Listener
 {
-    partial class PlaylistForm
+    partial class AccountForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // AccountForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Playlist";
+            this.ClientSize = new System.Drawing.Size(775, 450);
+            this.Name = "AccountForm";
+            this.Text = "AccountForm";
+            this.ResumeLayout(false);
+
         }
 
         #endregion

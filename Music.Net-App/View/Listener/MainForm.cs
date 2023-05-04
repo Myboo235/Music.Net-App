@@ -1,4 +1,5 @@
 ﻿using FontAwesome.Sharp;
+using Music.Net_App.View.Listener;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -20,19 +21,21 @@ namespace Music.Net_App.View
         private String previousChildFormName = "";
         private Form previousChildForm ;
         private Form nextChildForm;
+        string directory = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug\", "");
 
-        
-        
+
+
         public MainForm()
         {
-            string directory = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug\", "");
             InitializeComponent();
             /*HomeLayout.Controls.Clear();*/
             currentChildForm =new HomeForm();
-            OpenChildForm(currentChildForm);
+            OpenChildForm(new HomeForm());
             resize();
             MusicPlayer.URL = directory + @"\Assets\Musics\y2mate.com - DVRST  CLOSE EYES.mp3";
             MusicPlayer.Ctlcontrols.stop();
+            
+            this.FormBorderStyle = FormBorderStyle.None;
         }
 
         private void LeftBar_MouseHover(object sender, EventArgs e)
@@ -49,22 +52,30 @@ namespace Music.Net_App.View
         }
         private void resize()
         {
-            MenuBar.Height = this.Height;
-            ContactBar.Height = this.Height;
-
-            MainLayout.Size = new Size(this.Width - MenuBar.Width - ContactBar.Width - 18, MainBackGround.Height);
+            MainLayout.Size = new Size(MainBackGround.Width - MenuBar.Width - ContactBar.Width, MainBackGround.Height);
             UserNav.Width = MainLayout.Width - Button_Back.Width - Button_Next.Width - 120;
-            NavBar.Width = MainLayout.Width;
-            NavForm.Width = MainLayout.Width-10;
-            NavForm.Height = MainLayout.Height -PlayBar.Height-80;
 
-            
-            PlayBar.Width= MainLayout.Width;
-            MusicPlayer.Width = PlayBar.Width - panel3.Width -50 ;
+            panel1.Height = MenuBar.Height -48*5 -70 ;
+            NavBar.Width = MainLayout.Width;
+
+            NavForm.Width = MainLayout.Width;
+            NavForm.Height = MainLayout.Height - PlayBar.Height - NavBar.Height -10;
+ 
+            PlayBar.Width= MainLayout.Width-10;
+            MusicPlayer.Width = MainLayout.Width;
+
+            //MusicPlayer.Width = PlayBar.Width - panel3.Width -50 ;
             if (currentChildForm != null)
             {
-                currentChildForm.Width = NavForm.Width;
-                currentChildForm.Height = NavForm.Height;
+                /*if (currentChildForm.Height > NavForm.Height)
+                {
+                    NavForm.Margin = new Padding(0, 0, 0, 50);
+
+                }*/
+                currentChildForm.Margin = new Padding(0, 0, 0, 0);
+                currentChildForm.Width = MainLayout.Width;
+                //currentChildForm.Height = MainLayout.Height + 500;
+                
             }
         }
         private void FormMainMenu_Resize(object sender, EventArgs e)
@@ -73,6 +84,7 @@ namespace Music.Net_App.View
         }
         private void Button_Search_Click(object sender, EventArgs e)
         {
+            //PlayBar.Visible = false;
             if (currentChildForm.GetType().Name.ToString() != "SearchForm")
             {
                 OpenChildForm(new SearchForm());
@@ -86,49 +98,43 @@ namespace Music.Net_App.View
             //open only form
             if (currentChildForm != null)
             {
+                NavForm.Controls.Remove(currentChildForm);
                 previousChildFormName = currentChildForm.GetType().Name.ToString();
                 previousChildForm = currentChildForm;
 
-                
                 currentChildForm = childForm;
-
-                
-
                 currentChildForm.TopLevel = false;
                 currentChildForm.FormBorderStyle = FormBorderStyle.None;
 
-                NavForm.Controls.Add(childForm);
-                //NavForm.Tag = childForm;
-
+                //MainLayout.Controls.Clear();
+                //MainLayout.Controls.Add(NavBar);
+                
+                //MainLayout.Controls.Add(PlayBar);
+                NavForm.Controls.Add(currentChildForm);
                 childForm.BringToFront();
                 childForm.Show();
+            }
 
-                currentChildForm.Width = NavForm.Width;
-                currentChildForm.Height = NavForm.Height;
-
-                //previousChildForm.Close();
-            }    
+            resize();
         }
 
         private void Button_Close_ContactBar_Click(object sender, EventArgs e)
         {
-            /*panel2.Left  -= (ContactBar.Width - 10);*/
-            
-            //panel2.Width += (ContactBar.Width + 45);
+
             if (ContactBar.Width == 55)
             {
+                Button_Close_ContactBar.IconChar = IconChar.ChevronRight;
                 Button_Close_ContactBar.Dock = DockStyle.Right;
                 //panel2.Width = ContactBar.Width;
                 ContactBar.Width = 250;
             }
             else
             {
+                Button_Close_ContactBar.IconChar = IconChar.ChevronLeft;
                 Button_Close_ContactBar.Dock = DockStyle.Left;
                 MainLayout.Width += ContactBar.Width;
                 ContactBar.Width = 55;
             }
-
-            /*HomeLayout.Width += ContactBar.Width;*/
             resize();
         }
 
@@ -144,6 +150,32 @@ namespace Music.Net_App.View
                 Button_Play.IconChar = IconChar.Play;
                 MusicPlayer.Ctlcontrols.pause();
             }
+        }
+
+        private void Button_LogOut_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void Button_Forward_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Button_Compress_Click(object sender, EventArgs e)
+        {
+            Hide();
+            MinimizeForm m = new MinimizeForm();
+            m.FormClosed += new FormClosedEventHandler(Form_Closed);
+           
+            m.Show();
+            
+        }
+        void Form_Closed(object sender, FormClosedEventArgs e)
+        {
+            MinimizeForm frm = (MinimizeForm)sender;
+            MessageBox.Show(frm.Name);
+            Show();
         }
         private void Button_Home_Click(object sender, EventArgs e)
         {
@@ -173,6 +205,32 @@ namespace Music.Net_App.View
             }
             else MenuBar.Width = 55;
 
+            resize();
+        }
+
+        private void Button_Playlist_Click(object sender, EventArgs e)
+        {
+            if (currentChildForm.GetType().Name.ToString() != "PlaylistForm")
+                OpenChildForm(new PlaylistForm());
+            resize();
+        }
+
+        private void Button_User_Click(object sender, EventArgs e)
+        {
+            if (panel4.Visible)
+            {
+                panel4.Visible = false;
+                panel4.SendToBack();
+                return;
+            }
+            panel4.Visible= true;
+            panel4.BringToFront();
+        }
+
+        private void Button_Profile_Click(object sender, EventArgs e)
+        {
+            if (currentChildForm.GetType().Name.ToString() != "ProfileForm")
+                OpenChildForm(new ProfileForm());
             resize();
         }
     }
