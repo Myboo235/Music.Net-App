@@ -71,6 +71,9 @@
     <Reference Include="FontAwesome.Sharp, Version=6.3.0.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
       <HintPath>..\packages\FontAwesome.Sharp.6.3.0\lib\net472\FontAwesome.Sharp.dll</HintPath>
     </Reference>
+    <Reference Include="Guna.Charts.WinForms, Version=1.0.8.0, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>..\packages\Guna.Charts.WinForms.1.0.8\lib\net472\Guna.Charts.WinForms.dll</HintPath>
+    </Reference>
     <Reference Include="Guna.UI2, Version=2.0.4.4, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
       <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.4\lib\net472\Guna.UI2.dll</HintPath>
     </Reference>
@@ -240,6 +243,7 @@
     <Reference Include="System.Web.Services.Description, Version=4.9.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Web.Services.Description.4.9.0\lib\net461\System.Web.Services.Description.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -253,11 +257,73 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\AlbumBLL.cs" />
+    <Compile Include="BLL\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BLL\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="BLL\PlaylistBLL.cs" />
     <Compile Include="BLL\SongBLL.cs" />
     <Compile Include="BLL\UserBLL.cs" />
+    <Compile Include="DAL\Album.cs">
+      <DependentUpon>ModelMusicNetApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\AlbumSong.cs">
+      <DependentUpon>ModelMusicNetApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Artist.cs">
+      <DependentUpon>ModelMusicNetApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Country.cs">
+      <DependentUpon>ModelMusicNetApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Genre.cs">
+      <DependentUpon>ModelMusicNetApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Listener.cs">
+      <DependentUpon>ModelMusicNetApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\ListeningHistory.cs">
+      <DependentUpon>ModelMusicNetApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\ModelMusicNetApp.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelMusicNetApp.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\ModelMusicNetApp.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelMusicNetApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\ModelMusicNetApp.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelMusicNetApp.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Playlist.cs">
+      <DependentUpon>ModelMusicNetApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\PlaylistSong.cs">
+      <DependentUpon>ModelMusicNetApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Single.cs">
+      <DependentUpon>ModelMusicNetApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Song.cs">
+      <DependentUpon>ModelMusicNetApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\AlbumDTO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\Admin\DashboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Admin\DashboardForm.Designer.cs">
+      <DependentUpon>DashboardForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Listener\AccountForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -306,18 +372,15 @@
     <Compile Include="View\SignIn-UpForm.Designer.cs">
       <DependentUpon>SignIn-UpForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Test.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Test.Designer.cs">
-      <DependentUpon>Test.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\WelcomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\WelcomeForm.Designer.cs">
       <DependentUpon>WelcomeForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BLL\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -328,6 +391,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="View\Admin\DashboardForm.resx">
+      <DependentUpon>DashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Listener\AccountForm.resx">
       <DependentUpon>AccountForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -352,12 +418,16 @@
     <EmbeddedResource Include="View\SignIn-UpForm.resx">
       <DependentUpon>SignIn-UpForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Test.resx">
-      <DependentUpon>Test.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="View\WelcomeForm.resx">
       <DependentUpon>WelcomeForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EntityDeploy Include="DAL\ModelMusicNetApp.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelMusicNetApp.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DAL\ModelMusicNetApp.edmx.diagram">
+      <DependentUpon>ModelMusicNetApp.edmx</DependentUpon>
+    </None>
     <None Include="env\.env" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -403,8 +473,19 @@
     <Content Include="Assets\Musics\y2mate.com - DVRST  CLOSE EYES.mp3" />
     <Content Include="Assets\Videos\video.mp4" />
     <Content Include="DAL\Huy\Huy.txt" />
+    <Content Include="DAL\ModelMusicNetApp.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelMusicNetApp.edmx</DependentUpon>
+      <LastGenOutput>ModelMusicNetApp.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DAL\ModelMusicNetApp.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelMusicNetApp.edmx</DependentUpon>
+      <LastGenOutput>ModelMusicNetApp.cs</LastGenOutput>
+    </Content>
     <Content Include="DAL\Viet\Viet.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.4.0.2\build\Fody.targets" Condition="Exists('..\packages\Fody.4.0.2\build\Fody.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

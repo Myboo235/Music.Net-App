@@ -59,6 +59,7 @@
             this.Button_Play = new FontAwesome.Sharp.IconButton();
             this.Button_Backward = new FontAwesome.Sharp.IconButton();
             this.Button_Forward = new FontAwesome.Sharp.IconButton();
+            this.MusicPlayer = new AxWMPLib.AxWindowsMediaPlayer();
             this.MenuBar = new System.Windows.Forms.FlowLayoutPanel();
             this.Button_Menu = new FontAwesome.Sharp.IconButton();
             this.Button_Home = new FontAwesome.Sharp.IconButton();
@@ -67,7 +68,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.Button_LogOut = new FontAwesome.Sharp.IconButton();
             this.MainBackGround = new System.Windows.Forms.FlowLayoutPanel();
-            this.MusicPlayer = new AxWMPLib.AxWindowsMediaPlayer();
             this.ContactBar.SuspendLayout();
             this.panel2.SuspendLayout();
             this.MainLayout.SuspendLayout();
@@ -76,9 +76,9 @@
             this.panel4.SuspendLayout();
             this.PlayBar.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MusicPlayer)).BeginInit();
             this.MenuBar.SuspendLayout();
             this.MainBackGround.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MusicPlayer)).BeginInit();
             this.SuspendLayout();
             // 
             // ContactBar
@@ -554,6 +554,16 @@
             this.Button_Forward.UseVisualStyleBackColor = true;
             this.Button_Forward.Click += new System.EventHandler(this.Button_Forward_Click);
             // 
+            // MusicPlayer
+            // 
+            this.MusicPlayer.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.MusicPlayer.Enabled = true;
+            this.MusicPlayer.Location = new System.Drawing.Point(3, 64);
+            this.MusicPlayer.Name = "MusicPlayer";
+            this.MusicPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("MusicPlayer.OcxState")));
+            this.MusicPlayer.Size = new System.Drawing.Size(698, 122);
+            this.MusicPlayer.TabIndex = 7;
+            // 
             // MenuBar
             // 
             this.MenuBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -694,16 +704,6 @@
             this.MainBackGround.Size = new System.Drawing.Size(1223, 773);
             this.MainBackGround.TabIndex = 2;
             // 
-            // MusicPlayer
-            // 
-            this.MusicPlayer.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.MusicPlayer.Enabled = true;
-            this.MusicPlayer.Location = new System.Drawing.Point(3, 64);
-            this.MusicPlayer.Name = "MusicPlayer";
-            this.MusicPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("MusicPlayer.OcxState")));
-            this.MusicPlayer.Size = new System.Drawing.Size(698, 122);
-            this.MusicPlayer.TabIndex = 7;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
@@ -727,9 +727,9 @@
             this.panel4.ResumeLayout(false);
             this.PlayBar.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.MusicPlayer)).EndInit();
             this.MenuBar.ResumeLayout(false);
             this.MainBackGround.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.MusicPlayer)).EndInit();
             this.ResumeLayout(false);
 
         }
