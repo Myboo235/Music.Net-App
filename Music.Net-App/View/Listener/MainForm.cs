@@ -15,13 +15,13 @@ namespace Music.Net_App.View
 {
     public partial class MainForm : Form
     {
-        
+
         private Form currentChildForm;
 
         private String previousChildFormName = "";
-        private Form previousChildForm ;
+        private Form previousChildForm;
         //private Form nextChildForm;
-        private string theme="default";
+        private string theme = "default";
         string directory = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug\", "");
 
 
@@ -30,12 +30,12 @@ namespace Music.Net_App.View
         {
             InitializeComponent();
             /*HomeLayout.Controls.Clear();*/
-            currentChildForm =new HomeForm();
+            currentChildForm = new HomeForm();
             OpenChildForm(new HomeForm());
             resize();
             MusicPlayer.URL = directory + @"\Assets\Musics\y2mate.com - DVRST  CLOSE EYES.mp3";
             MusicPlayer.Ctlcontrols.stop();
-            
+
             this.FormBorderStyle = FormBorderStyle.None;
         }
 
@@ -56,13 +56,13 @@ namespace Music.Net_App.View
             MainLayout.Size = new Size(MainBackGround.Width - MenuBar.Width - ContactBar.Width, MainBackGround.Height);
             UserNav.Width = MainLayout.Width - Button_Back.Width - Button_Next.Width - 120;
 
-            panel1.Height = MenuBar.Height -48*5 -70 ;
+            panel1.Height = MenuBar.Height - 48 * 5 - 70;
             NavBar.Width = MainLayout.Width;
 
             NavForm.Width = MainLayout.Width;
-            NavForm.Height = MainLayout.Height - PlayBar.Height - NavBar.Height -10;
- 
-            PlayBar.Width= MainLayout.Width-10;
+            NavForm.Height = MainLayout.Height - PlayBar.Height - NavBar.Height - 10;
+
+            PlayBar.Width = MainLayout.Width - 10;
             MusicPlayer.Width = MainLayout.Width;
 
             //MusicPlayer.Width = PlayBar.Width - panel3.Width -50 ;
@@ -76,12 +76,12 @@ namespace Music.Net_App.View
                 currentChildForm.Margin = new Padding(0, 0, 0, 0);
                 currentChildForm.Width = MainLayout.Width;
                 //currentChildForm.Height = MainLayout.Height + 500;
-                
+
             }
         }
         private void FormMainMenu_Resize(object sender, EventArgs e)
         {
-            resize();            
+            resize();
         }
         private void Button_Search_Click(object sender, EventArgs e)
         {
@@ -89,7 +89,7 @@ namespace Music.Net_App.View
             if (currentChildForm.GetType().Name.ToString() != "SearchForm")
             {
                 OpenChildForm(new SearchForm());
-                
+
             }
             resize();
         }
@@ -109,7 +109,7 @@ namespace Music.Net_App.View
 
                 //MainLayout.Controls.Clear();
                 //MainLayout.Controls.Add(NavBar);
-                
+
                 //MainLayout.Controls.Add(PlayBar);
                 NavForm.Controls.Add(currentChildForm);
                 childForm.BringToFront();
@@ -168,9 +168,9 @@ namespace Music.Net_App.View
             Hide();
             MinimizeForm m = new MinimizeForm();
             m.FormClosed += new FormClosedEventHandler(Form_Closed);
-           
+
             m.Show();
-            
+
         }
         void Form_Closed(object sender, FormClosedEventArgs e)
         {
@@ -180,14 +180,14 @@ namespace Music.Net_App.View
         }
         private void Button_Home_Click(object sender, EventArgs e)
         {
-            if(currentChildForm.GetType().Name.ToString() != "HomeForm")
+            if (currentChildForm.GetType().Name.ToString() != "HomeForm")
                 OpenChildForm(new HomeForm(theme));
             resize();
         }
 
         private void Button_Back_Click(object sender, EventArgs e)
         {
-            
+
             if (previousChildFormName != "")
             {
                 MessageBox.Show("Back to  " + previousChildFormName);
@@ -200,7 +200,7 @@ namespace Music.Net_App.View
 
         private void Button_Menu_Click(object sender, EventArgs e)
         {
-            if(MenuBar.Width == 55)
+            if (MenuBar.Width == 55)
             {
                 MenuBar.Width = 244;
             }
@@ -224,7 +224,7 @@ namespace Music.Net_App.View
                 panel4.SendToBack();
                 return;
             }
-            panel4.Visible= true;
+            panel4.Visible = true;
             panel4.BringToFront();
         }
 
@@ -260,7 +260,6 @@ namespace Music.Net_App.View
                 {
                     FlowLayoutPanel.BackColor = ColorTranslator.FromHtml("#f5f5f5");
                 }
-                
                 /*UserNav.BackColor = ColorTranslator.FromHtml("#ccc");
                 NavBar.BackColor= ColorTranslator.FromHtml("#ccc");
                 NavForm.BackColor = ColorTranslator.FromHtml("#ccc");*/
@@ -295,7 +294,6 @@ namespace Music.Net_App.View
                 }*/
                 theme = "light";
             }
-            
 
         }
     }
