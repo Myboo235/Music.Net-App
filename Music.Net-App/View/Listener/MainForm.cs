@@ -260,7 +260,6 @@ namespace Music.Net_App.View
                 {
                     FlowLayoutPanel.BackColor = ColorTranslator.FromHtml("#f5f5f5");
                 }
-
                 /*UserNav.BackColor = ColorTranslator.FromHtml("#ccc");
                 NavBar.BackColor= ColorTranslator.FromHtml("#ccc");
                 NavForm.BackColor = ColorTranslator.FromHtml("#ccc");*/
@@ -295,7 +294,6 @@ namespace Music.Net_App.View
                 }*/
                 theme = "light";
             }
-
 
         }
     }
