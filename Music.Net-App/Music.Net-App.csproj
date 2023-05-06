@@ -285,6 +285,7 @@
     <Compile Include="DAL\Listener.cs">
       <DependentUpon>ModelMusicNetApp.tt</DependentUpon>
     </Compile>
+    <Compile Include="DAL\ListenerDAL.cs" />
     <Compile Include="DAL\ListeningHistory.cs">
       <DependentUpon>ModelMusicNetApp.tt</DependentUpon>
     </Compile>

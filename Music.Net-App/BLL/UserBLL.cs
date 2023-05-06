@@ -1,4 +1,4 @@
-﻿/*using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -6,8 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using Music.Net_App.DAL;
-*//*using Music.Net_App.DAL.Viet;*//*
-
 namespace Music.Net_App.BLL
 {
 
@@ -19,14 +17,15 @@ namespace Music.Net_App.BLL
     //Hamf lay user theo ten getUsersByName(string name)
     //Ham lay playlist cuar user getUserPlaylist(int userid)
 
-   
-    public class UserBLL
-    {
-        MusicNetAppEntities db = new MusicNetAppEntities();
 
+
+
+    public class UserBLL {
+        EntitiesMusicNetApp db = new EntitiesMusicNetApp();
         public List<ListenerDAL> getAllUser()
         {
-            List<ListenerDAL> list = new List<ListenerDAL>();
+       
+        List<ListenerDAL> list = new List<ListenerDAL>();
 
               //var lis = db.Listeners.Select(p => new { p.ListenerID, p.CountryID, p.Name, p.Email, p.Password, p.Gender, p.DateJoin  });
            
@@ -133,8 +132,7 @@ namespace Music.Net_App.BLL
 
 
 
+    
     }
 }
 
-
-*/

@@ -1,5 +1,4 @@
-﻿/*using Music.Net_App.DAL.Huy;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,30 +7,51 @@ using Music.Net_App.DAL;
 
 namespace Music.Net_App.BLL
 {
-    internal class UserBLL
+    public class SongBLL
     {
-        MusicNetAppEntities1 db = new MusicNetAppEntities1();
-        public List<Song1DTO> GetAllSongs()
-        {
-            List<Song1DTO> songDTOs = new List<Song1DTO>();
-            List<Song> songs = db.Songs.ToList();
-            foreach (Song song in songs)
+
+        /*    public List<Song1DTO> GetAllSongs()
             {
-                songDTOs.Add(new Song1DTO
+                List<Song1DTO> songDTOs = new List<Song1DTO>();
+                List<Song> songs = db.Songs.ToList();
+                foreach (Song song in songs)
+                {
+                    songDTOs.Add(new Song1DTO
+                    {
+                        SongID = song.SongID,
+                        //ArtistID = (int)song.ArtistID,
+                        SongName = song.SongName,
+                        //Datecreated = (DateTime)song.DateCreated,
+                        //Duration = (int)song.Duration
+                    });
+                }
+                return songDTOs;
+            }*/
+        EntitiesMusicNetApp db = new EntitiesMusicNetApp();
+        public  List<Song> GetAllSong()
+        {
+         
+            List<Song> list = new List<Song>();
+         
+
+            foreach(Song song in db.Songs.ToList())
+            {
+                list.Add(new Song
                 {
                     SongID = song.SongID,
-                    //ArtistID = (int)song.ArtistID,
+                    ArtistID = (int)song.ArtistID,
                     SongName = song.SongName,
-                    //Datecreated = (DateTime)song.DateCreated,
-                    //Duration = (int)song.Duration
+                   // Datecreated = (DateTime)song.DateCreated,
+                    Duration = (int)song.Duration
                 });
             }
-            return songDTOs;
-        }
 
-        public List<Song2DTO> GetSongByName(string name)
+
+            return list;
+        }
+        public List<Song> GetSongByName(string name)
         {
-            List<Song2DTO> songDTOs = new List<Song2DTO>();
+            List<Song> songDTOs = new List<Song>();
             var songs = db.Songs.Where(s => s.SongName.Contains(name)).Join(
                             db.Artists,
                             song => song.ArtistID,
@@ -40,15 +60,14 @@ namespace Music.Net_App.BLL
                         );
             foreach (var item in songs)
             {
-                songDTOs.Add(new Song2DTO
+                songDTOs.Add(new Song
                 {
                     SongName = item.song.SongName,
-                    Name = item.artist.Name
+                   // Name = item.artist.Name
                 });
             }
             return songDTOs;
-        } 
+        }
     }
 }
 
-*/
