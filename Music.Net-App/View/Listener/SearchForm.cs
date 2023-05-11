@@ -16,6 +16,7 @@ namespace Music.Net_App.View
         {
             InitializeComponent();
             //w = flowLayoutPanel3.Width / 4 - 8 ;
+            flowLayoutPanel3.BackColor = Color.Transparent;
         }
         private List<PictureBox> tb = new List<PictureBox>();
         int w;
@@ -38,6 +39,7 @@ namespace Music.Net_App.View
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
+            MessageBox.Show(((flowLayoutPanel3.Width - 30) / 4).ToString());
             String[] s = new String[5] {
 
             "Classical",
@@ -53,7 +55,7 @@ namespace Music.Net_App.View
                 PictureBox t = new PictureBox();
                 tb.Add(t);
                 t.Height = 200;
-                t.Width = 340 ;
+                t.Width = (flowLayoutPanel3.Width - 30)/4 ;
                 t.BackColor = Color.Red;
 
                 string directory = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug\", "");
@@ -61,8 +63,8 @@ namespace Music.Net_App.View
 
                 t.SizeMode = PictureBoxSizeMode.CenterImage;
                 t.Anchor = AnchorStyles.None;
-                  Graphics g = Graphics.FromImage(t.Image);
-         g.DrawString(s[i], new Font("Tahoma", 12), Brushes.Black, new Point(90, 185));
+                 /* Graphics g = Graphics.FromImage(t.Image);
+         g.DrawString(s[i], new Font("Tahoma", 12), Brushes.Black, new Point(90, 185));*/
 
                 flowLayoutPanel3.Controls.Add(t);
             }
