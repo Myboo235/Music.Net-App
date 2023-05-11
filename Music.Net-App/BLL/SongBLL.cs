@@ -52,7 +52,9 @@ namespace Music.Net_App.BLL
         public List<Song> GetSongByName(string name)
         {
             List<Song> songDTOs = new List<Song>();
-            var songs = db.Songs.Where(s => s.SongName.Contains(name)).Join(
+            var songs = db.Songs
+                        .Where(s => s.SongName.Contains(name))
+                        .Join(
                             db.Artists,
                             song => song.ArtistID,
                             artist => artist.ArtistID,

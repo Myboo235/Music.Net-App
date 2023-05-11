@@ -30,8 +30,8 @@ namespace Music.Net_App.View
         {
             InitializeComponent();
             /*HomeLayout.Controls.Clear();*/
-            currentChildForm = new HomeForm();
-            OpenChildForm(new HomeForm());
+            currentChildForm = new SearchForm();
+            OpenChildForm(new SearchForm());
             resize();
             MusicPlayer.URL = directory + @"\Assets\Musics\y2mate.com - DVRST  CLOSE EYES.mp3";
             MusicPlayer.Ctlcontrols.stop();
@@ -295,6 +295,11 @@ namespace Music.Net_App.View
                 theme = "light";
             }
 
+        }
+
+        private void guna2ControlBox1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

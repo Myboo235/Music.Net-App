@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Guna.UI2.WinForms;
+using Music.Net_App.BLL;
+using Music.Net_App.DAL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,16 +18,17 @@ namespace Music.Net_App.View
         public SearchForm()
         {
             InitializeComponent();
-            //w = flowLayoutPanel3.Width / 4 - 8 ;
             flowLayoutPanel3.BackColor = Color.Transparent;
         }
         private List<PictureBox> tb = new List<PictureBox>();
-        int w;
+        private List<Guna2Panel> pn = new List<Guna2Panel>();
+
         private void SearchForm_Resize(object sender, EventArgs e)
         {
             flowLayoutPanel2.Width = this.Width-9;
             guna2TextBox1.Size = new Size(this.Width - 280, 47);
             flowLayoutPanel3.Width= this.Width-21;
+            guna2Panel1.Width = flowLayoutPanel3.Width-12;
             //flowLayoutPanel3.Height= this.Height-150;
             /*if (tb!=null)
             {
@@ -35,6 +39,15 @@ namespace Music.Net_App.View
 
 
             }*/
+            if (pn != null)
+            {
+                foreach (Guna2Panel p in pn)
+                {
+                    p.Width = p.Width = flowLayoutPanel3.Width - 12;
+                }
+
+
+            }
         }
 
         private void iconButton1_Click(object sender, EventArgs e)
@@ -49,6 +62,7 @@ namespace Music.Net_App.View
             "Rock"
 
             };
+            
 
             for (int i = 0; i < 5; i++)
             {
@@ -63,10 +77,40 @@ namespace Music.Net_App.View
 
                 t.SizeMode = PictureBoxSizeMode.CenterImage;
                 t.Anchor = AnchorStyles.None;
-                 /* Graphics g = Graphics.FromImage(t.Image);
-         g.DrawString(s[i], new Font("Tahoma", 12), Brushes.Black, new Point(90, 185));*/
 
                 flowLayoutPanel3.Controls.Add(t);
+            }
+        }
+
+        private void Button_Search_Click(object sender, EventArgs e)
+        {
+            SongBLL song = new SongBLL();
+            foreach(Song s in song.GetAllSong())
+            {
+                Guna2Panel p = new Guna2Panel();
+                pn.Add(p);
+                p.Height = 80;
+                p.Width = flowLayoutPanel3.Width - 12;
+                p.BackColor = Color.Transparent;
+                p.FillColor = Color.Azure;
+                p.BorderColor = Color.White;
+                p.BorderRadius = 20;
+                p.BorderThickness = 5;
+                p.Controls.Add(new Label
+                {
+                    Text = s.SongName + "\n" + "arrttis name",
+                    Padding = new Padding(20, 10, 0,0),
+                    Height = p.Height,
+                    Width = p.Width,
+
+                });
+                /*string directory = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug\", "");
+                t.Image = Image.FromFile(directory + @"\Assets\Images\Song-icon.jpg");
+
+                t.SizeMode = PictureBoxSizeMode.CenterImage;
+                t.Anchor = AnchorStyles.None;*/
+
+                flowLayoutPanel3.Controls.Add(p);
             }
         }
 

@@ -34,9 +34,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.Button_SignIn_SignUp = new Guna.UI2.WinForms.Guna2Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.Button_SignUp = new System.Windows.Forms.Label();
+            this.Button_Change = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.guna2TextBox3 = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -140,25 +140,25 @@
             this.guna2TextBox2.Size = new System.Drawing.Size(276, 45);
             this.guna2TextBox2.TabIndex = 3;
             // 
-            // guna2Button1
+            // Button_SignIn_SignUp
             // 
-            this.guna2Button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.BorderRadius = 28;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.White;
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button1.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button1.Location = new System.Drawing.Point(117, 572);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(303, 68);
-            this.guna2Button1.TabIndex = 5;
-            this.guna2Button1.Text = "Log In";
-            this.guna2Button1.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
-            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
+            this.Button_SignIn_SignUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.Button_SignIn_SignUp.BackColor = System.Drawing.Color.Transparent;
+            this.Button_SignIn_SignUp.BorderRadius = 28;
+            this.Button_SignIn_SignUp.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Button_SignIn_SignUp.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Button_SignIn_SignUp.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Button_SignIn_SignUp.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Button_SignIn_SignUp.FillColor = System.Drawing.Color.White;
+            this.Button_SignIn_SignUp.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Button_SignIn_SignUp.ForeColor = System.Drawing.Color.Black;
+            this.Button_SignIn_SignUp.Location = new System.Drawing.Point(117, 572);
+            this.Button_SignIn_SignUp.Name = "Button_SignIn_SignUp";
+            this.Button_SignIn_SignUp.Size = new System.Drawing.Size(303, 68);
+            this.Button_SignIn_SignUp.TabIndex = 5;
+            this.Button_SignIn_SignUp.Text = "Log In";
+            this.Button_SignIn_SignUp.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            this.Button_SignIn_SignUp.Click += new System.EventHandler(this.Button_SignIn_SignUp_Click);
             // 
             // label2
             // 
@@ -171,18 +171,18 @@
             this.label2.TabIndex = 8;
             this.label2.Text = "Don\'t have an account ?";
             // 
-            // Button_SignUp
+            // Button_Change
             // 
-            this.Button_SignUp.AutoSize = true;
-            this.Button_SignUp.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Button_SignUp.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Button_SignUp.ForeColor = System.Drawing.Color.DarkGray;
-            this.Button_SignUp.Location = new System.Drawing.Point(335, 760);
-            this.Button_SignUp.Name = "Button_SignUp";
-            this.Button_SignUp.Size = new System.Drawing.Size(76, 23);
-            this.Button_SignUp.TabIndex = 9;
-            this.Button_SignUp.Text = "SIGN UP";
-            this.Button_SignUp.Click += new System.EventHandler(this.Button_SignUp_Click);
+            this.Button_Change.AutoSize = true;
+            this.Button_Change.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Button_Change.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Button_Change.ForeColor = System.Drawing.Color.DarkGray;
+            this.Button_Change.Location = new System.Drawing.Point(335, 760);
+            this.Button_Change.Name = "Button_Change";
+            this.Button_Change.Size = new System.Drawing.Size(76, 23);
+            this.Button_Change.TabIndex = 9;
+            this.Button_Change.Text = "SIGN UP";
+            this.Button_Change.Click += new System.EventHandler(this.Button_Change_Click);
             // 
             // label4
             // 
@@ -228,10 +228,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(547, 840);
-            this.Controls.Add(this.Button_SignUp);
+            this.Controls.Add(this.Button_Change);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.guna2Button1);
+            this.Controls.Add(this.Button_SignIn_SignUp);
             this.Controls.Add(this.guna2TextBox3);
             this.Controls.Add(this.guna2TextBox2);
             this.Controls.Add(this.guna2TextBox1);
@@ -259,9 +259,9 @@
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button Button_SignIn_SignUp;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label Button_SignUp;
+        private System.Windows.Forms.Label Button_Change;
         private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox3;
     }
