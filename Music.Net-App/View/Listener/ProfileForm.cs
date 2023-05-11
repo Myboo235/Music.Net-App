@@ -19,6 +19,8 @@ namespace Music.Net_App.View.Listener
             guna2CirclePictureBox1.Image = resizeImage(Image.FromFile(directory + @"\Assets\Images\Profile-picture.png"),
                 new Size(guna2CirclePictureBox1.Width, guna2CirclePictureBox1.Height)); 
             guna2CirclePictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
+            
+            
         }
         public static Image resizeImage(Image imgToResize, Size size)
         {

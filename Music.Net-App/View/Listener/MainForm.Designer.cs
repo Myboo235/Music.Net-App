@@ -37,6 +37,7 @@
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.Button_Friends = new FontAwesome.Sharp.IconButton();
             this.Button_Follow = new FontAwesome.Sharp.IconButton();
+            this.guna2ToggleSwitch1 = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.MainLayout = new System.Windows.Forms.FlowLayoutPanel();
             this.NavBar = new System.Windows.Forms.FlowLayoutPanel();
             this.Button_Back = new FontAwesome.Sharp.IconButton();
@@ -88,6 +89,7 @@
             this.ContactBar.Controls.Add(this.panel2);
             this.ContactBar.Controls.Add(this.Button_Friends);
             this.ContactBar.Controls.Add(this.Button_Follow);
+            this.ContactBar.Controls.Add(this.guna2ToggleSwitch1);
             this.ContactBar.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.ContactBar.Location = new System.Drawing.Point(945, 0);
             this.ContactBar.Margin = new System.Windows.Forms.Padding(0);
@@ -195,6 +197,22 @@
             this.Button_Follow.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Button_Follow.UseVisualStyleBackColor = true;
             // 
+            // guna2ToggleSwitch1
+            // 
+            this.guna2ToggleSwitch1.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2ToggleSwitch1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2ToggleSwitch1.CheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.guna2ToggleSwitch1.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.guna2ToggleSwitch1.Location = new System.Drawing.Point(3, 162);
+            this.guna2ToggleSwitch1.Name = "guna2ToggleSwitch1";
+            this.guna2ToggleSwitch1.Size = new System.Drawing.Size(69, 34);
+            this.guna2ToggleSwitch1.TabIndex = 8;
+            this.guna2ToggleSwitch1.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.guna2ToggleSwitch1.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.guna2ToggleSwitch1.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.guna2ToggleSwitch1.UncheckedState.InnerColor = System.Drawing.Color.White;
+            this.guna2ToggleSwitch1.CheckedChanged += new System.EventHandler(this.guna2ToggleSwitch1_CheckedChanged);
+            // 
             // MainLayout
             // 
             this.MainLayout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -253,7 +271,7 @@
             this.UserNav.Location = new System.Drawing.Point(112, 0);
             this.UserNav.Margin = new System.Windows.Forms.Padding(0);
             this.UserNav.Name = "UserNav";
-            this.UserNav.Size = new System.Drawing.Size(486, 48);
+            this.UserNav.Size = new System.Drawing.Size(488, 48);
             this.UserNav.TabIndex = 2;
             // 
             // Button_User
@@ -266,7 +284,7 @@
             this.Button_User.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.Button_User.IconSize = 35;
             this.Button_User.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Button_User.Location = new System.Drawing.Point(598, 0);
+            this.Button_User.Location = new System.Drawing.Point(600, 0);
             this.Button_User.Margin = new System.Windows.Forms.Padding(0);
             this.Button_User.Name = "Button_User";
             this.Button_User.Size = new System.Drawing.Size(90, 45);
@@ -281,6 +299,7 @@
             // 
             this.NavForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.NavForm.Controls.Add(this.panel4);
+            this.NavForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.NavForm.Location = new System.Drawing.Point(0, 64);
             this.NavForm.Margin = new System.Windows.Forms.Padding(0);
             this.NavForm.Name = "NavForm";
@@ -542,7 +561,7 @@
             this.MusicPlayer.Location = new System.Drawing.Point(3, 64);
             this.MusicPlayer.Name = "MusicPlayer";
             this.MusicPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("MusicPlayer.OcxState")));
-            this.MusicPlayer.Size = new System.Drawing.Size(698, 98);
+            this.MusicPlayer.Size = new System.Drawing.Size(698, 122);
             this.MusicPlayer.TabIndex = 7;
             // 
             // MenuBar
@@ -755,5 +774,6 @@
         private FontAwesome.Sharp.IconButton iconButton2;
         private FontAwesome.Sharp.IconButton Button_Profile;
         private FontAwesome.Sharp.IconButton iconButton3;
+        private Guna.UI2.WinForms.Guna2ToggleSwitch guna2ToggleSwitch1;
     }
 }

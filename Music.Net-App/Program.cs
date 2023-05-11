@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Music.Net_App.BLL;
 using Music.Net_App.View;
+using Music.Net_App.View.Admin;
 using Music.Net_App.View.Listener;
 using Music.Net_App.DAL.Huy;
 

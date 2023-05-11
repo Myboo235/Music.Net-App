@@ -20,7 +20,8 @@ namespace Music.Net_App.View
 
         private String previousChildFormName = "";
         private Form previousChildForm ;
-        private Form nextChildForm;
+        //private Form nextChildForm;
+        private string theme="default";
         string directory = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug\", "");
 
 
@@ -180,7 +181,7 @@ namespace Music.Net_App.View
         private void Button_Home_Click(object sender, EventArgs e)
         {
             if(currentChildForm.GetType().Name.ToString() != "HomeForm")
-                OpenChildForm(new HomeForm());
+                OpenChildForm(new HomeForm(theme));
             resize();
         }
 
@@ -232,6 +233,70 @@ namespace Music.Net_App.View
             if (currentChildForm.GetType().Name.ToString() != "ProfileForm")
                 OpenChildForm(new ProfileForm());
             resize();
+        }
+        public IEnumerable<Control> GetAll(Control control, Type type)
+        {
+            var controls = control.Controls.Cast<Control>();
+
+            return controls.SelectMany(ctrl => GetAll(ctrl, type))
+                                      .Concat(controls)
+                                      .Where(c => c.GetType() == type);
+        }
+        private void guna2ToggleSwitch1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (theme != "light")
+            {
+                foreach (var IconButton in GetAll(this, typeof(IconButton)))
+                {
+                    (IconButton as IconButton).IconColor = Color.FromArgb(232, 119, 45);
+                    IconButton.ForeColor = Color.FromArgb(232, 119, 45);
+                    IconButton.BackColor = Color.Transparent;
+                }
+                foreach (var Panel in GetAll(this, typeof(Panel)))
+                {
+                    Panel.BackColor = ColorTranslator.FromHtml("#f5f5f5");
+                }
+                foreach (var FlowLayoutPanel in GetAll(this, typeof(FlowLayoutPanel)))
+                {
+                    FlowLayoutPanel.BackColor = ColorTranslator.FromHtml("#f5f5f5");
+                }
+                
+                /*UserNav.BackColor = ColorTranslator.FromHtml("#ccc");
+                NavBar.BackColor= ColorTranslator.FromHtml("#ccc");
+                NavForm.BackColor = ColorTranslator.FromHtml("#ccc");*/
+                /*foreach (Control c in MainBackGround.Controls)
+                {
+                    foreach (Control i in c.Controls)
+                    {
+
+
+                        if (i is IconButton)
+                        {
+                            (i as IconButton).IconColor = Color.FromArgb(232, 119, 45);
+                            i.ForeColor = Color.FromArgb(232, 119, 45);
+
+                        }
+                        foreach (Control z in i.Controls)
+                        {
+                            if (z is IconButton)
+                            {
+                                (z as IconButton).IconColor = Color.FromArgb(232, 119, 45);
+                                z.ForeColor = Color.FromArgb(232, 119, 45);
+
+                            }
+                        }
+
+
+                    }
+                    MessageBox.Show(c.Name);
+                    c.BackColor = ColorTranslator.FromHtml("#f5f5f5");
+                    c.ForeColor = Color.Black;
+
+                }*/
+                theme = "light";
+            }
+            
+
         }
     }
 }
