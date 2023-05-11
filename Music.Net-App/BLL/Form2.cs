@@ -8,12 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Music.Net_App.BLL;
+using Music.Net_App.DAL;
 
 namespace Music.Net_App.DAL.Huy
 {
-    public partial class Form1 : Form
+    public partial class Form2 : Form
     {
-        public Form1()
+        public Form2()
         {
             InitializeComponent();
         }
@@ -100,4 +101,23 @@ namespace Music.Net_App.DAL.Huy
         }
     }
 }
+// tim kiem bai hat
 
+
+/*public List<Song> search(string name)
+{
+    List<Song> songDTOs = new List<Song>();
+    var songs = db.Songs.Where(s => s.SongName.Contains(name)).Join(
+                                   db.Artists, song => song.ArtistID, artist => artist.ArtistID, (song, artist) => new { song, artist }
+                                                                                                                                           );
+    foreach (var item in songs)
+    {
+        songDTOs.Add(new Song
+        {
+            SongName = item.song.SongName,
+            // Name = item.artist.Name
+        });
+    }
+    return songDTOs;
+}
+*/

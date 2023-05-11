@@ -1,6 +1,6 @@
 ﻿namespace Music.Net_App.DAL.Huy
 {
-    partial class Form1
+    partial class Form2
     {
         /// <summary>
         /// Required designer variable.

@@ -8,14 +8,8 @@ namespace Music.Net_App.DAL.Huy
 {
     internal class Playlist1DTO
     {
-        public int PlaylistID { get; set; }
-        public int ListenerID { get; set; }
-        //public int ArtistID { get; set; }
-        //public string PlaylistTyped { get; set; }
+        public string Name { get; set; }
         public string PlaylistName { get; set; }
-        //public string Descriptions { get; set; }
-        //public DateTime DateCreated { get; set; }
-        //public double PopularityScore { get; set; }
     }
     internal class Playlist2DTO
     {
@@ -25,15 +19,16 @@ namespace Music.Net_App.DAL.Huy
     }
     internal class Playlist3DTO
     {
-        public int PlaylistID { get; set; }
         public string PlaylistName { get; set; }
-        public int ListenerID { get; set; }
         public string ListenerName { get; set; } 
     }
     internal class SongDTO
     {
-        public int SongID { get; set; }
         public string PlaylistName { get; set; }
         public string SongName { get; set; }
+        public int SongID { get; internal set; }
+        public int? ArtistID { get; internal set; }
+        public DateTime? DateCreated { get; internal set; }
+        public TimeSpan Duration { get; internal set; }
     }
 }

@@ -6,11 +6,14 @@ using System.Text;
 using System.Threading.Tasks;
 using Music.Net_App.DAL;
 
+
 namespace Music.Net_App.BLL
 {
     internal class SongBLL
     {
-        MusicNetAppEntities1 db = new MusicNetAppEntities1();
+        EntitiesMusicNetApp db = new EntitiesMusicNetApp();
+
+        //GetAllSongs
         public List<Song1DTO> GetAllSongs()
         {
             List<Song1DTO> songDTOs = new List<Song1DTO>();
@@ -20,15 +23,13 @@ namespace Music.Net_App.BLL
                 songDTOs.Add(new Song1DTO
                 {
                     SongID = song.SongID,
-                    //ArtistID = (int)song.ArtistID,
-                    SongName = song.SongName,
-                    //Datecreated = (DateTime)song.DateCreated,
-                    //Duration = (int)song.Duration
+                    SongName = song.SongName
                 });
             }
             return songDTOs;
         }
 
+        //GetSongByName
         public List<Song2DTO> GetSongByName(string name)
         {
             List<Song2DTO> songDTOs = new List<Song2DTO>();
@@ -47,7 +48,44 @@ namespace Music.Net_App.BLL
                 });
             }
             return songDTOs;
-        } 
+        }
+
+        //AddSong
+        public void AddSong(Song3DTO song3DTO)
+        {
+            
+            Song song = new Song
+            {
+                SongName = song3DTO.SongName,
+                // Nơi thêm các thuộc tính của bài hát
+            };
+            db.Songs.Add(song);
+            db.SaveChanges();
+        }
+
+        //ModifySong
+        public bool ModifySong(SongDTO songDTO)
+        {
+            // Tìm bài hát theo ID
+            Song song = db.Songs.FirstOrDefault(s => s.SongID == songDTO.SongID);
+
+            if (song != null)
+            {
+                song.SongName = songDTO.SongName;
+                song.ArtistID = songDTO.ArtistID;
+                song.DateCreated = songDTO.DateCreated;
+                //song.Duration = songDTO.Duration;
+
+                db.SaveChanges();
+
+                Console.WriteLine("Sửa đổi bài hát thành công.");
+                return true;
+            }
+
+            Console.WriteLine("Không tìm thấy bài hát");
+            return false;
+
+        }
     }
 }
 
