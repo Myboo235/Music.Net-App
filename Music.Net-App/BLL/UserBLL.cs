@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using Music.Net_App.DAL;
+using Music.Net_App.DTO;
 namespace Music.Net_App.BLL
 {
 
@@ -18,14 +19,16 @@ namespace Music.Net_App.BLL
     //Ham lay playlist cuar user getUserPlaylist(int userid)
 
 
-
+    //Ham lay so luong user
+    //Ham lay so luong listener
+    //Ham lay so luong artist
 
     public class UserBLL {
         EntitiesMusicNetApp db = new EntitiesMusicNetApp();
-        public List<ListenerDAL> getAllUser()
+        public List<ListenDTO> getAllUser()
         {
        
-        List<ListenerDAL> list = new List<ListenerDAL>();
+        List<ListenDTO> list = new List<ListenDTO>();
 
               //var lis = db.Listeners.Select(p => new { p.ListenerID, p.CountryID, p.Name, p.Email, p.Password, p.Gender, p.DateJoin  });
            
@@ -38,7 +41,7 @@ namespace Music.Net_App.BLL
 
             foreach (var item in getAlluser)
             {
-                list.Add(new ListenerDAL
+                list.Add(new ListenDTO
                 {
                     ListenerID = item.ListenerID,
                     CountryName = item.CountryName,
@@ -129,10 +132,25 @@ namespace Music.Net_App.BLL
             return list;
         }
 
+        //Ham lay so luong user
+        public int getUserCount()
+        {
+            return db.Listeners.Count();
+        }
+        //Ham lay so luong listener
+        public int getListenerCount()
+        {
+            return db.Listeners.Count();
+        }
+
+        //Ham lay so luong artist
+        public int getArtistCount()
+        {
+            return db.Artists.Count();
+        }
 
 
 
-    
     }
 }
 
