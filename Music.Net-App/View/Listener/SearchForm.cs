@@ -1,6 +1,7 @@
 ﻿using Guna.UI2.WinForms;
 using Music.Net_App.BLL;
 using Music.Net_App.DAL;
+using Music.Net_App.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,6 +30,7 @@ namespace Music.Net_App.View
             guna2TextBox1.Size = new Size(this.Width - 280, 47);
             flowLayoutPanel3.Width= this.Width-21;
             guna2Panel1.Width = flowLayoutPanel3.Width-12;
+            flowLayoutPanel5.Width = this.Width-6;
             //flowLayoutPanel3.Height= this.Height-150;
             /*if (tb!=null)
             {
@@ -85,12 +87,12 @@ namespace Music.Net_App.View
         private void Button_Search_Click(object sender, EventArgs e)
         {
             SongBLL song = new SongBLL();
-            foreach(Song s in song.GetAllSong())
+            foreach(Song1DTO s in song.GetAllSongs())
             {
                 Guna2Panel p = new Guna2Panel();
                 pn.Add(p);
                 p.Height = 80;
-                p.Width = flowLayoutPanel3.Width - 12;
+                p.Width = flowLayoutPanel3.Width - 15;
                 p.BackColor = Color.Transparent;
                 p.FillColor = Color.Azure;
                 p.BorderColor = Color.White;
@@ -98,12 +100,13 @@ namespace Music.Net_App.View
                 p.BorderThickness = 5;
                 p.Controls.Add(new Label
                 {
-                    Text = s.SongName + "\n" + "arrttis name",
-                    Padding = new Padding(20, 10, 0,0),
-                    Height = p.Height,
+                    Text = s.SongName,
+                    Padding = new Padding(20, 10, 0, 0),
+                    Height = 40,
                     Width = p.Width,
 
                 });
+                
                 /*string directory = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug\", "");
                 t.Image = Image.FromFile(directory + @"\Assets\Images\Song-icon.jpg");
 
@@ -113,6 +116,8 @@ namespace Music.Net_App.View
                 flowLayoutPanel3.Controls.Add(p);
             }
         }
+
+
 
 
         /*  Graphics g = Graphics.FromImage(t.Image);

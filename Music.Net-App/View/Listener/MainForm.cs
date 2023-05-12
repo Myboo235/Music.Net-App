@@ -10,6 +10,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
+using Music.Net_App.DAL;
+using Music.Net_App.DTO;
+using Music.Net_App.BLL;
 
 namespace Music.Net_App.View
 {
@@ -17,7 +20,7 @@ namespace Music.Net_App.View
     {
 
         private Form currentChildForm;
-
+        private Music.Net_App.DAL.Listener User = null;
         private String previousChildFormName = "";
         private Form previousChildForm;
         //private Form nextChildForm;
@@ -26,17 +29,20 @@ namespace Music.Net_App.View
 
 
 
-        public MainForm()
+        public MainForm(string email)
         {
             InitializeComponent();
             /*HomeLayout.Controls.Clear();*/
-            currentChildForm = new SearchForm();
-            OpenChildForm(new SearchForm());
+            
             resize();
             MusicPlayer.URL = directory + @"\Assets\Musics\y2mate.com - DVRST  CLOSE EYES.mp3";
             MusicPlayer.Ctlcontrols.stop();
 
+            UserBLL b = new UserBLL();
+            User = b.getUsersByEmail(email);
             this.FormBorderStyle = FormBorderStyle.None;
+            currentChildForm = new PlaylistForm(User);
+            OpenChildForm(new PlaylistForm(User));
         }
 
         private void LeftBar_MouseHover(object sender, EventArgs e)
@@ -212,7 +218,7 @@ namespace Music.Net_App.View
         private void Button_Playlist_Click(object sender, EventArgs e)
         {
             if (currentChildForm.GetType().Name.ToString() != "PlaylistForm")
-                OpenChildForm(new PlaylistForm());
+                OpenChildForm(new PlaylistForm(User));
             resize();
         }
 

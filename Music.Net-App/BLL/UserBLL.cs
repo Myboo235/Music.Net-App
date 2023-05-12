@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using Music.Net_App.DTO;
 using Music.Net_App.DAL;
 namespace Music.Net_App.BLL
 {
@@ -22,10 +23,10 @@ namespace Music.Net_App.BLL
 
     public class UserBLL {
         EntitiesMusicNetApp db = new EntitiesMusicNetApp();
-        public List<ListenerDAL> getAllUser()
+        public List<ListenerDTO> getAllUser()
         {
        
-        List<ListenerDAL> list = new List<ListenerDAL>();
+        List<ListenerDTO> list = new List<ListenerDTO>();
 
               //var lis = db.Listeners.Select(p => new { p.ListenerID, p.CountryID, p.Name, p.Email, p.Password, p.Gender, p.DateJoin  });
            
@@ -38,7 +39,7 @@ namespace Music.Net_App.BLL
 
             foreach (var item in getAlluser)
             {
-                list.Add(new ListenerDAL
+                list.Add(new ListenerDTO
                 {
                     ListenerID = item.ListenerID,
                     CountryName = item.CountryName,
@@ -91,13 +92,14 @@ namespace Music.Net_App.BLL
 
         public Listener getUsersByEmail(string email)
         {
-            Listener user = new Listener();
+  
             var getUser = db.Listeners.Where(p => p.Email == email).FirstOrDefault();
             if (getUser != null)
             {
-                user = getUser;
+                return getUser;
             }
-            return user;
+            return null;
+            
         }
 
 

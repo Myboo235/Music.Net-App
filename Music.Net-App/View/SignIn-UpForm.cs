@@ -65,7 +65,7 @@ namespace Music.Net_App.View
                 {
                     MessageBox.Show("Sign in successfully");
                     Hide();
-                    MainForm main = new MainForm();
+                    MainForm main = new MainForm(guna2TextBox1.Text);
                     main.ShowDialog();
                     Close();
                 }

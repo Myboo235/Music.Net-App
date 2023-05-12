@@ -285,7 +285,6 @@
     <Compile Include="DAL\Listener.cs">
       <DependentUpon>ModelMusicNetApp.tt</DependentUpon>
     </Compile>
-    <Compile Include="DAL\ListenerDAL.cs" />
     <Compile Include="DAL\ListeningHistory.cs">
       <DependentUpon>ModelMusicNetApp.tt</DependentUpon>
     </Compile>
@@ -317,6 +316,9 @@
       <DependentUpon>ModelMusicNetApp.tt</DependentUpon>
     </Compile>
     <Compile Include="DTO\AlbumDTO.cs" />
+    <Compile Include="DTO\ListenerDTO.cs" />
+    <Compile Include="DTO\PlaylistDTO.cs" />
+    <Compile Include="DTO\SongDTO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\Admin\DashboardForm.cs">
@@ -467,6 +469,8 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Images\GlassSphere.jpg" />
+    <Content Include="Assets\Images\GlassSphere.png" />
     <Content Include="Assets\Images\Heart.jpg" />
     <Content Include="Assets\Images\muzira-banner.png" />
     <Content Include="Assets\Images\Profile-picture.png" />
