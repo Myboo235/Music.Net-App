@@ -15,7 +15,6 @@ namespace Music.Net_App.DAL.Huy
     {
         public int PlaylistID { get; set; }
         public string PlaylistName { get; set; }
-
     }
     internal class Playlist3DTO
     {

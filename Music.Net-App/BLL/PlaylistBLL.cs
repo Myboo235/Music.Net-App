@@ -201,7 +201,6 @@ namespace Music.Net_App.BLL
                 return false;
             }
         }
-        //ModifyPlaylist
         // ModifyPlaylist
         public bool ModifyPlaylist(string playlistName, string newPlaylistName)
         {
