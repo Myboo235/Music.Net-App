@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Music.Net_App.DAL;
 
 
@@ -85,6 +86,23 @@ namespace Music.Net_App.BLL
             Console.WriteLine("Không tìm thấy bài hát");
             return false;
 
+        }
+        //DeleteSong
+        public bool DeleteSong(string songName)
+        {
+            Song song = db.Songs.FirstOrDefault(s => s.SongName == songName);
+
+            if (song != null)
+            {
+                db.Songs.Remove(song);
+                db.SaveChanges();
+
+                MessageBox.Show("Xóa bài hát thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return true;
+            }
+
+            MessageBox.Show("Không tìm thấy bài hát.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            return false;
         }
     }
 }
