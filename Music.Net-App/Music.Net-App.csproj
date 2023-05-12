@@ -317,6 +317,7 @@
     </Compile>
     <Compile Include="DTO\AlbumDTO.cs" />
     <Compile Include="DTO\ListenerDTO.cs" />
+    <Compile Include="DTO\PlayListDTO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\Admin\DashboardForm.cs">

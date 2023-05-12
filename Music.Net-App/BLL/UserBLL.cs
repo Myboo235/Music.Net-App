@@ -1,15 +1,10 @@
-﻿using System;
+﻿using Music.Net_App.DAL;
+using Music.Net_App.DTO;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using Music.Net_App.DAL;
-using Music.Net_App.DTO;    
 namespace Music.Net_App.BLL
 {
-
 
     //Hamf laay het user ra getAllUsers
     //checkUser(email,passs) -> true
@@ -23,23 +18,20 @@ namespace Music.Net_App.BLL
     //Ham lay so luong listener
     //Ham lay so luong artist
 
-    public class UserBLL {
+    public class UserBLL
+    {
         EntitiesMusicNetApp db = new EntitiesMusicNetApp();
         public List<ListenerDTO> getAllUser()
         {
-       
-        List<ListenerDTO> list = new List<ListenerDTO>();
 
-              //var lis = db.Listeners.Select(p => new { p.ListenerID, p.CountryID, p.Name, p.Email, p.Password, p.Gender, p.DateJoin  });
-           
-            //list.AddRange(db.Listeners.Select(p => new { p.ListenerID, p.Country, p.Name, p.Email, p.Password, p.Gender, p.DateJoin  }).ToList();
+            List<ListenerDTO> list = new List<ListenerDTO>();
             var getAlluser = from p in db.Listeners
                              join c in db.Countries on p.CountryID equals c.CountryID
 
                              select new { p.ListenerID, c.CountryName, p.Name, p.Email, p.Password, p.Gender, p.DateJoin };
-       
 
-            foreach (var item in getAlluser)
+
+            foreach (var item in getAlluser.ToList())
             {
                 list.Add(new ListenerDTO
                 {
@@ -48,14 +40,13 @@ namespace Music.Net_App.BLL
                     Name = item.Name,
                     Email = item.Email,
                     Password = item.Password,
-                    Gender = (bool)item.Gender,
-                    DateJoin = (DateTime)item.DateJoin
-                    
-                    
+                    Gender = Convert.ToBoolean(item.Gender),
+                    DateJoin = Convert.ToDateTime(item.DateJoin)
 
                 });
-         
             }
+
+
 
             return list;
         }
@@ -92,37 +83,89 @@ namespace Music.Net_App.BLL
         }
 
 
-        public List<ListenerDTO> getUsersByEmail(string email)
+        public ListenerDTO getUsersByEmail(string email)
         {
-            List<ListenerDTO> list = new List<ListenerDTO>();
-            var getUserByEmail = from l in db.Listeners 
-                                 join c in db.Countries on l.CountryID equals c.CountryID
-                                 where l.Email == email
-                                 select new { l.ListenerID, c.CountryName, l.Name, l.Email, l.Password, l.Gender, l.DateJoin };
-            return list;
+            ListenerDTO getUserByEmail = new ListenerDTO();
+            var getUser = from l in db.Listeners
+                          join c in db.Countries on l.CountryID equals c.CountryID
+                          where l.Email == email
+                          select new { l.ListenerID, c.CountryName, l.Name, l.Email, l.Password, l.Gender, l.DateJoin };
+            return getUserByEmail;
         }
 
 
         public List<ListenerDTO> getUsersByName(string name)
         {
-            List<ListenerDTO> list = new List<ListenerDTO>();
+            List<ListenerDTO> getUserByName = new List<ListenerDTO>();
             var getUser = from l in db.Listeners
                           join c in db.Countries on l.CountryID equals c.CountryID
                           where l.Name.Contains(name)
                           select new { l.ListenerID, c.CountryName, l.Name, l.Email, l.Password, l.Gender, l.DateJoin };
-            return list;
+            foreach (var user in getUser)
+            {
+                getUserByName.Add(new ListenerDTO
+                {
+                    ListenerID = user.ListenerID,
+                    CountryName = user.CountryName,
+                    Name = user.Name,
+                    Email = user.Email,
+                    Password = user.Password,
+                    Gender = Convert.ToBoolean(user.Gender),
+                    DateJoin = Convert.ToDateTime(user.DateJoin)
+
+
+
+                });
+            }
+
+            return getUserByName;
         }
 
-        public List<ListenerDTO> getUserPlaylist(int userid)
-        {
-            List<ListenerDTO> list = new List<ListenerDTO>();
-            var getPlaylist = from l in db.Listeners
-                              join c in db.Countries on l.CountryID equals c.CountryID
-                              join p in db.Playlists on l.ListenerID equals p.ListenerID
-                              where l.CountryID == userid
-                              select new { l.ListenerID, c.CountryName, l.Name, l.Email, l.Password, l.Gender, l.DateJoin };
+        /*      public List<PlayListDTO> getPlaylistOfUser(int userid)
+                {
+                    List<PlayListDTO> getUserByPlayList = new List<PlayListDTO>();
+                    var getPlayList = from l in db.Listeners
+                                      join p in db.Playlists on l.ListenerID equals p.ListenerID
+                                     where l.ListenerID == userid
+                                      select new { p.PlaylistName };
+                foreach(var item  in getUserByPlayList.ToList())
+                    {
+                        getUserByPlayList.Add(new PlayListDTO { 
+                        PlaylistName = item.PlaylistName,
 
-            return list;
+                        });
+                    }
+
+
+                    return getUserByPlayList;
+                }*/
+
+
+        public List<ListenerDTO> getUserByPlayList(string PlayListName)
+        {
+            List<ListenerDTO> getUserByPlayList = new List<ListenerDTO>();
+            var getUser = from l in db.Listeners
+                          join c in db.Countries on l.CountryID equals c.CountryID
+                          where l.Name.Contains(PlayListName)
+                          select new { l.ListenerID, c.CountryName, l.Name, l.Email, l.Password, l.Gender, l.DateJoin };
+            foreach (var user in getUser)
+            {
+                getUserByPlayList.Add(new ListenerDTO
+                {
+                    ListenerID = user.ListenerID,
+                    CountryName = user.CountryName,
+                    Name = user.Name,
+                    Email = user.Email,
+                    Password = user.Password,
+                    Gender = Convert.ToBoolean(user.Gender),
+                    DateJoin = Convert.ToDateTime(user.DateJoin)
+
+
+
+                });
+            }
+
+            return getUserByPlayList;
         }
 
         //Ham lay so luong user
@@ -156,7 +199,200 @@ namespace Music.Net_App.BLL
             }
             return list;
         }
+        // ton tai ID return true
+        // khong ton tai ID return false
+        public bool checkUser(int userid)
+        {
+            int check = 0;
+            foreach (var item in db.Listeners.ToList())
+            {
+                if (item.ListenerID == userid)
+                {
+                    check = 1;
+                    break;
+                }
+            }
+            if (check == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+        /*     // them hoac chinh sua user
+             public void AddUser(ListenerDTO user)
+             {
+                 if (checkUser(user.ListenerID) == true)
+                 {
+                     //chinh sua thong tin user
+                     ModifyUser(user);
+
+                 }
+                 else
+                 {
+                     // add user
+                     addUser(user);
+
+
+                 }
+
+             }
+     */
+        //AddUser
+        public bool addUser(ListenerDTO user)
+        {
+            Listener l = db.Listeners.Where(p => p.ListenerID == user.ListenerID).FirstOrDefault();
+            if (l == null)
+            {
+                l = new Listener()
+                {
+                    ListenerID = user.ListenerID,
+                    CountryID = SearchIDCountry(user.CountryName),
+                    Name = user.Name,
+                    Email = user.Email,
+                    Password = user.Password,
+                    Gender = user.Gender,
+                    DateJoin = user.DateJoin
+                };
+
+                db.Listeners.Add(l);
+                db.SaveChanges();
+                return true;
+            }
+            else return false;
+
+        }
+
+
+        public int SearchIDCountry(string name)
+        {
+            int CountryID = -1;
+            Country country = db.Countries.Where(p => p.CountryName == name).FirstOrDefault();
+            CountryID = country.CountryID;
+            return CountryID;
+
+        }
+
+
+        //ModifyUser
+        public bool ModifyListener(ListenerDTO user)
+        {
+
+
+            Listener listener = db.Listeners.Where(p => p.ListenerID == user.ListenerID).FirstOrDefault();
+            if (listener != null)
+            {
+                listener.ListenerID = user.ListenerID;
+                listener.CountryID = SearchIDCountry(user.CountryName);
+                listener.Name = user.Name;
+                listener.Email = user.Email;
+                listener.Password = user.Password;
+                listener.Gender = user.Gender;
+                listener.DateJoin = user.DateJoin;
+                db.SaveChanges();
+                // db.Listeners.Add(listener);
+                return true;
+            }
+            else return false;
+
+
+        }
+
+        //DeleteUser
+        public bool DeleteUser(int userID)
+        {
+            var Users = db.Listeners.Where(p => p.ListenerID == userID).FirstOrDefault();
+            if(Users != null)
+            {
+                db.Listeners.Remove(Users);
+                db.SaveChanges();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+        //Add Artist
+        public bool AddArtist(ArtistDTO user)
+        {
+            Artist a = db.Artists.Where(p => p.ArtistID == user.ArtistID).FirstOrDefault();
+            if (a == null)
+            {
+                a = new Artist()
+                {
+                   ArtistID = user.ArtistID,
+                   CountryID = user.CountryID,
+                   Name = user.Name,
+                   Descriptions = user.Description,
+                   DateJoin = user.DateJoihn
+
+                };
+
+                db.Artists.Add(a);
+                db.SaveChanges();
+                return true;
+            }
+            else return false;
+        }
+
+        //Modify Artist
+        public bool ModifyArtist(ArtistDTO user)
+        {
+
+
+            Artist a = db.Artists.Where(p => p.ArtistID == user.ArtistID).FirstOrDefault();
+            if (a != null)
+            {
+                a.ArtistID = user.ArtistID;
+                a.CountryID = user.CountryID;
+                a.Name = user.Name;
+                a.Descriptions = user.Description;
+                a.DateJoin = user.DateJoihn;
+                db.SaveChanges();
+                return true;
+            }
+            else return false;
+
+
+        }
+
+
+
+        public bool DeleteArtist(ArtistDTO user)
+        {
+            var a = db.Artists.Where(p => p.ArtistID != user.ArtistID).FirstOrDefault();
+            if (a != null)
+            {
+                db.Artists.Remove(a);
+                db.SaveChanges();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+
+
+
+
+
+
+
+
+
 
     }
 }
+
+
+//
 

@@ -35,6 +35,12 @@ namespace Music.Net_App.BLL
             AlbumBLL b = new AlbumBLL();
             guna2DataGridView1.DataSource = b.GetAllSongOfAlbum(guna2TextBox1.Text);
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            UserBLL userBLL = new UserBLL();
+           // guna2DataGridView1.DataSource = userBLL.getUserPlaylist(6);
+        }
     }
     
 }
