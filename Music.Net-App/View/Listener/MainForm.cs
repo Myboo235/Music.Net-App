@@ -25,7 +25,7 @@ namespace Music.Net_App.View
         private Form previousChildForm;
         //private Form nextChildForm;
         private string theme = "default";
-        string directory = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug\", "");
+        string directory = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug\", "") + @"\Assets\Musics\";
 
 
 
@@ -35,7 +35,10 @@ namespace Music.Net_App.View
             /*HomeLayout.Controls.Clear();*/
             
             resize();
-            MusicPlayer.URL = directory + @"\Assets\Musics\y2mate.com - DVRST  CLOSE EYES.mp3";
+/*            MusicPlayer.URL = directory + @"\Assets\Musics\y2mate.com - DVRST  CLOSE EYES.mp3";
+*/            //MusicPlayer.URL = directory + @"\Alone - Alan Walker.mp3";
+
+            SetMusicPlayer("Alone");
             MusicPlayer.Ctlcontrols.stop();
 
             UserBLL b = new UserBLL();
@@ -45,6 +48,10 @@ namespace Music.Net_App.View
             OpenChildForm(new PlaylistForm(User));
         }
 
+        public void SetMusicPlayer(string Song)
+        {
+            MusicPlayer.URL = directory + @Song + ".mp3";
+        }
         private void LeftBar_MouseHover(object sender, EventArgs e)
         {
             Button buttonHover = (Button)sender;
@@ -94,8 +101,9 @@ namespace Music.Net_App.View
             //PlayBar.Visible = false;
             if (currentChildForm.GetType().Name.ToString() != "SearchForm")
             {
-                OpenChildForm(new SearchForm());
-
+                SearchForm f = new SearchForm();
+                OpenChildForm(f);
+                f.sd += SetMusicPlayer;
             }
             resize();
         }

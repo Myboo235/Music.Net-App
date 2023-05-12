@@ -33,11 +33,10 @@ namespace Music.Net_App.BLL
             //list.AddRange(db.Listeners.Select(p => new { p.ListenerID, p.Country, p.Name, p.Email, p.Password, p.Gender, p.DateJoin  }).ToList();
             var getAlluser = from p in db.Listeners
                              join c in db.Countries on p.CountryID equals c.CountryID
-
                              select new { p.ListenerID, c.CountryName, p.Name, p.Email, p.Password, p.Gender, p.DateJoin };
        
-
-            foreach (var item in getAlluser)
+            //MessageBox.Show(getAlluser.T)
+            foreach (var item in getAlluser.ToList())
             {
                 list.Add(new ListenerDTO
                 {
@@ -46,10 +45,10 @@ namespace Music.Net_App.BLL
                     Name = item.Name,
                     Email = item.Email,
                     Password = item.Password,
-                    Gender = (bool)item.Gender,
-                    DateJoin = (DateTime)item.DateJoin
-                    
-                    
+                    Gender = Convert.ToBoolean(item.Gender),
+                    DateJoin = Convert.ToDateTime(item.DateJoin)
+
+
 
                 });
          
@@ -74,12 +73,17 @@ namespace Music.Net_App.BLL
 
         }
 
-
+        //get Last ID
+        //Add Listener
+        //Add Artisr
+        //Modify Listener
+        //Modify Artisr
         public bool addUser(Listener user)
         {
-            try
+            try//lay ra id cuoi
             {
                 db.Listeners.Add(user);
+                
                 db.SaveChanges();
                 return true;
             }

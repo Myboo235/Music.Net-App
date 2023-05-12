@@ -2,6 +2,7 @@
 using Music.Net_App.BLL;
 using Music.Net_App.DAL;
 using Music.Net_App.DTO;
+using RestSharp.Extensions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,10 +17,14 @@ namespace Music.Net_App.View
 {
     public partial class SearchForm : Form
     {
+
+        public delegate void SongDelegate(string SongName);
+        public SongDelegate sd { get; set; }
         public SearchForm()
         {
             InitializeComponent();
             flowLayoutPanel3.BackColor = Color.Transparent;
+            guna2Panel1.Width = flowLayoutPanel3.Width - 30;
         }
         private List<PictureBox> tb = new List<PictureBox>();
         private List<Guna2Panel> pn = new List<Guna2Panel>();
@@ -30,7 +35,7 @@ namespace Music.Net_App.View
             guna2TextBox1.Size = new Size(this.Width - 280, 47);
             flowLayoutPanel3.Width= this.Width-21;
             guna2Panel1.Width = flowLayoutPanel3.Width-12;
-            flowLayoutPanel5.Width = this.Width-6;
+            guna2Panel1.Width = flowLayoutPanel3.Width - 30;
             //flowLayoutPanel3.Height= this.Height-150;
             /*if (tb!=null)
             {
@@ -45,7 +50,7 @@ namespace Music.Net_App.View
             {
                 foreach (Guna2Panel p in pn)
                 {
-                    p.Width = p.Width = flowLayoutPanel3.Width - 12;
+                    p.Width = flowLayoutPanel3.Width - 30;
                 }
 
 
@@ -55,15 +60,7 @@ namespace Music.Net_App.View
         private void iconButton1_Click(object sender, EventArgs e)
         {
             MessageBox.Show(((flowLayoutPanel3.Width - 30) / 4).ToString());
-            String[] s = new String[5] {
 
-            "Classical",
-            "Electronic",
-            "Hip-Hop",
-            "Pop",
-            "Rock"
-
-            };
             
 
             for (int i = 0; i < 5; i++)
@@ -84,28 +81,37 @@ namespace Music.Net_App.View
             }
         }
 
+        private void Label_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Click");
+            string song = (sender as Label).Text;
+            MessageBox.Show(song);
+            sd(song);
+        }
         private void Button_Search_Click(object sender, EventArgs e)
         {
             SongBLL song = new SongBLL();
             foreach(Song1DTO s in song.GetAllSongs())
             {
                 Guna2Panel p = new Guna2Panel();
-                pn.Add(p);
-                p.Height = 80;
-                p.Width = flowLayoutPanel3.Width - 15;
-                p.BackColor = Color.Transparent;
-                p.FillColor = Color.Azure;
-                p.BorderColor = Color.White;
-                p.BorderRadius = 20;
-                p.BorderThickness = 5;
-                p.Controls.Add(new Label
+                Label label = new Label 
                 {
                     Text = s.SongName,
                     Padding = new Padding(20, 10, 0, 0),
                     Height = 40,
                     Width = p.Width,
-
-                });
+                };
+                label.Click += new EventHandler(Label_Click);
+                pn.Add(p);
+                p.Height = 80;
+                p.Width = flowLayoutPanel3.Width - 30;
+                p.BackColor = Color.Transparent;
+                p.FillColor = Color.Azure;
+                p.BorderColor = Color.White;
+                p.BorderRadius = 20;
+                p.BorderThickness = 5;
+                p.Controls.Add(label);
+                
                 
                 /*string directory = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug\", "");
                 t.Image = Image.FromFile(directory + @"\Assets\Images\Song-icon.jpg");
@@ -115,6 +121,7 @@ namespace Music.Net_App.View
 
                 flowLayoutPanel3.Controls.Add(p);
             }
+            
         }
 
 

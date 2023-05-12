@@ -35,6 +35,7 @@
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
@@ -47,7 +48,6 @@
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel5.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
@@ -158,6 +158,15 @@
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
             this.flowLayoutPanel5.Size = new System.Drawing.Size(1060, 51);
             this.flowLayoutPanel5.TabIndex = 6;
+            // 
+            // panel2
+            // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(100, 52);
+            this.panel2.TabIndex = 7;
             // 
             // guna2Panel2
             // 
@@ -301,15 +310,6 @@
             this.label1.Size = new System.Drawing.Size(44, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "label1";
-            // 
-            // panel2
-            // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.Location = new System.Drawing.Point(3, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(100, 52);
-            this.panel2.TabIndex = 7;
             // 
             // SearchForm
             // 
