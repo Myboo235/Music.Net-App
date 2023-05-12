@@ -74,10 +74,14 @@ namespace Music.Net_App.BLL
 
         }
 
-
+        //get Last ID
+        //Add Listener
+        //Add Artisr
+        //Modify Listener
+        //Modify Artisr
         public bool addUser(Listener user)
         {
-            try
+            try//lay ra id cuoi
             {
                 db.Listeners.Add(user);
                 db.SaveChanges();

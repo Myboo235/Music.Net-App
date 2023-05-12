@@ -1,5 +1,6 @@
 ﻿using Guna.UI2.WinForms;
 using Music.Net_App.BLL;
+using Music.Net_App.DAL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -70,10 +71,33 @@ namespace Music.Net_App.View
                     Close();
                 }
                 else MessageBox.Show("Sign in fail");
+                return;
             }
             else 
             {
-                
+                if (u.checkUser(guna2TextBox1.Text, guna2TextBox2.Text))
+                {
+                    MessageBox.Show("There is already email");
+                }
+                else
+                {
+                    Music.Net_App.DAL.Listener d = new Music.Net_App.DAL.Listener
+                    {
+                        ListenerID = 6,
+                        Name = guna2TextBox3.Text,
+                        Email = guna2TextBox1.Text,
+                        Password = guna2TextBox2.Text,
+                        CountryID = 1
+                    };
+                    if (u.addUser(d))
+                    {
+                        MessageBox.Show("Sign up successfully");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Sign up fail");
+                    }
+                }
             }
             
 
