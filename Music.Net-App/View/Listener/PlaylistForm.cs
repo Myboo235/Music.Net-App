@@ -8,14 +8,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Music.Net_App.BLL;
+using Music.Net_App.DAL;
+using Music.Net_App.DTO;
 
 namespace Music.Net_App.View
 {
 
     public partial class PlaylistForm : Form
     {
+
         string directory = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug", "");
         private List<FlowLayoutPanel> tb = new List<FlowLayoutPanel>();
+        private Music.Net_App.DAL.Listener User;
         public Image SetImageOpacity(Image image, float opacity)
         {
             Bitmap bmp = new Bitmap(image.Width, image.Height);
@@ -32,17 +37,25 @@ namespace Music.Net_App.View
             }
             return bmp;
         }
-        public PlaylistForm()
+        public static Image resizeImage(Image imgToResize, Size size)
+        {
+            return (Image)(new Bitmap(imgToResize, size));
+        }
+        public PlaylistForm(Music.Net_App.DAL.Listener User)
         {
             InitializeComponent();
             LikedSong_Panel.BackgroundImage = SetImageOpacity(Image.FromFile(directory + @"\Assets\Images\Heart.jpg"), 0.75F);
-            pictureBox1.BackgroundImage = SetImageOpacity(Image.FromFile(directory + @"\Assets\Images\Heart.jpg"), 0.75F);
+            /*pictureBox1.BackgroundImage = SetImageOpacity(Image.FromFile(directory + @"\Assets\Images\Heart.jpg"), 0.75F);
             pictureBox2.BackgroundImage = SetImageOpacity(Image.FromFile(directory + @"\Assets\Images\Heart.jpg"), 0.75F);
-            pictureBox3.BackgroundImage = SetImageOpacity(Image.FromFile(directory + @"\Assets\Images\Heart.jpg"), 0.75F);
+            pictureBox3.BackgroundImage = SetImageOpacity(Image.FromFile(directory + @"\Assets\Images\Heart.jpg"), 0.75F);*/
 
             /*flowLayoutPanel5.BackgroundImage = ;*/
             //flowLayoutPanel5.BackgroundImageLayout = ImageLayout.Center;
 
+            
+                this.User = User;
+            
+            
 
         }
 
@@ -58,11 +71,35 @@ namespace Music.Net_App.View
 
         private void iconButton2_Click(object sender, EventArgs e)
         {
-            for(int i = 0; i < 10; i++)
+            if (User != null)
+            {
+                MessageBox.Show(User.Name);
+            }
+            else
+            {
+                MessageBox.Show("Guest");
+                return;
+            }
+            UserBLL b = new UserBLL(); 
+            foreach(Music.Net_App.DAL.Playlist pl in b.getUserPlaylist(User.ListenerID))
             {
                 FlowLayoutPanel p = new FlowLayoutPanel();
-                p = flowLayoutPanel1;
-                
+                p.Size = new Size(224, 450);
+                p.FlowDirection = FlowDirection.TopDown;
+                p.BackColor = SystemColors.ActiveCaption;
+                p.Controls.Add(new PictureBox
+                {
+                    BackgroundImage = resizeImage(Image.FromFile(directory + @"\Assets\Images\muzira-banner.png"), new Size(224, 300)),
+                    Size = new Size(224, 300),
+                    BackColor = Color.White,
+                    Margin = new Padding(0,0,0,0)
+                });
+                p.Controls.Add(new Label
+                {
+                    Text= pl.PlaylistName,
+                    Size = new Size(224, 100),
+                    Margin = new Padding(0, 0, 0, 0)
+                });
                 tb.Add(p);
                 flowLayoutPanel3.Controls.Add(p);
             }
