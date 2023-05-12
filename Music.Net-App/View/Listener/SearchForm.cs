@@ -88,6 +88,13 @@ namespace Music.Net_App.View
             MessageBox.Show(song);
             sd(song);
         }
+        private void Panel_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Click");
+            string song = (sender as Label).Text;
+            MessageBox.Show(song);
+            sd(song);
+        }
         private void Button_Search_Click(object sender, EventArgs e)
         {
             SongBLL song = new SongBLL();
@@ -102,6 +109,8 @@ namespace Music.Net_App.View
                     Width = p.Width,
                 };
                 label.Click += new EventHandler(Label_Click);
+                
+
                 pn.Add(p);
                 p.Height = 80;
                 p.Width = flowLayoutPanel3.Width - 30;
