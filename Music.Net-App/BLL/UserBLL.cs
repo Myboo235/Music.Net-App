@@ -3,6 +3,8 @@ using Music.Net_App.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Documents;
+
 namespace Music.Net_App.BLL
 {
 
@@ -21,17 +23,18 @@ namespace Music.Net_App.BLL
     public class UserBLL
     {
         EntitiesMusicNetApp db = new EntitiesMusicNetApp();
-        public List<ListenerDTO> getAllUser()
+        // get all listener 
+        public List<ListenerDTO> getAllListener()
         {
 
             List<ListenerDTO> list = new List<ListenerDTO>();
-            var getAlluser = from p in db.Listeners
+            var getAllListener = from p in db.Listeners
                              join c in db.Countries on p.CountryID equals c.CountryID
 
                              select new { p.ListenerID, c.CountryName, p.Name, p.Email, p.Password, p.Gender, p.DateJoin };
 
 
-            foreach (var item in getAlluser.ToList())
+            foreach (var item in getAllListener.ToList())
             {
                 list.Add(new ListenerDTO
                 {
@@ -50,6 +53,90 @@ namespace Music.Net_App.BLL
 
             return list;
         }
+
+        // get all artist
+
+        /*        public List<ArtistDTO> getAllArtist()
+                {
+                    List<ArtistDTO> list = new List<ArtistDTO>();
+                    var getAllArtist = from a in db.Artists
+                                       join c in db.Countries on a.CountryID equals c.CountryID
+
+                                       select new { a.ArtistID, c.CountryName, a.Name, a.Email, a.Password, a.Gender, a.DateJoin };
+
+
+                    foreach (var item in getAllArtist.ToList())
+                    {
+                        list.Add(new ArtistDTO
+                        {
+                            ArtistID = item.ArtistID,
+                            CountryName = item.CountryName,
+                            Name = item.Name,
+                            Email = item.Email,
+                            Password = item.Password,
+                            Gender = Convert.ToBoolean(item.Gender),
+                            DateJoin = Convert.ToDateTime(item.DateJoin)
+
+                        });
+                    }
+
+
+
+                    return list;
+
+                }
+        */
+
+        public List<UserDTO> ConvertListenerToUserDTO(List<ListenerDTO> listener)
+        {
+            List<UserDTO> userDTOs = new List<UserDTO>();
+            foreach(var item in listener)
+            {
+                userDTOs.Add(new UserDTO { 
+                        CountryName = item.CountryName,
+                        Name = item.Name,
+                        Email = item.Email,
+                        Password = item.Password,
+                        Gender = item.Gender,
+                        DateJoin = item.DateJoin
+                
+                });
+            }
+            return userDTOs;
+        }
+
+
+        public List<UserDTO> ConvertArtistToUserDTO(List<ArtistDTO> artists)
+        {
+            List<UserDTO> userDTOs = new List<UserDTO>();
+            foreach (var item in artists)
+            {
+                userDTOs.Add(new UserDTO
+                {
+                    CountryName = item.CountryName,
+                    Name = item.Name,
+                    Email = item.Email,
+                    Password = item.Password,
+                    Gender = item.Gender,
+                    DateJoin = item.DateJoin
+
+                });
+            }
+            return userDTOs;
+        }
+        public List<UserDTO> getAllUser()
+        {
+            List<UserDTO> getAllUser = new List<UserDTO>();
+            getAllUser.AddRange(ConvertListenerToUserDTO(getAllListener()));
+         //   getAllUser.AddRange(ConvertArtistToUserDTO(getAllArtist));
+         return getAllUser;
+        }
+
+
+
+      
+
+ 
 
 
         public bool checkUser(string email, string pass)
