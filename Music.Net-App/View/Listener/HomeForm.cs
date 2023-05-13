@@ -44,7 +44,8 @@ namespace Music.Net_App.View
             {
                 Guna2Panel gp = new Guna2Panel
                 {
-                    BackColor = Color.Red,
+                    BackColor = Color.White,
+                    Size = new Size(182, 152)
                 };
                 Label l = new Label
                 {

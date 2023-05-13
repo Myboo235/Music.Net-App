@@ -21,7 +21,7 @@ namespace Music.Net_App.View.Listener
             InitializeComponent();
 
             User = user;
-            MessageBox.Show(user.CountryName);
+            //MessageBox.Show(user.CountryName);
             SetUpAccount();
             //this.HorizontalScroll.Value = true;
         }

@@ -60,7 +60,20 @@ namespace Music.Net_App.BLL
             return list;
         }
 
+        public bool CheckEmail(string email)
+        {
+            // true chua ton tai tai khoan
+            var check = db.Listeners.Where(p => p.Email == email).FirstOrDefault();
+            if (check != null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
 
+        }
         public bool checkUser(string email, string pass)
         {
             // true chua ton tai tai khoan

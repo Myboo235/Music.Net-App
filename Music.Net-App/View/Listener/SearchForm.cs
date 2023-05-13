@@ -87,7 +87,7 @@ namespace Music.Net_App.View
 
         private void Label_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Click");
+            //MessageBox.Show("Click");
             string song = (sender as Label).Text;
             MessageBox.Show(song);
             sd(song);
@@ -108,7 +108,7 @@ namespace Music.Net_App.View
                 Guna2Panel p = new Guna2Panel();
                 Label label = new Label 
                 {
-                    Text = s.Name,
+                    Text = s.SongName,
                     //Text = a.AlbumName,
                     ForeColor = Color.White,
                     Padding = new Padding(20, 10, 0, 0),

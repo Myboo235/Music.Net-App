@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Music.Net_App.DTO
 {
-    internal class CountryDTO
+    public class CountryDTO
     {
+        public string CountryName { get; set; }
     }
 }

@@ -44,8 +44,8 @@ namespace Music.Net_App.View
             UserBLL b = new UserBLL();
             User = b.getUsersByEmail(email);
             this.FormBorderStyle = FormBorderStyle.None;
-            currentChildForm = new PlaylistForm(User);
-            OpenChildForm(new PlaylistForm(User));
+            currentChildForm = new HomeForm(User);
+            OpenChildForm(currentChildForm);
         }
 
         public void SetMusicPlayer(string Song)
@@ -324,6 +324,11 @@ namespace Music.Net_App.View
                 OpenChildForm(new AccountForm(User));
             resize();
             panel4.Visible = false;
+        }
+
+        private void iconButton3_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
