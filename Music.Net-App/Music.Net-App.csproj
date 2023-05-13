@@ -316,6 +316,7 @@
       <DependentUpon>ModelMusicNetApp.tt</DependentUpon>
     </Compile>
     <Compile Include="DTO\AlbumDTO.cs" />
+    <Compile Include="DTO\ArtistDTO.cs" />
     <Compile Include="DTO\ListenerDTO.cs" />
     <Compile Include="DTO\PlayListDTO.cs" />
     <Compile Include="Program.cs" />
