@@ -6,30 +6,20 @@ using System.Threading.Tasks;
 
 namespace Music.Net_App.DAL.Huy
 {
-    public class Song1DTO
-    {
-        public int SongID { get; set; }
-        
-        public string SongName { get; set; }
-    }
-    public class Song2DTO
+    public class SongArtistDTO  
     {
         public string SongName { get; set; }
-        public string Name { get; set; }
+        public string Name { get; set; }  
+
     }
-    public class Song3DTO
+    public class SongUpdateDTO
     {
         public int SongID { get; set; }
 
         public string SongName { get; set; }
-    }
-    public class Song4DTO
-    {
-        public int SongID { get; set; }
         public int ArtistID { get; set; }
-        public string SongName { get; set; }
         public DateTime DateCreated { get; set; }
-        public TimeSpan Duration { get; set; }
+        public int Duration { get; set; }
     }
 
 }

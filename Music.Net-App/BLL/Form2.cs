@@ -22,7 +22,7 @@ namespace Music.Net_App.DAL.Huy
         private void button1_Click(object sender, EventArgs e)
         {
             SongBLL songBLL = new SongBLL();
-            List<Song1DTO> songs = songBLL.GetAllSongs();
+            List<SongArtistDTO> songs = songBLL.GetAllSongs();
             dataGridView1.DataSource = songs;
         }
         private void button2_Click(object sender, EventArgs e)
@@ -36,7 +36,7 @@ namespace Music.Net_App.DAL.Huy
                 return;
             }
 
-            List<Song2DTO> songDTOs = songBLL.GetSongByName(searchValue);
+            List<SongArtistDTO> songDTOs = songBLL.GetSongByName(searchValue);
 
             if (songDTOs.Count == 0)
             {
@@ -52,7 +52,7 @@ namespace Music.Net_App.DAL.Huy
         {
             {
                 PlaylistBLL playlistBLL = new PlaylistBLL();
-                List<Playlist1DTO> playlists = playlistBLL.GetAllPlaylists();
+                List<PlaylistListenerDTO> playlists = playlistBLL.GetAllPlaylists();
                 dataGridView1.DataSource = playlists;
             }
         }
@@ -61,8 +61,8 @@ namespace Music.Net_App.DAL.Huy
         {
             string searchValue = textBox1.Text.Trim();
             PlaylistBLL playlistBLL = new PlaylistBLL();
-            List<Playlist2DTO> playlists = playlistBLL.GetPlaylistbyName(searchValue);
-            dataGridView1.DataSource = playlists;
+            List<PlaylistListenerDTO> query = playlistBLL.GetPlaylistByName(searchValue);
+            dataGridView1.DataSource = query;
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -70,7 +70,7 @@ namespace Music.Net_App.DAL.Huy
             string listenername = textBox1.Text.Trim();
             PlaylistBLL playlistBLL = new PlaylistBLL();
 
-            List<Playlist3DTO> playlists = playlistBLL.GetAllPlaylistOfListener(listenername);
+            List<PlaylistListenerDTO> playlists = playlistBLL.GetAllPlaylistOfListener(listenername);
 
             if (playlists == null || playlists.Count == 0)
             {
@@ -87,7 +87,7 @@ namespace Music.Net_App.DAL.Huy
             PlaylistBLL playlistBLL = new PlaylistBLL();
 
             // Lấy danh sách bài hát trong playlist
-            List<SongDTO> songs = playlistBLL.GetAllSongOfPlaylist(playlistName);
+            List<PlaylistSongDTO> songs = playlistBLL.GetAllSongOfPlaylist(playlistName);
 
             // Hiển thị danh sách bài hát trên dataGridView1
             if (songs == null || songs.Count == 0)
@@ -101,23 +101,4 @@ namespace Music.Net_App.DAL.Huy
         }
     }
 }
-// tim kiem bai hat
 
-
-/*public List<Song> search(string name)
-{
-    List<Song> songDTOs = new List<Song>();
-    var songs = db.Songs.Where(s => s.SongName.Contains(name)).Join(
-                                   db.Artists, song => song.ArtistID, artist => artist.ArtistID, (song, artist) => new { song, artist }
-                                                                                                                                           );
-    foreach (var item in songs)
-    {
-        songDTOs.Add(new Song
-        {
-            SongName = item.song.SongName,
-            // Name = item.artist.Name
-        });
-    }
-    return songDTOs;
-}
-*/

@@ -6,21 +6,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using System.Windows.Forms;
 
 namespace Music.Net_App.BLL
 {
     internal class PlaylistBLL
     {
         EntitiesMusicNetApp db = new EntitiesMusicNetApp();
-
         //getAllPlaylist        but3
-        public List<Playlist1DTO> GetAllPlaylists()
+        public List<PlaylistListenerDTO> GetAllPlaylists()
         {
-            List<Playlist1DTO> playlists = new List<Playlist1DTO>();
-            EntitiesMusicNetApp db = new EntitiesMusicNetApp();
+            List<PlaylistListenerDTO> playlists = new List<PlaylistListenerDTO>();
             var query = from playlist in db.Playlists
                         join listener in db.Listeners on playlist.ListenerID equals listener.ListenerID
-                        select new Playlist1DTO
+                        select new PlaylistListenerDTO
                         {
                             PlaylistName = playlist.PlaylistName,
                             Name = listener.Name
@@ -36,46 +35,43 @@ namespace Music.Net_App.BLL
 
 
         //getPlaylistbyName      but4
-        public List<Playlist2DTO> GetPlaylistbyName(string name)
+        public List<PlaylistListenerDTO> GetPlaylistByName(string name)
         {
-            List<Playlist2DTO> re = new List<Playlist2DTO>();
+            List<PlaylistListenerDTO> playlists = new List<PlaylistListenerDTO>();
+            var query = from playlist in db.Playlists
+                        join listener in db.Listeners on playlist.ListenerID equals listener.ListenerID
+                        where playlist.PlaylistName.Contains(name)
+                        select new PlaylistListenerDTO
+                        {
+                            PlaylistName = playlist.PlaylistName,
+                            Name = listener.Name
+                        };
 
-                var playlists = db.Playlists
-                    .Where(p => p.PlaylistName.Contains(name))
-                    .Select(p => new  {p.PlaylistName})
-                    .ToList();
-                foreach(var item in playlists)
-                {
-                re.Add(
-                    new Playlist2DTO
-                    {
-                        PlaylistName = item.PlaylistName
-                    }
-                );
-                }
-                if (playlists.Count == 0 || !playlists.Any(p => p.PlaylistName.Contains(name)))
-                {
-                    return null;
-                }
-                return re;
+            foreach (var item in query)
+            {
+                playlists.Add(item);
+            }
+
+            return playlists;
         }
+
         //GetAllPlaylistOfUser           but5
-        public List<Playlist3DTO> GetAllPlaylistOfListener(string listenerName)
+        public List<PlaylistListenerDTO> GetAllPlaylistOfListener(string listenerName)
         {
-            List<Playlist3DTO> result = new List<Playlist3DTO>();
+            List<PlaylistListenerDTO> result = new List<PlaylistListenerDTO>();
 
             var playlists = db.Playlists
                 .Join(db.Listeners, p => p.ListenerID, l => l.ListenerID, (p, l) => new { Playlist = p, Listener = l })
-                .Where(pl => pl.Listener.Name == listenerName)
-                .Select(pl => new { pl.Playlist.PlaylistID, pl.Playlist.PlaylistName, pl.Listener.ListenerID, pl.Listener.Name })
+                .Where(pl => pl.Listener.Name.Contains(listenerName))
+                .Select(pl => new { pl.Playlist.PlaylistName, pl.Listener.Name })
                 .ToList();
 
             foreach (var item in playlists)
             {
-                result.Add(new Playlist3DTO
+                result.Add(new PlaylistListenerDTO
                 {
                     PlaylistName = item.PlaylistName,
-                    ListenerName = item.Name 
+                    Name = item.Name 
                 });
             }
 
@@ -89,9 +85,9 @@ namespace Music.Net_App.BLL
 
 
         //GetAllSongOfPlaylist         but6
-        public List<SongDTO> GetAllSongOfPlaylist(string playlistName)
+        public List<PlaylistSongDTO> GetAllSongOfPlaylist(string playlistName)
         {
-            List<SongDTO> result = new List<SongDTO>();
+            List<PlaylistSongDTO> result = new List<PlaylistSongDTO>();
             var songs = (from s in db.Songs
                          join ps in db.PlaylistSongs on s.SongID equals ps.SongID
                          join p in db.Playlists on ps.PlaylistID equals p.PlaylistID
@@ -100,7 +96,7 @@ namespace Music.Net_App.BLL
                          .ToList();
             foreach (var item in songs)
             {
-                result.Add(new SongDTO
+                result.Add(new PlaylistSongDTO
                 {
                     PlaylistName = item.PlaylistName,
                     SongName = item.SongName
@@ -115,54 +111,6 @@ namespace Music.Net_App.BLL
             return result;
         }
 
-        //AddSongToPlaylist   but 7
-        public bool AddSongToPlaylist(string playlistName, string songName)
-        {
-            // Kiểm tra xem danh sách phát có tồn tại không
-            var playlist = db.Playlists.FirstOrDefault(p => p.PlaylistName == playlistName);
-            if (playlist == null)
-            {
-                Console.WriteLine("Danh sách phát không tồn tại.");
-                return false;
-            }
-
-            // Kiểm tra xem bài hát có tồn tại không
-            var song = db.Songs.FirstOrDefault(s => s.SongName == songName);
-            if (song == null)
-            {
-                Console.WriteLine("Bài hát không tồn tại.");
-                return false;
-            }
-
-            // Kiểm tra xem bài hát đã tồn tại trong danh sách phát chưa
-            var existingSong = db.PlaylistSongs.FirstOrDefault(ps => ps.PlaylistID == playlist.PlaylistID && ps.SongID == song.SongID);
-            if (existingSong != null)
-            {
-                Console.WriteLine("Bài hát đã tồn tại trong danh sách phát.");
-                return false;
-            }
-
-            try
-            {
-                // Thêm bài hát vào danh sách phát
-                var newPlaylistSong = new PlaylistSong
-                {
-                    PlaylistID = playlist.PlaylistID,
-                    SongID = song.SongID
-                };
-                db.PlaylistSongs.Add(newPlaylistSong);
-                db.SaveChanges();
-                Console.WriteLine("Bài hát đã được thêm vào danh sách phát thành công.");
-                return true;
-            }
-            catch
-            {
-                Console.WriteLine("Lỗi khi thêm bài hát vào danh sách phát.");
-                return false;
-            }
-        }
-
-
         //AddPlaylist   but8
         public bool AddPlaylist(string playlistName, string listenerName)
         {
@@ -170,7 +118,7 @@ namespace Music.Net_App.BLL
             var listener = db.Listeners.FirstOrDefault(l => l.Name == listenerName);
             if (listener == null)
             {
-                Console.WriteLine("Người nghe nhạc không tồn tại.");
+                MessageBox.Show("Người nghe nhạc không tồn tại.");
                 return false;
             }
 
@@ -178,7 +126,7 @@ namespace Music.Net_App.BLL
             var existingPlaylist = db.Playlists.FirstOrDefault(p => p.PlaylistName == playlistName);
             if (existingPlaylist != null)
             {
-                Console.WriteLine("Danh sách phát đã tồn tại.");
+                MessageBox.Show("Danh sách phát đã tồn tại.");
                 return false;
             }
 
@@ -192,12 +140,12 @@ namespace Music.Net_App.BLL
                 };
                 db.Playlists.Add(newPlaylist);
                 db.SaveChanges();
-                Console.WriteLine("Danh sách phát đã được tạo thành công.");
+                MessageBox.Show("Danh sách phát đã được tạo thành công.");
                 return true;
             }
             catch
             {
-                Console.WriteLine("Lỗi khi tạo danh sách phát.");
+                MessageBox.Show("Lỗi khi tạo danh sách phát.");
                 return false;
             }
         }
@@ -208,7 +156,7 @@ namespace Music.Net_App.BLL
             var playlist = db.Playlists.FirstOrDefault(p => p.PlaylistName == playlistName);
             if (playlist == null)
             {
-                Console.WriteLine("Playlist không tồn tại.");
+                MessageBox.Show("Playlist không tồn tại.");
                 return false;
             }
 
@@ -217,16 +165,104 @@ namespace Music.Net_App.BLL
                 // Chỉnh sửa tên danh sách phát
                 playlist.PlaylistName = newPlaylistName;
                 db.SaveChanges();
-                Console.WriteLine("Playlist đã chỉnh sửa thành công.");
+                MessageBox.Show("Playlist đã chỉnh sửa thành công.");
                 return true;
             }
             catch
             {
-                Console.WriteLine("Lỗi khi chỉnh sửa Playlist.");
+                MessageBox.Show("Lỗi khi chỉnh sửa Playlist.");
+                return false;
+            }
+        }
+        //AddSongToPlaylist   but 7
+        public bool AddSongToPlaylist(string playlistName, string songName)
+        {
+            // Kiểm tra xem playlist có tồn tại không
+            var playlist = db.Playlists.FirstOrDefault(p => p.PlaylistName == playlistName);
+            if (playlist == null)
+            {
+                MessageBox.Show("playlist không tồn tại.");
+                return false;
+            }
+
+            // Kiểm tra xem bài hát có tồn tại không
+            var song = db.Songs.FirstOrDefault(s => s.SongName == songName);
+            if (song == null)
+            {
+                MessageBox.Show("Bài hát không tồn tại.");
+                return false;
+            }
+
+            // Kiểm tra xem bài hát đã tồn tại trong palylist chưa
+            var existingSong = db.PlaylistSongs.FirstOrDefault(ps => ps.PlaylistID == playlist.PlaylistID && ps.SongID == song.SongID);
+            if (existingSong != null)
+            {
+                MessageBox.Show("Bài hát đã tồn tại trong playlist.");
+                return false;
+            }
+
+            try
+            {
+                // Thêm bài hát vào playlist
+                var newPlaylistSong = new PlaylistSong
+                {
+                    PlaylistID = playlist.PlaylistID,   //ID của pl mà bài hát sẽ được thêm vào
+                    SongID = song.SongID                //ID của bài hát được thêm vào pl
+                };
+                db.PlaylistSongs.Add(newPlaylistSong);
+                db.SaveChanges();
+                MessageBox.Show("Bài hát được thêm thành công.");
+                return true;
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi khi thêm bài hát vào playlist.");
                 return false;
             }
         }
 
+        //RemoveSongfromPlaylist
+        // RemoveSongfromPlaylist
+        public bool RemoveSongfromPlaylist(string playlistName, string songName)
+        {
+            // Kiểm tra xem playlist có tồn tại không
+            var playlist = db.Playlists.FirstOrDefault(p => p.PlaylistName == playlistName);
+            if (playlist == null)
+            {
+                MessageBox.Show("Playlist không tồn tại.");
+                return false;
+            }
+
+            // Kiểm tra xem bài hát có tồn tại không
+            var song = db.Songs.FirstOrDefault(s => s.SongName == songName);
+            if (song == null)
+            {
+                MessageBox.Show("Bài hát không tồn tại.");
+                return false;
+            }
+
+            try
+            {
+                // Kiểm tra xem bài hát có tồn tại trong playlist không
+                var playlistSong = db.PlaylistSongs.FirstOrDefault(ps => ps.PlaylistID == playlist.PlaylistID && ps.SongID == song.SongID);
+                if (playlistSong == null)
+                {
+                    MessageBox.Show("Bài hát không tồn tại trong playlist.");
+                    return false;
+                }
+
+                // Xóa bài hát khỏi playlist
+                db.PlaylistSongs.Remove(playlistSong);
+                db.SaveChanges();
+                MessageBox.Show("Bài hát đã được xóa khỏi playlist.");
+                return true;
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi khi xóa bài hát khỏi playlist.");
+                return false;
+            }
+        }
 
     }
 }

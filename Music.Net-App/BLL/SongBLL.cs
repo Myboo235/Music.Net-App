@@ -15,25 +15,33 @@ namespace Music.Net_App.BLL
         EntitiesMusicNetApp db = new EntitiesMusicNetApp();
 
         //GetAllSongs
-        public List<Song1DTO> GetAllSongs()
+        public List<SongArtistDTO> GetAllSongs()
         {
-            List<Song1DTO> songDTOs = new List<Song1DTO>();
-            List<Song> songs = db.Songs.ToList();
-            foreach (Song song in songs)
+            List<SongArtistDTO> songDTOs = new List<SongArtistDTO>();
+            var songs = db.Songs.Join(
+                db.Artists,
+                song => song.ArtistID,
+                artist => artist.ArtistID,
+                (song, artist) => new { song, artist }
+            );
+
+            foreach (var item in songs)
             {
-                songDTOs.Add(new Song1DTO
+                songDTOs.Add(new SongArtistDTO
                 {
-                    SongID = song.SongID,
-                    SongName = song.SongName
+                    SongName = item.song.SongName,
+                    Name = item.artist.Name
                 });
             }
+
             return songDTOs;
         }
 
+
         //GetSongByName
-        public List<Song2DTO> GetSongByName(string name)
+        public List<SongArtistDTO> GetSongByName(string name)
         {
-            List<Song2DTO> songDTOs = new List<Song2DTO>();
+            List<SongArtistDTO> songDTOs = new List<SongArtistDTO>();
             var songs = db.Songs.Where(s => s.SongName.Contains(name)).Join(
                             db.Artists,
                             song => song.ArtistID,
@@ -42,7 +50,7 @@ namespace Music.Net_App.BLL
                         );
             foreach (var item in songs)
             {
-                songDTOs.Add(new Song2DTO
+                songDTOs.Add(new SongArtistDTO
                 {
                     SongName = item.song.SongName,
                     Name = item.artist.Name
@@ -52,20 +60,33 @@ namespace Music.Net_App.BLL
         }
 
         //AddSong
-        public void AddSong(Song3DTO song3DTO)
+        public void AddSong(SongUpdateDTO songDTO)
         {
-            
+            // Kiểm tra xem bài hát đã tồn tại hay chưa
+            bool dup = db.Songs.Any(s => s.SongName == songDTO.SongName);
+            if (dup)
+            {
+                MessageBox.Show("Bài hát đã tồn tại trong danh sách!");
+                return;
+            }
+
             Song song = new Song
             {
-                SongName = song3DTO.SongName,
-                // Nơi thêm các thuộc tính của bài hát
+                SongName = songDTO.SongName,
+                ArtistID = songDTO.ArtistID,
+                DateCreated = songDTO.DateCreated,
+                Duration = songDTO.Duration
             };
+
             db.Songs.Add(song);
             db.SaveChanges();
+
+            MessageBox.Show("Thêm bài hát thành công!");
         }
 
+
         //ModifySong
-        public bool ModifySong(SongDTO songDTO)
+        public bool ModifySong(SongUpdateDTO songDTO)
         {
             // Tìm bài hát theo ID
             Song song = db.Songs.FirstOrDefault(s => s.SongID == songDTO.SongID);
@@ -75,15 +96,14 @@ namespace Music.Net_App.BLL
                 song.SongName = songDTO.SongName;
                 song.ArtistID = songDTO.ArtistID;
                 song.DateCreated = songDTO.DateCreated;
-                //song.Duration = songDTO.Duration;
+                song.Duration = songDTO.Duration;
 
                 db.SaveChanges();
-
-                Console.WriteLine("Sửa đổi bài hát thành công.");
+                MessageBox.Show("Sửa đổi bài hát thành công.");
                 return true;
             }
 
-            Console.WriteLine("Không tìm thấy bài hát");
+            MessageBox.Show(" Không tìm thấy bài hát");
             return false;
 
         }
@@ -97,13 +117,14 @@ namespace Music.Net_App.BLL
                 db.Songs.Remove(song);
                 db.SaveChanges();
 
-                MessageBox.Show("Xóa bài hát thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Xóa bài hát thành công.");
                 return true;
             }
 
-            MessageBox.Show("Không tìm thấy bài hát.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            MessageBox.Show("Không tìm thấy bài hát.");
             return false;
         }
     }
 }
+
 
