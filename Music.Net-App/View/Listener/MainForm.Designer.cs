@@ -48,7 +48,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.Button_Account = new FontAwesome.Sharp.IconButton();
             this.Button_Profile = new FontAwesome.Sharp.IconButton();
             this.PlayBar = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -315,7 +315,7 @@
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.iconButton3);
             this.panel4.Controls.Add(this.iconButton4);
-            this.panel4.Controls.Add(this.iconButton2);
+            this.panel4.Controls.Add(this.Button_Account);
             this.panel4.Controls.Add(this.Button_Profile);
             this.panel4.Location = new System.Drawing.Point(482, 3);
             this.panel4.Name = "panel4";
@@ -363,25 +363,26 @@
             this.iconButton4.Text = "Setting";
             this.iconButton4.UseVisualStyleBackColor = true;
             // 
-            // iconButton2
+            // Button_Account
             // 
-            this.iconButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton2.FlatAppearance.BorderSize = 0;
-            this.iconButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
-            this.iconButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.Font = new System.Drawing.Font("Segoe UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton2.ForeColor = System.Drawing.Color.White;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton2.IconColor = System.Drawing.Color.Black;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.Location = new System.Drawing.Point(-1, -4);
-            this.iconButton2.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(221, 65);
-            this.iconButton2.TabIndex = 0;
-            this.iconButton2.Text = "Account";
-            this.iconButton2.UseVisualStyleBackColor = true;
+            this.Button_Account.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Button_Account.FlatAppearance.BorderSize = 0;
+            this.Button_Account.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
+            this.Button_Account.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.Button_Account.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button_Account.Font = new System.Drawing.Font("Segoe UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Button_Account.ForeColor = System.Drawing.Color.White;
+            this.Button_Account.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.Button_Account.IconColor = System.Drawing.Color.Black;
+            this.Button_Account.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.Button_Account.Location = new System.Drawing.Point(-1, -4);
+            this.Button_Account.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.Button_Account.Name = "Button_Account";
+            this.Button_Account.Size = new System.Drawing.Size(221, 65);
+            this.Button_Account.TabIndex = 0;
+            this.Button_Account.Text = "Account";
+            this.Button_Account.UseVisualStyleBackColor = true;
+            this.Button_Account.Click += new System.EventHandler(this.Button_Account_Click);
             // 
             // Button_Profile
             // 
@@ -772,7 +773,7 @@
         private FontAwesome.Sharp.IconButton Button_Compress;
         private System.Windows.Forms.Panel panel4;
         private FontAwesome.Sharp.IconButton iconButton4;
-        private FontAwesome.Sharp.IconButton iconButton2;
+        private FontAwesome.Sharp.IconButton Button_Account;
         private FontAwesome.Sharp.IconButton Button_Profile;
         private FontAwesome.Sharp.IconButton iconButton3;
         private Guna.UI2.WinForms.Guna2ToggleSwitch guna2ToggleSwitch1;

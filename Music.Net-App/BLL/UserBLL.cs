@@ -23,24 +23,24 @@ namespace Music.Net_App.BLL
 
     public class UserBLL {
         EntitiesMusicNetApp db = new EntitiesMusicNetApp();
-        public List<ListenerDTO> getAllUser()
+        public List<UserDTO> getAllUser()//get alllisste//
         {
        
-        List<ListenerDTO> list = new List<ListenerDTO>();
+        List<UserDTO> list = new List<UserDTO>();
 
               //var lis = db.Listeners.Select(p => new { p.ListenerID, p.CountryID, p.Name, p.Email, p.Password, p.Gender, p.DateJoin  });
            
             //list.AddRange(db.Listeners.Select(p => new { p.ListenerID, p.Country, p.Name, p.Email, p.Password, p.Gender, p.DateJoin  }).ToList();
             var getAlluser = from p in db.Listeners
+                             from b in db.Artists
                              join c in db.Countries on p.CountryID equals c.CountryID
                              select new { p.ListenerID, c.CountryName, p.Name, p.Email, p.Password, p.Gender, p.DateJoin };
        
             //MessageBox.Show(getAlluser.T)
             foreach (var item in getAlluser.ToList())
             {
-                list.Add(new ListenerDTO
+                list.Add(new UserDTO
                 {
-                    ListenerID = item.ListenerID,
                     CountryName = item.CountryName,
                     Name = item.Name,
                     Email = item.Email,

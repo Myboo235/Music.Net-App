@@ -13,6 +13,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 namespace Music.Net_App.View
 {
     public partial class SearchForm : Form
@@ -104,6 +105,7 @@ namespace Music.Net_App.View
                 Label label = new Label 
                 {
                     Text = s.SongName,
+                    ForeColor = Color.White,
                     Padding = new Padding(20, 10, 0, 0),
                     Height = 40,
                     Width = p.Width,
@@ -115,10 +117,11 @@ namespace Music.Net_App.View
                 p.Height = 80;
                 p.Width = flowLayoutPanel3.Width - 30;
                 p.BackColor = Color.Transparent;
-                p.FillColor = Color.Azure;
+                p.FillColor = Color.Transparent;
                 p.BorderColor = Color.White;
-                p.BorderRadius = 20;
-                p.BorderThickness = 5;
+                //p.BorderRadius = 20;
+                p.CustomBorderColor = Color.White;
+                p.CustomBorderThickness = new Padding(0 , 1 , 0 , 0);
                 p.Controls.Add(label);
                 
                 
