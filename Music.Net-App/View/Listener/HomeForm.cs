@@ -1,4 +1,7 @@
 ﻿using FontAwesome.Sharp;
+using Guna.UI2.WinForms;
+using Music.Net_App.BLL;
+using Music.Net_App.DAL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +16,7 @@ namespace Music.Net_App.View
 {
     public partial class HomeForm : Form
     {
-        public HomeForm(string theme = null)
+        public HomeForm(UserDTO User)
         {
 
             string directory = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug\", "");
@@ -24,7 +27,7 @@ namespace Music.Net_App.View
 
             /*        C: \Users\Lenovo\source\repos\Music\MusicApp\Music.Net - App\Assets\Musics\y2mate.com - DVRST  CLOSE EYES.mp3
             */
-            if (theme == "light" && theme != null)
+            /*if (theme == "light" && theme != null)
             {
                 MessageBox.Show("Night");
                 TopMixes.BackColor = Color.White;
@@ -33,6 +36,22 @@ namespace Music.Net_App.View
                 {
                     c.BackColor = Color.White;
                 }
+            }*/
+
+
+            UserBLL b = new UserBLL();
+            foreach(UserHistoryDTO c in b.GetHistory(User.UserId))
+            {
+                Guna2Panel gp = new Guna2Panel
+                {
+                    BackColor = Color.Red,
+                };
+                Label l = new Label
+                {
+                    Text = c.ItemName+"\n" + c.TimeStamp,
+                };
+                gp.Controls.Add(l);
+                RecentPlayed.Controls.Add(gp);
             }
         }
         private void resize()
@@ -43,8 +62,8 @@ namespace Music.Net_App.View
             HomeLayout.Width = this.Width*/;
             //MessageBox.Show(this.Width + this.Height + "");
             HomeLayout.Size = new Size(this.Width, this.Height);
-            
-            
+
+            iconButton4.Width = HomeLayout.Width-30;
             VideoPanel.Width = HomeLayout.Width-9;
             IntroVideo.Width = VideoPanel.Width;
             VideoPanel.Height = HomeLayout.Height / 3;

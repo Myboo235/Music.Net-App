@@ -21,14 +21,17 @@ namespace Music.Net_App.View
 
         public delegate void SongDelegate(string SongName);
         public SongDelegate sd { get; set; }
+        SongBLL song = new SongBLL();
+        AlbumBLL album = new AlbumBLL();
+        private List<PictureBox> tb = new List<PictureBox>();
+        private List<Guna2Panel> pn = new List<Guna2Panel>();
         public SearchForm()
         {
             InitializeComponent();
             flowLayoutPanel3.BackColor = Color.Transparent;
             guna2Panel1.Width = flowLayoutPanel3.Width - 30;
         }
-        private List<PictureBox> tb = new List<PictureBox>();
-        private List<Guna2Panel> pn = new List<Guna2Panel>();
+        
 
         private void SearchForm_Resize(object sender, EventArgs e)
         {
@@ -98,13 +101,15 @@ namespace Music.Net_App.View
         }
         private void Button_Search_Click(object sender, EventArgs e)
         {
-            SongBLL song = new SongBLL();
-            foreach(Song1DTO s in song.GetAllSongs())
+            flowLayoutPanel3.Controls.Clear();
+            foreach (Song2DTO s in song.GetSongByName(guna2TextBox1.Text))
+            //foreach (AlbumDTO a in album.GetAllAlbum())
             {
                 Guna2Panel p = new Guna2Panel();
                 Label label = new Label 
                 {
-                    Text = s.SongName,
+                    Text = s.Name,
+                    //Text = a.AlbumName,
                     ForeColor = Color.White,
                     Padding = new Padding(20, 10, 0, 0),
                     Height = 40,

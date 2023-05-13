@@ -113,7 +113,7 @@
             this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(0, 0);
             this.guna2CustomGradientPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
-            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(935, 284);
+            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(955, 284);
             this.guna2CustomGradientPanel1.TabIndex = 2;
             // 
             // flowLayoutPanel1
@@ -129,7 +129,7 @@
             this.flowLayoutPanel1.Controls.Add(this.guna2ShadowPanel4);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(4, 288);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(931, 752);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(951, 752);
             this.flowLayoutPanel1.TabIndex = 3;
             // 
             // panel1
@@ -232,7 +232,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(976, 705);
+            this.ClientSize = new System.Drawing.Size(977, 705);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.guna2CustomGradientPanel1);
             this.Name = "ProfileForm";

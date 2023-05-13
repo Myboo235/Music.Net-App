@@ -20,7 +20,7 @@ namespace Music.Net_App.View
     {
 
         private Form currentChildForm;
-        private Music.Net_App.DAL.Listener User = null;
+        private UserDTO User = null;
         private String previousChildFormName = "";
         private Form previousChildForm;
         //private Form nextChildForm;
@@ -194,8 +194,9 @@ namespace Music.Net_App.View
         }
         private void Button_Home_Click(object sender, EventArgs e)
         {
+            UserBLL b = new UserBLL();
             if (currentChildForm.GetType().Name.ToString() != "HomeForm")
-                OpenChildForm(new HomeForm(theme));
+                OpenChildForm(new HomeForm(b.getUsersByEmail(User.Email)));
             resize();
         }
 
@@ -245,7 +246,7 @@ namespace Music.Net_App.View
         private void Button_Profile_Click(object sender, EventArgs e)
         {
             if (currentChildForm.GetType().Name.ToString() != "ProfileForm")
-                OpenChildForm(new ProfileForm());
+                OpenChildForm(new ProfileForm(User));
             resize();
             panel4.Visible = false;
         }
@@ -320,7 +321,7 @@ namespace Music.Net_App.View
         private void Button_Account_Click(object sender, EventArgs e)
         {
             if (currentChildForm.GetType().Name.ToString() != "AccountForm")
-                OpenChildForm(new AccountForm(User.Name));
+                OpenChildForm(new AccountForm(User));
             resize();
             panel4.Visible = false;
         }

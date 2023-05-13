@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using Music.Net_App.DAL;
 using Music.Net_App.DTO;
 
@@ -14,12 +15,27 @@ namespace Music.Net_App.View.Listener
 {
     public partial class AccountForm : Form
     {
-        public AccountForm(string name)
+        UserDTO User = new UserDTO();
+        public AccountForm(UserDTO user)
         {
             InitializeComponent();
-            iconButton1.Text += name;
 
+            User = user;
+            MessageBox.Show(user.CountryName);
+            SetUpAccount();
             //this.HorizontalScroll.Value = true;
+        }
+
+        private void SetUpAccount()
+        {
+            iconButton1.Text += User.Name;
+            guna2TextBox1.Text = User.Name;
+            guna2TextBox2.Text = User.Email;
+            guna2TextBox3.Text = User.DateJoin.ToString();
+            guna2TextBox3.Enabled = false;
+
+            //guna2ComboBox1.val
+            //guna2ComboBox1.ForeColor = Color.Red;
         }
     }
 }
