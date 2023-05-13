@@ -73,7 +73,7 @@ namespace Music.Net_App.View
             NavBar.Width = MainLayout.Width;
 
             NavForm.Width = MainLayout.Width;
-            NavForm.Height = MainLayout.Height - PlayBar.Height - NavBar.Height - 10;
+            NavForm.Height = MainLayout.Height - PlayBar.Height - NavBar.Height -10;
 
             PlayBar.Width = MainLayout.Width - 10;
             MusicPlayer.Width = MainLayout.Width;
@@ -88,7 +88,7 @@ namespace Music.Net_App.View
                 }*/
                 currentChildForm.Margin = new Padding(0, 0, 0, 0);
                 currentChildForm.Width = MainLayout.Width;
-                //currentChildForm.Height = MainLayout.Height + 500;
+                //currentChildForm.Height = MainLayout.Height-200;
 
             }
         }
@@ -247,6 +247,7 @@ namespace Music.Net_App.View
             if (currentChildForm.GetType().Name.ToString() != "ProfileForm")
                 OpenChildForm(new ProfileForm());
             resize();
+            panel4.Visible = false;
         }
         public IEnumerable<Control> GetAll(Control control, Type type)
         {
@@ -314,6 +315,14 @@ namespace Music.Net_App.View
         private void guna2ControlBox1_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void Button_Account_Click(object sender, EventArgs e)
+        {
+            if (currentChildForm.GetType().Name.ToString() != "AccountForm")
+                OpenChildForm(new AccountForm(User.Name));
+            resize();
+            panel4.Visible = false;
         }
     }
 }
