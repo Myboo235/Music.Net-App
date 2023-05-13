@@ -36,6 +36,7 @@
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
             this.TopMixes = new System.Windows.Forms.FlowLayoutPanel();
             this.iconButton5 = new FontAwesome.Sharp.IconButton();
+            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.HomeLayout.SuspendLayout();
             this.VideoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.IntroVideo)).BeginInit();
@@ -54,7 +55,7 @@
             this.HomeLayout.Location = new System.Drawing.Point(0, 6);
             this.HomeLayout.Margin = new System.Windows.Forms.Padding(0);
             this.HomeLayout.Name = "HomeLayout";
-            this.HomeLayout.Size = new System.Drawing.Size(879, 523);
+            this.HomeLayout.Size = new System.Drawing.Size(879, 673);
             this.HomeLayout.TabIndex = 3;
             // 
             // VideoPanel
@@ -77,9 +78,10 @@
             // RecentPlayed
             // 
             this.RecentPlayed.Controls.Add(this.iconButton4);
+            this.RecentPlayed.Controls.Add(this.guna2Panel1);
             this.RecentPlayed.Location = new System.Drawing.Point(3, 371);
             this.RecentPlayed.Name = "RecentPlayed";
-            this.RecentPlayed.Size = new System.Drawing.Size(697, 55);
+            this.RecentPlayed.Size = new System.Drawing.Size(697, 197);
             this.RecentPlayed.TabIndex = 1;
             // 
             // iconButton4
@@ -94,7 +96,7 @@
             this.iconButton4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton4.Location = new System.Drawing.Point(3, 3);
             this.iconButton4.Name = "iconButton4";
-            this.iconButton4.Size = new System.Drawing.Size(159, 36);
+            this.iconButton4.Size = new System.Drawing.Size(694, 36);
             this.iconButton4.TabIndex = 3;
             this.iconButton4.Text = "Recent Played";
             this.iconButton4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -105,7 +107,7 @@
             this.TopMixes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TopMixes.Controls.Add(this.iconButton5);
-            this.TopMixes.Location = new System.Drawing.Point(3, 432);
+            this.TopMixes.Location = new System.Drawing.Point(3, 574);
             this.TopMixes.Name = "TopMixes";
             this.TopMixes.Size = new System.Drawing.Size(697, 55);
             this.TopMixes.TabIndex = 3;
@@ -127,6 +129,14 @@
             this.iconButton5.Text = "Your Top Mixes";
             this.iconButton5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton5.UseVisualStyleBackColor = true;
+            // 
+            // guna2Panel1
+            // 
+            this.guna2Panel1.BackColor = System.Drawing.Color.White;
+            this.guna2Panel1.Location = new System.Drawing.Point(3, 45);
+            this.guna2Panel1.Name = "guna2Panel1";
+            this.guna2Panel1.Size = new System.Drawing.Size(182, 152);
+            this.guna2Panel1.TabIndex = 4;
             // 
             // HomeForm
             // 
@@ -157,5 +167,6 @@
         private FontAwesome.Sharp.IconButton iconButton4;
         private System.Windows.Forms.FlowLayoutPanel TopMixes;
         private FontAwesome.Sharp.IconButton iconButton5;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
     }
 }

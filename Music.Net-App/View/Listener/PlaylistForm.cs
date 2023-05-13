@@ -20,7 +20,8 @@ namespace Music.Net_App.View
 
         string directory = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug", "");
         private List<FlowLayoutPanel> tb = new List<FlowLayoutPanel>();
-        private Music.Net_App.DAL.Listener User;
+        private UserDTO User;
+        UserBLL b = new UserBLL();
         public Image SetImageOpacity(Image image, float opacity)
         {
             Bitmap bmp = new Bitmap(image.Width, image.Height);
@@ -41,7 +42,7 @@ namespace Music.Net_App.View
         {
             return (Image)(new Bitmap(imgToResize, size));
         }
-        public PlaylistForm(Music.Net_App.DAL.Listener User)
+        public PlaylistForm(UserDTO User)
         {
             InitializeComponent();
             LikedSong_Panel.BackgroundImage = SetImageOpacity(Image.FromFile(directory + @"\Assets\Images\Heart.jpg"), 0.75F);
@@ -80,8 +81,8 @@ namespace Music.Net_App.View
                 MessageBox.Show("Guest");
                 return;
             }
-            UserBLL b = new UserBLL(); 
-            foreach(Music.Net_App.DAL.Playlist pl in b.getUserPlaylist(User.ListenerID))
+            
+            foreach(Music.Net_App.DAL.Playlist pl in b.getUserPlaylist(User.UserId))
             {
                 FlowLayoutPanel p = new FlowLayoutPanel();
                 p.Size = new Size(224, 450);

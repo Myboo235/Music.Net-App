@@ -342,6 +342,7 @@
             this.iconButton3.TabIndex = 0;
             this.iconButton3.Text = "Log out";
             this.iconButton3.UseVisualStyleBackColor = true;
+            this.iconButton3.Click += new System.EventHandler(this.iconButton3_Click);
             // 
             // iconButton4
             // 

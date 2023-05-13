@@ -75,7 +75,7 @@ namespace Music.Net_App.View
             }
             else 
             {
-                if (u.checkUser(guna2TextBox1.Text, guna2TextBox2.Text))
+                if (u.CheckEmail(guna2TextBox1.Text))
                 {
                     MessageBox.Show("There is already email");
                 }
@@ -83,7 +83,7 @@ namespace Music.Net_App.View
                 {
                     Music.Net_App.DAL.Listener d = new Music.Net_App.DAL.Listener
                     {
-                        ListenerID = 6,
+                        ListenerID = 7,
                         Name = guna2TextBox3.Text,
                         Email = guna2TextBox1.Text,
                         Password = guna2TextBox2.Text,
