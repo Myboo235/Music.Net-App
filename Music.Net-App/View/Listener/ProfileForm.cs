@@ -36,6 +36,7 @@ namespace Music.Net_App.View.Listener
         {
 
             label2.Text = User.Name;
+            label2.Width = guna2CustomGradientPanel1.Width;   
 
             foreach (Playlist3DTO c in PlaylistBLL.GetAllPlaylistOfListener(User.Name))
             {

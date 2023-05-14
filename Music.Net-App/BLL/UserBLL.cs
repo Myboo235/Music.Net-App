@@ -25,22 +25,16 @@ namespace Music.Net_App.BLL
 
     public class UserBLL {
         EntitiesMusicNetApp db = new EntitiesMusicNetApp();
-        public List<UserDTO> getAllUser()//get alllisste//
+        public List<UserDTO> GetAllUser()
         {
        
-        List<UserDTO> list = new List<UserDTO>();
-
-              //var lis = db.Listeners.Select(p => new { p.ListenerID, p.CountryID, p.Name, p.Email, p.Password, p.Gender, p.DateJoin  });
-           
-            //list.AddRange(db.Listeners.Select(p => new { p.ListenerID, p.Country, p.Name, p.Email, p.Password, p.Gender, p.DateJoin  }).ToList();
-            var getAlluser = from p in db.Listeners
-                             from b in db.Artists
-                             join c in db.Countries on p.CountryID equals c.CountryID
-                             select new { p.ListenerID, c.CountryName, p.Name, p.Email, p.Password, p.Gender, p.DateJoin };
+        List<UserDTO> list = new List<UserDTO>(); 
+        var getAllListener = from p in db.Listeners
+                         join c in db.Countries on p.CountryID equals c.CountryID
+                         select new { p.ListenerID, c.CountryName, p.Name, p.Email, p.Password, p.Gender, p.DateJoin };
        
-            //MessageBox.Show(getAlluser.T)
-            foreach (var item in getAlluser.ToList())
-            {
+        foreach (var item in getAllListener.ToList())
+        {
                 list.Add(new UserDTO
                 {
                     UserId = item.ListenerID,
@@ -49,10 +43,8 @@ namespace Music.Net_App.BLL
                     Email = item.Email,
                     Password = item.Password,
                     Gender = Convert.ToBoolean(item.Gender),
-                    DateJoin = Convert.ToDateTime(item.DateJoin)
-
-
-
+                    DateJoin = Convert.ToDateTime(item.DateJoin),
+                    TypeUser = "Listener"
                 });
          
             }
@@ -61,31 +53,19 @@ namespace Music.Net_App.BLL
         }
 
         public bool CheckEmail(string email)
-        {
-            // true chua ton tai tai khoan
-            var check = db.Listeners.Where(p => p.Email == email).FirstOrDefault();
-            if (check != null)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+        {;
+            var checkEmail = from l in db.Listeners
+                        where l.Email == email
+                        select l;
+            return checkEmail.Any();
 
         }
-        public bool checkUser(string email, string pass)
+        public bool CheckUser(string email, string pass)
         {
-            // true chua ton tai tai khoan
-            var check = db.Listeners.Where(p => p.Email == email && p.Password == pass).FirstOrDefault();
-            if (check != null)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            var checkUser = from l in db.Listeners
+                        where l.Email == email && l.Password == pass 
+                        select l;
+            return checkUser.Any();
 
         }
 
@@ -94,23 +74,8 @@ namespace Music.Net_App.BLL
         //Add Artisr
         //Modify Listener
         //Modify Artisr
-        public bool addUser(Listener user)
-        {
-            try//lay ra id cuoi
-            {
-                db.Listeners.Add(user);
-                
-                db.SaveChanges();
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-        }
 
-
-        public UserDTO getUsersByEmail(string email)
+        public UserDTO GetUsersByEmail(string email)
         {
   
             var getUser = (from u in db.Listeners
@@ -143,7 +108,7 @@ namespace Music.Net_App.BLL
         }
 
 
-        public List<Listener> getUsersByName(string name)
+        /*public List<Listener> getUsersByName(string name)
         {
             List<Listener> list = new List<Listener>();
             var getUser = db.Listeners.Where(p => p.Name == name).ToList();
@@ -155,21 +120,8 @@ namespace Music.Net_App.BLL
                 }
             }
             return list;
-        }
+        }*/
 
-        public List<Playlist> getUserPlaylist(int userid)
-        {
-            List<Playlist> list = new List<Playlist>();
-            var getPlaylist = db.Playlists.Where(p => p.ListenerID == userid).ToList();
-            if (getPlaylist != null)
-            {
-                foreach (var item in getPlaylist)
-                {
-                    list.Add(item);
-                }
-            }
-            return list;
-        }
 
         public List<UserHistoryDTO> GetHistory(int userId)
         {
@@ -221,50 +173,137 @@ namespace Music.Net_App.BLL
             return list;
         }
 
-
-        //ModifyUser
-/*        public bool ModifyListener(ListenerDTO user)
+        public bool AddListener(UserDTO Listener)
         {
-
-
-            Listener listener = db.Listeners.Where(p => p.ListenerID == user.ListenerID).FirstOrDefault();
-            if (listener != null)
+            try
             {
-                listener.ListenerID = user.ListenerID;
-                //listener.CountryID = SearchIDCountry(user.CountryName);
-                listener.Name = user.Name;
-                listener.Email = user.Email;
-                listener.Password = user.Password;
-                listener.Gender = user.Gender;
-                listener.DateJoin = user.DateJoin;
+                if (!CheckEmail(Listener.Email)) return false;
+                Listener listener = new Listener
+                {
+                    Name = Listener.Name,
+                    Email = Listener.Email,
+                    Password = Listener.Password,
+                    Gender = Listener.Gender,
+                    DateJoin = Listener.DateJoin,
+
+                };
+
                 db.SaveChanges();
-                // db.Listeners.Add(listener);
                 return true;
             }
-            else return false;
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+        //ModifyUser
+        public bool ModifyUser(UserDTO user)
+        {
+            if (user.TypeUser == "Listener")
+            {
+                return ModifyListener(user);
+            }
+            else if (user.TypeUser == "Artist")
+            {
+                return ModifyArtist(user);
+            }
+            return false;
+        }
+
+        public bool ModifyListener(UserDTO Listener)
+        {
+            Listener listener = (from l in db.Listeners
+                                     where l.ListenerID == Listener.UserId
+                                     select l).FirstOrDefault();
+            if (listener != null)
+            {
+                //listener.CountryID = SearchIDCountry(user.CountryName);
+                listener.Name = Listener.Name;
+                listener.Email = Listener.Email;
+                listener.Password = Listener.Password;
+                listener.Gender = Listener.Gender;
+                listener.DateJoin = Listener.DateJoin;
+                db.SaveChanges();
+
+                return true;
+            }
+             
+            
+            return false;
+
+
+        }
+
+        public bool ModifyArtist(UserDTO Artist)
+        {
+            Artist artist = (from l in db.Artists
+                             where l.ArtistID == Artist.UserId
+                             select l).FirstOrDefault();
+            if (artist != null)
+            {
+                artist.Name = Artist.Name;
+                
+                db.SaveChanges();
+
+                return true;
+            }
+
+
+            return false;
 
 
         }
 
         //DeleteUser
-        public bool DeleteUser(int userID)
+        public bool DeleteUser(UserDTO user)
         {
-            var Users = db.Listeners.Where(p => p.ListenerID == userID).FirstOrDefault();
-            if (Users != null)
+            if (user.TypeUser == "Listener") 
+            { 
+                return DeleteListener(user.UserId);
+            } else if(user.TypeUser == "Artist")
             {
-                db.Listeners.Remove(Users);
+                
+                return DeleteArtist(user.UserId);
+            }
+            return false;
+        }
+
+        public bool DeleteListener(int listenerId)
+        {
+            var listener = (from l in db.Listeners
+                         where l.ListenerID == listenerId
+                         select l).FirstOrDefault();
+
+            if (listener != null) 
+            {
+                db.Listeners.Remove(listener);
                 db.SaveChanges();
                 return true;
             }
-            else
+
+            return false;
+            
+        }
+
+        public bool DeleteArtist(int artistId)
+        {
+            var artist = (from l in db.Artists
+                            where l.ArtistID == artistId
+                            select l).FirstOrDefault();
+
+            if (artist != null)
             {
-                return false;
+                db.Artists.Remove(artist);
+                db.SaveChanges();
+                return true;
             }
+
+            return false;
 
         }
 
         //Add Artist
-        public bool AddArtist(ArtistDTO user)
+        /*public bool AddArtist(ArtistDTO user)
         {
             Artist a = db.Artists.Where(p => p.ArtistID == user.ArtistID).FirstOrDefault();
             if (a == null)
@@ -284,46 +323,9 @@ namespace Music.Net_App.BLL
                 return true;
             }
             else return false;
-        }
-
-        //Modify Artist
-        public bool ModifyArtist(ArtistDTO user)
-        {
-
-
-            Artist a = db.Artists.Where(p => p.ArtistID == user.ArtistID).FirstOrDefault();
-            if (a != null)
-            {
-                a.ArtistID = user.ArtistID;
-                //a.CountryID = user.CountryID;
-                a.Name = user.Name;
-                //a.Descriptions = user.Description;
-                //a.DateJoin = user.DateJoihn;
-                db.SaveChanges();
-                return true;
-            }
-            else return false;
-
-
-        }
-
-
-
-        public bool DeleteArtist(ArtistDTO user)
-        {
-            var a = db.Artists.Where(p => p.ArtistID != user.ArtistID).FirstOrDefault();
-            if (a != null)
-            {
-                db.Artists.Remove(a);
-                db.SaveChanges();
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-
         }*/
+
+        
 
     }
 }

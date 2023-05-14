@@ -82,7 +82,7 @@ namespace Music.Net_App.View
                 return;
             }
             
-            foreach(Music.Net_App.DAL.Playlist pl in b.getUserPlaylist(User.UserId))
+            /*foreach(Music.Net_App.DAL.Playlist pl in b.getUserPlaylist(User.UserId))
             {
                 FlowLayoutPanel p = new FlowLayoutPanel();
                 p.Size = new Size(224, 450);
@@ -103,7 +103,7 @@ namespace Music.Net_App.View
                 });
                 tb.Add(p);
                 flowLayoutPanel3.Controls.Add(p);
-            }
+            }*/
         }
 
         private void PlaylistForm_Resize(object sender, EventArgs e)
