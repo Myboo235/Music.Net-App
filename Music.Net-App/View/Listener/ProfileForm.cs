@@ -38,7 +38,7 @@ namespace Music.Net_App.View.Listener
             label2.Text = User.Name;
             label2.Width = guna2CustomGradientPanel1.Width;   
 
-            foreach (Playlist3DTO c in PlaylistBLL.GetAllPlaylistOfListener(User.Name))
+            foreach (PlaylistDTO c in PlaylistBLL.GetAllPlaylistOfListener(User.UserId))
             {
                 Guna2Panel gp = new Guna2Panel
                 {
@@ -48,7 +48,7 @@ namespace Music.Net_App.View.Listener
                 {
                     Width = gp.Width,
                     Height = gp.Height,
-                    Text = c.PlaylistName + "\n" + c.ListenerName,
+                    Text = c.PlaylistName + "\n" ,
                 };
                 gp.Controls.Add(l);
                 flowLayoutPanel1.Controls.Add(gp);

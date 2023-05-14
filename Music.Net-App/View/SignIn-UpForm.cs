@@ -57,7 +57,15 @@ namespace Music.Net_App.View
      
 
         }
-
+        private bool CheckInformationSignUp()
+        {
+            if (guna2TextBox1.Text == "" || guna2TextBox2.Text =="" || guna2TextBox3.Text == "")
+            {
+                MessageBox.Show("Please fill the information ");
+                return false;
+            }
+            return true;
+        }
         private void Button_SignIn_SignUp_Click(object sender, EventArgs e)
         {
             if (Button_Change.Text == "SIGN UP") 
@@ -75,9 +83,11 @@ namespace Music.Net_App.View
             }
             else 
             {
+                if(!CheckInformationSignUp()) return;
                 if (u.CheckEmail(guna2TextBox1.Text))
                 {
                     MessageBox.Show("There is already email");
+                    return;
                 }
                 else
                 {
@@ -87,7 +97,7 @@ namespace Music.Net_App.View
                         Name = guna2TextBox3.Text,
                         Email = guna2TextBox1.Text,
                         Password = guna2TextBox2.Text,
-                        
+                        DateJoin = DateTime.Now,
                     };
                     if (u.AddListener(listener))
                     {

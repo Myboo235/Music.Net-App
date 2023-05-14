@@ -57,7 +57,7 @@ namespace Music.Net_App.BLL
             var checkEmail = from l in db.Listeners
                         where l.Email == email
                         select l;
-            return checkEmail.Any();
+            return checkEmail.Any();//return true if already email
 
         }
         public bool CheckUser(string email, string pass)
@@ -173,21 +173,31 @@ namespace Music.Net_App.BLL
             return list;
         }
 
+        public int GetListenerCount()
+        {
+            return db.Listeners.Count();
+        }
+
+        public int GetArtistCount()
+        {
+            return db.Artists.Count();
+        }
         public bool AddListener(UserDTO Listener)
         {
             try
             {
-                if (!CheckEmail(Listener.Email)) return false;
+                if (CheckEmail(Listener.Email)) return false;
                 Listener listener = new Listener
                 {
+                    ListenerID = GetListenerCount() + 1,
                     Name = Listener.Name,
                     Email = Listener.Email,
                     Password = Listener.Password,
                     Gender = Listener.Gender,
                     DateJoin = Listener.DateJoin,
-
+                    CountryID = 0
                 };
-
+                db.Listeners.Add(listener);
                 db.SaveChanges();
                 return true;
             }

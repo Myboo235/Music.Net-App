@@ -13,7 +13,7 @@ namespace Music.Net_App.BLL
     {
         EntitiesMusicNetApp db = new EntitiesMusicNetApp();
 
-        //getAllPlaylist        but3
+
         public List<Playlist1DTO> GetAllPlaylists()
         {
             List<Playlist1DTO> playlists = new List<Playlist1DTO>();
@@ -60,31 +60,33 @@ namespace Music.Net_App.BLL
             return re;
         }
         //GetAllPlaylistOfUser
-        public List<Playlist3DTO> GetAllPlaylistOfListener(string listenerName)
+        public List<PlaylistDTO> GetAllPlaylistOfListener(int listenerID)
         {
-            List<Playlist3DTO> result = new List<Playlist3DTO>();
+            List<PlaylistDTO> result = new List<PlaylistDTO>();
 
-            var playlists = db.Playlists
-                .Join(db.Listeners, p => p.ListenerID, l => l.ListenerID, (p, l) => new { Playlist = p, Listener = l })
-                .Where(pl => pl.Listener.Name == listenerName)
-                .Select(pl => new { pl.Playlist.PlaylistID, pl.Playlist.PlaylistName, pl.Listener.ListenerID, pl.Listener.Name })
-                .ToList();
+            var playlists = from p in db.Playlists
+                            where p.ListenerID == listenerID
+                            select p;
 
-            foreach (var item in playlists)
+            if (playlists.Any())
             {
-                result.Add(new Playlist3DTO
+                foreach (var item in playlists.ToList())
                 {
-                    PlaylistName = item.PlaylistName,
-                    ListenerName = item.Name
-                });
-            }
+                    result.Add(new PlaylistDTO
+                    {
+                        PlaylistName = item.PlaylistName,
+                        PlaylistType = item.PlaylistTyped,
+                        PlaylistId = item.PlaylistID,
+                        DateCreated = Convert.ToDateTime(item.DateCreated),
+                        Description = item.Descriptions,
+                        PopularityScore = Convert.ToInt32(item.PopularityScore)
+                    });
+                }
 
-            if (playlists.Count == 0)
-            {
-                return null;
+                return result;
             }
-
-            return result;
+            
+            return null;
         }
 
 

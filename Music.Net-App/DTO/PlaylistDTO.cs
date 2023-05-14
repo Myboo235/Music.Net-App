@@ -6,10 +6,14 @@ using System.Threading.Tasks;
 
 namespace Music.Net_App.DTO
 {
-    internal class PlaylistDTO
+    public class PlaylistDTO
     {
-        public string Name { get; set; }
         public string PlaylistName { get; set; }
+        public string PlaylistType { get; set; }
+        public int PlaylistId { get; set;}
+        public DateTime DateCreated { get; set; }
+        public string Description { get; set; }
+        public int PopularityScore { get; set;}
 
     }
     internal class Playlist1DTO
