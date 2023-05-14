@@ -42,11 +42,13 @@
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.guna2ShadowPanel3 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.guna2ShadowPanel4 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.guna2ShadowPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2CirclePictureBox1
@@ -67,7 +69,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(337, 71);
+            this.label1.Location = new System.Drawing.Point(12, 14);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(63, 23);
             this.label1.TabIndex = 1;
@@ -75,12 +77,12 @@
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(323, 94);
+            this.label2.Location = new System.Drawing.Point(15, 37);
             this.label2.Name = "label2";
+            this.label2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.label2.Size = new System.Drawing.Size(242, 106);
             this.label2.TabIndex = 1;
             this.label2.Text = "Boon";
@@ -91,7 +93,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(337, 213);
+            this.label3.Location = new System.Drawing.Point(12, 164);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(82, 23);
             this.label3.TabIndex = 1;
@@ -102,10 +104,8 @@
             this.guna2CustomGradientPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2CustomGradientPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(178)))), ((int)(((byte)(178)))));
-            this.guna2CustomGradientPanel1.Controls.Add(this.label3);
+            this.guna2CustomGradientPanel1.Controls.Add(this.panel2);
             this.guna2CustomGradientPanel1.Controls.Add(this.guna2CirclePictureBox1);
-            this.guna2CustomGradientPanel1.Controls.Add(this.label2);
-            this.guna2CustomGradientPanel1.Controls.Add(this.label1);
             this.guna2CustomGradientPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(178)))), ((int)(((byte)(178)))));
             this.guna2CustomGradientPanel1.FillColor2 = System.Drawing.Color.Black;
             this.guna2CustomGradientPanel1.FillColor3 = System.Drawing.Color.Empty;
@@ -113,7 +113,7 @@
             this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(0, 0);
             this.guna2CustomGradientPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
-            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(955, 284);
+            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(934, 284);
             this.guna2CustomGradientPanel1.TabIndex = 2;
             // 
             // flowLayoutPanel1
@@ -129,7 +129,7 @@
             this.flowLayoutPanel1.Controls.Add(this.guna2ShadowPanel4);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(4, 288);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(951, 752);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(930, 752);
             this.flowLayoutPanel1.TabIndex = 3;
             // 
             // panel1
@@ -226,6 +226,19 @@
             this.guna2ShadowPanel4.Size = new System.Drawing.Size(185, 306);
             this.guna2ShadowPanel4.TabIndex = 0;
             // 
+            // panel2
+            // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Location = new System.Drawing.Point(325, 39);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(404, 215);
+            this.panel2.TabIndex = 2;
+            // 
             // ProfileForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -244,6 +257,8 @@
             this.guna2ShadowPanel2.ResumeLayout(false);
             this.guna2ShadowPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -265,5 +280,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
+        private System.Windows.Forms.Panel panel2;
     }
 }

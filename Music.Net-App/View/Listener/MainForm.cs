@@ -42,7 +42,7 @@ namespace Music.Net_App.View
             MusicPlayer.Ctlcontrols.stop();
 
             UserBLL b = new UserBLL();
-            User = b.getUsersByEmail(email);
+            User = b.GetUsersByEmail(email);
             this.FormBorderStyle = FormBorderStyle.None;
             currentChildForm = new HomeForm(User);
             OpenChildForm(currentChildForm);
@@ -196,7 +196,7 @@ namespace Music.Net_App.View
         {
             UserBLL b = new UserBLL();
             if (currentChildForm.GetType().Name.ToString() != "HomeForm")
-                OpenChildForm(new HomeForm(b.getUsersByEmail(User.Email)));
+                OpenChildForm(new HomeForm(b.GetUsersByEmail(User.Email)));
             resize();
         }
 

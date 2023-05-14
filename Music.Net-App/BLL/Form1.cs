@@ -21,7 +21,7 @@ namespace Music.Net_App.BLL
         {
             AlbumBLL b = new AlbumBLL();
             UserBLL user = new UserBLL();
-            guna2DataGridView1.DataSource = user.getAllUser();
+            guna2DataGridView1.DataSource = user.GetHistory(2);
         }
 
         private void button2_Click(object sender, EventArgs e)

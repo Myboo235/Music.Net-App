@@ -62,7 +62,7 @@ namespace Music.Net_App.View
         {
             if (Button_Change.Text == "SIGN UP") 
             {
-                if (u.checkUser(guna2TextBox1.Text, guna2TextBox2.Text))
+                if (u.CheckUser(guna2TextBox1.Text, guna2TextBox2.Text))
                 {
                     MessageBox.Show("Sign in successfully");
                     Hide();
@@ -81,15 +81,15 @@ namespace Music.Net_App.View
                 }
                 else
                 {
-                    Music.Net_App.DAL.Listener d = new Music.Net_App.DAL.Listener
+                    UserDTO listener = new UserDTO
                     {
-                        ListenerID = 7,
+                        
                         Name = guna2TextBox3.Text,
                         Email = guna2TextBox1.Text,
                         Password = guna2TextBox2.Text,
-                        CountryID = 1
+                        
                     };
-                    if (u.addUser(d))
+                    if (u.AddListener(listener))
                     {
                         MessageBox.Show("Sign up successfully");
                     }
