@@ -11,11 +11,12 @@ namespace Music.Net_App.DAL.Huy
         public int PlaylistID { get; set; }
         public int ListenerID { get; set; }
         public int ArtistID { get; set; }
-        public string PlaylistType { get; set; }
+        public string PlaylistTyped { get; set; }
         public string PlaylistName { get; set; }
         public string Descriptions { get; set; }
         public DateTime DateCreated { get; set; }
         public int PopularityScore { get; set; }
+   
     }
     public class PlaylistListenerDTO
     {

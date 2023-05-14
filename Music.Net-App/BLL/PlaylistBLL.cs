@@ -117,15 +117,15 @@ namespace Music.Net_App.BLL
             {
                 Playlist playlist = new Playlist
                 {
+                    PlaylistID = playlistDTO.PlaylistID,
                     ListenerID = playlistDTO.ListenerID,
                     ArtistID = playlistDTO.ArtistID,
-                    PlaylistType = playlistDTO.PlaylistType,
+                    PlaylistTyped = playlistDTO.PlaylistTyped,
                     PlaylistName = playlistDTO.PlaylistName,
                     Descriptions = playlistDTO.Descriptions,
                     DateCreated = playlistDTO.DateCreated,
                     PopularityScore = playlistDTO.PopularityScore
                 };
-
                 db.Playlists.Add(playlist);
                 db.SaveChanges();
 
@@ -149,7 +149,7 @@ namespace Music.Net_App.BLL
                     PlaylistID = playlistDTO.PlaylistID,
                     ListenerID = playlistDTO.ListenerID,
                     ArtistID = playlistDTO.ArtistID,
-                    PlaylistType = playlistDTO.PlaylistType,
+                    PlaylistType = playlistDTO.PlaylistTyped,
                     PlaylistName = playlistDTO.PlaylistName,
                     Descriptions = playlistDTO.Descriptions,
                     DateCreated = playlistDTO.DateCreated,
@@ -188,10 +188,59 @@ namespace Music.Net_App.BLL
             }
         }
 
+        // AddSongToPlaylist
+        public bool AddSongToPlaylist(int playlistID, int songID)
+        {
+            try
+            {
+                var playlistSong = new PlaylistSong
+                {
+              
+                    PlaylistID = playlistID,
+                    SongID = songID,
+                    SongOder = 1,
+                    DateAdded = DateTime.Now
+                    // thêm all
 
-        //AddSongToPlaylist   
+                };
 
+                db.PlaylistSongs.Add(playlistSong);
+                db.SaveChanges();
+
+                MessageBox.Show("The song has been added to the playlist successfully.");
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while adding a song to the playlist.");
+                return false;
+            }
+        }
         //RemoveSongfromPlaylist
+        public bool RemoveSongFromPlaylist(int playlistID, int songID)
+        {
+            try  
+            {
+                var playlistSong = db.PlaylistSongs.Where(ps => ps.PlaylistID == playlistID && ps.SongID == songID).FirstOrDefault();
 
+                if (playlistSong != null)
+                {
+                    db.PlaylistSongs.Remove(playlistSong);
+                    db.SaveChanges();
+                    MessageBox.Show("The song has been removed from the playlist successfully.");
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("The song does not exist in the playlist.");
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while removing the song from the playlist.");
+                return false;
+            }
+        }
     }
 }
