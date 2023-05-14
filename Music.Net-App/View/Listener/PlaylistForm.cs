@@ -64,6 +64,7 @@ namespace Music.Net_App.View
 
         private void SetUpUserPlaylist()
         {
+            flowLayoutPanel3.Controls.OfType<FlowLayoutPanel>().ToList().ForEach(f => f.Dispose());
             foreach (PlaylistDTO pl in p.GetAllPlaylistOfListener(User.UserId))
             {
                 FlowLayoutPanel p = new FlowLayoutPanel();
@@ -72,8 +73,8 @@ namespace Music.Net_App.View
                 p.BackColor = SystemColors.ActiveCaption;
                 p.Controls.Add(new PictureBox
                 {
-                    BackgroundImage = resizeImage(Image.FromFile(directory + @"\Assets\Images\muzira-banner.png"), new Size(200, 100)),
-                    Size = new Size(200, 100),
+                    BackgroundImage = resizeImage(Image.FromFile(directory + @"\Assets\Images\muzira-banner.png"), new Size(200, 200)),
+                    Size = new Size(200, 200),
                     BackColor = Color.White,
                     Margin = new Padding(0, 0, 0, 0)
                 });
@@ -100,9 +101,32 @@ namespace Music.Net_App.View
             //Button_Add_Playlist.Enabled = false;
         }
 
-        private void guna2Button2_Click(object sender, EventArgs e)
+        private void Button_Cancel_Click(object sender, EventArgs e)
         {
             panel1.Height = 100;
+        }
+
+        private void Button_OK_Click(object sender, EventArgs e)
+        {
+            PlaylistDTO playlist = new PlaylistDTO
+            {
+                PlaylistName = guna2TextBox1.Text,
+                PlaylistType = guna2TextBox2.Text,
+                Description = guna2TextBox3.Text,
+                DateCreated = DateTime.Now,
+            };
+
+            if (p.AddPlaylist(playlist, User.UserId))
+            {
+                MessageBox.Show("The playlist has been successfully added.");
+            }
+            else
+            {
+                MessageBox.Show("An error occurred while adding the playlist.");
+            }
+            panel1.Height = 100;
+            SetUpUserPlaylist();
+
         }
     }
 }

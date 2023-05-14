@@ -165,44 +165,39 @@ namespace Music.Net_App.BLL
         }
 
 
-        //AddPlaylist   but8
-        public bool AddPlaylist(string playlistName, string listenerName)
+        public int GetPlaylistCount()
         {
-            // Kiểm tra xem người nghe nhạc có tồn tại không
-            var listener = db.Listeners.FirstOrDefault(l => l.Name == listenerName);
-            if (listener == null)
-            {
-                Console.WriteLine("Người nghe nhạc không tồn tại.");
-                return false;
-            }
-
-            // Kiểm tra xem danh sách phát đã tồn tại chưa
-            var existingPlaylist = db.Playlists.FirstOrDefault(p => p.PlaylistName == playlistName);
-            if (existingPlaylist != null)
-            {
-                Console.WriteLine("Danh sách phát đã tồn tại.");
-                return false;
-            }
-
+            return db.Playlists.Count();
+        }
+        //AddPlaylist   but8
+        public bool AddPlaylist(PlaylistDTO playlistDTO, int userID)
+        {
             try
             {
-                // Tạo danh sách phát mới và thêm vào cơ sở dữ liệu
-                var newPlaylist = new Playlist
+                Playlist playlist = new Playlist
                 {
-                    PlaylistName = playlistName,
-                    ListenerID = listener.ListenerID
+                    PlaylistID = GetPlaylistCount() + 1,
+                    ListenerID = userID,
+                    ArtistID = 1,
+                    PlaylistTyped = playlistDTO.PlaylistType,
+                    PlaylistName = playlistDTO.PlaylistName,
+                    Descriptions = playlistDTO.Description,
+                    DateCreated = playlistDTO.DateCreated,
+                    PopularityScore = playlistDTO.PopularityScore
                 };
-                db.Playlists.Add(newPlaylist);
+                db.Playlists.Add(playlist);
                 db.SaveChanges();
-                Console.WriteLine("Danh sách phát đã được tạo thành công.");
+
+                //MessageBox.Show("The playlist has been successfully added.");
                 return true;
             }
-            catch
+            catch (Exception)
             {
-                Console.WriteLine("Lỗi khi tạo danh sách phát.");
+                //MessageBox.Show("An error occurred while adding the playlist.");
                 return false;
             }
         }
+
         //ModifyPlaylist
         // ModifyPlaylist
         public bool ModifyPlaylist(string playlistName, string newPlaylistName)
