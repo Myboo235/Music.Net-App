@@ -198,10 +198,8 @@ namespace Music.Net_App.BLL
               
                     PlaylistID = playlistID,
                     SongID = songID,
-                    SongOder = 1,
                     DateAdded = DateTime.Now
-                    // thêm all
-
+                    
                 };
 
                 db.PlaylistSongs.Add(playlistSong);

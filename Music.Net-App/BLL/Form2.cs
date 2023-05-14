@@ -104,17 +104,6 @@ namespace Music.Net_App.DAL.Huy
         {
             PlaylistBLL playlist = new PlaylistBLL();
             EntitiesMusicNetApp db = new EntitiesMusicNetApp();
-            //  playlist.AddSongToPlaylist(2, 4);
-            //    playlist.RemoveSongFromPlaylist(1, 3);
-            //  dataGridView1.DataSource = playlist.GetAllSongOfPlaylist("Top Pop Hits");
-            /*      int ListenerID
-          int ArtistID
-         string PlaylistType
-              string PlaylistName
-            string Descriptions
-              DateTime DateCreated 
-            int PopularityScore */
-         //   int playListID = db.Playlists.Count() + 1;
             PlaylistDTO playlistDTO = new PlaylistDTO{
                 PlaylistID =5,
                 ListenerID = 1,
@@ -127,7 +116,7 @@ namespace Music.Net_App.DAL.Huy
             };
        
             //playlist.AddPlaylist(playlistDTO);
-         playlist.RemovePlaylist(0);
+            playlist.RemovePlaylist(0);
             dataGridView1.DataSource = playlist.GetAllPlaylists();
         }
     }
