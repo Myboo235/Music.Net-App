@@ -181,9 +181,9 @@ namespace Music.Net_App.BLL
                                 equals new { ItemType = "Song", ItemID = s.SongID } 
                                 into songGroup
                              from song in songGroup.DefaultIfEmpty()
-                             join a in db.Albums 
-                                on new { h.ItemType, h.ItemID } 
-                                equals new { ItemType = "Album", ItemID = a.AlbumID } 
+                             join a in db.Albums
+                                on new { h.ItemType, h.ItemID }
+                                equals new { ItemType = "Album", ItemID = a.AlbumID }
                                 into albumGroup
                              from album in albumGroup.DefaultIfEmpty()
                              join p in db.Playlists
@@ -201,6 +201,7 @@ namespace Music.Net_App.BLL
                                  ItemName = (h.ItemType == "Song" && song != null) ? song.SongName :
                                             (h.ItemType == "Album" && album != null) ? album.AlbumName :
                                             (h.ItemType == "Playlist" && playlist != null) ? playlist.PlaylistName : null
+
                              };
 
             if (getHistory != null)

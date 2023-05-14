@@ -59,7 +59,7 @@ namespace Music.Net_App.BLL
             }
             return re;
         }
-        //GetAllPlaylistOfUser           but5
+        //GetAllPlaylistOfUser
         public List<Playlist3DTO> GetAllPlaylistOfListener(string listenerName)
         {
             List<Playlist3DTO> result = new List<Playlist3DTO>();
@@ -88,7 +88,7 @@ namespace Music.Net_App.BLL
         }
 
 
-        //GetAllSongOfPlaylist         but6
+        //GetAllSongOfPlaylist
         public List<SongDTO> GetAllSongOfPlaylist(string playlistName)
         {
             List<SongDTO> result = new List<SongDTO>();
