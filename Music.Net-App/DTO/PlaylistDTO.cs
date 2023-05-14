@@ -6,14 +6,26 @@ using System.Threading.Tasks;
 
 namespace Music.Net_App.DAL.Huy
 {
-    internal class PlaylistListenerDTO
+    public class PlaylistDTO
     {
-        public string Name { get; set; }
+        public int PlaylistID { get; set; }
+        public int ListenerID { get; set; }
+        public int ArtistID { get; set; }
+        public string PlaylistType { get; set; }
+        public string PlaylistName { get; set; }
+        public string Descriptions { get; set; }
+        public DateTime DateCreated { get; set; }
+        public int PopularityScore { get; set; }
+    }
+    public class PlaylistListenerDTO
+    {
+        public string Name { get; set; }  //name của artist
         public string PlaylistName { get; set; }
     }
-    internal class PlaylistSongDTO
+    public class PlaylistSongDTO
     {
         public string PlaylistName { get; set; }
         public string SongName { get; set; }
     }
+
 }

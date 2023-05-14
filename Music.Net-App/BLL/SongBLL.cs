@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Music.Net_App.DAL;
-
+using System.Data.Entity;
 
 namespace Music.Net_App.BLL
 {
@@ -17,14 +17,13 @@ namespace Music.Net_App.BLL
         //GetAllSongs
         public List<SongArtistDTO> GetAllSongs()
         {
-            List<SongArtistDTO> songDTOs = new List<SongArtistDTO>();
-            var songs = db.Songs.Join(
-                db.Artists,
-                song => song.ArtistID,
-                artist => artist.ArtistID,
-                (song, artist) => new { song, artist }
-            );
+            var songs = (
+                from song in db.Songs
+                join artist in db.Artists on song.ArtistID equals artist.ArtistID
+                select new { song, artist }
+            ).ToList();
 
+            List<SongArtistDTO> songDTOs = new List<SongArtistDTO>();
             foreach (var item in songs)
             {
                 songDTOs.Add(new SongArtistDTO
@@ -36,18 +35,18 @@ namespace Music.Net_App.BLL
 
             return songDTOs;
         }
-
 
         //GetSongByName
         public List<SongArtistDTO> GetSongByName(string name)
         {
+            var songs = (
+                from song in db.Songs
+                join artist in db.Artists on song.ArtistID equals artist.ArtistID
+                where song.SongName.Contains(name)
+                select new { song, artist }
+            ).ToList();
+
             List<SongArtistDTO> songDTOs = new List<SongArtistDTO>();
-            var songs = db.Songs.Where(s => s.SongName.Contains(name)).Join(
-                            db.Artists,
-                            song => song.ArtistID,
-                            artist => artist.ArtistID,
-                            (song, artist) => new { song, artist }
-                        );
             foreach (var item in songs)
             {
                 songDTOs.Add(new SongArtistDTO
@@ -56,73 +55,81 @@ namespace Music.Net_App.BLL
                     Name = item.artist.Name
                 });
             }
+
             return songDTOs;
         }
 
         //AddSong
-        public void AddSong(SongUpdateDTO songDTO)
+        public bool AddSong(SongDTO songDTO)
         {
-            // Kiểm tra xem bài hát đã tồn tại hay chưa
-            bool dup = db.Songs.Any(s => s.SongName == songDTO.SongName);
-            if (dup)
+            try
             {
-                MessageBox.Show("Bài hát đã tồn tại trong danh sách!");
-                return;
+                // Tạo một đối tượng Song từ dữ liệu của SongDTO
+                Song song = new Song
+                {
+                    SongName = songDTO.SongName,
+                    ArtistID = songDTO.ArtistID,
+                    DateCreated = songDTO.DateCreated,
+                    Duration = songDTO.Duration
+                };
+
+                db.Songs.Add(song);
+                db.SaveChanges();
+
+                MessageBox.Show("The song has been successfully added.");
+                return true;
             }
-
-            Song song = new Song
+            catch (Exception ex)
             {
-                SongName = songDTO.SongName,
-                ArtistID = songDTO.ArtistID,
-                DateCreated = songDTO.DateCreated,
-                Duration = songDTO.Duration
-            };
-
-            db.Songs.Add(song);
-            db.SaveChanges();
-
-            MessageBox.Show("Thêm bài hát thành công!");
+                MessageBox.Show("An error occurred while adding the song.");
+                return false;
+            }
         }
-
 
         //ModifySong
-        public bool ModifySong(SongUpdateDTO songDTO)
+        public bool ModifySong(SongDTO songDTO)
         {
-            // Tìm bài hát theo ID
-            Song song = db.Songs.FirstOrDefault(s => s.SongID == songDTO.SongID);
-
-            if (song != null)
+            try
             {
-                song.SongName = songDTO.SongName;
-                song.ArtistID = songDTO.ArtistID;
-                song.DateCreated = songDTO.DateCreated;
-                song.Duration = songDTO.Duration;
+                Song song = new Song
+                {
+                    SongID = songDTO.SongID,
+                    SongName = songDTO.SongName,
+                    ArtistID = songDTO.ArtistID,
+                    DateCreated = songDTO.DateCreated,
+                    Duration = songDTO.Duration
+                };
 
+                db.Entry(song).State = EntityState.Modified;  // Này tra mạng.
                 db.SaveChanges();
-                MessageBox.Show("Sửa đổi bài hát thành công.");
+
+                MessageBox.Show("The song has been edited successfully.");
                 return true;
             }
-
-            MessageBox.Show(" Không tìm thấy bài hát");
-            return false;
-
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while editing the song.");
+                return false;
+            }
         }
-        //DeleteSong
-        public bool DeleteSong(string songName)
+        
+        //RemoveSong
+        public bool RemoveSong(int songID)
         {
-            Song song = db.Songs.FirstOrDefault(s => s.SongName == songName);
-
-            if (song != null)
+            try
             {
-                db.Songs.Remove(song);
+                Song song = new Song { SongID = songID };
+                db.Entry(song).State = EntityState.Deleted;  //
                 db.SaveChanges();
 
-                MessageBox.Show("Xóa bài hát thành công.");
+                MessageBox.Show("The song has been successfully removed.");
                 return true;
             }
-
-            MessageBox.Show("Không tìm thấy bài hát.");
-            return false;
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while removing the song.");
+                return false;
+            }
         }
     }
 }

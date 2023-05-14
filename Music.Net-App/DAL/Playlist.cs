@@ -33,5 +33,6 @@ namespace Music.Net_App.DAL
         public virtual Listener Listener { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PlaylistSong> PlaylistSongs { get; set; }
+        public string PlaylistType { get; internal set; }
     }
 }

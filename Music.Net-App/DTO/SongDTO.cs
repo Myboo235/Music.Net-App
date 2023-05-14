@@ -6,13 +6,7 @@ using System.Threading.Tasks;
 
 namespace Music.Net_App.DAL.Huy
 {
-    public class SongArtistDTO  
-    {
-        public string SongName { get; set; }
-        public string Name { get; set; }  
-
-    }
-    public class SongUpdateDTO
+    public class SongDTO
     {
         public int SongID { get; set; }
 
@@ -21,5 +15,11 @@ namespace Music.Net_App.DAL.Huy
         public DateTime DateCreated { get; set; }
         public int Duration { get; set; }
     }
+    public class SongArtistDTO  
+    {
+        public string SongName { get; set; }
+        public string Name { get; set; }  
 
+    }
+    
 }
