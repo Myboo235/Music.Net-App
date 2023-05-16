@@ -26,8 +26,9 @@ namespace Music.Net_App.View
         //private Form nextChildForm;
         private string theme = "default";
         string directory = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug\", "") + @"\Assets\Musics\";
-
-
+        UserBLL b = new UserBLL();
+        PlaylistBLL playlistbll = new PlaylistBLL();
+        private string currentPlaylistID = "0";
 
         public MainForm(string email)
         {
@@ -38,19 +39,56 @@ namespace Music.Net_App.View
 /*            MusicPlayer.URL = directory + @"\Assets\Musics\y2mate.com - DVRST  CLOSE EYES.mp3";
 */            //MusicPlayer.URL = directory + @"\Alone - Alan Walker.mp3";
 
-            SetMusicPlayer("Alone");
+            //SetMusicPlayer("Alone");
             MusicPlayer.Ctlcontrols.stop();
 
-            UserBLL b = new UserBLL();
+            
             User = b.GetUsersByEmail(email);
             this.FormBorderStyle = FormBorderStyle.None;
             currentChildForm = new HomeForm(User);
             OpenChildForm(currentChildForm);
+            SetUpMainForm();
         }
 
+        public void OpenPlaylistSongsForm(object sender, EventArgs e)
+        {
+            string buttonPlaylistID = (sender as Button).Name;
+            if (buttonPlaylistID != currentPlaylistID)
+            {
+                currentPlaylistID = (sender as Button).Name;
+                PlaylistSongsForm f = new PlaylistSongsForm(Convert.ToInt32(buttonPlaylistID));
+                OpenChildForm(f);
+            }
+            resize();
+        }
+        public void SetUpMainForm()
+        {
+            foreach(PlaylistDTO p in playlistbll.GetAllPlaylistOfListener(User.UserId))
+            {
+                IconButton b = new IconButton
+                {
+                    Name = p.PlaylistId.ToString(),
+                    Size = new Size(206, 48),
+                    ForeColor = Color.DimGray,
+                    Font = new Font("Segoe UI",10,FontStyle.Bold),
+                    FlatStyle = FlatStyle.Flat,
+                    BackColor = Color.Transparent,
+                    Text = "#" + p.PlaylistName,
+                    TextAlign = ContentAlignment.MiddleLeft,
+                    RightToLeft = RightToLeft.No,
+                    TextImageRelation = TextImageRelation.ImageBeforeText,
+                    IconChar = IconChar.None,
+                    AutoSize = true,
+                };
+                b.FlatAppearance.BorderSize = 0;
+                b.Click += new EventHandler(OpenPlaylistSongsForm);
+                flowLayoutPanel1.Controls.Add(b);
+            }
+        }
         public void SetMusicPlayer(string Song)
         {
             MusicPlayer.URL = directory + @Song + ".mp3";
+            Button_Play.IconChar = IconChar.Pause;
         }
         private void LeftBar_MouseHover(object sender, EventArgs e)
         {
@@ -69,7 +107,7 @@ namespace Music.Net_App.View
             MainLayout.Size = new Size(MainBackGround.Width - MenuBar.Width - ContactBar.Width, MainBackGround.Height);
             UserNav.Width = MainLayout.Width - Button_Back.Width - Button_Next.Width - 120;
 
-            panel1.Height = MenuBar.Height - 48 * 5 - 70;
+            flowLayoutPanel1.Height = MenuBar.Height - 48 * 5 - 70;
             NavBar.Width = MainLayout.Width;
 
             NavForm.Width = MainLayout.Width;
@@ -111,13 +149,19 @@ namespace Music.Net_App.View
         private void OpenChildForm(Form childForm)
         {
             //open only form
-            if (currentChildForm != null)
+            if (previousChildForm != null)
             {
+                //MessageBox.Show("current is not null");
                 NavForm.Controls.Remove(currentChildForm);
                 previousChildFormName = currentChildForm.GetType().Name.ToString();
                 previousChildForm = currentChildForm;
 
-                currentChildForm = childForm;
+                Form tempForm = childForm;
+                childForm = currentChildForm;
+                currentChildForm = tempForm;
+
+
+                //currentChildForm = childForm;
                 currentChildForm.TopLevel = false;
                 currentChildForm.FormBorderStyle = FormBorderStyle.None;
 
@@ -126,8 +170,28 @@ namespace Music.Net_App.View
 
                 //MainLayout.Controls.Add(PlayBar);
                 NavForm.Controls.Add(currentChildForm);
-                childForm.BringToFront();
-                childForm.Show();
+                currentChildForm.BringToFront();
+                currentChildForm.Show();
+
+                childForm.Close();
+            }
+            else
+            {
+                //MessageBox.Show("current is null");
+                previousChildFormName = currentChildForm.GetType().Name.ToString();
+                previousChildForm = currentChildForm;
+                currentChildForm.TopLevel = false;
+                currentChildForm.FormBorderStyle = FormBorderStyle.None;
+
+                //MainLayout.Controls.Clear();
+                //MainLayout.Controls.Add(NavBar);
+                currentChildForm = childForm;
+                //MainLayout.Controls.Add(PlayBar);
+                NavForm.Controls.Add(currentChildForm);
+                currentChildForm.BringToFront();
+                currentChildForm.Show();
+
+                //childForm.Close();
             }
 
             resize();

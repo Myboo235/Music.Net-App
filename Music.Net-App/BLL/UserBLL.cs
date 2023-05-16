@@ -175,7 +175,9 @@ namespace Music.Net_App.BLL
 
         public int GetListenerCount()
         {
-            return db.Listeners.Count();
+            var getCount = from l in db.Listeners
+                           select new { l.ListenerID };
+            return Convert.ToInt32(getCount.ToList().Max());
         }
 
         public int GetArtistCount()

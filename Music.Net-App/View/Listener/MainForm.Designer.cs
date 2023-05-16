@@ -65,7 +65,7 @@
             this.Button_Home = new FontAwesome.Sharp.IconButton();
             this.Button_Search = new FontAwesome.Sharp.IconButton();
             this.Button_Playlist = new FontAwesome.Sharp.IconButton();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.Button_LogOut = new FontAwesome.Sharp.IconButton();
             this.MainBackGround = new System.Windows.Forms.FlowLayoutPanel();
             this.ContactBar.SuspendLayout();
@@ -576,7 +576,7 @@
             this.MenuBar.Controls.Add(this.Button_Home);
             this.MenuBar.Controls.Add(this.Button_Search);
             this.MenuBar.Controls.Add(this.Button_Playlist);
-            this.MenuBar.Controls.Add(this.panel1);
+            this.MenuBar.Controls.Add(this.flowLayoutPanel1);
             this.MenuBar.Controls.Add(this.Button_LogOut);
             this.MenuBar.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.MenuBar.Location = new System.Drawing.Point(0, 0);
@@ -665,14 +665,13 @@
             this.Button_Playlist.UseVisualStyleBackColor = true;
             this.Button_Playlist.Click += new System.EventHandler(this.Button_Playlist_Click);
             // 
-            // panel1
+            // flowLayoutPanel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel1.Location = new System.Drawing.Point(3, 219);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(235, 463);
-            this.panel1.TabIndex = 6;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 219);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(235, 468);
+            this.flowLayoutPanel1.TabIndex = 7;
             // 
             // Button_LogOut
             // 
@@ -685,7 +684,7 @@
             this.Button_LogOut.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.Button_LogOut.IconSize = 40;
             this.Button_LogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Button_LogOut.Location = new System.Drawing.Point(3, 688);
+            this.Button_LogOut.Location = new System.Drawing.Point(3, 693);
             this.Button_LogOut.Name = "Button_LogOut";
             this.Button_LogOut.Size = new System.Drawing.Size(231, 48);
             this.Button_LogOut.TabIndex = 6;
@@ -766,7 +765,6 @@
         private Guna.UI2.WinForms.Guna2ControlBox Button_Exit;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
         private System.Windows.Forms.Panel NavForm;
-        private System.Windows.Forms.Panel panel1;
         private FontAwesome.Sharp.IconButton Button_LogOut;
         private FontAwesome.Sharp.IconButton Button_Random;
         private FontAwesome.Sharp.IconButton Button_Repeat;
@@ -778,5 +776,6 @@
         private FontAwesome.Sharp.IconButton Button_Profile;
         private FontAwesome.Sharp.IconButton iconButton3;
         private Guna.UI2.WinForms.Guna2ToggleSwitch guna2ToggleSwitch1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }
