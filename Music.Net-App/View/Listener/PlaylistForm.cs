@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -68,13 +69,14 @@ namespace Music.Net_App.View
             foreach (PlaylistDTO pl in p.GetAllPlaylistOfListener(User.UserId))
             {
                 FlowLayoutPanel p = new FlowLayoutPanel();
-                p.Size = new Size(200, 400);
+                p.Size = new Size(240, 374);
+                Margin = new Padding(10, 10, 10, 10);
                 p.FlowDirection = FlowDirection.TopDown;
                 p.BackColor = SystemColors.ActiveCaption;
                 p.Controls.Add(new PictureBox
                 {
-                    BackgroundImage = resizeImage(Image.FromFile(directory + @"\Assets\Images\muzira-banner.png"), new Size(200, 200)),
-                    Size = new Size(200, 200),
+                    BackgroundImage = resizeImage(Image.FromFile(directory + @"\Assets\Images\muzira-banner.png"), new Size(240, 200)),
+                    Size = new Size(240, 200),
                     BackColor = Color.White,
                     Margin = new Padding(0, 0, 0, 0)
                 });
@@ -127,6 +129,14 @@ namespace Music.Net_App.View
             panel1.Height = 100;
             SetUpUserPlaylist();
 
+        }
+
+        private void panel2_Click(object sender, EventArgs e)
+        {
+            Panel panel = new Panel 
+            {
+                
+            };
         }
     }
 }

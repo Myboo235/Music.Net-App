@@ -14,13 +14,13 @@ namespace Music.Net_App.BLL
         EntitiesMusicNetApp db = new EntitiesMusicNetApp();
 
         //GetAllSongs
-        public List<Song1DTO> GetAllSongs()
+        public List<SongDTO> GetAllSongs()
         {
-            List<Song1DTO> songDTOs = new List<Song1DTO>();
+            List<SongDTO> songDTOs = new List<SongDTO>();
             List<Song> songs = db.Songs.ToList();
             foreach (Song song in songs)
             {
-                songDTOs.Add(new Song1DTO
+                songDTOs.Add(new SongDTO
                 {
                     SongID = song.SongID,
                     SongName = song.SongName
@@ -30,9 +30,9 @@ namespace Music.Net_App.BLL
         }
 
         //GetSongByName
-        public List<Song2DTO> GetSongByName(string name)
+        public List<SongDTO> GetSongByName(string name)
         {
-            List<Song2DTO> songDTOs = new List<Song2DTO>();
+            List<SongDTO> songDTOs = new List<SongDTO>();
             var songs = db.Songs.Where(s => s.SongName.Contains(name)).Join(
                             db.Artists,
                             song => song.ArtistID,
@@ -41,22 +41,22 @@ namespace Music.Net_App.BLL
                         );
             foreach (var item in songs)
             {
-                songDTOs.Add(new Song2DTO
+                songDTOs.Add(new SongDTO
                 {
                     SongName = item.song.SongName,
-                    Name = item.artist.Name
+                    ArtistName = item.artist.Name
                 });
             }
             return songDTOs;
         }
 
         //AddSong
-        public void AddSong(Song3DTO song3DTO)
+        public void AddSong(SongDTO songDTO)
         {
 
             Song song = new Song
             {
-                SongName = song3DTO.SongName,
+                SongName = songDTO.SongName,
                 // Nơi thêm các thuộc tính của bài hát
             };
             db.Songs.Add(song);

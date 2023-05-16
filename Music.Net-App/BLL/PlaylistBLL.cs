@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel.Channels;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Markup;
 using System.Xml.Linq;
 using Music.Net_App.DAL;
 using Music.Net_App.DTO;
@@ -34,6 +36,36 @@ namespace Music.Net_App.BLL
             return playlists;
         }
 
+        public PlaylistDTO GetPlaylistById(int playlistID)
+        {
+            try
+            {
+                PlaylistDTO pd = new PlaylistDTO();
+                var playlist = (from p in db.Playlists
+                                where p.PlaylistID == playlistID
+                                select p).First();
+                if (playlist != null)
+                {
+                    pd = new PlaylistDTO
+                    {
+                        PlaylistId = playlist.PlaylistID,
+                        PlaylistName = playlist.PlaylistName,
+                        PlaylistType = playlist.PlaylistTyped,
+                        PopularityScore = Convert.ToInt32(playlist.PopularityScore),
+                        DateCreated = Convert.ToDateTime(playlist.DateCreated),
+                        Description = playlist.Descriptions
+                    };
+                }
+
+                return pd;
+            }catch(Exception)
+            {
+                return null;
+            }
+            
+
+            
+        }
 
         //getPlaylistbyName      but4
         public List<Playlist2DTO> GetPlaylistbyName(string name)
@@ -91,75 +123,75 @@ namespace Music.Net_App.BLL
 
 
         //GetAllSongOfPlaylist
-        public List<SongDTO> GetAllSongOfPlaylist(string playlistName)
+        public List<SongDTO> GetAllSongOfPlaylist(int playlistID)
         {
             List<SongDTO> result = new List<SongDTO>();
             var songs = (from s in db.Songs
                          join ps in db.PlaylistSongs on s.SongID equals ps.SongID
                          join p in db.Playlists on ps.PlaylistID equals p.PlaylistID
-                         where p.PlaylistName.Contains(playlistName)
+                         where p.PlaylistID == playlistID
                          select new { s.SongName, p.PlaylistName })
                          .ToList();
-            foreach (var item in songs)
-            {
-                result.Add(new SongDTO
-                {
-                    PlaylistName = item.PlaylistName,
-                    SongName = item.SongName
-                });
-            }
 
-            if (songs.Count == 0)
+            if(songs.Any())
             {
-                return null;
+                foreach (var item in songs)
+                {
+                    result.Add(new SongDTO
+                    {
+                        //PlaylistName = item.PlaylistName,
+                        SongName = item.SongName
+                    });
+                }
             }
 
             return result;
         }
 
         //AddSongToPlaylist   but 7
-        public bool AddSongToPlaylist(string playlistName, string songName)
+        public int GetMaxPlaylistSongsID()
         {
-            // Kiểm tra xem danh sách phát có tồn tại không
-            var playlist = db.Playlists.FirstOrDefault(p => p.PlaylistName == playlistName);
-            if (playlist == null)
+            var maxColumnValue = (from item in db.PlaylistSongs
+                                  select item.PlayListSongID).Max();
+
+            return maxColumnValue;
+        }
+        public bool AddSongToPlaylist(int playlistID, int songID)
+        {
+
+            var playlist = (from p in db.Playlists
+                           where p.PlaylistID == playlistID
+                           select p).First();
+            var song  = (from s in db.Songs
+                        where s.SongID == songID
+                        select s).First();
+            if (playlist == null || song == null)
             {
-                Console.WriteLine("Danh sách phát không tồn tại.");
                 return false;
             }
 
-            // Kiểm tra xem bài hát có tồn tại không
-            var song = db.Songs.FirstOrDefault(s => s.SongName == songName);
-            if (song == null)
-            {
-                Console.WriteLine("Bài hát không tồn tại.");
-                return false;
-            }
-
-            // Kiểm tra xem bài hát đã tồn tại trong danh sách phát chưa
-            var existingSong = db.PlaylistSongs.FirstOrDefault(ps => ps.PlaylistID == playlist.PlaylistID && ps.SongID == song.SongID);
-            if (existingSong != null)
-            {
-                Console.WriteLine("Bài hát đã tồn tại trong danh sách phát.");
-                return false;
-            }
+            var existingSong = (from ps in db.PlaylistSongs
+                               where ps.SongID == playlistID && ps.SongID == songID
+                               select ps).First();
+            if (existingSong != null) return true;
+            
 
             try
             {
-                // Thêm bài hát vào danh sách phát
                 var newPlaylistSong = new PlaylistSong
                 {
+                    PlayListSongID = GetMaxPlaylistSongsID(),
                     PlaylistID = playlist.PlaylistID,
                     SongID = song.SongID
                 };
                 db.PlaylistSongs.Add(newPlaylistSong);
                 db.SaveChanges();
-                Console.WriteLine("Bài hát đã được thêm vào danh sách phát thành công.");
+                
                 return true;
             }
             catch
             {
-                Console.WriteLine("Lỗi khi thêm bài hát vào danh sách phát.");
+                
                 return false;
             }
         }
