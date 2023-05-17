@@ -33,18 +33,21 @@ namespace Music.Net_App.BLL
         public List<SongDTO> GetSongByName(string name)
         {
             List<SongDTO> songDTOs = new List<SongDTO>();
-            var songs = db.Songs.Where(s => s.SongName.Contains(name)).Join(
-                            db.Artists,
-                            song => song.ArtistID,
-                            artist => artist.ArtistID,
-                            (song, artist) => new { song, artist }
-                        );
+            var songs = from s in db.Songs
+                        join a in db.Artists on s.ArtistID equals a.ArtistID
+                        where s.SongName.Contains(name)
+                        select new { s.SongID , s.SongName , s.DateCreated , s.Duration , a.ArtistID, a.Name };
             foreach (var item in songs)
             {
                 songDTOs.Add(new SongDTO
                 {
-                    SongName = item.song.SongName,
-                    ArtistName = item.artist.Name
+                    SongID = item.SongID,
+                    SongName = item.SongName,
+                    ArtistName = item.Name,
+                    ArtistID = item.ArtistID,
+                    Duration = Convert.ToInt32(item.Duration),
+                    DateCreated = Convert.ToDateTime(item.DateCreated),
+
                 });
             }
             return songDTOs;

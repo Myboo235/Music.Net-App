@@ -58,12 +58,14 @@ namespace Music.Net_App.View
                 currentPlaylistID = (sender as Button).Name;
                 PlaylistSongsForm f = new PlaylistSongsForm(Convert.ToInt32(buttonPlaylistID));
                 OpenChildForm(f);
+                f.psd += SetUpMainForm;
             }
             resize();
         }
         public void SetUpMainForm()
         {
-            foreach(PlaylistDTO p in playlistbll.GetAllPlaylistOfListener(User.UserId))
+            flowLayoutPanel1.Controls.Clear();
+            foreach (PlaylistDTO p in playlistbll.GetAllPlaylistOfListener(User.UserId))
             {
                 IconButton b = new IconButton
                 {
@@ -174,6 +176,7 @@ namespace Music.Net_App.View
                 currentChildForm.Show();
 
                 childForm.Close();
+                
             }
             else
             {
@@ -193,7 +196,7 @@ namespace Music.Net_App.View
 
                 //childForm.Close();
             }
-
+            SetUpMainForm();
             resize();
         }
 
@@ -291,7 +294,13 @@ namespace Music.Net_App.View
         private void Button_Playlist_Click(object sender, EventArgs e)
         {
             if (currentChildForm.GetType().Name.ToString() != "PlaylistForm")
-                OpenChildForm(new PlaylistForm(User));
+            {
+                PlaylistForm f = new PlaylistForm(User);
+                OpenChildForm(f);
+                f.pd += SetUpMainForm;
+            }
+                
+
             resize();
         }
 
