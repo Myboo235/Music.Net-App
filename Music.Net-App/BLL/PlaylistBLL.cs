@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.ServiceModel.Channels;
 using System.Text;
@@ -129,18 +130,23 @@ namespace Music.Net_App.BLL
             var songs = (from s in db.Songs
                          join ps in db.PlaylistSongs on s.SongID equals ps.SongID
                          join p in db.Playlists on ps.PlaylistID equals p.PlaylistID
+                         join a in db.Artists on s.ArtistID equals a.ArtistID
                          where p.PlaylistID == playlistID
-                         select new { s.SongName, p.PlaylistName })
+                         select new { s.SongID, s.SongName, s.DateCreated, s.Duration, a.ArtistID, a.Name })
                          .ToList();
 
             if(songs.Any())
             {
-                foreach (var item in songs)
+                foreach (var item in songs.ToList())
                 {
                     result.Add(new SongDTO
                     {
-                        //PlaylistName = item.PlaylistName,
-                        SongName = item.SongName
+                        SongID = item.SongID,
+                        SongName = item.SongName,
+                        ArtistName = item.Name,
+                        ArtistID = item.ArtistID,
+                        Duration = Convert.ToInt32(item.Duration),
+                        DateCreated = Convert.ToDateTime(item.DateCreated),
                     });
                 }
             }
@@ -161,26 +167,26 @@ namespace Music.Net_App.BLL
 
             var playlist = (from p in db.Playlists
                            where p.PlaylistID == playlistID
-                           select p).First();
+                           select p).FirstOrDefault();
             var song  = (from s in db.Songs
                         where s.SongID == songID
-                        select s).First();
+                        select s).FirstOrDefault();
             if (playlist == null || song == null)
             {
                 return false;
             }
 
             var existingSong = (from ps in db.PlaylistSongs
-                               where ps.SongID == playlistID && ps.SongID == songID
-                               select ps).First();
-            if (existingSong != null) return true;
+                               where ps.PlaylistID == playlistID && ps.SongID == songID
+                               select ps).FirstOrDefault();
+            if (existingSong != null) return false;
             
 
             try
             {
                 var newPlaylistSong = new PlaylistSong
                 {
-                    PlayListSongID = GetMaxPlaylistSongsID(),
+                    PlayListSongID = GetMaxPlaylistSongsID() + 1,
                     PlaylistID = playlist.PlaylistID,
                     SongID = song.SongID
                 };
@@ -196,21 +202,21 @@ namespace Music.Net_App.BLL
             }
         }
 
-
-        public int GetPlaylistCount()
+        public int GetMaxPlaylistID()
         {
-            return db.Playlists.Count();
+            var maxColumnValue = (from item in db.Playlists
+                                  select item.PlaylistID).Max();
+
+            return maxColumnValue;
         }
-        //AddPlaylist   but8
         public bool AddPlaylist(PlaylistDTO playlistDTO, int userID)
         {
             try
             {
                 Playlist playlist = new Playlist
                 {
-                    PlaylistID = GetPlaylistCount() + 1,
+                    PlaylistID = GetMaxPlaylistID() + 1,
                     ListenerID = userID,
-                    ArtistID = 1,
                     PlaylistTyped = playlistDTO.PlaylistType,
                     PlaylistName = playlistDTO.PlaylistName,
                     Descriptions = playlistDTO.Description,
@@ -229,34 +235,49 @@ namespace Music.Net_App.BLL
                 return false;
             }
         }
-
-        //ModifyPlaylist
-        // ModifyPlaylist
-        public bool ModifyPlaylist(string playlistName, string newPlaylistName)
+        public bool RemovePlaylist(int playlistID)
         {
-            // Kiểm tra xem danh sách phát có tồn tại không
-            var playlist = db.Playlists.FirstOrDefault(p => p.PlaylistName == playlistName);
-            if (playlist == null)
-            {
-                Console.WriteLine("Playlist không tồn tại.");
-                return false;
-            }
-
             try
             {
-                // Chỉnh sửa tên danh sách phát
-                playlist.PlaylistName = newPlaylistName;
-                db.SaveChanges();
-                Console.WriteLine("Playlist đã chỉnh sửa thành công.");
+                var playlist = (from p in db.Playlists
+                               where p.PlaylistID == playlistID
+                               select p).First();
+
+                if (playlist != null)
+                {
+                    db.Playlists.Remove(playlist);
+                    db.SaveChanges();
+                }
                 return true;
             }
-            catch
+            catch (Exception)
             {
-                Console.WriteLine("Lỗi khi chỉnh sửa Playlist.");
                 return false;
             }
         }
-
-
+        public bool RemoveSongFromPlaylist(int playlistID, int songID)
+        {
+            try
+            {
+                //var playlistSong = db.PlaylistSongs.Where(ps => ps.PlaylistID == playlistID && ps.SongID == songID).FirstOrDefault();
+                var playlistSong = (from ps in db.PlaylistSongs
+                                   where ps.PlaylistID == playlistID && ps.SongID == songID
+                                   select ps).FirstOrDefault();
+                if (playlistSong != null)
+                {
+                    db.PlaylistSongs.Remove(playlistSong);
+                    db.SaveChanges();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }

@@ -113,7 +113,7 @@
             this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(0, 0);
             this.guna2CustomGradientPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
-            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(892, 284);
+            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(871, 284);
             this.guna2CustomGradientPanel1.TabIndex = 2;
             // 
             // panel2
@@ -126,7 +126,7 @@
             this.panel2.Controls.Add(this.label2);
             this.panel2.Location = new System.Drawing.Point(325, 39);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(362, 215);
+            this.panel2.Size = new System.Drawing.Size(341, 215);
             this.panel2.TabIndex = 2;
             // 
             // flowLayoutPanel1
@@ -142,7 +142,7 @@
             this.flowLayoutPanel1.Controls.Add(this.guna2ShadowPanel4);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(4, 288);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(888, 752);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(867, 752);
             this.flowLayoutPanel1.TabIndex = 3;
             // 
             // panel1
