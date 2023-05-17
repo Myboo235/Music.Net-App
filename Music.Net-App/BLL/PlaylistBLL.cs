@@ -279,5 +279,31 @@ namespace Music.Net_App.BLL
                 return false;
             }
         }
+        public bool ModifyPlaylist(PlaylistDTO playlistDTO)
+        {
+            try
+            {
+                var playlist = (from p in db.Playlists
+                               where p.PlaylistID == playlistDTO.PlaylistId
+                               select p).FirstOrDefault();
+                if (playlist != null)
+                {
+                    playlist.PlaylistTyped = playlistDTO.PlaylistType;
+                    playlist.PlaylistName = playlistDTO.PlaylistName;
+                    playlist.Descriptions = playlistDTO.Description;
+                    playlist.DateCreated = playlistDTO.DateCreated;
+                    playlist.PopularityScore = playlistDTO.PopularityScore;
+
+                    db.SaveChanges();
+                    return true;
+                }
+
+                return false;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }

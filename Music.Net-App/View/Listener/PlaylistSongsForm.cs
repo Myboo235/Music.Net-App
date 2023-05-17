@@ -23,6 +23,7 @@ namespace Music.Net_App.View.Listener
         PlaylistDTO playlist = new PlaylistDTO();
         private List<Guna2Panel> pn = new List<Guna2Panel>();
         private List<Guna2Panel> ln = new List<Guna2Panel>();
+        private List<Guna2TextBox> t = new List<Guna2TextBox>();
         public PlaylistSongsForm(int playlistID)
         {
             InitializeComponent();
@@ -50,6 +51,8 @@ namespace Music.Net_App.View.Listener
         public void SetUpPlaylistSong()
         {
             label2.Text = playlist.PlaylistName;
+            label3.Text = playlist.Description;
+            label3.Width = flowLayoutPanel4.Width;
             flowLayoutPanel1.Controls.Clear();
             foreach (SongDTO s in playlistBLL.GetAllSongOfPlaylist(playlist.PlaylistId))
             {
@@ -260,6 +263,91 @@ namespace Music.Net_App.View.Listener
                 Button_Collapse.Text = "Collapse";
             }
              
+        }
+
+        private void Button_Modify_Click(object sender, EventArgs e)
+        {
+            if(Button_Modify.IconChar == FontAwesome.Sharp.IconChar.Pen)
+            {
+                flowLayoutPanel4.Controls.Clear();
+                Button_Modify.Text = "OK";
+                Button_Modify.IconChar = FontAwesome.Sharp.IconChar.None;
+                Button_Modify.TextImageRelation = TextImageRelation.Overlay;
+                Guna2TextBox tb = new Guna2TextBox
+                {
+                    Text = playlist.PlaylistName,
+                    BackColor = Color.Transparent,
+                    FillColor = Color.DimGray,
+                    ForeColor = Color.White,
+                    Font = new Font("Segoe UI", 48, FontStyle.Bold),
+                    Height = 106,
+                    Width = flowLayoutPanel4.Width - 20,
+                };
+                Guna2TextBox tbd = new Guna2TextBox
+                {
+                    Text = playlist.Description,
+                    BackColor = Color.Transparent,
+                    FillColor = Color.DimGray,
+                    ForeColor = Color.White,
+                    Font = new Font("Segoe UI", 11, FontStyle.Bold),
+                    Height = 23,
+                    Width = flowLayoutPanel4.Width - 20,
+                };
+                t.Clear();
+                t.Add(tb);
+                t.Add(tbd);
+                flowLayoutPanel4.Controls.Add(tb);
+                flowLayoutPanel4.Controls.Add(tbd);
+            }
+            else if(Button_Modify.IconChar == FontAwesome.Sharp.IconChar.None)
+            {
+                playlist.PlaylistName = t[0].Text;
+                playlist.Description = t[1].Text;
+                if (playlistBLL.ModifyPlaylist(playlist))
+                {
+                    MessageBox.Show("Modify successfully");
+                    label2.Text = playlist.PlaylistName;
+                    label3.Text = playlist.Description;
+                    label3.Width = flowLayoutPanel4.Width;
+                    CancelModify();
+                }
+                else
+                {
+                    MessageBox.Show("A error occur when modify");
+                }
+            }
+        }
+
+        void CancelModify()
+        {
+            flowLayoutPanel4.Controls.Clear();
+            Button_Modify.Text = "Modify";
+            Button_Modify.IconChar = FontAwesome.Sharp.IconChar.Pen;
+            Button_Modify.TextImageRelation = TextImageRelation.ImageBeforeText;
+            Label l = new Label
+            {
+                Text = playlist.PlaylistName,
+                BackColor = Color.Transparent,
+                ForeColor = Color.White,
+                Font = new Font("Segoe UI", 48, FontStyle.Bold),
+                Height = 106,
+                Width = flowLayoutPanel4.Width - 20,
+            };
+            Label d = new Label
+            {
+                Text = playlist.Description,
+                BackColor = Color.Transparent,
+                ForeColor = Color.White,
+                Font = new Font("Segoe UI", 11, FontStyle.Bold),
+                //Height = 106,
+                Width = flowLayoutPanel4.Width - 20,
+            };
+            flowLayoutPanel4.Controls.Add(l);
+            flowLayoutPanel4.Controls.Add(d);
+        }
+        private void Button_Cancel_Click(object sender, EventArgs e)
+        {
+            CancelModify();
         }
     }
 }
