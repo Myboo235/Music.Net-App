@@ -16,6 +16,7 @@ namespace Music.Net_App.DAL
         public bool Gender { get; set; }
         public DateTime DateJoin { get; set; }
 
+        public int CountryId { get; set; }
         public string TypeUser { get; set; }
     }
 

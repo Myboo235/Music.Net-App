@@ -31,7 +31,7 @@ namespace Music.Net_App.BLL
         List<UserDTO> list = new List<UserDTO>(); 
         var getAllListener = from p in db.Listeners
                          join c in db.Countries on p.CountryID equals c.CountryID
-                         select new { p.ListenerID, c.CountryName, p.Name, p.Email, p.Password, p.Gender, p.DateJoin };
+                         select new { p.ListenerID, c.CountryName, p.Name, p.Email, p.Password, p.Gender, p.DateJoin , p.CountryID};
        
         foreach (var item in getAllListener.ToList())
         {
@@ -44,7 +44,8 @@ namespace Music.Net_App.BLL
                     Password = item.Password,
                     Gender = Convert.ToBoolean(item.Gender),
                     DateJoin = Convert.ToDateTime(item.DateJoin),
-                    TypeUser = "Listener"
+                    TypeUser = "Listener",
+                    CountryId = Convert.ToInt32(item.CountryID)
                 });
          
             }
@@ -88,6 +89,7 @@ namespace Music.Net_App.BLL
                               u.Password,
                               u.Gender,
                               u.DateJoin,
+                              u.CountryID,
                               c.CountryName
                            }).FirstOrDefault();
             if (getUser != null)
@@ -101,6 +103,8 @@ namespace Music.Net_App.BLL
                     CountryName = getUser.CountryName,
                     Gender = Convert.ToBoolean(getUser.Gender),
                     DateJoin = Convert.ToDateTime(getUser.DateJoin),
+                    CountryId = Convert.ToInt32(getUser.CountryID),
+                    TypeUser = "Listener"
                 };
             }
             return null;
@@ -235,6 +239,7 @@ namespace Music.Net_App.BLL
                 listener.Password = Listener.Password;
                 listener.Gender = Listener.Gender;
                 listener.DateJoin = Listener.DateJoin;
+                listener.CountryID = Listener.CountryId;
                 db.SaveChanges();
 
                 return true;

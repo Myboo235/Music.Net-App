@@ -13,6 +13,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
 using Music.Net_App.DAL;
 using Music.Net_App.DTO;
 using Music.Net_App.BLL;
+using Music.Net_App.View.Artist;
 
 namespace Music.Net_App.View
 {
@@ -402,6 +403,16 @@ namespace Music.Net_App.View
         private void iconButton3_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void Button_Song_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(User.TypeUser);
+            //if(User.TypeUser == "Artist")
+            {
+                SongForm f = new SongForm();
+                OpenChildForm(f);
+            }
         }
     }
 }

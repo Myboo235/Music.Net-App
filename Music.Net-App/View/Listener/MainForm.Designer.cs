@@ -59,7 +59,6 @@
             this.Button_Play = new FontAwesome.Sharp.IconButton();
             this.Button_Backward = new FontAwesome.Sharp.IconButton();
             this.Button_Forward = new FontAwesome.Sharp.IconButton();
-            this.MusicPlayer = new AxWMPLib.AxWindowsMediaPlayer();
             this.MenuBar = new System.Windows.Forms.FlowLayoutPanel();
             this.Button_Menu = new FontAwesome.Sharp.IconButton();
             this.Button_Home = new FontAwesome.Sharp.IconButton();
@@ -68,6 +67,9 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.Button_LogOut = new FontAwesome.Sharp.IconButton();
             this.MainBackGround = new System.Windows.Forms.FlowLayoutPanel();
+            this.Button_Song = new FontAwesome.Sharp.IconButton();
+            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.MusicPlayer = new AxWMPLib.AxWindowsMediaPlayer();
             this.ContactBar.SuspendLayout();
             this.panel2.SuspendLayout();
             this.MainLayout.SuspendLayout();
@@ -76,9 +78,9 @@
             this.panel4.SuspendLayout();
             this.PlayBar.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MusicPlayer)).BeginInit();
             this.MenuBar.SuspendLayout();
             this.MainBackGround.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MusicPlayer)).BeginInit();
             this.SuspendLayout();
             // 
             // ContactBar
@@ -90,6 +92,8 @@
             this.ContactBar.Controls.Add(this.Button_Friends);
             this.ContactBar.Controls.Add(this.Button_Follow);
             this.ContactBar.Controls.Add(this.guna2ToggleSwitch1);
+            this.ContactBar.Controls.Add(this.Button_Song);
+            this.ContactBar.Controls.Add(this.iconButton2);
             this.ContactBar.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.ContactBar.Location = new System.Drawing.Point(945, 0);
             this.ContactBar.Margin = new System.Windows.Forms.Padding(0);
@@ -557,16 +561,6 @@
             this.Button_Forward.UseVisualStyleBackColor = true;
             this.Button_Forward.Click += new System.EventHandler(this.Button_Forward_Click);
             // 
-            // MusicPlayer
-            // 
-            this.MusicPlayer.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.MusicPlayer.Enabled = true;
-            this.MusicPlayer.Location = new System.Drawing.Point(3, 64);
-            this.MusicPlayer.Name = "MusicPlayer";
-            this.MusicPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("MusicPlayer.OcxState")));
-            this.MusicPlayer.Size = new System.Drawing.Size(698, 122);
-            this.MusicPlayer.TabIndex = 7;
-            // 
             // MenuBar
             // 
             this.MenuBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -657,7 +651,7 @@
             this.Button_Playlist.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Button_Playlist.Location = new System.Drawing.Point(3, 165);
             this.Button_Playlist.Name = "Button_Playlist";
-            this.Button_Playlist.Size = new System.Drawing.Size(231, 48);
+            this.Button_Playlist.Size = new System.Drawing.Size(235, 48);
             this.Button_Playlist.TabIndex = 4;
             this.Button_Playlist.Text = "   Your Playlist";
             this.Button_Playlist.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -706,6 +700,49 @@
             this.MainBackGround.Size = new System.Drawing.Size(1223, 773);
             this.MainBackGround.TabIndex = 2;
             // 
+            // Button_Song
+            // 
+            this.Button_Song.FlatAppearance.BorderSize = 0;
+            this.Button_Song.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button_Song.ForeColor = System.Drawing.Color.White;
+            this.Button_Song.IconChar = FontAwesome.Sharp.IconChar.Music;
+            this.Button_Song.IconColor = System.Drawing.Color.White;
+            this.Button_Song.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.Button_Song.Location = new System.Drawing.Point(3, 202);
+            this.Button_Song.Name = "Button_Song";
+            this.Button_Song.Size = new System.Drawing.Size(235, 48);
+            this.Button_Song.TabIndex = 0;
+            this.Button_Song.Text = "Your Songs";
+            this.Button_Song.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Button_Song.UseVisualStyleBackColor = true;
+            this.Button_Song.Click += new System.EventHandler(this.Button_Song_Click);
+            // 
+            // iconButton2
+            // 
+            this.iconButton2.FlatAppearance.BorderSize = 0;
+            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton2.ForeColor = System.Drawing.Color.White;
+            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.CompactDisc;
+            this.iconButton2.IconColor = System.Drawing.Color.White;
+            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton2.Location = new System.Drawing.Point(3, 256);
+            this.iconButton2.Name = "iconButton2";
+            this.iconButton2.Size = new System.Drawing.Size(235, 48);
+            this.iconButton2.TabIndex = 0;
+            this.iconButton2.Text = "Your Albums";
+            this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton2.UseVisualStyleBackColor = true;
+            // 
+            // MusicPlayer
+            // 
+            this.MusicPlayer.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.MusicPlayer.Enabled = true;
+            this.MusicPlayer.Location = new System.Drawing.Point(3, 64);
+            this.MusicPlayer.Name = "MusicPlayer";
+            this.MusicPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("MusicPlayer.OcxState")));
+            this.MusicPlayer.Size = new System.Drawing.Size(698, 122);
+            this.MusicPlayer.TabIndex = 7;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
@@ -729,9 +766,9 @@
             this.panel4.ResumeLayout(false);
             this.PlayBar.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.MusicPlayer)).EndInit();
             this.MenuBar.ResumeLayout(false);
             this.MainBackGround.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.MusicPlayer)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -777,5 +814,7 @@
         private FontAwesome.Sharp.IconButton iconButton3;
         private Guna.UI2.WinForms.Guna2ToggleSwitch guna2ToggleSwitch1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private FontAwesome.Sharp.IconButton Button_Song;
+        private FontAwesome.Sharp.IconButton iconButton2;
     }
 }
