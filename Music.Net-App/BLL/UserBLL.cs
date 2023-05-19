@@ -24,6 +24,19 @@ namespace Music.Net_App.BLL
     {
         EntitiesMusicNetApp db = new EntitiesMusicNetApp();
         // get all listener 
+        private static UserBLL _Instance;
+        public static UserBLL Instance
+        {
+            get
+            {
+                if (_Instance == null)
+                {
+                    _Instance = new UserBLL();
+                }
+                return _Instance;
+            }
+            private set { }
+        }
         public List<ListenerDTO> getAllListener()
         {
 

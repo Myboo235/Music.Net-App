@@ -7,9 +7,22 @@ using Music.Net_App.DAL;
 
 namespace Music.Net_App.BLL
 {
+
     public class SongBLL
     {
-
+        private static SongBLL _Instance;
+        public static SongBLL Instance
+        {
+            get
+            {
+                if (_Instance == null)
+                {
+                    _Instance = new SongBLL();
+                }
+                return _Instance;
+            }
+            private set { }
+        }
         /*    public List<Song1DTO> GetAllSongs()
             {
                 List<Song1DTO> songDTOs = new List<Song1DTO>();

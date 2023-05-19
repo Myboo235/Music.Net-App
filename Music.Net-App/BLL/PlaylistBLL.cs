@@ -10,6 +10,19 @@ namespace Music.Net_App.BLL
     internal class PlaylistBLL
     {
         MusicNetAppEntities1 db = new MusicNetAppEntities1();
+        private static PlaylistBLL _Instance;
+        public static PlaylistBLL Instance
+        {
+            get
+            {
+                if (_Instance == null)
+                {
+                    _Instance = new PlaylistBLL();
+                }
+                return _Instance;
+            }
+            private set { }
+        }
 
         //getAllPlaylist        but3
         public List<Playlist1DTO> GetAllPlaylists()
