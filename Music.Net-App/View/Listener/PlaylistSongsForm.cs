@@ -18,8 +18,7 @@ namespace Music.Net_App.View.Listener
     {
         public delegate void PlaylistSongDelegate();
         public PlaylistSongDelegate psd { get; set; }
-        PlaylistBLL playlistBLL = new PlaylistBLL();
-        SongBLL songBLL = new SongBLL();
+        
         PlaylistDTO playlist = new PlaylistDTO();
         private List<Guna2Panel> pn = new List<Guna2Panel>();
         private List<Guna2Panel> ln = new List<Guna2Panel>();
@@ -27,7 +26,7 @@ namespace Music.Net_App.View.Listener
         public PlaylistSongsForm(int playlistID)
         {
             InitializeComponent();
-            playlist = playlistBLL.GetPlaylistById(playlistID);
+            playlist = PlaylistBLL.Instance.GetPlaylistById(playlistID);
             SetUpPlaylistSong();
         }
 
@@ -35,7 +34,7 @@ namespace Music.Net_App.View.Listener
         {
             int songID = Convert.ToInt32((sender as Guna2Button).Name);
             MessageBox.Show((sender as Guna2Button).Name);
-            if (playlistBLL.RemoveSongFromPlaylist(playlist.PlaylistId, songID))
+            if (PlaylistBLL.Instance.RemoveSongFromPlaylist(playlist.PlaylistId, songID))
             {
                 MessageBox.Show("Remove from " + playlist.PlaylistName + " successfully");
                 int thisformheight = this.Height;
@@ -54,7 +53,7 @@ namespace Music.Net_App.View.Listener
             label3.Text = playlist.Description;
             label3.Width = flowLayoutPanel4.Width;
             flowLayoutPanel1.Controls.Clear();
-            foreach (SongDTO s in playlistBLL.GetAllSongOfPlaylist(playlist.PlaylistId))
+            foreach (SongDTO s in PlaylistBLL.Instance.GetAllSongOfPlaylist(playlist.PlaylistId))
             {
                 Guna2Panel p = new Guna2Panel();
                 FlowLayoutPanel f = new FlowLayoutPanel
@@ -134,7 +133,7 @@ namespace Music.Net_App.View.Listener
 
         private void Button_Delete_Playlist_Click(object sender, EventArgs e)
         {
-            playlistBLL.RemovePlaylist(playlist.PlaylistId);
+            PlaylistBLL.Instance.RemovePlaylist(playlist.PlaylistId);
             Close();
             psd();
         }
@@ -142,7 +141,7 @@ namespace Music.Net_App.View.Listener
         {
             int songID = Convert.ToInt32((sender as Guna2Button).Name);
             MessageBox.Show((sender as Guna2Button).Name);
-            if (playlistBLL.AddSongToPlaylist(playlist.PlaylistId, songID))
+            if (PlaylistBLL.Instance.AddSongToPlaylist(playlist.PlaylistId, songID))
             {
                 MessageBox.Show("Add to " + playlist.PlaylistName + " successfully");
                 int thisformheight = this.Height;
@@ -159,7 +158,7 @@ namespace Music.Net_App.View.Listener
         private void guna2TextBox1_TextChanged(object sender, EventArgs e)
         {
             flowLayoutPanel2.Controls.Clear();
-            foreach (SongDTO s in songBLL.GetSongByName(guna2TextBox1.Text))
+            foreach (SongDTO s in SongBLL.Instance.GetSongByName(guna2TextBox1.Text))
             //foreach (AlbumDTO a in album.GetAllAlbum())
             {
                 Guna2Panel p = new Guna2Panel();
@@ -303,7 +302,7 @@ namespace Music.Net_App.View.Listener
             {
                 playlist.PlaylistName = t[0].Text;
                 playlist.Description = t[1].Text;
-                if (playlistBLL.ModifyPlaylist(playlist))
+                if (PlaylistBLL.Instance.ModifyPlaylist(playlist))
                 {
                     MessageBox.Show("Modify successfully");
                     label2.Text = playlist.PlaylistName;

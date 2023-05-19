@@ -18,8 +18,6 @@ namespace Music.Net_App.View.Listener
     {
         string directory = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug\", "");
         UserDTO User = null;
-        UserBLL UserBLL = new UserBLL();
-        PlaylistBLL PlaylistBLL = new PlaylistBLL();
         public ProfileForm(UserDTO user)
         {
             InitializeComponent();
@@ -38,7 +36,7 @@ namespace Music.Net_App.View.Listener
             label2.Text = User.Name;
             label2.Width = guna2CustomGradientPanel1.Width;   
 
-            foreach (PlaylistDTO c in PlaylistBLL.GetAllPlaylistOfListener(User.UserId))
+            foreach (PlaylistDTO c in PlaylistBLL.Instance.GetAllPlaylistOfListener(User.UserId))
             {
                 Guna2Panel gp = new Guna2Panel
                 {

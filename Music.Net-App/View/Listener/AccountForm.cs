@@ -16,8 +16,7 @@ namespace Music.Net_App.View.Listener
 {
     public partial class AccountForm : Form
     {
-        UserDTO User = new UserDTO();
-        UserBLL Userbll = new UserBLL();
+        UserDTO User = new UserDTO(); 
         CountryBLL Countrybll = new CountryBLL();
         public AccountForm(UserDTO user)
         {
@@ -58,7 +57,7 @@ namespace Music.Net_App.View.Listener
             User.Gender = Convert.ToBoolean(guna2ComboBox2.SelectedIndex);
 
             MessageBox.Show(User.TypeUser);
-            if (Userbll.ModifyUser(User))
+            if (UserBLL.Instance.ModifyUser(User))
             {
                 MessageBox.Show("Modify successfully");
                 SetUpAccount() ;

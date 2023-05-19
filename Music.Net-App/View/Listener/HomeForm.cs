@@ -38,9 +38,7 @@ namespace Music.Net_App.View
                 }
             }*/
 
-
-            UserBLL b = new UserBLL();
-            foreach(UserHistoryDTO c in b.GetHistory(User.UserId))
+            foreach(UserHistoryDTO c in UserBLL.Instance.GetHistory(User.UserId))
             {
                 Guna2Panel gp = new Guna2Panel
                 {

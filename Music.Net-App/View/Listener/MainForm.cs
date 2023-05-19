@@ -27,8 +27,6 @@ namespace Music.Net_App.View
         //private Form nextChildForm;
         private string theme = "default";
         string directory = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug\", "") + @"\Assets\Musics\";
-        UserBLL b = new UserBLL();
-        PlaylistBLL playlistbll = new PlaylistBLL();
         private string currentPlaylistID = "0";
 
         public MainForm(string email)
