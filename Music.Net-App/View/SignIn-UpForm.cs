@@ -93,7 +93,6 @@ namespace Music.Net_App.View
                 {
                     UserDTO listener = new UserDTO
                     {
-                        
                         Name = guna2TextBox3.Text,
                         Email = guna2TextBox1.Text,
                         Password = guna2TextBox2.Text,

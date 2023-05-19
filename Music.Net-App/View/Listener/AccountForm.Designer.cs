@@ -42,6 +42,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.Button_Save = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -156,13 +157,14 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(-1, -1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(976, 668);
+            this.panel1.Size = new System.Drawing.Size(976, 711);
             this.panel1.TabIndex = 5;
             // 
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Controls.Add(this.Button_Save);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.guna2ComboBox2);
             this.panel2.Controls.Add(this.guna2TextBox3);
@@ -175,7 +177,7 @@
             this.panel2.Controls.Add(this.label4);
             this.panel2.Location = new System.Drawing.Point(222, 130);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(728, 508);
+            this.panel2.Size = new System.Drawing.Size(728, 538);
             this.panel2.TabIndex = 7;
             // 
             // label1
@@ -282,6 +284,22 @@
             this.label4.TabIndex = 5;
             this.label4.Text = "Country";
             // 
+            // Button_Save
+            // 
+            this.Button_Save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Button_Save.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Button_Save.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Button_Save.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Button_Save.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Button_Save.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Button_Save.ForeColor = System.Drawing.Color.White;
+            this.Button_Save.Location = new System.Drawing.Point(398, 493);
+            this.Button_Save.Name = "Button_Save";
+            this.Button_Save.Size = new System.Drawing.Size(180, 45);
+            this.Button_Save.TabIndex = 7;
+            this.Button_Save.Text = "Save";
+            this.Button_Save.Click += new System.EventHandler(this.Button_Save_Click);
+            // 
             // AccountForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -315,5 +333,6 @@
         private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel2;
+        private Guna.UI2.WinForms.Guna2Button Button_Save;
     }
 }
