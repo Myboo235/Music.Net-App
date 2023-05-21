@@ -10,7 +10,7 @@ namespace Music.Net_App.DTO
     {
         public string PlaylistName { get; set; }
 
-        public static implicit operator PlayListDTO(ListenerDTO v)
+        public static implicit operator PlayListDTO(UserDTO v)
         {
             throw new NotImplementedException();
         }

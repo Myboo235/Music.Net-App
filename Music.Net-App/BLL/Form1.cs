@@ -19,8 +19,8 @@ namespace Music.Net_App.BLL
 
         private void button1_Click(object sender, EventArgs e)
         {
-            AlbumBLL b = new AlbumBLL();
-            guna2DataGridView1.DataSource = b.GetAllAlbum();
+                SongBLL s = new SongBLL();
+            guna2DataGridView1.DataSource = s.GetAllSong();
        
         }
 
