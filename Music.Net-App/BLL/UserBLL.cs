@@ -67,6 +67,7 @@ namespace Music.Net_App.BLL
             return list;
         }
 
+
         public bool CheckEmail(string email)
         {;
             var checkEmail = from l in db.Listeners
@@ -75,24 +76,32 @@ namespace Music.Net_App.BLL
             return checkEmail.Any();//return true if already email
 
         }
-        public bool CheckUser(string email, string pass)
+        public bool CheckArtist(string email, string pass)
         {
-            var checkUser = from l in db.Listeners
+            var checkArtist = from l in db.Artists
                         where l.Email == email && l.Password == pass 
                         select l;
-            return checkUser.Any();
+            return checkArtist.Any();
 
         }
 
+        public bool CheckListener(string email, string pass)
+        {
+            var checkListener = from l in db.Listeners
+                            where l.Email == email && l.Password == pass
+                            select l;
+            return checkListener.Any();
+
+        }
         //get Last ID
         //Add Listener
         //Add Artisr
         //Modify Listener
         //Modify Artisr
 
-        public UserDTO GetUsersByEmail(string email)
+        public UserDTO GetListenerByEmail(string email)
         {
-  
+            UserDTO user = new UserDTO();
             var getUser = (from u in db.Listeners
                            join c in db.Countries on u.CountryID equals c.CountryID
                            where u.Email == email
@@ -108,7 +117,7 @@ namespace Music.Net_App.BLL
                            }).FirstOrDefault();
             if (getUser != null)
             {
-                return new UserDTO
+                user =  new UserDTO
                 {
                     UserId = getUser.ListenerID,
                     Name = getUser.Name,
@@ -121,10 +130,45 @@ namespace Music.Net_App.BLL
                     TypeUser = "Listener"
                 };
             }
-            return null;
+            return user;
             
         }
 
+        public UserDTO GetArtistByEmail(string email)
+        {
+            UserDTO user = new UserDTO();
+            var getUser = (from u in db.Artists
+                           join c in db.Countries on u.CountryID equals c.CountryID
+                           where u.Email == email
+                           select new
+                           {
+                               u.ArtistID,
+                               u.Name,
+                               u.Email,
+                               u.Password,
+                               u.Gender,
+                               u.DateJoin,
+                               u.CountryID,
+                               c.CountryName
+                           }).FirstOrDefault();
+            if (getUser != null)
+            {
+                user = new UserDTO
+                {
+                    UserId = getUser.ArtistID,
+                    Name = getUser.Name,
+                    Email = getUser.Email,
+                    Password = getUser.Password,
+                    CountryName = getUser.CountryName,
+                    Gender = Convert.ToBoolean(getUser.Gender),
+                    DateJoin = Convert.ToDateTime(getUser.DateJoin),
+                    CountryId = Convert.ToInt32(getUser.CountryID),
+                    TypeUser = "Artist"
+                };
+            }
+            return user;
+
+        }
 
         /*public List<Listener> getUsersByName(string name)
         {
@@ -197,11 +241,13 @@ namespace Music.Net_App.BLL
                            select new { l.ListenerID };
             return Convert.ToInt32(getCount.ToList().Max());
         }
-
         public int GetArtistCount()
         {
-            return db.Artists.Count();
+            var getCount = from l in db.Artists
+                           select new { l.ArtistID };
+            return Convert.ToInt32(getCount.ToList().Max());
         }
+
         public bool AddListener(UserDTO Listener)
         {
             try
@@ -225,6 +271,44 @@ namespace Music.Net_App.BLL
             {
                 return false;
             }
+        }
+
+
+        public bool ResetPasswordListener(string email)
+        {
+            Listener listener = (from l in db.Listeners
+                                 where l.Email == email
+                                 select l).FirstOrDefault();
+            if (listener != null)
+            {
+                listener.Password = "Muzira123";
+                db.SaveChanges();
+
+                return true;
+            }
+
+
+            return false;
+
+
+        }
+
+        public bool ResetPasswordArtist(string email)
+        {
+            Artist artist = (from l in db.Artists
+                                 where l.Email == email
+                                 select l).FirstOrDefault();
+            if (artist != null)
+            {
+                artist.Password = "Muzira123";
+                db.SaveChanges();
+                return true;
+            }
+
+
+            return false;
+
+
         }
         //ModifyUser
         public bool ModifyUser(UserDTO user)
@@ -334,29 +418,32 @@ namespace Music.Net_App.BLL
         }
 
         //Add Artist
-        /*public bool AddArtist(ArtistDTO user)
+        public bool AddArtist(UserDTO Artist)
         {
-            Artist a = db.Artists.Where(p => p.ArtistID == user.ArtistID).FirstOrDefault();
-            if (a == null)
+            try
             {
-                a = new Artist()
+                if (CheckEmail(Artist.Email)) return false;
+                Artist artist = new Artist
                 {
-                    ArtistID = user.ArtistID,
-                    //CountryID = user.CountryID,
-                    Name = user.Name,
-                    //Descriptions = user.Description,
-                    //DateJoin = user.DateJoihn
-
+                    ArtistID = GetListenerCount() + 1,
+                    Name = Artist.Name,
+                    Email = Artist.Email,
+                    Password = Artist.Password,
+                    Gender = Artist.Gender,
+                    DateJoin = Artist.DateJoin,
+                    CountryID = Artist.CountryId,
                 };
-
-                db.Artists.Add(a);
+                db.Artists.Add(artist);
                 db.SaveChanges();
                 return true;
             }
-            else return false;
-        }*/
+            catch (Exception)
+            {
+                return false;
+            }
+        }
 
-        
+
 
     }
 }

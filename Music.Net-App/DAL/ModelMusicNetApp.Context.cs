@@ -36,5 +36,6 @@ namespace Music.Net_App.DAL
         public virtual DbSet<PlaylistSong> PlaylistSongs { get; set; }
         public virtual DbSet<Single> Singles { get; set; }
         public virtual DbSet<Song> Songs { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }
