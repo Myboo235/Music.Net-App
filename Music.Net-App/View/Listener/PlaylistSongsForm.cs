@@ -149,6 +149,7 @@ namespace Music.Net_App.View.Listener
                 SetUpPlaylistSong();
                 flowLayoutPanel1.Height = songinplaylistheight + 80;
                 this.Height = thisformheight + 80;
+                psd();
             }   
             else
                 MessageBox.Show("An error occurred while adding song to playlist or it's already in "+playlist.PlaylistName);
