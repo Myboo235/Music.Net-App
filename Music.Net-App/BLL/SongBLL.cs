@@ -66,6 +66,34 @@ namespace Music.Net_App.BLL
             return songDTOs;
         }
 
+        public List<SongDTO> GetAllSongOfArtist(int artistID)
+        {
+            List<SongDTO> result = new List<SongDTO>();
+
+            var songs = from p in db.Songs
+                        where p.ArtistID == artistID
+                        select p;
+
+            if (songs.Any())
+            {
+                foreach (var item in songs.ToList())
+                {
+                    result.Add(new SongDTO
+                    {
+                        ArtistName = "",
+                        SongName = item.SongName,
+                        SongID = item.SongID,
+                        ArtistID = item.ArtistID,
+                        DateCreated = Convert.ToDateTime(item.DateCreated),
+                        Duration = Convert.ToInt32(item.Duration),
+                    });
+                }
+
+
+            }
+
+            return result;
+        }
         //AddSong
         public void AddSong(SongDTO songDTO)
         {

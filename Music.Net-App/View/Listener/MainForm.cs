@@ -306,6 +306,7 @@ namespace Music.Net_App.View
                 PlaylistForm f = new PlaylistForm(User);
                 OpenChildForm(f);
                 f.pd += SetUpMainForm;
+
             }
                 
 
@@ -417,7 +418,7 @@ namespace Music.Net_App.View
             MessageBox.Show(User.TypeUser);
             //if(User.TypeUser == "Artist")
             {
-                SongForm f = new SongForm();
+                SongForm f = new SongForm(User);
                 OpenChildForm(f);
             }
         }

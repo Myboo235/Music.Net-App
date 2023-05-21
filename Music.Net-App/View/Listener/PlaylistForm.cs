@@ -20,6 +20,10 @@ namespace Music.Net_App.View
     {
         public delegate void PlaylistDelegate();
         public PlaylistDelegate pd { get; set; }
+
+        public delegate void SetUpMainForm();
+        public SetUpMainForm su { get; set; }
+
         string directory = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug", "");
         private List<FlowLayoutPanel> tb = new List<FlowLayoutPanel>();
         private UserDTO User;
@@ -32,6 +36,9 @@ namespace Music.Net_App.View
             //flowLayoutPanel5.BackgroundImageLayout = ImageLayout.Center;
             this.User = User;
             SetUpUserPlaylist();
+
+            
+
         }
         public Image SetImageOpacity(Image image, float opacity)
         {
@@ -95,12 +102,21 @@ namespace Music.Net_App.View
             flowLayoutPanel3.Width = this.Width-9;
             flowLayoutPanel3.Height = this.Height - 10;
             panel1.Width = flowLayoutPanel3.Width - 30;
+            foreach (FlowLayoutPanel f in tb)
+            {
+                f.Size = new Size(240, 374);
+            }
         }
 
         private void Button_Add_Playlist_Click(object sender, EventArgs e)
         {
             panel1.Height = 800;
             //Button_Add_Playlist.Enabled = false;
+            foreach (FlowLayoutPanel f in tb)
+            {
+                f.Size = new Size(240, 374);
+            }
+            pd();
         }
 
         private void Button_Cancel_Click(object sender, EventArgs e)
@@ -129,6 +145,10 @@ namespace Music.Net_App.View
             panel1.Height = 100;
             SetUpUserPlaylist();
             pd();
+            foreach (FlowLayoutPanel f in tb)
+            {
+                MessageBox.Show(f.Size + "");
+            }
         }
 
         private void panel2_Click(object sender, EventArgs e)

@@ -414,6 +414,9 @@
     <EmbeddedResource Include="View\Admin\DashboardForm.resx">
       <DependentUpon>DashboardForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Artist\SongForm.resx">
+      <DependentUpon>SongForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Listener\AccountForm.resx">
       <DependentUpon>AccountForm.cs</DependentUpon>
     </EmbeddedResource>
