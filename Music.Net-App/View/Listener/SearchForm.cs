@@ -21,8 +21,6 @@ namespace Music.Net_App.View
 
         public delegate void SongDelegate(string SongName);
         public SongDelegate sd { get; set; }
-        SongBLL song = new SongBLL();
-        AlbumBLL album = new AlbumBLL();
         private List<Guna2Panel> tb = new List<Guna2Panel>();
         private List<Guna2Panel> pn = new List<Guna2Panel>();
         string filter = "Song";
@@ -104,7 +102,7 @@ namespace Music.Net_App.View
             flowLayoutPanel3.Controls.Clear();
             if(filter == "Song")
             {
-                foreach (SongDTO s in song.GetSongByName(guna2TextBox1.Text))
+                foreach (SongDTO s in SongBLL.Instance.GetSongByName(guna2TextBox1.Text))
                 //foreach (AlbumDTO a in album.GetAllAlbum())
                 {
                     Guna2Panel p = new Guna2Panel();
@@ -182,7 +180,7 @@ namespace Music.Net_App.View
             }
             else if(filter == "Album")
             {
-                foreach (AlbumDTO a in album.GetAllAlbum()) 
+                foreach (AlbumDTO a in AlbumBLL.Instance.GetAllAlbum()) 
                 {
                     Guna2Panel t = new Guna2Panel();
                     FlowLayoutPanel f = new FlowLayoutPanel

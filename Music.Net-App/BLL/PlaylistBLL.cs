@@ -16,7 +16,19 @@ namespace Music.Net_App.BLL
     {
         EntitiesMusicNetApp db = new EntitiesMusicNetApp();
 
-
+        private static PlaylistBLL _Instance;
+        public static PlaylistBLL Instance
+        {
+            get
+            {
+                if (_Instance == null)
+                {
+                    _Instance = new PlaylistBLL();
+                }
+                return _Instance;
+            }
+            private set { }
+        }
         public List<Playlist1DTO> GetAllPlaylists()
         {
             List<Playlist1DTO> playlists = new List<Playlist1DTO>();

@@ -23,7 +23,6 @@ namespace Music.Net_App.View
         string directory = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug", "");
         private List<FlowLayoutPanel> tb = new List<FlowLayoutPanel>();
         private UserDTO User;
-        PlaylistBLL p = new PlaylistBLL();
         public PlaylistForm(UserDTO User)
         {
             InitializeComponent();
@@ -67,7 +66,7 @@ namespace Music.Net_App.View
         private void SetUpUserPlaylist()
         {
             flowLayoutPanel3.Controls.OfType<FlowLayoutPanel>().ToList().ForEach(f => f.Dispose());
-            foreach (PlaylistDTO pl in p.GetAllPlaylistOfListener(User.UserId))
+            foreach (PlaylistDTO pl in PlaylistBLL.Instance.GetAllPlaylistOfListener(User.UserId))
             {
                 FlowLayoutPanel p = new FlowLayoutPanel();
                 p.Size = new Size(240, 374);
@@ -119,7 +118,7 @@ namespace Music.Net_App.View
                 DateCreated = DateTime.Now,
             };
 
-            if (p.AddPlaylist(playlist, User.UserId))
+            if (PlaylistBLL.Instance.AddPlaylist(playlist, User.UserId))
             {
                 MessageBox.Show("The playlist has been successfully added.");
             }

@@ -11,6 +11,20 @@ namespace Music.Net_App.BLL
 {
     public class AlbumBLL
     {
+        private static AlbumBLL _Instance;
+        public static AlbumBLL Instance
+        {
+            get
+            {
+                if (_Instance == null)
+                {
+                    _Instance = new AlbumBLL();
+                }
+                return _Instance;
+            }
+            private set { }
+        }
+
         EntitiesMusicNetApp db = new EntitiesMusicNetApp();
         public List<AlbumDTO> GetAllAlbum()
         {
