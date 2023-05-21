@@ -46,27 +46,11 @@
             this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel5.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
             this.guna2Panel4.SuspendLayout();
             this.guna2Panel5.SuspendLayout();
-            this.flowLayoutPanel3.SuspendLayout();
-            this.guna2Panel1.SuspendLayout();
-            this.flowLayoutPanel6.SuspendLayout();
-            this.guna2Panel2.SuspendLayout();
-            this.flowLayoutPanel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // Button_Search
@@ -313,134 +297,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel3.AutoScroll = true;
             this.flowLayoutPanel3.BackColor = System.Drawing.Color.Black;
-            this.flowLayoutPanel3.Controls.Add(this.guna2Panel1);
-            this.flowLayoutPanel3.Controls.Add(this.guna2Panel2);
             this.flowLayoutPanel3.Location = new System.Drawing.Point(12, 171);
             this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(1068, 497);
             this.flowLayoutPanel3.TabIndex = 4;
-            // 
-            // guna2Panel1
-            // 
-            this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel1.BorderColor = System.Drawing.Color.White;
-            this.guna2Panel1.Controls.Add(this.flowLayoutPanel6);
-            this.guna2Panel1.Controls.Add(this.label3);
-            this.guna2Panel1.Controls.Add(this.label1);
-            this.guna2Panel1.CustomBorderColor = System.Drawing.Color.Silver;
-            this.guna2Panel1.CustomBorderThickness = new System.Windows.Forms.Padding(0, 1, 0, 0);
-            this.guna2Panel1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Panel1.Location = new System.Drawing.Point(3, 3);
-            this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.guna2Panel1.Size = new System.Drawing.Size(763, 97);
-            this.guna2Panel1.TabIndex = 0;
-            // 
-            // flowLayoutPanel6
-            // 
-            this.flowLayoutPanel6.Controls.Add(this.guna2Button1);
-            this.flowLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.flowLayoutPanel6.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel6.Location = new System.Drawing.Point(501, 16);
-            this.flowLayoutPanel6.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
-            this.flowLayoutPanel6.Name = "flowLayoutPanel6";
-            this.flowLayoutPanel6.Size = new System.Drawing.Size(262, 81);
-            this.flowLayoutPanel6.TabIndex = 5;
-            // 
-            // guna2Button1
-            // 
-            this.guna2Button1.BorderColor = System.Drawing.Color.White;
-            this.guna2Button1.BorderRadius = 20;
-            this.guna2Button1.BorderThickness = 2;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(53, 20);
-            this.guna2Button1.Margin = new System.Windows.Forms.Padding(3, 20, 0, 20);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(206, 52);
-            this.guna2Button1.TabIndex = 4;
-            this.guna2Button1.Text = "Add to Playlist";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.RosyBrown;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label3.Location = new System.Drawing.Point(0, 16);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 16);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "label3";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
-            // 
-            // guna2Panel2
-            // 
-            this.guna2Panel2.BackColor = System.Drawing.Color.RosyBrown;
-            this.guna2Panel2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.guna2Panel2.BorderRadius = 20;
-            this.guna2Panel2.BorderThickness = 1;
-            this.guna2Panel2.Controls.Add(this.flowLayoutPanel4);
-            this.guna2Panel2.Controls.Add(this.pictureBox1);
-            this.guna2Panel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.guna2Panel2.Location = new System.Drawing.Point(3, 106);
-            this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(309, 181);
-            this.guna2Panel2.TabIndex = 1;
-            // 
-            // flowLayoutPanel4
-            // 
-            this.flowLayoutPanel4.BackColor = System.Drawing.Color.White;
-            this.flowLayoutPanel4.Controls.Add(this.panel3);
-            this.flowLayoutPanel4.Controls.Add(this.label2);
-            this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.flowLayoutPanel4.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel4.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(175, 0);
-            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(134, 181);
-            this.flowLayoutPanel4.TabIndex = 2;
-            // 
-            // panel3
-            // 
-            this.panel3.Location = new System.Drawing.Point(3, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(122, 109);
-            this.panel3.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 115);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 31);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "label2";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(181, 181);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
             // 
             // SearchForm
             // 
@@ -463,14 +324,6 @@
             this.guna2Panel4.PerformLayout();
             this.guna2Panel5.ResumeLayout(false);
             this.guna2Panel5.PerformLayout();
-            this.flowLayoutPanel3.ResumeLayout(false);
-            this.guna2Panel1.ResumeLayout(false);
-            this.guna2Panel1.PerformLayout();
-            this.flowLayoutPanel6.ResumeLayout(false);
-            this.guna2Panel2.ResumeLayout(false);
-            this.flowLayoutPanel4.ResumeLayout(false);
-            this.flowLayoutPanel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -483,8 +336,6 @@
         private FontAwesome.Sharp.IconButton iconButton1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
@@ -493,16 +344,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel2;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel6;
         private Guna.UI2.WinForms.Guna2CustomRadioButton guna2CustomRadioButton1;
         private Guna.UI2.WinForms.Guna2CustomRadioButton guna2CustomRadioButton2;
         private Guna.UI2.WinForms.Guna2CustomRadioButton guna2CustomRadioButton3;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -29,7 +29,7 @@ namespace Music.Net_App.View
         {
             InitializeComponent();
             flowLayoutPanel3.BackColor = Color.Transparent;
-            guna2Panel1.Width = flowLayoutPanel3.Width - 30;
+
         }
         
 
@@ -38,8 +38,6 @@ namespace Music.Net_App.View
             flowLayoutPanel2.Width = this.Width-9;
             guna2TextBox1.Size = new Size(this.Width - 280, 47);
             flowLayoutPanel3.Width= this.Width-21;
-            guna2Panel1.Width = flowLayoutPanel3.Width-12;
-            guna2Panel1.Width = flowLayoutPanel3.Width - 30;
             //flowLayoutPanel3.Height= this.Height-150;
             if (tb != null)
             {

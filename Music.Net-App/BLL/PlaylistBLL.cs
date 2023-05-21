@@ -29,13 +29,13 @@ namespace Music.Net_App.BLL
             }
             private set { }
         }
-        public List<Playlist1DTO> GetAllPlaylists()
+        /*public List<PlaylistDTO> GetAllPlaylists()
         {
-            List<Playlist1DTO> playlists = new List<Playlist1DTO>();
+            List<PlaylistDTO> playlists = new List<PlaylistDTO>();
             EntitiesMusicNetApp db = new EntitiesMusicNetApp();
             var query = from playlist in db.Playlists
                         join listener in db.Listeners on playlist.ListenerID equals listener.ListenerID
-                        select new Playlist1DTO
+                        select new PlaylistDTO
                         {
                             PlaylistName = playlist.PlaylistName,
                             Name = listener.Name
@@ -47,13 +47,13 @@ namespace Music.Net_App.BLL
             }
 
             return playlists;
-        }
+        }*/
 
         public PlaylistDTO GetPlaylistById(int playlistID)
         {
+            PlaylistDTO pd = new PlaylistDTO();
             try
             {
-                PlaylistDTO pd = new PlaylistDTO();
                 var playlist = (from p in db.Playlists
                                 where p.PlaylistID == playlistID
                                 select p).First();
@@ -73,7 +73,7 @@ namespace Music.Net_App.BLL
                 return pd;
             }catch(Exception)
             {
-                return null;
+                return pd;
             }
             
 
@@ -128,10 +128,10 @@ namespace Music.Net_App.BLL
                     });
                 }
 
-                return result;
+                
             }
-            
-            return null;
+
+            return result;
         }
 
 

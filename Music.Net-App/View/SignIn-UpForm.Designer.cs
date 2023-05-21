@@ -158,8 +158,7 @@
             this.Button_SignIn_SignUp.Name = "Button_SignIn_SignUp";
             this.Button_SignIn_SignUp.Size = new System.Drawing.Size(303, 68);
             this.Button_SignIn_SignUp.TabIndex = 5;
-            this.Button_SignIn_SignUp.Text = "Log In";
-            this.Button_SignIn_SignUp.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            this.Button_SignIn_SignUp.Text = "LOG IN";
             this.Button_SignIn_SignUp.Click += new System.EventHandler(this.Button_SignIn_SignUp_Click);
             // 
             // label2
@@ -196,6 +195,7 @@
             this.label4.Size = new System.Drawing.Size(126, 23);
             this.label4.TabIndex = 8;
             this.label4.Text = "Reset Password";
+            this.label4.Click += new System.EventHandler(this.Reset_Password_Click);
             // 
             // guna2TextBox3
             // 

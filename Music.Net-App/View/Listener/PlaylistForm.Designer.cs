@@ -42,7 +42,6 @@
             this.Button_Add_Playlist = new FontAwesome.Sharp.IconButton();
             this.LikedSong_Panel = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.LikedSong_Panel.SuspendLayout();
@@ -56,7 +55,6 @@
             this.flowLayoutPanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.flowLayoutPanel3.Controls.Add(this.panel1);
             this.flowLayoutPanel3.Controls.Add(this.LikedSong_Panel);
-            this.flowLayoutPanel3.Controls.Add(this.panel2);
             this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 1);
             this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
@@ -263,16 +261,6 @@
             this.guna2Button1.TabIndex = 0;
             this.guna2Button1.Text = "Play Now";
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Red;
-            this.panel2.Location = new System.Drawing.Point(473, 122);
-            this.panel2.Margin = new System.Windows.Forms.Padding(10);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(286, 374);
-            this.panel2.TabIndex = 4;
-            this.panel2.Click += new System.EventHandler(this.panel2_Click);
-            // 
             // PlaylistForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -307,6 +295,5 @@
         private FontAwesome.Sharp.IconButton Button_Add_Playlist;
         private Guna.UI2.WinForms.Guna2Button guna2Button3;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
-        private System.Windows.Forms.Panel panel2;
     }
 }

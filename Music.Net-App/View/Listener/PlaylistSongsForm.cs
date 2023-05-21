@@ -33,7 +33,7 @@ namespace Music.Net_App.View.Listener
         private void Button_Remove_Song_Click(object sender, EventArgs e)
         {
             int songID = Convert.ToInt32((sender as Guna2Button).Name);
-            MessageBox.Show((sender as Guna2Button).Name);
+            //MessageBox.Show((sender as Guna2Button).Name);
             if (PlaylistBLL.Instance.RemoveSongFromPlaylist(playlist.PlaylistId, songID))
             {
                 MessageBox.Show("Remove from " + playlist.PlaylistName + " successfully");
@@ -140,7 +140,7 @@ namespace Music.Net_App.View.Listener
         private void Button_Add_Song_Click(object sender, EventArgs e)
         {
             int songID = Convert.ToInt32((sender as Guna2Button).Name);
-            MessageBox.Show((sender as Guna2Button).Name);
+            //MessageBox.Show((sender as Guna2Button).Name);
             if (PlaylistBLL.Instance.AddSongToPlaylist(playlist.PlaylistId, songID))
             {
                 MessageBox.Show("Add to " + playlist.PlaylistName + " successfully");

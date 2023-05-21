@@ -29,7 +29,7 @@ namespace Music.Net_App.View
         string directory = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug\", "") + @"\Assets\Musics\";
         private string currentPlaylistID = "0";
 
-        public MainForm(string email)
+        public MainForm(string email,string typeuser)
         {
             InitializeComponent();
             /*HomeLayout.Controls.Clear();*/
@@ -41,8 +41,17 @@ namespace Music.Net_App.View
             //SetMusicPlayer("Alone");
             MusicPlayer.Ctlcontrols.stop();
 
+            if(typeuser == "Listener")
+            {
+                User = UserBLL.Instance.GetListenerByEmail(email);
+                Button_Song.Visible = false;
+                Button_Album.Visible = false;
+            }
+            else
+            {
+                User = UserBLL.Instance.GetArtistByEmail(email);
+            }
             
-            User = b.GetUsersByEmail(email);
             this.FormBorderStyle = FormBorderStyle.None;
             currentChildForm = new HomeForm(User);
             OpenChildForm(currentChildForm);
@@ -64,7 +73,7 @@ namespace Music.Net_App.View
         public void SetUpMainForm()
         {
             flowLayoutPanel1.Controls.Clear();
-            foreach (PlaylistDTO p in playlistbll.GetAllPlaylistOfListener(User.UserId))
+            foreach (PlaylistDTO p in PlaylistBLL.Instance.GetAllPlaylistOfListener(User.UserId))
             {
                 IconButton b = new IconButton
                 {
@@ -157,6 +166,8 @@ namespace Music.Net_App.View
                 previousChildFormName = currentChildForm.GetType().Name.ToString();
                 previousChildForm = currentChildForm;
 
+                if (previousChildFormName == "PlaylistSongsForm")
+                    currentPlaylistID = "0";
                 Form tempForm = childForm;
                 childForm = currentChildForm;
                 currentChildForm = tempForm;
@@ -248,7 +259,6 @@ namespace Music.Net_App.View
             Hide();
             MinimizeForm m = new MinimizeForm();
             m.FormClosed += new FormClosedEventHandler(Form_Closed);
-
             m.Show();
 
         }
@@ -260,9 +270,8 @@ namespace Music.Net_App.View
         }
         private void Button_Home_Click(object sender, EventArgs e)
         {
-            UserBLL b = new UserBLL();
             if (currentChildForm.GetType().Name.ToString() != "HomeForm")
-                OpenChildForm(new HomeForm(b.GetUsersByEmail(User.Email)));
+                OpenChildForm(new HomeForm(User));
             resize();
         }
 

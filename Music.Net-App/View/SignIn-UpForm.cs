@@ -15,7 +15,6 @@ namespace Music.Net_App.View
 {
     public partial class SignIn_UpForm : Form
     {
-        UserBLL u = null;
         string directory = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug\", "");
 
         public static Image resizeImage(Image imgToResize, Size size)
@@ -25,14 +24,23 @@ namespace Music.Net_App.View
         public SignIn_UpForm()
         {
             InitializeComponent();
-            u = new UserBLL();
             pictureBox1.Image = resizeImage(Image.FromFile(directory + @"\Assets\Images\muzira-banner.png"), new Size(150, 100));
             pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
 
         }
 
+        private void Reset_Password_Click(object sender, EventArgs e)
+        {
+            label1.Text = "Reset Password";
+            guna2TextBox2.Visible = false;
+            label2.Visible = false;
+            Button_Change.Visible = false;
+            Button_SignIn_SignUp.Text = "RESET PASSWORD";
+
+        }
         private void Button_Change_Click(object sender, EventArgs e)
         {
+            //if()
             if(Button_Change.Text == "SIGN UP")
             {
                 label1.Text = "Sign up for free\nMuzira account";
@@ -43,7 +51,7 @@ namespace Music.Net_App.View
                 Button_Change.Text = "SIGN IN";
 
             }
-            else
+            else if(Button_Change.Text == "SIGN IN")
             {
                 label1.Text = "Log in to continue.";
                 label4.Visible = true;
@@ -52,64 +60,151 @@ namespace Music.Net_App.View
                 label2.Text = "Don't have an account ?";
                 Button_Change.Text = "SIGN UP";
             }
-
-
-     
-
         }
         private bool CheckInformationSignUp()
         {
             if (guna2TextBox1.Text == "" || guna2TextBox2.Text =="" || guna2TextBox3.Text == "")
             {
                 MessageBox.Show("Please fill the information ");
+                
+                return false;
+            }
+            if (!guna2RadioButton1.Checked && !guna2RadioButton2.Checked)
+            {
+                MessageBox.Show("Please choose type ");
+                return false;
+            }
+            return true;
+        }
+        private bool CheckInformationSignIn()
+        {
+            if (guna2TextBox1.Text == "" || guna2TextBox2.Text == "")
+            {
+                MessageBox.Show("Please fill the information ");
+
+                return false;
+            }
+            if (!guna2RadioButton1.Checked && !guna2RadioButton2.Checked)
+            {
+                MessageBox.Show("Please choose type ");
                 return false;
             }
             return true;
         }
         private void Button_SignIn_SignUp_Click(object sender, EventArgs e)
         {
-            if (Button_Change.Text == "SIGN UP") 
+            if (Button_SignIn_SignUp.Text == "LOG IN")
             {
-                if (u.CheckUser(guna2TextBox1.Text, guna2TextBox2.Text))
+                if (!CheckInformationSignIn()) return;
+                if (guna2RadioButton1.Checked)
                 {
-                    MessageBox.Show("Sign in successfully");
-                    Hide();
-                    MainForm main = new MainForm(guna2TextBox1.Text);
-                    main.ShowDialog();
-                    Close();
+                    if (UserBLL.Instance.CheckArtist(guna2TextBox1.Text, guna2TextBox2.Text))
+                    {
+                        MessageBox.Show("Sign in successfully");
+                        Hide();
+                        MainForm main = new MainForm(guna2TextBox1.Text,"Artist");
+                        main.ShowDialog();
+                        Close();
+                    }
+                    else MessageBox.Show("Sign in fail");
+                }else if (guna2RadioButton2.Checked)
+                {
+                    if (UserBLL.Instance.CheckListener(guna2TextBox1.Text, guna2TextBox2.Text))
+                    {
+                        MessageBox.Show("Sign in successfully");
+                        Hide();
+                        MainForm main = new MainForm(guna2TextBox1.Text,"Listener");
+                        main.ShowDialog();
+                        Close();
+                    }
+                    else MessageBox.Show("Sign in fail");
                 }
-                else MessageBox.Show("Sign in fail");
+                
                 return;
             }
-            else 
+            else if(Button_SignIn_SignUp.Text == "SIGN UP")
             {
-                if(!CheckInformationSignUp()) return;
-                if (u.CheckEmail(guna2TextBox1.Text))
+                if (!CheckInformationSignUp()) return;
+                if (UserBLL.Instance.CheckEmail(guna2TextBox1.Text))
                 {
                     MessageBox.Show("There is already email");
                     return;
                 }
                 else
                 {
-                    UserDTO listener = new UserDTO
+                    if(guna2RadioButton2.Checked)
                     {
-                        Name = guna2TextBox3.Text,
-                        Email = guna2TextBox1.Text,
-                        Password = guna2TextBox2.Text,
-                        DateJoin = DateTime.Now,
-                    };
-                    if (u.AddListener(listener))
+                        UserDTO listener = new UserDTO
+                        {
+                            Name = guna2TextBox3.Text,
+                            Email = guna2TextBox1.Text,
+                            Password = guna2TextBox2.Text,
+                            DateJoin = DateTime.Now,
+                        };
+                        if (UserBLL.Instance.AddListener(listener))
+                        {
+
+                            MessageBox.Show("Sign up successfully");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Sign up fail");
+                        }
+                    }else if(guna2RadioButton1.Checked)
                     {
-                        MessageBox.Show("Sign up successfully");
+                        UserDTO artist = new UserDTO
+                        {
+                            Name = guna2TextBox3.Text,
+                            Email = guna2TextBox1.Text,
+                            Password = guna2TextBox2.Text,
+                            DateJoin = DateTime.Now,
+                        };
+                        if (UserBLL.Instance.AddArtist(artist))
+                        {
+                            MessageBox.Show("Sign up successfully");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Sign up fail");
+                        }
+                    }
+                    
+                }
+            }
+            else
+            {
+                if(guna2TextBox1.Text == "")
+                {
+                    MessageBox.Show("Please fill the information ");
+                    return;
+                }
+                if (guna2RadioButton1.Checked)
+                {
+                    if (UserBLL.Instance.ResetPasswordArtist(guna2TextBox1.Text))
+                    {
+                        MessageBox.Show("Reset successfully. Your new pass is Muzira123. Please Sign in again");
                     }
                     else
                     {
-                        MessageBox.Show("Sign up fail");
+                        MessageBox.Show("Reset fail");
                     }
                 }
-            }
-            
+                else if (guna2RadioButton2.Checked)
+                {
+                    if (UserBLL.Instance.ResetPasswordListener(guna2TextBox1.Text))
+                    {
+                        MessageBox.Show("Reset successfully. Your new pass is Muzira123. Please Sign in again");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Reset fail");
+                    }
+                }
 
+            
         }
+        }
+
+        
     }
 }

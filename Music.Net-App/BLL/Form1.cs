@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Music.Net_App.DAL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,7 +15,9 @@ namespace Music.Net_App.BLL
     {
         public Form1()
         {
+            EntitiesMusicNetApp db = new EntitiesMusicNetApp();
             InitializeComponent();
+            guna2DataGridView1.DataSource = db.Artists.ToList();
         }
 
         private void button1_Click(object sender, EventArgs e)

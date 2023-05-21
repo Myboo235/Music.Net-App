@@ -316,6 +316,9 @@
     <Compile Include="DAL\Song.cs">
       <DependentUpon>ModelMusicNetApp.tt</DependentUpon>
     </Compile>
+    <Compile Include="DAL\sysdiagram.cs">
+      <DependentUpon>ModelMusicNetApp.tt</DependentUpon>
+    </Compile>
     <Compile Include="DTO\AlbumDTO.cs" />
     <Compile Include="DTO\CountryDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />

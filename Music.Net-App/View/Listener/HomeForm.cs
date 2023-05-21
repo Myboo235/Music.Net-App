@@ -38,20 +38,22 @@ namespace Music.Net_App.View
                 }
             }*/
 
-            foreach(UserHistoryDTO c in UserBLL.Instance.GetHistory(User.UserId))
-            {
-                Guna2Panel gp = new Guna2Panel
+                foreach (UserHistoryDTO c in UserBLL.Instance.GetHistory(User.UserId))
                 {
-                    BackColor = Color.White,
-                    Size = new Size(182, 152)
-                };
-                Label l = new Label
-                {
-                    Text = c.ItemName+"\n" + c.TimeStamp,
-                };
-                gp.Controls.Add(l);
-                RecentPlayed.Controls.Add(gp);
-            }
+                    Guna2Panel gp = new Guna2Panel
+                    {
+                        BackColor = Color.DimGray,
+                        Size = new Size(182, 152)
+                    };
+                    Label l = new Label
+                    {
+                        Text = c.ItemName + "\n" + c.TimeStamp,
+                        ForeColor = Color.White,
+                    };
+                    gp.Controls.Add(l);
+                    RecentPlayed.Controls.Add(gp);
+                }
+            
         }
         private void resize()
         {

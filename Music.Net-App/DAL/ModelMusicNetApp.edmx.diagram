@@ -31,6 +31,7 @@
         <AssociationConnector Association="MusicNetAppModel.FK__Playlist__Listen__440B1D61" ManuallyRouted="false" />
         <AssociationConnector Association="MusicNetAppModel.FK__PlaylistS__Playl__4F7CD00D" ManuallyRouted="false" />
         <AssociationConnector Association="MusicNetAppModel.FK__PlaylistS__SongI__5070F446" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="MusicNetAppModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
