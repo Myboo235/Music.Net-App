@@ -30,6 +30,8 @@
         {
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Button_Cancel = new Guna.UI2.WinForms.Guna2Button();
+            this.Button_Choose_File = new FontAwesome.Sharp.IconButton();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -38,15 +40,14 @@
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.Button_Add_Song = new FontAwesome.Sharp.IconButton();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.Button_Choose_File = new FontAwesome.Sharp.IconButton();
-            this.Button_Cancel = new Guna.UI2.WinForms.Guna2Button();
+            this.Button_OK = new Guna.UI2.WinForms.Guna2Button();
+            this.label5 = new System.Windows.Forms.Label();
             this.flowLayoutPanel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel3
             // 
-            this.flowLayoutPanel3.AutoScroll = true;
             this.flowLayoutPanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.flowLayoutPanel3.Controls.Add(this.panel1);
             this.flowLayoutPanel3.Controls.Add(this.flowLayoutPanel1);
@@ -55,11 +56,13 @@
             this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(1219, 628);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(1215, 628);
             this.flowLayoutPanel3.TabIndex = 3;
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.Button_OK);
             this.panel1.Controls.Add(this.Button_Cancel);
             this.panel1.Controls.Add(this.Button_Choose_File);
             this.panel1.Controls.Add(this.label2);
@@ -71,8 +74,37 @@
             this.panel1.Controls.Add(this.Button_Add_Song);
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1216, 100);
+            this.panel1.Size = new System.Drawing.Size(1200, 498);
             this.panel1.TabIndex = 3;
+            // 
+            // Button_Cancel
+            // 
+            this.Button_Cancel.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Button_Cancel.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Button_Cancel.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Button_Cancel.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Button_Cancel.FillColor = System.Drawing.Color.White;
+            this.Button_Cancel.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Button_Cancel.ForeColor = System.Drawing.Color.Black;
+            this.Button_Cancel.Location = new System.Drawing.Point(746, 498);
+            this.Button_Cancel.Name = "Button_Cancel";
+            this.Button_Cancel.Size = new System.Drawing.Size(180, 45);
+            this.Button_Cancel.TabIndex = 5;
+            this.Button_Cancel.Text = "Cancel";
+            this.Button_Cancel.Click += new System.EventHandler(this.Button_Cancel_Click);
+            // 
+            // Button_Choose_File
+            // 
+            this.Button_Choose_File.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.Button_Choose_File.IconColor = System.Drawing.Color.Black;
+            this.Button_Choose_File.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.Button_Choose_File.Location = new System.Drawing.Point(429, 390);
+            this.Button_Choose_File.Name = "Button_Choose_File";
+            this.Button_Choose_File.Size = new System.Drawing.Size(229, 60);
+            this.Button_Choose_File.TabIndex = 4;
+            this.Button_Choose_File.Text = "Choose File";
+            this.Button_Choose_File.UseVisualStyleBackColor = true;
+            this.Button_Choose_File.Click += new System.EventHandler(this.Button_Choose_File_Click);
             // 
             // label2
             // 
@@ -92,9 +124,9 @@
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(425, 221);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(135, 23);
+            this.label4.Size = new System.Drawing.Size(121, 23);
             this.label4.TabIndex = 2;
-            this.label4.Text = "Playlist Duration";
+            this.label4.Text = "Song Duration";
             // 
             // label3
             // 
@@ -179,44 +211,45 @@
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 109);
+            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(1209, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1216, 488);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(0, 488);
             this.flowLayoutPanel1.TabIndex = 4;
             // 
-            // Button_Choose_File
+            // Button_OK
             // 
-            this.Button_Choose_File.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.Button_Choose_File.IconColor = System.Drawing.Color.Black;
-            this.Button_Choose_File.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.Button_Choose_File.Location = new System.Drawing.Point(429, 390);
-            this.Button_Choose_File.Name = "Button_Choose_File";
-            this.Button_Choose_File.Size = new System.Drawing.Size(229, 60);
-            this.Button_Choose_File.TabIndex = 4;
-            this.Button_Choose_File.Text = "Choose File";
-            this.Button_Choose_File.UseVisualStyleBackColor = true;
-            this.Button_Choose_File.Click += new System.EventHandler(this.Button_Choose_File_Click);
+            this.Button_OK.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Button_OK.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Button_OK.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Button_OK.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Button_OK.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Button_OK.ForeColor = System.Drawing.Color.White;
+            this.Button_OK.Location = new System.Drawing.Point(948, 498);
+            this.Button_OK.Name = "Button_OK";
+            this.Button_OK.Size = new System.Drawing.Size(180, 45);
+            this.Button_OK.TabIndex = 5;
+            this.Button_OK.Text = "OK";
+            this.Button_OK.Click += new System.EventHandler(this.Button_OK_Click);
             // 
-            // Button_Cancel
+            // label5
             // 
-            this.Button_Cancel.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.Button_Cancel.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.Button_Cancel.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.Button_Cancel.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.Button_Cancel.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.Button_Cancel.ForeColor = System.Drawing.Color.White;
-            this.Button_Cancel.Location = new System.Drawing.Point(862, 458);
-            this.Button_Cancel.Name = "Button_Cancel";
-            this.Button_Cancel.Size = new System.Drawing.Size(180, 45);
-            this.Button_Cancel.TabIndex = 5;
-            this.Button_Cancel.Text = "Cancel";
-            this.Button_Cancel.Click += new System.EventHandler(this.Button_Cancel_Click);
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(711, 412);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(90, 28);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Your File";
             // 
             // SongForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1219, 628);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(1215, 628);
             this.Controls.Add(this.flowLayoutPanel3);
             this.Name = "SongForm";
             this.Text = "SongForm";
@@ -241,5 +274,7 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private FontAwesome.Sharp.IconButton Button_Choose_File;
         private Guna.UI2.WinForms.Guna2Button Button_Cancel;
+        private Guna.UI2.WinForms.Guna2Button Button_OK;
+        private System.Windows.Forms.Label label5;
     }
 }

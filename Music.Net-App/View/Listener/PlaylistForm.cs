@@ -21,8 +21,12 @@ namespace Music.Net_App.View
         public delegate void PlaylistDelegate();
         public PlaylistDelegate pd { get; set; }
 
-        public delegate void SetUpMainForm();
-        public SetUpMainForm su { get; set; }
+        public delegate void SetUpMainFormDelegate();
+        public SetUpMainFormDelegate su { get; set; }
+
+
+        public delegate void OpenPlaylistSongForm (object sender, EventArgs e);
+        public OpenPlaylistSongForm op { get; set; }
 
         string directory = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug", "");
         private List<FlowLayoutPanel> tb = new List<FlowLayoutPanel>();
@@ -31,14 +35,8 @@ namespace Music.Net_App.View
         {
             InitializeComponent();
             LikedSong_Panel.BackgroundImage = SetImageOpacity(Image.FromFile(directory + @"\Assets\Images\Heart.jpg"), 0.75F);
-
-            /*flowLayoutPanel5.BackgroundImage = ;*/
-            //flowLayoutPanel5.BackgroundImageLayout = ImageLayout.Center;
             this.User = User;
             SetUpUserPlaylist();
-
-            
-
         }
         public Image SetImageOpacity(Image image, float opacity)
         {
@@ -72,50 +70,50 @@ namespace Music.Net_App.View
 
         private void SetUpUserPlaylist()
         {
-            flowLayoutPanel3.Controls.OfType<FlowLayoutPanel>().ToList().ForEach(f => f.Dispose());
+            flowLayoutPanel1.Controls.OfType<FlowLayoutPanel>().ToList().ForEach(f => f.Dispose());
             foreach (PlaylistDTO pl in PlaylistBLL.Instance.GetAllPlaylistOfListener(User.UserId))
             {
                 FlowLayoutPanel p = new FlowLayoutPanel();
-                p.Size = new Size(240, 374);
-                Margin = new Padding(10, 10, 10, 10);
+                p.Name = pl.PlaylistId.ToString();
+                p.Height = 300;
+                //p.Size = new Size(240, 600);
                 p.FlowDirection = FlowDirection.TopDown;
-                p.BackColor = SystemColors.ActiveCaption;
+                p.BackColor = SystemColors.ActiveCaption; 
+                p.AutoSize = false;
                 p.Controls.Add(new PictureBox
                 {
-                    BackgroundImage = resizeImage(Image.FromFile(directory + @"\Assets\Images\muzira-banner.png"), new Size(240, 200)),
-                    Size = new Size(240, 200),
+                    BackgroundImage = resizeImage(Image.FromFile(directory + @"\Assets\Images\muzira-banner.png"), new Size(240, 300)),
+                    Size = new Size(240, 180),
                     BackColor = Color.White,
                     Margin = new Padding(0, 0, 0, 0)
                 });
                 p.Controls.Add(new Label
                 {
                     Text = pl.PlaylistName,
-                    Width = 200,
+                    //Size = new Size(240, 200),
                     Margin = new Padding(0, 0, 0, 0)
                 });
+                
                 tb.Add(p);
-                flowLayoutPanel3.Controls.Add(p);
+                flowLayoutPanel1.Controls.Add(p);
             }
         }
         private void PlaylistForm_Resize(object sender, EventArgs e)
         {
             flowLayoutPanel3.Width = this.Width-9;
+            flowLayoutPanel1.Width = flowLayoutPanel3.Width - 9;
             flowLayoutPanel3.Height = this.Height - 10;
+           
             panel1.Width = flowLayoutPanel3.Width - 30;
-            foreach (FlowLayoutPanel f in tb)
+            /*foreach (FlowLayoutPanel f in tb)
             {
                 f.Size = new Size(240, 374);
-            }
+            }*/
         }
 
         private void Button_Add_Playlist_Click(object sender, EventArgs e)
         {
             panel1.Height = 800;
-            //Button_Add_Playlist.Enabled = false;
-            foreach (FlowLayoutPanel f in tb)
-            {
-                f.Size = new Size(240, 374);
-            }
             pd();
         }
 
@@ -145,10 +143,10 @@ namespace Music.Net_App.View
             panel1.Height = 100;
             SetUpUserPlaylist();
             pd();
-            foreach (FlowLayoutPanel f in tb)
+            /*foreach (FlowLayoutPanel f in tb)
             {
                 MessageBox.Show(f.Size + "");
-            }
+            }*/
         }
 
         private void panel2_Click(object sender, EventArgs e)

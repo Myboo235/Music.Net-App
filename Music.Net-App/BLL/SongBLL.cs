@@ -95,16 +95,33 @@ namespace Music.Net_App.BLL
             return result;
         }
         //AddSong
-        public void AddSong(SongDTO songDTO)
+        public int GetMaxSongID()
         {
+            var maxColumnValue = (from item in db.Songs
+                                  select item.SongID).Max();
 
-            Song song = new Song
+            return maxColumnValue;
+        }
+        public bool AddSong(SongDTO songDTO, int userID)
+        {
+            try
             {
-                SongName = songDTO.SongName,
-                // Nơi thêm các thuộc tính của bài hát
-            };
-            db.Songs.Add(song);
-            db.SaveChanges();
+                Song song = new Song
+                {
+                    SongID = GetMaxSongID() + 1,
+                    ArtistID = userID,
+                    SongName = songDTO.SongName,
+                    DateCreated = songDTO.DateCreated,
+                    Duration = songDTO.Duration,
+                };
+                db.Songs.Add(song);
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         //ModifySong
@@ -118,15 +135,11 @@ namespace Music.Net_App.BLL
                 song.SongName = songDTO.SongName;
                 song.ArtistID = songDTO.ArtistID;
                 song.DateCreated = songDTO.DateCreated;
-                //song.Duration = songDTO.Duration;
-
+                song.Duration = songDTO.Duration;
                 db.SaveChanges();
-
-                Console.WriteLine("Sửa đổi bài hát thành công.");
                 return true;
             }
 
-            Console.WriteLine("Không tìm thấy bài hát");
             return false;
 
         }

@@ -48,8 +48,8 @@
             this.Button_User = new FontAwesome.Sharp.IconButton();
             this.NavForm = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.iconButton3 = new FontAwesome.Sharp.IconButton();
-            this.iconButton4 = new FontAwesome.Sharp.IconButton();
+            this.Button_Log = new FontAwesome.Sharp.IconButton();
+            this.Button_Setting = new FontAwesome.Sharp.IconButton();
             this.Button_Account = new FontAwesome.Sharp.IconButton();
             this.Button_Profile = new FontAwesome.Sharp.IconButton();
             this.PlayBar = new System.Windows.Forms.FlowLayoutPanel();
@@ -350,8 +350,8 @@
             this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(83)))), ((int)(((byte)(83)))));
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.iconButton3);
-            this.panel4.Controls.Add(this.iconButton4);
+            this.panel4.Controls.Add(this.Button_Log);
+            this.panel4.Controls.Add(this.Button_Setting);
             this.panel4.Controls.Add(this.Button_Account);
             this.panel4.Controls.Add(this.Button_Profile);
             this.panel4.Location = new System.Drawing.Point(482, 3);
@@ -360,46 +360,46 @@
             this.panel4.TabIndex = 0;
             this.panel4.Visible = false;
             // 
-            // iconButton3
+            // Button_Log
             // 
-            this.iconButton3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton3.FlatAppearance.BorderSize = 0;
-            this.iconButton3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
-            this.iconButton3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton3.Font = new System.Drawing.Font("Segoe UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton3.ForeColor = System.Drawing.Color.White;
-            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton3.IconColor = System.Drawing.Color.Black;
-            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton3.Location = new System.Drawing.Point(-1, 195);
-            this.iconButton3.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.iconButton3.Name = "iconButton3";
-            this.iconButton3.Size = new System.Drawing.Size(221, 58);
-            this.iconButton3.TabIndex = 0;
-            this.iconButton3.Text = "Log out";
-            this.iconButton3.UseVisualStyleBackColor = true;
-            this.iconButton3.Click += new System.EventHandler(this.iconButton3_Click);
+            this.Button_Log.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Button_Log.FlatAppearance.BorderSize = 0;
+            this.Button_Log.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
+            this.Button_Log.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.Button_Log.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button_Log.Font = new System.Drawing.Font("Segoe UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Button_Log.ForeColor = System.Drawing.Color.White;
+            this.Button_Log.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.Button_Log.IconColor = System.Drawing.Color.Black;
+            this.Button_Log.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.Button_Log.Location = new System.Drawing.Point(-1, 195);
+            this.Button_Log.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.Button_Log.Name = "Button_Log";
+            this.Button_Log.Size = new System.Drawing.Size(221, 58);
+            this.Button_Log.TabIndex = 0;
+            this.Button_Log.Text = "Log out";
+            this.Button_Log.UseVisualStyleBackColor = true;
+            this.Button_Log.Click += new System.EventHandler(this.Button_Log_Click);
             // 
-            // iconButton4
+            // Button_Setting
             // 
-            this.iconButton4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton4.FlatAppearance.BorderSize = 0;
-            this.iconButton4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
-            this.iconButton4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.iconButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton4.Font = new System.Drawing.Font("Segoe UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton4.ForeColor = System.Drawing.Color.White;
-            this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton4.IconColor = System.Drawing.Color.Black;
-            this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton4.Location = new System.Drawing.Point(-1, 131);
-            this.iconButton4.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.iconButton4.Name = "iconButton4";
-            this.iconButton4.Size = new System.Drawing.Size(221, 58);
-            this.iconButton4.TabIndex = 0;
-            this.iconButton4.Text = "Setting";
-            this.iconButton4.UseVisualStyleBackColor = true;
+            this.Button_Setting.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Button_Setting.FlatAppearance.BorderSize = 0;
+            this.Button_Setting.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
+            this.Button_Setting.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.Button_Setting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button_Setting.Font = new System.Drawing.Font("Segoe UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Button_Setting.ForeColor = System.Drawing.Color.White;
+            this.Button_Setting.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.Button_Setting.IconColor = System.Drawing.Color.Black;
+            this.Button_Setting.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.Button_Setting.Location = new System.Drawing.Point(-1, 131);
+            this.Button_Setting.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.Button_Setting.Name = "Button_Setting";
+            this.Button_Setting.Size = new System.Drawing.Size(221, 58);
+            this.Button_Setting.TabIndex = 0;
+            this.Button_Setting.Text = "Setting";
+            this.Button_Setting.UseVisualStyleBackColor = true;
             // 
             // Button_Account
             // 
@@ -808,10 +808,10 @@
         private FontAwesome.Sharp.IconButton Button_Add;
         private FontAwesome.Sharp.IconButton Button_Compress;
         private System.Windows.Forms.Panel panel4;
-        private FontAwesome.Sharp.IconButton iconButton4;
+        private FontAwesome.Sharp.IconButton Button_Setting;
         private FontAwesome.Sharp.IconButton Button_Account;
         private FontAwesome.Sharp.IconButton Button_Profile;
-        private FontAwesome.Sharp.IconButton iconButton3;
+        private FontAwesome.Sharp.IconButton Button_Log;
         private Guna.UI2.WinForms.Guna2ToggleSwitch guna2ToggleSwitch1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private FontAwesome.Sharp.IconButton Button_Song;

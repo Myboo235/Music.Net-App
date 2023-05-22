@@ -20,7 +20,8 @@ namespace Music.Net_App
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SignIn_UpForm());
+            //Application.Run(new SignIn_UpForm());
+            Application.Run(new MainForm("Edsheeran@gmail.com","Artist"));
         }
     }
 }
