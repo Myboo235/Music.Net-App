@@ -14,6 +14,7 @@ using Music.Net_App.DAL;
 using Music.Net_App.DTO;
 using Music.Net_App.BLL;
 using Music.Net_App.View.Artist;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Music.Net_App.View
 {
@@ -32,13 +33,7 @@ namespace Music.Net_App.View
         public MainForm(string email,string typeuser)
         {
             InitializeComponent();
-            /*HomeLayout.Controls.Clear();*/
-            
             resize();
-/*            MusicPlayer.URL = directory + @"\Assets\Musics\y2mate.com - DVRST  CLOSE EYES.mp3";
-*/            //MusicPlayer.URL = directory + @"\Alone - Alan Walker.mp3";
-
-            //SetMusicPlayer("Alone");
             MusicPlayer.Ctlcontrols.stop();
 
             if(typeuser == "Listener")
@@ -49,7 +44,9 @@ namespace Music.Net_App.View
             }
             else
             {
+                MessageBox.Show(email);
                 User = UserBLL.Instance.GetArtistByEmail(email);
+                MessageBox.Show(User.TypeUser);
             }
             
             this.FormBorderStyle = FormBorderStyle.None;
@@ -70,10 +67,20 @@ namespace Music.Net_App.View
             }
             resize();
         }
+
         public void SetUpMainForm()
         {
             flowLayoutPanel1.Controls.Clear();
-            foreach (PlaylistDTO p in PlaylistBLL.Instance.GetAllPlaylistOfListener(User.UserId))
+            List<PlaylistDTO> playlistofuser = new List<PlaylistDTO>();
+            if (User.TypeUser == "Listener")
+            {
+                playlistofuser = PlaylistBLL.Instance.GetAllPlaylistOfListener(User.UserId);
+            }
+            else
+            {
+                playlistofuser = PlaylistBLL.Instance.GetAllPlaylistOfArtist(User.UserId);
+            }
+            foreach (PlaylistDTO p in playlistofuser)
             {
                 IconButton b = new IconButton
                 {
@@ -306,7 +313,6 @@ namespace Music.Net_App.View
                 PlaylistForm f = new PlaylistForm(User);
                 OpenChildForm(f);
                 f.pd += SetUpMainForm;
-
             }
                 
 
@@ -408,19 +414,23 @@ namespace Music.Net_App.View
             panel4.Visible = false;
         }
 
-        private void iconButton3_Click(object sender, EventArgs e)
-        {
-            
-        }
 
         private void Button_Song_Click(object sender, EventArgs e)
         {
             MessageBox.Show(User.TypeUser);
-            //if(User.TypeUser == "Artist")
+            if(User.TypeUser == "Artist")
             {
                 SongForm f = new SongForm(User);
                 OpenChildForm(f);
             }
+        }
+
+        private void Button_Log_Click(object sender, EventArgs e)
+        {
+            SignIn_UpForm f = new SignIn_UpForm();
+            f.ShowDialog();
+            this.Close();
+
         }
     }
 }

@@ -40,10 +40,12 @@
             this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.Button_Add_Playlist = new FontAwesome.Sharp.IconButton();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.LikedSong_Panel = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.flowLayoutPanel3.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.LikedSong_Panel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,10 +53,10 @@
             // 
             this.flowLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel3.AutoScroll = true;
             this.flowLayoutPanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.flowLayoutPanel3.Controls.Add(this.panel1);
-            this.flowLayoutPanel3.Controls.Add(this.LikedSong_Panel);
+            this.flowLayoutPanel3.Controls.Add(this.flowLayoutPanel1);
+            this.flowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 1);
             this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
@@ -75,7 +77,7 @@
             this.panel1.Controls.Add(this.Button_Add_Playlist);
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(796, 104);
+            this.panel1.Size = new System.Drawing.Size(1215, 104);
             this.panel1.TabIndex = 3;
             // 
             // guna2Button3
@@ -235,12 +237,23 @@
             this.Button_Add_Playlist.UseVisualStyleBackColor = false;
             this.Button_Add_Playlist.Click += new System.EventHandler(this.Button_Add_Playlist_Click);
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.Controls.Add(this.LikedSong_Panel);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 113);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1215, 549);
+            this.flowLayoutPanel1.TabIndex = 4;
+            // 
             // LikedSong_Panel
             // 
             this.LikedSong_Panel.BorderRadius = 25;
             this.LikedSong_Panel.Controls.Add(this.guna2Button1);
-            this.LikedSong_Panel.Location = new System.Drawing.Point(10, 120);
-            this.LikedSong_Panel.Margin = new System.Windows.Forms.Padding(10);
+            this.LikedSong_Panel.Location = new System.Drawing.Point(10, 0);
+            this.LikedSong_Panel.Margin = new System.Windows.Forms.Padding(10, 0, 10, 10);
             this.LikedSong_Panel.Name = "LikedSong_Panel";
             this.LikedSong_Panel.Size = new System.Drawing.Size(443, 374);
             this.LikedSong_Panel.TabIndex = 3;
@@ -278,6 +291,7 @@
             this.flowLayoutPanel3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.LikedSong_Panel.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -298,5 +312,6 @@
         private FontAwesome.Sharp.IconButton Button_Add_Playlist;
         private Guna.UI2.WinForms.Guna2Button guna2Button3;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }
