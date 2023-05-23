@@ -14,6 +14,7 @@ using Music.Net_App.DAL;
 using Music.Net_App.DTO;
 using Music.Net_App.BLL;
 using Music.Net_App.View.Artist;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Music.Net_App.View
 {
@@ -43,7 +44,9 @@ namespace Music.Net_App.View
             }
             else
             {
+                MessageBox.Show(email);
                 User = UserBLL.Instance.GetArtistByEmail(email);
+                MessageBox.Show(User.TypeUser);
             }
             
             this.FormBorderStyle = FormBorderStyle.None;
@@ -68,7 +71,16 @@ namespace Music.Net_App.View
         public void SetUpMainForm()
         {
             flowLayoutPanel1.Controls.Clear();
-            foreach (PlaylistDTO p in PlaylistBLL.Instance.GetAllPlaylistOfListener(User.UserId))
+            List<PlaylistDTO> playlistofuser = new List<PlaylistDTO>();
+            if (User.TypeUser == "Listener")
+            {
+                playlistofuser = PlaylistBLL.Instance.GetAllPlaylistOfListener(User.UserId);
+            }
+            else
+            {
+                playlistofuser = PlaylistBLL.Instance.GetAllPlaylistOfArtist(User.UserId);
+            }
+            foreach (PlaylistDTO p in playlistofuser)
             {
                 IconButton b = new IconButton
                 {
@@ -405,7 +417,7 @@ namespace Music.Net_App.View
 
         private void Button_Song_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show(User.TypeUser);
+            MessageBox.Show(User.TypeUser);
             if(User.TypeUser == "Artist")
             {
                 SongForm f = new SongForm(User);

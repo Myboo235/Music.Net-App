@@ -69,12 +69,16 @@ namespace Music.Net_App.BLL
 
 
         public bool CheckEmail(string email)
-        {;
-            var checkEmail = from l in db.Listeners
-                        where l.Email == email
-                        select l;
-            return checkEmail.Any();//return true if already email
+        {
+            var checkEmailListeners = from l in db.Listeners
+                                      where l.Email == email
+                                      select l;
 
+            var checkEmailArtists = from a in db.Artists
+                                    where a.Email == email
+                                    select a;
+
+            return checkEmailListeners.Any() || checkEmailArtists.Any(); // return true if email exists in Listeners or Artists table
         }
         public bool CheckArtist(string email, string pass)
         {
@@ -238,18 +242,19 @@ namespace Music.Net_App.BLL
         public int GetListenerCount()
         {
             var getCount = from l in db.Listeners
-                           select new { l.ListenerID };
+                           select  l.ListenerID ;
             return Convert.ToInt32(getCount.ToList().Max());
         }
         public int GetArtistCount()
         {
-            var getCount = from l in db.Artists
-                           select new { l.ArtistID };
+            var getCount = from a in db.Artists
+                           select a.ArtistID ;
             return Convert.ToInt32(getCount.ToList().Max());
         }
 
         public bool AddListener(UserDTO Listener)
         {
+            if(Listener == null) return true;
             try
             {
                 if (CheckEmail(Listener.Email)) return false;
@@ -257,13 +262,15 @@ namespace Music.Net_App.BLL
                 {
                     ListenerID = GetListenerCount() + 1,
                     Name = Listener.Name,
-                    Email = Listener.Email,
+                    /*Email = Listener.Email,
                     Password = Listener.Password,
-                    Gender = Listener.Gender,
+                    Gender = true,
                     DateJoin = Listener.DateJoin,
-                    CountryID = 0
+                    CountryID = 0,
+                    Descriptions = "",*/
+                    
                 };
-                db.Listeners.Add(listener);
+                //db.Listeners.Add(listener);
                 db.SaveChanges();
                 return true;
             }
@@ -331,7 +338,6 @@ namespace Music.Net_App.BLL
                                      select l).FirstOrDefault();
             if (listener != null)
             {
-                //listener.CountryID = SearchIDCountry(user.CountryName);
                 listener.Name = Listener.Name;
                 listener.Email = Listener.Email;
                 listener.Password = Listener.Password;
@@ -425,13 +431,14 @@ namespace Music.Net_App.BLL
                 if (CheckEmail(Artist.Email)) return false;
                 Artist artist = new Artist
                 {
-                    ArtistID = GetListenerCount() + 1,
+                    ArtistID = GetArtistCount() + 1,
                     Name = Artist.Name,
                     Email = Artist.Email,
                     Password = Artist.Password,
-                    Gender = Artist.Gender,
+                    Gender = true,
                     DateJoin = Artist.DateJoin,
-                    CountryID = Artist.CountryId,
+                    CountryID = 0,
+                    
                 };
                 db.Artists.Add(artist);
                 db.SaveChanges();

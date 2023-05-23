@@ -71,11 +71,21 @@ namespace Music.Net_App.View
         private void SetUpUserPlaylist()
         {
             flowLayoutPanel1.Controls.OfType<FlowLayoutPanel>().ToList().ForEach(f => f.Dispose());
-            foreach (PlaylistDTO pl in PlaylistBLL.Instance.GetAllPlaylistOfListener(User.UserId))
+            List<PlaylistDTO> playlistofuser = new List<PlaylistDTO>();
+            if (User.TypeUser == "Listener")
+            {
+                playlistofuser = PlaylistBLL.Instance.GetAllPlaylistOfListener(User.UserId);
+            }
+            else
+            {
+                playlistofuser = PlaylistBLL.Instance.GetAllPlaylistOfArtist(User.UserId);
+            }
+            foreach (PlaylistDTO pl in playlistofuser)
             {
                 FlowLayoutPanel p = new FlowLayoutPanel();
                 p.Name = pl.PlaylistId.ToString();
-                p.Height = 300;
+                p.Height = 374;
+                p.Width = 240;
                 //p.Size = new Size(240, 600);
                 p.FlowDirection = FlowDirection.TopDown;
                 p.BackColor = SystemColors.ActiveCaption; 
@@ -131,15 +141,29 @@ namespace Music.Net_App.View
                 Description = guna2TextBox3.Text,
                 DateCreated = DateTime.Now,
             };
-
-            if (PlaylistBLL.Instance.AddPlaylist(playlist, User.UserId))
+            if(User.TypeUser == "Listener")
             {
-                MessageBox.Show("The playlist has been successfully added.");
+                if (PlaylistBLL.Instance.AddPlaylistOfListener(playlist, User.UserId))
+                {
+                    MessageBox.Show("The playlist has been successfully added.");
+                }
+                else
+                {
+                    MessageBox.Show("An error occurred while adding the playlist.");
+                }
             }
             else
             {
-                MessageBox.Show("An error occurred while adding the playlist.");
+                if (PlaylistBLL.Instance.AddPlaylistOfArtist(playlist, User.UserId))
+                {
+                    MessageBox.Show("The playlist has been successfully added.");
+                }
+                else
+                {
+                    MessageBox.Show("An error occurred while adding the playlist.");
+                }
             }
+            
             panel1.Height = 100;
             SetUpUserPlaylist();
             pd();

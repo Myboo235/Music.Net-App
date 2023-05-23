@@ -249,7 +249,7 @@ namespace Music.Net_App.BLL
 
             return maxColumnValue;
         }
-        public bool AddPlaylist(PlaylistDTO playlistDTO, int userID)
+        public bool AddPlaylistOfListener(PlaylistDTO playlistDTO, int userID)
         {
             try
             {
@@ -257,6 +257,33 @@ namespace Music.Net_App.BLL
                 {
                     PlaylistID = GetMaxPlaylistID() + 1,
                     ListenerID = userID,
+                    PlaylistTyped = playlistDTO.PlaylistType,
+                    PlaylistName = playlistDTO.PlaylistName,
+                    Descriptions = playlistDTO.Description,
+                    DateCreated = playlistDTO.DateCreated,
+                    PopularityScore = playlistDTO.PopularityScore
+                };
+                db.Playlists.Add(playlist);
+                db.SaveChanges();
+
+                //MessageBox.Show("The playlist has been successfully added.");
+                return true;
+            }
+            catch (Exception)
+            {
+                //MessageBox.Show("An error occurred while adding the playlist.");
+                return false;
+            }
+        }
+
+        public bool AddPlaylistOfArtist(PlaylistDTO playlistDTO, int userID)
+        {
+            try
+            {
+                Playlist playlist = new Playlist
+                {
+                    PlaylistID = GetMaxPlaylistID() + 1,
+                    ArtistID = userID,
                     PlaylistTyped = playlistDTO.PlaylistType,
                     PlaylistName = playlistDTO.PlaylistName,
                     Descriptions = playlistDTO.Description,

@@ -133,16 +133,18 @@ namespace Music.Net_App.View
                 }
                 else
                 {
-                    if(guna2RadioButton2.Checked)
+                    
+                    UserDTO user = new UserDTO
                     {
-                        UserDTO listener = new UserDTO
-                        {
-                            Name = guna2TextBox3.Text,
-                            Email = guna2TextBox1.Text,
-                            Password = guna2TextBox2.Text,
-                            DateJoin = DateTime.Now,
-                        };
-                        if (UserBLL.Instance.AddListener(listener))
+                        Name = guna2TextBox3.Text,
+                        Email = guna2TextBox1.Text,
+                        Password = guna2TextBox2.Text,
+                        DateJoin = DateTime.Now,
+                    };
+                    if (guna2RadioButton2.Checked)
+                    {
+                        MessageBox.Show("Sign up");
+                        if (UserBLL.Instance.AddListener(user))
                         {
 
                             MessageBox.Show("Sign up successfully");
@@ -153,14 +155,7 @@ namespace Music.Net_App.View
                         }
                     }else if(guna2RadioButton1.Checked)
                     {
-                        UserDTO artist = new UserDTO
-                        {
-                            Name = guna2TextBox3.Text,
-                            Email = guna2TextBox1.Text,
-                            Password = guna2TextBox2.Text,
-                            DateJoin = DateTime.Now,
-                        };
-                        if (UserBLL.Instance.AddArtist(artist))
+                        if (UserBLL.Instance.AddArtist(user))
                         {
                             MessageBox.Show("Sign up successfully");
                         }
