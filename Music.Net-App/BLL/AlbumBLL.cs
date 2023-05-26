@@ -74,5 +74,104 @@ namespace Music.Net_App.BLL
             return ls;
 
         }
+
+        public bool AddAlbum(AlbumDTO albumDTO, int artistID)
+        {
+            try
+            {
+                Album album = new Album();
+                album.AlbumName = albumDTO.AlbumName;
+                album.ArtistID = artistID;
+                db.Albums.Add(album);
+                db.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+
+        public bool AddSongToAlbum(int songID, int albumID)
+        {
+            try
+            {
+                AlbumSong albumSong = new AlbumSong();
+                albumSong.AlbumID = albumID;
+                albumSong.SongID = songID;
+                db.AlbumSongs.Add(albumSong);
+                db.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+     
+        public bool ModifyAlbum(AlbumDTO albumDTO) {
+                try
+            {
+                    Album album = db.Albums.Find(albumDTO.ArtistName);
+                    album.AlbumName = albumDTO.AlbumName;
+                    db.SaveChanges();
+                    return true;
+                }
+                catch
+            {
+                    return false;
+                }
+        
+        
+        }
+
+
+
+        public bool RemoveAlbum(int  id)
+        {
+
+            try
+            {
+                var album = (from a in db.Albums
+                             where a.AlbumID == id
+                             select a).FirstOrDefault();
+                if (album != null)
+                {
+                    db.Albums.Remove(album);
+                    db.SaveChanges();
+                }
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+
+        public bool RemoveSongFromAlbum(int AlbumID, int SongID) 
+        {
+            try
+            {
+                var album = (from a in db.Albums
+                             where a.AlbumID == AlbumID
+                             select a).FirstOrDefault();
+                if (album != null)
+                {
+                    db.Albums.Remove(album);
+                    db.SaveChanges();
+                    return true;
+                }
+
+                else return false;
+
+            } 
+            catch { return false; }
+
+        }
+        
+
+
     }
 }

@@ -27,15 +27,20 @@ namespace Music.Net_App.View.Admin
             pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
             //guna2DataGridView1.Visible = false;
             guna2DataGridView2.Visible = false;
+            iconButtonUser.Visible = false;
+            iconButtonAlbum.Visible = false;
+            iconButtonSong.Visible = false;
         }
 
         private void Button_Users_Click(object sender, EventArgs e)
         {
+            iconButton6.Visible = false;
+            iconButtonUser.Visible = true;
             guna2Panel1.Visible = true;
-            guna2Panel2.Visible = true;
-            //guna2Panel1.Width = this.Width - guna2CustomGradientPanel1.Width - 35;
+            guna2Panel2.Visible = false;
+            guna2Panel1.Width = this.Width - guna2CustomGradientPanel1.Width - 35;
             guna2Panel1.Height = this.Height - flowLayoutPanel1.Height - 100;
-            guna2Panel2.Height = this.Height - flowLayoutPanel1.Height - 100;
+            //guna2Panel2.Height = this.Height - flowLayoutPanel1.Height - 100;
             UserBLL u = new UserBLL();
             guna2DataGridView2.DataSource = u.GetAllUser();
             guna2DataGridView2.Visible = true;
@@ -51,7 +56,7 @@ namespace Music.Net_App.View.Admin
             guna2Panel2.Width = this.Width - guna2CustomGradientPanel1.Width - 35;
             guna2Panel2.Height = this.Height - flowLayoutPanel1.Height - 100;*/
 
-
+            iconButtonSong.Visible = true;
             guna2Panel1.Visible = true;
             guna2Panel2.Visible = false;
             SongBLL s = new SongBLL();
