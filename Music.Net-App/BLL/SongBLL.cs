@@ -35,8 +35,13 @@ namespace Music.Net_App.BLL
             {
                 songDTOs.Add(new SongDTO
                 {
+                   
+                    ArtistName = song.Artist.Name,
+                    SongName = song.SongName,
                     SongID = song.SongID,
-                    SongName = song.SongName
+                    ArtistID = song.ArtistID,
+                    DateCreated = song.DateCreated,
+                    Duration = Convert.ToInt32(song.Duration),
                 });
             }
             return songDTOs;

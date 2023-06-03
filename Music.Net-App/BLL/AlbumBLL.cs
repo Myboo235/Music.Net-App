@@ -109,27 +109,26 @@ namespace Music.Net_App.BLL
                 return false;
             }
         }
-
-        public bool ModifyAlbum(AlbumDTO albumDTO)
-        {
-            try
+     
+        public bool ModifyAlbum(AlbumDTO albumDTO) {
+                try
             {
-                Album album = db.Albums.Find(albumDTO.ArtistName);
-                album.AlbumName = albumDTO.AlbumName;
-                db.SaveChanges();
-                return true;
-            }
-            catch
+                    Album album = db.Albums.Find(albumDTO.ArtistName);
+                    album.AlbumName = albumDTO.AlbumName;
+                    db.SaveChanges();
+                    return true;
+                }
+                catch
             {
-                return false;
-            }
-
-
+                    return false;
+                }
+        
+        
         }
 
 
 
-        public bool RemoveAlbum(int id)
+        public bool RemoveAlbum(int  id)
         {
 
             try
@@ -151,7 +150,7 @@ namespace Music.Net_App.BLL
         }
 
 
-        public bool RemoveSongFromAlbum(int AlbumID, int SongID)
+        public bool RemoveSongFromAlbum(int AlbumID, int SongID) 
         {
             try
             {
@@ -167,11 +166,11 @@ namespace Music.Net_App.BLL
 
                 else return false;
 
-            }
+            } 
             catch { return false; }
 
         }
-
+        
 
 
     }
