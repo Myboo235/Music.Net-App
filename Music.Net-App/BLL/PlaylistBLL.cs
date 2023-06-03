@@ -307,13 +307,14 @@ namespace Music.Net_App.BLL
             try
             {
                 var playlist = (from p in db.Playlists
-                               where p.PlaylistID == playlistID
-                               select p).First();
+                                where p.PlaylistID == playlistID
+                                select p).FirstOrDefault();
 
                 if (playlist != null)
                 {
                     db.Playlists.Remove(playlist);
                     db.SaveChanges();
+
                 }
                 return true;
             }
@@ -322,6 +323,30 @@ namespace Music.Net_App.BLL
                 return false;
             }
         }
+
+       /* public bool RemovePlaylist(int playlistID)
+        {
+            try
+            {
+                var playlist = db.Playlists.FirstOrDefault(p => p.PlaylistID == playlistID);
+
+                if (playlist != null)
+                {
+                    db.Playlists.Remove(playlist);
+                    db.SaveChanges();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }*/
+
         public bool RemoveSongFromPlaylist(int playlistID, int songID)
         {
             try

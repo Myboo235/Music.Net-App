@@ -29,29 +29,30 @@
         private void InitializeComponent()
         {
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.Button_Delete_Song = new System.Windows.Forms.Panel();
+            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.Button_OK = new Guna.UI2.WinForms.Guna2Button();
             this.Button_Cancel = new Guna.UI2.WinForms.Guna2Button();
             this.Button_Choose_File = new FontAwesome.Sharp.IconButton();
             this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.Button_Modify_Song = new FontAwesome.Sharp.IconButton();
             this.Button_Add_Song = new FontAwesome.Sharp.IconButton();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.Button_Modify_Song = new FontAwesome.Sharp.IconButton();
-            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.Button_Delete = new Guna.UI2.WinForms.Guna2Button();
             this.flowLayoutPanel3.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.Button_Delete_Song.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel3
             // 
             this.flowLayoutPanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.flowLayoutPanel3.Controls.Add(this.panel1);
+            this.flowLayoutPanel3.Controls.Add(this.Button_Delete_Song);
             this.flowLayoutPanel3.Controls.Add(this.flowLayoutPanel1);
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
@@ -61,25 +62,42 @@
             this.flowLayoutPanel3.Size = new System.Drawing.Size(1215, 628);
             this.flowLayoutPanel3.TabIndex = 3;
             // 
-            // panel1
+            // Button_Delete_Song
             // 
-            this.panel1.Controls.Add(this.guna2ComboBox1);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.Button_OK);
-            this.panel1.Controls.Add(this.Button_Cancel);
-            this.panel1.Controls.Add(this.Button_Choose_File);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.guna2TextBox2);
-            this.panel1.Controls.Add(this.guna2TextBox1);
-            this.panel1.Controls.Add(this.Button_Modify_Song);
-            this.panel1.Controls.Add(this.Button_Add_Song);
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1200, 111);
-            this.panel1.TabIndex = 3;
+            this.Button_Delete_Song.Controls.Add(this.Button_Delete);
+            this.Button_Delete_Song.Controls.Add(this.guna2ComboBox1);
+            this.Button_Delete_Song.Controls.Add(this.label5);
+            this.Button_Delete_Song.Controls.Add(this.Button_OK);
+            this.Button_Delete_Song.Controls.Add(this.Button_Cancel);
+            this.Button_Delete_Song.Controls.Add(this.Button_Choose_File);
+            this.Button_Delete_Song.Controls.Add(this.label2);
+            this.Button_Delete_Song.Controls.Add(this.label3);
+            this.Button_Delete_Song.Controls.Add(this.label4);
+            this.Button_Delete_Song.Controls.Add(this.label1);
+            this.Button_Delete_Song.Controls.Add(this.guna2TextBox2);
+            this.Button_Delete_Song.Controls.Add(this.guna2TextBox1);
+            this.Button_Delete_Song.Controls.Add(this.Button_Modify_Song);
+            this.Button_Delete_Song.Controls.Add(this.Button_Add_Song);
+            this.Button_Delete_Song.Location = new System.Drawing.Point(3, 3);
+            this.Button_Delete_Song.Name = "Button_Delete_Song";
+            this.Button_Delete_Song.Size = new System.Drawing.Size(1200, 106);
+            this.Button_Delete_Song.TabIndex = 3;
+            // 
+            // guna2ComboBox1
+            // 
+            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.guna2ComboBox1.ItemHeight = 30;
+            this.guna2ComboBox1.Location = new System.Drawing.Point(312, 186);
+            this.guna2ComboBox1.Name = "guna2ComboBox1";
+            this.guna2ComboBox1.Size = new System.Drawing.Size(229, 36);
+            this.guna2ComboBox1.TabIndex = 7;
+            this.guna2ComboBox1.SelectedIndexChanged += new System.EventHandler(this.guna2ComboBox1_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -148,6 +166,17 @@
             this.label2.Text = "New Song";
             this.label2.Visible = false;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(308, 247);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(77, 23);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Song file";
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -211,6 +240,26 @@
             this.guna2TextBox1.Size = new System.Drawing.Size(229, 48);
             this.guna2TextBox1.TabIndex = 1;
             // 
+            // Button_Modify_Song
+            // 
+            this.Button_Modify_Song.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Button_Modify_Song.BackColor = System.Drawing.Color.Transparent;
+            this.Button_Modify_Song.FlatAppearance.BorderSize = 0;
+            this.Button_Modify_Song.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button_Modify_Song.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Button_Modify_Song.ForeColor = System.Drawing.Color.White;
+            this.Button_Modify_Song.IconChar = FontAwesome.Sharp.IconChar.PersonBooth;
+            this.Button_Modify_Song.IconColor = System.Drawing.Color.White;
+            this.Button_Modify_Song.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.Button_Modify_Song.Location = new System.Drawing.Point(931, 27);
+            this.Button_Modify_Song.Name = "Button_Modify_Song";
+            this.Button_Modify_Song.Size = new System.Drawing.Size(249, 47);
+            this.Button_Modify_Song.TabIndex = 0;
+            this.Button_Modify_Song.Text = "Modify song";
+            this.Button_Modify_Song.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Button_Modify_Song.UseVisualStyleBackColor = false;
+            this.Button_Modify_Song.Click += new System.EventHandler(this.Button_Modify_Song_Click);
+            // 
             // Button_Add_Song
             // 
             this.Button_Add_Song.BackColor = System.Drawing.Color.Transparent;
@@ -234,56 +283,27 @@
             // 
             this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 120);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 115);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1200, 488);
             this.flowLayoutPanel1.TabIndex = 4;
             // 
-            // Button_Modify_Song
+            // Button_Delete
             // 
-            this.Button_Modify_Song.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Button_Modify_Song.BackColor = System.Drawing.Color.Transparent;
-            this.Button_Modify_Song.FlatAppearance.BorderSize = 0;
-            this.Button_Modify_Song.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Button_Modify_Song.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Button_Modify_Song.ForeColor = System.Drawing.Color.White;
-            this.Button_Modify_Song.IconChar = FontAwesome.Sharp.IconChar.PersonBooth;
-            this.Button_Modify_Song.IconColor = System.Drawing.Color.White;
-            this.Button_Modify_Song.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.Button_Modify_Song.Location = new System.Drawing.Point(931, 27);
-            this.Button_Modify_Song.Name = "Button_Modify_Song";
-            this.Button_Modify_Song.Size = new System.Drawing.Size(249, 47);
-            this.Button_Modify_Song.TabIndex = 0;
-            this.Button_Modify_Song.Text = "Add new song";
-            this.Button_Modify_Song.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.Button_Modify_Song.UseVisualStyleBackColor = false;
-            this.Button_Modify_Song.Click += new System.EventHandler(this.Button_Modify_Song_Click);
-            // 
-            // guna2ComboBox1
-            // 
-            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.guna2ComboBox1.ItemHeight = 30;
-            this.guna2ComboBox1.Location = new System.Drawing.Point(312, 186);
-            this.guna2ComboBox1.Name = "guna2ComboBox1";
-            this.guna2ComboBox1.Size = new System.Drawing.Size(229, 36);
-            this.guna2ComboBox1.TabIndex = 7;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(308, 247);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 23);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Song file";
+            this.Button_Delete.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Button_Delete.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Button_Delete.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Button_Delete.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Button_Delete.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.Button_Delete.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Button_Delete.ForeColor = System.Drawing.Color.White;
+            this.Button_Delete.Location = new System.Drawing.Point(537, 498);
+            this.Button_Delete.Name = "Button_Delete";
+            this.Button_Delete.Size = new System.Drawing.Size(180, 45);
+            this.Button_Delete.TabIndex = 8;
+            this.Button_Delete.Text = "Delete";
+            this.Button_Delete.Visible = false;
+            this.Button_Delete.Click += new System.EventHandler(this.Button_Delete_Click);
             // 
             // SongForm
             // 
@@ -295,8 +315,8 @@
             this.Name = "SongForm";
             this.Text = "SongForm";
             this.flowLayoutPanel3.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.Button_Delete_Song.ResumeLayout(false);
+            this.Button_Delete_Song.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -304,7 +324,7 @@
         #endregion
 
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel Button_Delete_Song;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
@@ -319,5 +339,6 @@
         private FontAwesome.Sharp.IconButton Button_Modify_Song;
         private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
         private System.Windows.Forms.Label label3;
+        private Guna.UI2.WinForms.Guna2Button Button_Delete;
     }
 }

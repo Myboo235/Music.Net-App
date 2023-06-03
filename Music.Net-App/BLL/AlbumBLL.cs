@@ -28,12 +28,12 @@ namespace Music.Net_App.BLL
         EntitiesMusicNetApp db = new EntitiesMusicNetApp();
         public List<AlbumDTO> GetAllAlbum()
         {
-            List<AlbumDTO> re = new List<AlbumDTO> ();
-            
+            List<AlbumDTO> re = new List<AlbumDTO>();
+
             var n = from album in db.Albums
                     join artist in db.Artists on album.ArtistID equals artist.ArtistID
-                    select new { album.AlbumName , artist.Name};
-            foreach(var item in n.ToList())
+                    select new { album.AlbumName, artist.Name };
+            foreach (var item in n.ToList())
             {
                 re.Add(new AlbumDTO
                 {
@@ -43,7 +43,7 @@ namespace Music.Net_App.BLL
                 });
             }
             return re;
-            
+
         }
 
         public List<Album> FindAlbumByName(string name)
@@ -62,17 +62,116 @@ namespace Music.Net_App.BLL
                          where s.AlbumID == a.AlbumID
                          select s.SongID;
             List<Song> ls = new List<Song>();
-            foreach(int id  in songID.ToList())
+            foreach (int id in songID.ToList())
             {
                 var song = from Song s in db.Songs
                            where s.SongID == id
                            select s;
                 ls.AddRange(song);
             }
-            
+
 
             return ls;
 
         }
+
+        public bool AddAlbum(AlbumDTO albumDTO, int artistID)
+        {
+            try
+            {
+                Album album = new Album();
+                album.AlbumName = albumDTO.AlbumName;
+                album.ArtistID = artistID;
+                db.Albums.Add(album);
+                db.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+
+        public bool AddSongToAlbum(int songID, int albumID)
+        {
+            try
+            {
+                AlbumSong albumSong = new AlbumSong();
+                albumSong.AlbumID = albumID;
+                albumSong.SongID = songID;
+                db.AlbumSongs.Add(albumSong);
+                db.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+     
+        public bool ModifyAlbum(AlbumDTO albumDTO) {
+                try
+            {
+                    Album album = db.Albums.Find(albumDTO.ArtistName);
+                    album.AlbumName = albumDTO.AlbumName;
+                    db.SaveChanges();
+                    return true;
+                }
+                catch
+            {
+                    return false;
+                }
+        
+        
+        }
+
+
+
+        public bool RemoveAlbum(int  id)
+        {
+
+            try
+            {
+                var album = (from a in db.Albums
+                             where a.AlbumID == id
+                             select a).FirstOrDefault();
+                if (album != null)
+                {
+                    db.Albums.Remove(album);
+                    db.SaveChanges();
+                }
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+
+        public bool RemoveSongFromAlbum(int AlbumID, int SongID) 
+        {
+            try
+            {
+                var album = (from a in db.Albums
+                             where a.AlbumID == AlbumID
+                             select a).FirstOrDefault();
+                if (album != null)
+                {
+                    db.Albums.Remove(album);
+                    db.SaveChanges();
+                    return true;
+                }
+
+                else return false;
+
+            } 
+            catch { return false; }
+
+        }
+        
+
+
     }
 }
