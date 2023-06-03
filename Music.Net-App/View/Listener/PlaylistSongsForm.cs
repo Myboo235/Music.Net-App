@@ -133,7 +133,11 @@ namespace Music.Net_App.View.Listener
 
         private void Button_Delete_Playlist_Click(object sender, EventArgs e)
         {
-            PlaylistBLL.Instance.RemovePlaylist(playlist.PlaylistId);
+            MessageBox.Show(playlist.PlaylistId + "");
+            if (PlaylistBLL.Instance.RemovePlaylist(playlist.PlaylistId))
+                MessageBox.Show("Delete success");
+            else
+                MessageBox.Show("Error occurs when delete playlist");
             Close();
             psd();
         }

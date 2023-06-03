@@ -66,6 +66,38 @@ namespace Music.Net_App.BLL
             return songDTOs;
         }
 
+        public SongDTO GetSongByID(int songID)
+        {
+            SongDTO songDTO = new SongDTO();
+            try
+            {
+                var song = (from s in db.Songs
+                             join a in db.Artists on s.ArtistID equals a.ArtistID
+                             where s.SongID == songID
+                             select new { s.SongID, s.SongName, s.DateCreated, s.Duration, a.ArtistID, a.Name }).FirstOrDefault();
+                if(song != null)
+                {
+                    songDTO = new SongDTO
+                    {
+                        SongID = song.SongID,
+                        SongName = song.SongName,
+                        ArtistName = song.Name,
+                        ArtistID = song.ArtistID,
+                        Duration = Convert.ToInt32(song.Duration),
+                        DateCreated = Convert.ToDateTime(song.DateCreated),
+
+                    };
+                }
+
+                return songDTO;
+            }
+            catch(Exception)
+            {
+                return songDTO;
+            }
+            
+            
+        }
         public List<SongDTO> GetAllSongOfArtist(int artistID)
         {
             List<SongDTO> result = new List<SongDTO>();
@@ -127,8 +159,10 @@ namespace Music.Net_App.BLL
         //ModifySong
         public bool ModifySong(SongDTO songDTO)
         {
-            // Tìm bài hát theo ID
-            Song song = db.Songs.FirstOrDefault(s => s.SongID == songDTO.SongID);
+            
+            Song song = (from s in db.Songs
+                       where s.SongID == songDTO.SongID
+                       select s).FirstOrDefault();
 
             if (song != null)
             {
@@ -142,6 +176,27 @@ namespace Music.Net_App.BLL
 
             return false;
 
+        }
+
+        public bool RemoveSong(int songID)
+        {
+            try
+            {
+                var song = (from s in db.Songs
+                                where s.SongID == songID
+                                select s).FirstOrDefault();
+
+                if (song != null)
+                {
+                    db.Songs.Remove(song);
+                    db.SaveChanges();
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }

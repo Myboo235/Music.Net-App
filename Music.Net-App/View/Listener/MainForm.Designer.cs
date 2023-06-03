@@ -540,6 +540,7 @@
             this.Button_Repeat.Size = new System.Drawing.Size(76, 32);
             this.Button_Repeat.TabIndex = 2;
             this.Button_Repeat.UseVisualStyleBackColor = false;
+            this.Button_Repeat.Click += new System.EventHandler(this.Button_Repeat_Click);
             // 
             // Button_Play
             // 
@@ -603,6 +604,7 @@
             this.MusicPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("MusicPlayer.OcxState")));
             this.MusicPlayer.Size = new System.Drawing.Size(698, 122);
             this.MusicPlayer.TabIndex = 7;
+            this.MusicPlayer.PlayStateChange += new AxWMPLib._WMPOCXEvents_PlayStateChangeEventHandler(this.MusicPlayer_PlayStateChange);
             // 
             // MenuBar
             // 

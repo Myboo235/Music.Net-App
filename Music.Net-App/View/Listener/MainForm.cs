@@ -432,5 +432,31 @@ namespace Music.Net_App.View
             this.Close();
 
         }
+
+        private void MusicPlayer_PlayStateChange(object sender, AxWMPLib._WMPOCXEvents_PlayStateChangeEvent e)
+        {
+            if (MusicPlayer.playState == WMPLib.WMPPlayState.wmppsStopped)
+            {
+                Button_Play.IconChar = IconChar.Play; // Set the icon to "play"
+            }
+            else
+            {
+                Button_Play.IconChar = IconChar.Pause; // Set the icon to "pause" since it's already playing
+            }
+        }
+
+        private void Button_Repeat_Click(object sender, EventArgs e)
+        {
+            if (MusicPlayer.settings.getMode("loop") == true)
+            {
+                MusicPlayer.settings.setMode("loop", false); // Turn off repeat mode
+                Button_Repeat.IconColor = Color.White; // Set the icon to indicate repeat mode off
+            }
+            else
+            {
+                MusicPlayer.settings.setMode("loop", true); // Turn on repeat mode
+                Button_Repeat.IconColor = Color.FromArgb(232, 119, 45); // Set the icon to indicate repeat mode on
+            }
+        }
     }
 }
