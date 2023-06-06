@@ -77,7 +77,7 @@
             this.panel1.Controls.Add(this.Button_Add_Playlist);
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1215, 590);
+            this.panel1.Size = new System.Drawing.Size(1215, 558);
             this.panel1.TabIndex = 3;
             // 
             // guna2Button3

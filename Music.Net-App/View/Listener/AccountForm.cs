@@ -32,6 +32,7 @@ namespace Music.Net_App.View.Listener
         {
             iconButton1.Text = "Hello "+ User.Name;
             guna2TextBox1.Text = User.Name;
+            guna2TextBox4.Text = User.Password;
             guna2TextBox2.Text = User.Email;
             guna2TextBox3.Text = User.DateJoin.ToString();
             guna2TextBox3.Enabled = false;
@@ -53,6 +54,7 @@ namespace Music.Net_App.View.Listener
         {
             User.Name = guna2TextBox1.Text;
             User.Email = guna2TextBox2.Text;
+            User.Password = guna2TextBox4.Text;
             User.CountryId = guna2ComboBox1.SelectedIndex;
             User.Gender = Convert.ToBoolean(guna2ComboBox2.SelectedIndex);
 

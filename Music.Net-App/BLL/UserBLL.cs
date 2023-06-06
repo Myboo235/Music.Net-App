@@ -363,7 +363,13 @@ namespace Music.Net_App.BLL
             if (artist != null)
             {
                 artist.Name = Artist.Name;
-                
+                artist.Password = Artist.Password;
+                artist.Email = Artist.Email;
+                artist.Password = Artist.Password;
+                artist.Gender = Artist.Gender;
+                artist.DateJoin = Artist.DateJoin;
+                artist.CountryID = Artist.CountryId;
+
                 db.SaveChanges();
 
                 return true;
