@@ -77,7 +77,7 @@
             this.panel1.Controls.Add(this.Button_Add_Playlist);
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1215, 104);
+            this.panel1.Size = new System.Drawing.Size(1215, 558);
             this.panel1.TabIndex = 3;
             // 
             // guna2Button3
@@ -243,9 +243,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.Controls.Add(this.LikedSong_Panel);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 113);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(1224, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1215, 549);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(0, 549);
             this.flowLayoutPanel1.TabIndex = 4;
             // 
             // LikedSong_Panel
