@@ -1,4 +1,4 @@
-﻿using Music.Net_App.DAL;
+﻿/*using Music.Net_App.DAL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -41,3 +41,4 @@ namespace Music.Net_App.BLL
     }
     
 }
+*/

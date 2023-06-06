@@ -26,151 +26,424 @@ namespace Music.Net_App.BLL
         }
 
         EntitiesMusicNetApp db = new EntitiesMusicNetApp();
-        public List<AlbumDTO> GetAllAlbum()
-        {
-            List<AlbumDTO> re = new List<AlbumDTO>();
 
-            var n = from album in db.Albums
-                    join artist in db.Artists on album.ArtistID equals artist.ArtistID
-                    select new { album.AlbumName, artist.Name };
-            foreach (var item in n.ToList())
+        public AlbumDTO GetAlbumById(int albumID)
+        {
+            AlbumDTO ad = new AlbumDTO();
+            try
             {
-                re.Add(new AlbumDTO
+                var album = (from p in db.Albums
+                            where p.AlbumID == albumID
+                            select p).First();
+                if (album != null)
                 {
-                    AlbumName = item.AlbumName,
-                    ArtistName = item.Name
+                    ad = new AlbumDTO
+                    {
 
-                });
-            }
-            return re;
+                        AlbumID = album.AlbumID,
+                   
+                        GenreID = Convert.ToInt32(album.GenreID),
+                        AlbumName = album.AlbumName,
+                        ReleaseDate = Convert.ToDateTime(album.ReleaseDate),
+                        PopularityScore = Convert.ToInt32(album.PopularityScore),
+                        Duration = Convert.ToInt32(album.Duration),
 
-        }
 
-        public List<Album> FindAlbumByName(string name)
-        {
-            var n = from Album album in GetAllAlbum()
-                    where album.AlbumName == name
-                    select album;
-            return n.ToList();
+                    };
+                }
 
-        }
+                return ad;
 
-        public List<Song> GetAllSongOfAlbum(string name)
-        {
-            Album a = FindAlbumByName(name)[0];
-            var songID = from AlbumSong s in db.AlbumSongs
-                         where s.AlbumID == a.AlbumID
-                         select s.SongID;
-            List<Song> ls = new List<Song>();
-            foreach (int id in songID.ToList())
+            } catch (Exception ex)
             {
-                var song = from Song s in db.Songs
-                           where s.SongID == id
-                           select s;
-                ls.AddRange(song);
+                return ad;
+            }
+        }
+       
+        
+        public List<AlbumDTO> GetAllAlbumOfArtist(int artistID)
+        {
+            List<AlbumDTO> result = new List<AlbumDTO>();
+
+            var albums = from p in db.Albums
+                        where p.ArtistID == artistID
+                        select p;
+
+            if (albums.Any())
+            {
+                foreach (var item in albums.ToList())
+                {
+                    result.Add(new AlbumDTO
+                    {
+                       
+                        AlbumID = item.AlbumID,
+                        AlbumName = item.AlbumName,
+              
+                        GenreID = Convert.ToInt32(item.GenreID),
+                        PopularityScore = Convert.ToInt32(item.PopularityScore),
+                        ReleaseDate = Convert.ToDateTime(item.ReleaseDate),
+                        Duration = Convert.ToInt32(item.Duration),
+                    });
+                }
+
+
             }
 
-
-            return ls;
-
+            return result;
         }
 
-        public bool AddAlbum(AlbumDTO albumDTO, int artistID)
+      
+
+
+
+        public List<SongDTO> GetAllSongOfAlbum(int albumID)
+        {
+            List<SongDTO> result = new List<SongDTO>();
+            var songs = (from s in db.Songs
+                         join ps in db.Albums on s.ArtistID equals ps.ArtistID
+                         join p in db.Albums on ps.AlbumID equals p.AlbumID
+                         join a in db.Artists on s.ArtistID equals a.ArtistID
+                         where p.AlbumID == albumID
+                         select new { s.SongID, s.SongName, s.DateCreated, s.Duration, a.ArtistID, a.Name })
+                         .ToList();
+
+            if (songs.Any())
+            {
+                foreach (var item in songs.ToList())
+                {
+                    result.Add(new SongDTO
+                    {
+                        SongID = item.SongID,
+                        SongName = item.SongName,
+                        ArtistName = item.Name,
+                        ArtistID = item.ArtistID,
+                        Duration = Convert.ToInt32(item.Duration),
+                        DateCreated = Convert.ToDateTime(item.DateCreated),
+                    });
+                }
+            }
+
+            return result;
+        }
+
+        public int GetMaxAlbumSongsID()
+        {
+            var maxColumnValue = (from item in db.Albums
+                                  select item.AlbumID).Max();
+
+            return maxColumnValue;
+        }
+
+
+        public bool AddSongToAlbum(int AlbumID, int songID)
+        {
+
+            var album = (from p in db.Albums
+                            where p.AlbumID == AlbumID
+                            select p).FirstOrDefault();
+            var song = (from s in db.Songs
+                        where s.SongID == songID
+                        select s).FirstOrDefault();
+            if (album == null || song == null)
+            {
+                return false;
+            }
+
+            var existingSong = (from ps in db.AlbumSongs
+                                where ps.AlbumID == AlbumID && ps.SongID == songID
+                                select ps).FirstOrDefault();
+            if (existingSong != null) return false;
+
+
+            try
+            {
+                var newAlbumSong = new AlbumSong
+                {
+                    AlbumSongID = GetMaxAlbumSongsID() + 1,
+                    AlbumID = album.AlbumID,
+                    SongID = song.SongID
+                };
+                db.AlbumSongs.Add(newAlbumSong);
+                db.SaveChanges();
+
+                return true;
+            }
+            catch
+            {
+
+                return false;
+            }
+        }
+
+        public int GetMaxAlbumID()
+        {
+            var maxColumnValue = (from item in db.Albums
+                                  select item.AlbumID).Max();
+
+            return maxColumnValue;
+        }
+
+        public bool AddAlbumOfArtist(AlbumDTO albumDTO, int ArtistID)
         {
             try
             {
-                Album album = new Album();
-                album.AlbumName = albumDTO.AlbumName;
-                album.ArtistID = artistID;
+               Album album= new Album
+                {
+                  ArtistID = ArtistID,
+                  AlbumID = GetMaxAlbumID() +1,
+                  AlbumName = albumDTO.AlbumName,
+                  GenreID = albumDTO.GenreID,
+                  PopularityScore  = Convert.ToInt32(albumDTO.PopularityScore),
+                  ReleaseDate = albumDTO.ReleaseDate,
+                  Duration = albumDTO.Duration,
+
+
+
+                };
                 db.Albums.Add(album);
                 db.SaveChanges();
+
+                //MessageBox.Show("The album has been successfully added.");
                 return true;
             }
-            catch
+            catch (Exception)
             {
+                //MessageBox.Show("An error occurred while adding the album.");
                 return false;
             }
         }
 
-
-        public bool AddSongToAlbum(int songID, int albumID)
+        public bool RemoveAlbum(int albumID)
         {
             try
             {
-                AlbumSong albumSong = new AlbumSong();
-                albumSong.AlbumID = albumID;
-                albumSong.SongID = songID;
-                db.AlbumSongs.Add(albumSong);
-                db.SaveChanges();
+                var album = (from p in db.Albums
+                                where p.AlbumID == albumID
+                                select p).FirstOrDefault();
+
+                if (album != null)
+                {
+                    db.Albums.Remove(album);
+                    db.SaveChanges();
+
+                }
                 return true;
             }
-            catch
+            catch (Exception)
             {
                 return false;
             }
         }
-     
-        public bool ModifyAlbum(AlbumDTO albumDTO) {
-                try
+
+
+
+        public bool RemoveSongFromAlbum(int albumID, int songID)
+        {
+            try
             {
-                    Album album = db.Albums.Find(albumDTO.ArtistName);
-                    album.AlbumName = albumDTO.AlbumName;
+                var AlbumSong = (from As in db.AlbumSongs
+                                    where As.AlbumID == albumID && As.SongID == songID
+                                    select As).FirstOrDefault();
+                if (AlbumSong != null)
+                {
+                    db.AlbumSongs.Remove(AlbumSong);
                     db.SaveChanges();
                     return true;
                 }
-                catch
-            {
+                else
+                {
                     return false;
                 }
-        
-        
-        }
-
-
-
-        public bool RemoveAlbum(int  id)
-        {
-
-            try
-            {
-                var album = (from a in db.Albums
-                             where a.AlbumID == id
-                             select a).FirstOrDefault();
-                if (album != null)
-                {
-                    db.Albums.Remove(album);
-                    db.SaveChanges();
-                }
-                return true;
             }
-            catch
+            catch (Exception)
             {
                 return false;
             }
         }
 
 
-        public bool RemoveSongFromAlbum(int AlbumID, int SongID) 
+        public bool ModifyAlbum(AlbumDTO albumDTO)
         {
             try
             {
-                var album = (from a in db.Albums
-                             where a.AlbumID == AlbumID
-                             select a).FirstOrDefault();
+                var album = (from p in db.Albums
+                                where p.AlbumID == albumDTO.AlbumID
+                                select p).FirstOrDefault();
                 if (album != null)
                 {
-                    db.Albums.Remove(album);
+                   // .PlaylistTyped = playlistDTO.PlaylistType;
+                    album.AlbumName = albumDTO.AlbumName;
+                    album.ReleaseDate = albumDTO.ReleaseDate;
+                    album.PopularityScore = albumDTO.PopularityScore;
+
                     db.SaveChanges();
                     return true;
                 }
 
-                else return false;
-
-            } 
-            catch { return false; }
-
+                return false;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
+
         
+         public List<AlbumDTO> GetAllAlbum()
+         {
+             List<AlbumDTO> re = new List<AlbumDTO>();
+
+             var n = from album in db.Albums
+                     join artist in db.Artists on album.ArtistID equals artist.ArtistID
+                     select new { album.AlbumName, artist.Name };
+             foreach (var item in n.ToList())
+             {
+                 re.Add(new AlbumDTO
+                 {
+                     AlbumName = item.AlbumName,
+                    
+
+                 });
+             }
+             return re;
+
+         }
+        /*
+
+         public List<Album> FindAlbumByName(string name)
+         {
+             var n = from Album album in GetAllAlbum()
+                     where album.AlbumName == name
+                     select album;
+             return n.ToList();
+
+         }
+
+         public List<Song> GetAllSongOfAlbum(string name)
+         {
+             Album a = FindAlbumByName(name)[0];
+             var songID = from AlbumSong s in db.AlbumSongs
+                          where s.AlbumID == a.AlbumID
+                          select s.SongID;
+             List<Song> ls = new List<Song>();
+             foreach (int id in songID.ToList())
+             {
+                 var song = from Song s in db.Songs
+                            where s.SongID == id
+                            select s;
+                 ls.AddRange(song);
+             }
+
+
+             return ls;
+
+         }
+
+         public bool AddAlbum(AlbumDTO albumDTO, int artistID)
+         {
+             try
+             {
+                 Album album = new Album();
+                 album.AlbumName = albumDTO.AlbumName;
+                 album.ArtistID = artistID;
+                 db.Albums.Add(album);
+                 db.SaveChanges();
+                 return true;
+             }
+             catch
+             {
+                 return false;
+             }
+         }
+
+
+         public bool AddSongToAlbum(int songID, int albumID)
+         {
+             try
+             {
+                 AlbumSong albumSong = new AlbumSong();
+                 albumSong.AlbumID = albumID;
+                 albumSong.SongID = songID;
+                 db.AlbumSongs.Add(albumSong);
+                 db.SaveChanges();
+                 return true;
+             }
+             catch
+             {
+                 return false;
+             }
+         }
+
+         public bool ModifyAlbum(AlbumDTO albumDTO) {
+                 try
+             {
+                     Album album = db.Albums.Find(albumDTO.ArtistName);
+                     album.AlbumName = albumDTO.AlbumName;
+                     db.SaveChanges();
+                     return true;
+                 }
+                 catch
+             {
+                     return false;
+                 }
+
+
+         }
+
+
+
+         public bool RemoveAlbum(int  id)
+         {
+
+             try
+             {
+                 var album = (from a in db.Albums
+                              where a.AlbumID == id
+                              select a).FirstOrDefault();
+                 if (album != null)
+                 {
+                     db.Albums.Remove(album);
+                     db.SaveChanges();
+                 }
+                 return true;
+             }
+             catch
+             {
+                 return false;
+             }
+         }
+
+
+         public bool RemoveSongFromAlbum(int AlbumID, int SongID) 
+         {
+             try
+             {
+                 var album = (from a in db.Albums
+                              where a.AlbumID == AlbumID
+                              select a).FirstOrDefault();
+                 if (album != null)
+                 {
+                     db.Albums.Remove(album);
+                     db.SaveChanges();
+                     return true;
+                 }
+
+                 else return false;
+
+             } 
+             catch { return false; }
+
+         }
+
+
+
+         public int GetAlbumCount()
+         {
+             var getCount = from l in db.Albums
+                            select l.AlbumID;
+             return Convert.ToInt32(getCount.ToList().Max());
+         }*/
+
 
 
     }

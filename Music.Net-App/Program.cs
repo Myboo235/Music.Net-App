@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using Music.Net_App.BLL;
 using Music.Net_App.View;
 using Music.Net_App.View.Admin;
+using Music.Net_App.View.Artist;
 using Music.Net_App.View.Listener;
 
 namespace Music.Net_App
@@ -20,8 +21,11 @@ namespace Music.Net_App
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new DashboardForm());
-            //Application.Run(new MainForm("Edsheeran@gmail.com", "Artist"));
+            //Application.Run(new WelcomeForm());
+            Application.Run(new MainForm("Edsheeran@gmail.com", "Artist"));
+         //   Application.Run(new MainForm("janedoe@email.com", "Listener"));
+        
+            //Application.Run(new AlbumForm());
         }
     }
 }

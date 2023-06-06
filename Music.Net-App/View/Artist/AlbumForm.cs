@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Music.Net_App.BLL;
+using Music.Net_App.DAL;
+using Music.Net_App.DTO;
+using RestSharp.Extensions;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +16,251 @@ namespace Music.Net_App.View.Artist
 {
     public partial class AlbumForm : Form
     {
-        public AlbumForm()
+        public delegate void PlaylistDelegate();
+        public PlaylistDelegate pd { get; set; }
+        private UserDTO User;
+        public delegate void SetUpMainFormDelegate();
+        public SetUpMainFormDelegate su { get; set; }
+
+
+        public delegate void OpenPlaylistSongForm(object sender, EventArgs e);
+        public OpenPlaylistSongForm op { get; set; }
+        //string fileNameFull;
+        string destinationFilePath;
+        System.Windows.Forms.OpenFileDialog openFileDialog = new System.Windows.Forms.OpenFileDialog();
+
+        List<AlbumCombobox> albumComboboxes = new List<AlbumCombobox>();
+
+        public AlbumForm(UserDTO User)
         {
             InitializeComponent();
+            this.User = User;
+            SetUpUserAlbum();
         }
+        private void SetUpUserAlbum()
+        {
+            flowLayoutPanel1.Controls.OfType<FlowLayoutPanel>().ToList().ForEach(f => f.Dispose());
+            foreach (AlbumDTO pl in AlbumBLL.Instance.GetAllAlbumOfArtist(User.UserId))
+            {
+                albumComboboxes.Add(new AlbumCombobox
+                {
+                    AlbumName = pl.AlbumName,
+                    AlbumID = pl.AlbumID,
+                });
+                FlowLayoutPanel p = new FlowLayoutPanel();
+                p.Size = new Size(240, 374);
+                Margin = new Padding(10, 10, 10, 10);
+                p.FlowDirection = FlowDirection.TopDown;
+                p.BackColor = Color.AntiqueWhite;
+                p.Controls.Add(new PictureBox
+                {
+                    Size = new Size(240, 200),
+                    BackColor = Color.White,
+                    Margin = new Padding(0, 0, 0, 0)
+                });
+                p.Controls.Add(new Label
+                {
+                    Text = pl.AlbumName,
+                    Width = 200,
+                    Margin = new Padding(0, 0, 0, 0)
+                });
+                flowLayoutPanel1.Controls.Add(p);
+            }
+        }
+
+        private void Button_Add_Album_Click(object sender, EventArgs e)
+        {
+            panel1.Height = 800;
+            //pd();
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            panel1.Height = 100;
+        }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+         
+
+            AlbumDTO album = new AlbumDTO
+            {
+               AlbumName = guna2TextBox1.Text,
+               PopularityScore = Convert.ToInt32(guna2TextBox2.Text),
+               GenreID = Convert.ToInt32(guna2TextBox3.Text),
+               Duration = Convert.ToInt32(guna2TextBox4.Text),
+               ReleaseDate = DateTime.Now,
+              
+
+            };
+        
+           
+           
+                if (AlbumBLL.Instance.AddAlbumOfArtist(album, User.UserId))
+                {
+                    MessageBox.Show("The Album has been successfully added.");
+                }
+                else
+                {
+                    MessageBox.Show("An error occurred while adding the Album.");
+                }
+           
+
+            panel1.Height = 100;
+            SetUpUserAlbum();
+           // pd();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /*        private void Button_OK_Click(object sender, EventArgs e)
+                {
+                    if (!guna2ComboBox1.Visible)
+                    {
+                        sourceFilePath = openFileDialog.FileName;
+                        destinationFolderPath = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug\", "") + @"\Assets\Musics";
+                        fileName = Path.GetFileName(sourceFilePath);
+                        destinationFilePath = Path.Combine(destinationFolderPath, fileName);
+                        if (File.Exists(destinationFilePath))
+                        {
+                            DialogResult overwriteResult = MessageBox.Show("The file already exists in the destination folder. Do you want to overwrite it?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                            if (overwriteResult == DialogResult.No)
+                            {
+                                return;
+                            }
+                        }
+
+                        try
+                        {
+
+                            File.Copy(sourceFilePath, destinationFilePath, true);
+                            MessageBox.Show("Get File successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        SongDTO s = new SongDTO
+                        {
+                            SongName = label5.Text,
+                            ArtistID = User.UserId,
+                            DateCreated = DateTime.Now,
+                            Duration = Convert.ToInt32(guna2TextBox2.Text),
+                        };
+                        if (SongBLL.Instance.AddSong(s, User.UserId))
+                        {
+
+                            MessageBox.Show("The playlist has been successfully added.");
+                        }
+                        else
+                        {
+                            MessageBox.Show("An error occurred while adding the playlist.");
+                        }
+                    }
+                    else
+                    {
+                        if (guna2ComboBox1.SelectedItem != null)
+                        {
+                            sourceFilePath = openFileDialog.FileName;
+                            destinationFolderPath = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug\", "") + @"\Assets\Musics";
+                            fileName = Path.GetFileName(sourceFilePath);
+                            destinationFilePath = Path.Combine(destinationFolderPath, fileName);
+                            if (File.Exists(destinationFilePath))
+                            {
+                                DialogResult overwriteResult = MessageBox.Show("The file already exists in the destination folder. Do you want to overwrite it?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                                if (overwriteResult == DialogResult.No)
+                                {
+                                    return;
+                                }
+                            }
+
+                            try
+                            {
+
+                                File.Copy(sourceFilePath, destinationFilePath, true);
+                                MessageBox.Show("Get File successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            SongDTO s = new SongDTO
+                            {
+                                SongID = (guna2ComboBox1.SelectedItem as SongCombobox).SongID,
+                                SongName = (guna2ComboBox1.SelectedItem as SongCombobox).SongName,
+                                ArtistID = User.UserId,
+                                DateCreated = DateTime.Now,
+                                Duration = Convert.ToInt32(guna2TextBox2.Text),
+                            };
+                            if (SongBLL.Instance.ModifySong(s))
+                            {
+
+                                MessageBox.Show("The song has been successfully modified.");
+                            }
+                            else
+                            {
+                                MessageBox.Show("An error occurred while modify the song.");
+                            }
+                        }
+
+                    }
+
+                    Button_Delete_Song.Height = 100;
+                }
+
+                private void Button_Modify_Song_Click(object sender, EventArgs e)
+                {
+                    Button_Delete_Song.Height = 800;
+                    guna2ComboBox1.Visible = true;
+
+                    guna2ComboBox1.DataSource = songComboboxes;
+                    guna2ComboBox1.DisplayMember = "SongName";
+                    guna2ComboBox1.ValueMember = "SongID";
+
+                    Button_Delete.Visible = true;
+                }
+
+                private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+                {
+                    SongDTO songModify = SongBLL.Instance.GetSongByID((guna2ComboBox1.SelectedItem as SongCombobox).SongID);
+                    guna2TextBox1.Text = songModify.SongName;
+                    guna2TextBox2.Text = songModify.Duration.ToString();
+                    MessageBox.Show(songModify.Duration.ToString() + songModify.SongID);
+                }
+
+                private void Button_Delete_Click(object sender, EventArgs e)
+                {
+                    if (guna2ComboBox1.SelectedItem != null)
+                    {
+                        if (SongBLL.Instance.RemoveSong((guna2ComboBox1.SelectedItem as SongCombobox).SongID))
+                        {
+                            MessageBox.Show("Delete song successful");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error occurs when delete song");
+                        }
+                    }
+                }*/
     }
+
 }
