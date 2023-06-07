@@ -30,6 +30,7 @@
         {
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.Button_Delete_Song = new System.Windows.Forms.Panel();
+            this.Button_Delete = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.Button_OK = new Guna.UI2.WinForms.Guna2Button();
@@ -44,7 +45,6 @@
             this.Button_Modify_Song = new FontAwesome.Sharp.IconButton();
             this.Button_Add_Song = new FontAwesome.Sharp.IconButton();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.Button_Delete = new Guna.UI2.WinForms.Guna2Button();
             this.flowLayoutPanel3.SuspendLayout();
             this.Button_Delete_Song.SuspendLayout();
             this.SuspendLayout();
@@ -80,8 +80,25 @@
             this.Button_Delete_Song.Controls.Add(this.Button_Add_Song);
             this.Button_Delete_Song.Location = new System.Drawing.Point(3, 3);
             this.Button_Delete_Song.Name = "Button_Delete_Song";
-            this.Button_Delete_Song.Size = new System.Drawing.Size(1200, 106);
+            this.Button_Delete_Song.Size = new System.Drawing.Size(1200, 100);
             this.Button_Delete_Song.TabIndex = 3;
+            // 
+            // Button_Delete
+            // 
+            this.Button_Delete.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Button_Delete.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Button_Delete.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Button_Delete.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Button_Delete.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.Button_Delete.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Button_Delete.ForeColor = System.Drawing.Color.White;
+            this.Button_Delete.Location = new System.Drawing.Point(537, 498);
+            this.Button_Delete.Name = "Button_Delete";
+            this.Button_Delete.Size = new System.Drawing.Size(180, 45);
+            this.Button_Delete.TabIndex = 8;
+            this.Button_Delete.Text = "Delete";
+            this.Button_Delete.Visible = false;
+            this.Button_Delete.Click += new System.EventHandler(this.Button_Delete_Click);
             // 
             // guna2ComboBox1
             // 
@@ -283,27 +300,10 @@
             // 
             this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 115);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 109);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1200, 488);
             this.flowLayoutPanel1.TabIndex = 4;
-            // 
-            // Button_Delete
-            // 
-            this.Button_Delete.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.Button_Delete.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.Button_Delete.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.Button_Delete.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.Button_Delete.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.Button_Delete.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.Button_Delete.ForeColor = System.Drawing.Color.White;
-            this.Button_Delete.Location = new System.Drawing.Point(537, 498);
-            this.Button_Delete.Name = "Button_Delete";
-            this.Button_Delete.Size = new System.Drawing.Size(180, 45);
-            this.Button_Delete.TabIndex = 8;
-            this.Button_Delete.Text = "Delete";
-            this.Button_Delete.Visible = false;
-            this.Button_Delete.Click += new System.EventHandler(this.Button_Delete_Click);
             // 
             // SongForm
             // 

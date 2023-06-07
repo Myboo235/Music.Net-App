@@ -320,6 +320,7 @@
     <Compile Include="DTO\AlbumCombobox.cs" />
     <Compile Include="DTO\AlbumDTO.cs" />
     <Compile Include="DTO\CountryDTO.cs" />
+    <Compile Include="DTO\GenreCombobox.cs" />
     <Compile Include="DTO\SongCombobox.cs" />
     <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="DTO\PlaylistDTO.cs" />

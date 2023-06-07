@@ -30,9 +30,12 @@
         {
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.guna2ComboBoxGenre = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.Button_Delete = new Guna.UI2.WinForms.Guna2Button();
+            this.Button_Modify_Song = new FontAwesome.Sharp.IconButton();
             this.label6 = new System.Windows.Forms.Label();
             this.guna2TextBox4 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2TextBox3 = new Guna.UI2.WinForms.Guna2TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
@@ -57,9 +60,12 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.guna2ComboBoxGenre);
+            this.panel1.Controls.Add(this.guna2ComboBox1);
+            this.panel1.Controls.Add(this.Button_Delete);
+            this.panel1.Controls.Add(this.Button_Modify_Song);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.guna2TextBox4);
-            this.panel1.Controls.Add(this.guna2TextBox3);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.guna2Button3);
             this.panel1.Controls.Add(this.guna2Button2);
@@ -71,8 +77,76 @@
             this.panel1.Controls.Add(this.Button_Add_ALbum);
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1215, 100);
+            this.panel1.Size = new System.Drawing.Size(1215, 584);
             this.panel1.TabIndex = 4;
+            // 
+            // guna2ComboBoxGenre
+            // 
+            this.guna2ComboBoxGenre.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ComboBoxGenre.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.guna2ComboBoxGenre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.guna2ComboBoxGenre.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2ComboBoxGenre.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2ComboBoxGenre.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.guna2ComboBoxGenre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.guna2ComboBoxGenre.ItemHeight = 30;
+            this.guna2ComboBoxGenre.Location = new System.Drawing.Point(429, 378);
+            this.guna2ComboBoxGenre.Name = "guna2ComboBoxGenre";
+            this.guna2ComboBoxGenre.Size = new System.Drawing.Size(460, 36);
+            this.guna2ComboBoxGenre.TabIndex = 11;
+            // 
+            // guna2ComboBox1
+            // 
+            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.guna2ComboBox1.ItemHeight = 30;
+            this.guna2ComboBox1.Location = new System.Drawing.Point(80, 208);
+            this.guna2ComboBox1.Name = "guna2ComboBox1";
+            this.guna2ComboBox1.Size = new System.Drawing.Size(229, 36);
+            this.guna2ComboBox1.TabIndex = 10;
+            this.guna2ComboBox1.SelectedIndexChanged += new System.EventHandler(this.guna2ComboBox1_SelectedIndexChanged);
+            // 
+            // Button_Delete
+            // 
+            this.Button_Delete.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Button_Delete.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Button_Delete.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Button_Delete.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Button_Delete.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.Button_Delete.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Button_Delete.ForeColor = System.Drawing.Color.White;
+            this.Button_Delete.Location = new System.Drawing.Point(502, 540);
+            this.Button_Delete.Name = "Button_Delete";
+            this.Button_Delete.Size = new System.Drawing.Size(180, 45);
+            this.Button_Delete.TabIndex = 9;
+            this.Button_Delete.Text = "Delete";
+            this.Button_Delete.Visible = false;
+            this.Button_Delete.Click += new System.EventHandler(this.Button_Delete_Click);
+            // 
+            // Button_Modify_Song
+            // 
+            this.Button_Modify_Song.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Button_Modify_Song.BackColor = System.Drawing.Color.Transparent;
+            this.Button_Modify_Song.FlatAppearance.BorderSize = 0;
+            this.Button_Modify_Song.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button_Modify_Song.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Button_Modify_Song.ForeColor = System.Drawing.Color.White;
+            this.Button_Modify_Song.IconChar = FontAwesome.Sharp.IconChar.PersonBooth;
+            this.Button_Modify_Song.IconColor = System.Drawing.Color.White;
+            this.Button_Modify_Song.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.Button_Modify_Song.Location = new System.Drawing.Point(904, 27);
+            this.Button_Modify_Song.Name = "Button_Modify_Song";
+            this.Button_Modify_Song.Size = new System.Drawing.Size(249, 47);
+            this.Button_Modify_Song.TabIndex = 8;
+            this.Button_Modify_Song.Text = "Modify song";
+            this.Button_Modify_Song.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Button_Modify_Song.UseVisualStyleBackColor = false;
+            this.Button_Modify_Song.Click += new System.EventHandler(this.Button_Modify_Song_Click);
             // 
             // label6
             // 
@@ -103,29 +177,8 @@
             this.guna2TextBox4.PasswordChar = '\0';
             this.guna2TextBox4.PlaceholderText = "";
             this.guna2TextBox4.SelectedText = "";
-            this.guna2TextBox4.Size = new System.Drawing.Size(229, 48);
+            this.guna2TextBox4.Size = new System.Drawing.Size(460, 48);
             this.guna2TextBox4.TabIndex = 6;
-            // 
-            // guna2TextBox3
-            // 
-            this.guna2TextBox3.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox3.DefaultText = "";
-            this.guna2TextBox3.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox3.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox3.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox3.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2TextBox3.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox3.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox3.Location = new System.Drawing.Point(429, 376);
-            this.guna2TextBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.guna2TextBox3.Name = "guna2TextBox3";
-            this.guna2TextBox3.PasswordChar = '\0';
-            this.guna2TextBox3.PlaceholderText = "";
-            this.guna2TextBox3.SelectedText = "";
-            this.guna2TextBox3.Size = new System.Drawing.Size(229, 48);
-            this.guna2TextBox3.TabIndex = 5;
             // 
             // label5
             // 
@@ -220,7 +273,7 @@
             this.guna2TextBox2.PasswordChar = '\0';
             this.guna2TextBox2.PlaceholderText = "";
             this.guna2TextBox2.SelectedText = "";
-            this.guna2TextBox2.Size = new System.Drawing.Size(229, 48);
+            this.guna2TextBox2.Size = new System.Drawing.Size(460, 48);
             this.guna2TextBox2.TabIndex = 1;
             // 
             // guna2TextBox1
@@ -241,7 +294,7 @@
             this.guna2TextBox1.PasswordChar = '\0';
             this.guna2TextBox1.PlaceholderText = "";
             this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.Size = new System.Drawing.Size(229, 48);
+            this.guna2TextBox1.Size = new System.Drawing.Size(460, 48);
             this.guna2TextBox1.TabIndex = 1;
             // 
             // Button_Add_ALbum
@@ -293,7 +346,10 @@
         private FontAwesome.Sharp.IconButton Button_Add_ALbum;
         private System.Windows.Forms.Label label6;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox4;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox3;
         private System.Windows.Forms.Label label5;
+        private FontAwesome.Sharp.IconButton Button_Modify_Song;
+        private Guna.UI2.WinForms.Guna2Button Button_Delete;
+        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
+        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBoxGenre;
     }
 }

@@ -92,6 +92,18 @@ namespace Music.Net_App.BLL
             return result;
         }
 
+        public int getGenreIdOfArtist(int artistID)
+        {
+            int genreID = -1;
+            foreach(var album in db.Albums)
+            {
+                if(album.GenreID == artistID) 
+                genreID = Convert.ToInt32(album.GenreID);
+                break;
+            }
+            return genreID;
+        }
+
       
 
 
@@ -308,6 +320,42 @@ namespace Music.Net_App.BLL
              return re;
 
          }
+
+
+
+        public string  GetGenreByIDGenre(int genreID)
+        {
+            string s = "";
+                foreach (var item in db.Genres) {
+            
+            if(item.GenreID == genreID)
+                {
+                s = item.GenreName;
+                }
+                break;
+            }
+            return s;
+
+
+        }
+
+
+        public List<Genre> GetAllGenre()
+        {
+            List<Genre> re = new List<Genre>();
+            var getAllGenre = from Genre genre in db.Genres
+                              select new { genre.GenreID, genre.GenreName };
+            foreach(var item in getAllGenre)
+            {
+               re.Add(new Genre
+               {
+                    GenreID = item.GenreID,
+                    GenreName = item.GenreName
+                });
+            }
+            return re;
+        }
+
         /*
 
          public List<Album> FindAlbumByName(string name)
