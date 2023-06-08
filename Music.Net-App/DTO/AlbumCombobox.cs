@@ -10,5 +10,10 @@ namespace Music.Net_App.DTO
     {
         public string AlbumName { get; set; }
         public int AlbumID { get; set; }
+
+        public override string ToString()
+        {
+            return AlbumName;
+        }
     }
 }

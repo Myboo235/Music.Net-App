@@ -42,6 +42,7 @@ namespace Music.Net_App.View.Artist
         private void SetUpUserAlbum()
         {
             flowLayoutPanel1.Controls.OfType<FlowLayoutPanel>().ToList().ForEach(f => f.Dispose());
+        
             foreach (AlbumDTO pl in AlbumBLL.Instance.GetAllAlbumOfArtist(User.UserId))
             {
                 albumComboboxes.Add(new AlbumCombobox
@@ -68,6 +69,7 @@ namespace Music.Net_App.View.Artist
                     Margin = new Padding(0, 0, 0, 0)
                 });
                 flowLayoutPanel1.Controls.Add(p);
+                loadAlbumComboBox(User.UserId);
 
       
             }
@@ -98,6 +100,24 @@ namespace Music.Net_App.View.Artist
             }
          
         
+        }
+
+        public void loadAlbumComboBox(int UserID)
+        {
+            albumComboboxes.Clear();
+            foreach (var item in AlbumBLL.Instance.GetAllAlbumOfArtist(UserID))
+            {
+                albumComboboxes.Add(new AlbumCombobox
+                {
+                    AlbumName = item.AlbumName,
+                    AlbumID = item.AlbumID,
+                });
+            }
+            //guna2ComboBox1.SelectedIndex = -1;
+           // guna2ComboBox1.DataSource = null;
+           
+            guna2ComboBox1.Items.Clear();
+            guna2ComboBox1.Items.AddRange(albumComboboxes.ToArray());
         }
         private void Button_Add_Album_Click(object sender, EventArgs e)
         {
@@ -153,6 +173,9 @@ namespace Music.Net_App.View.Artist
                     MessageBox.Show("An error occurred while modify the Album.");
                 }
             }
+ 
+            SetUpUserAlbum();
+        
 
 
            
@@ -169,16 +192,17 @@ namespace Music.Net_App.View.Artist
             panel1.Height = 800;
             guna2ComboBox1.Visible = true;
 
-            guna2ComboBox1.DataSource = albumComboboxes;
+         /*   guna2ComboBox1.DataSource = albumComboboxes;
             guna2ComboBox1.DisplayMember = "AlbumName";
-            guna2ComboBox1.ValueMember = "AlbumID";
+            guna2ComboBox1.ValueMember = "AlbumID";*/
+            loadAlbumComboBox(User.UserId) ;
 
             Button_Delete.Visible = true;
         }
 
         private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-             
+            if (guna2ComboBox1.SelectedIndex == -1) return;
             AlbumDTO albumModify = AlbumBLL.Instance.GetAlbumById((guna2ComboBox1.SelectedItem as AlbumCombobox).AlbumID);
             guna2TextBox1.Text = albumModify.AlbumName;
             guna2TextBox2.Text = albumModify.PopularityScore.ToString();
@@ -205,6 +229,7 @@ namespace Music.Net_App.View.Artist
                     MessageBox.Show("Error occurs when delete album");
                 }
             }
+            loadAlbumComboBox(User.UserId);
         }
 
         private void guna2ButtonCancel_Click(object sender, EventArgs e)
