@@ -259,9 +259,7 @@
   <ItemGroup>
     <Compile Include="BLL\AlbumBLL.cs" />
     <Compile Include="BLL\CountryBLL.cs" />
-    <Compile Include="BLL\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="BLL\Form1.cs" />
     <Compile Include="BLL\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
@@ -319,8 +317,10 @@
     <Compile Include="DAL\sysdiagram.cs">
       <DependentUpon>ModelMusicNetApp.tt</DependentUpon>
     </Compile>
+    <Compile Include="DTO\AlbumCombobox.cs" />
     <Compile Include="DTO\AlbumDTO.cs" />
     <Compile Include="DTO\CountryDTO.cs" />
+    <Compile Include="DTO\GenreCombobox.cs" />
     <Compile Include="DTO\SongCombobox.cs" />
     <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="DTO\PlaylistDTO.cs" />
@@ -420,6 +420,9 @@
     </Compile>
     <EmbeddedResource Include="View\Admin\DashboardForm.resx">
       <DependentUpon>DashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Artist\AlbumForm.resx">
+      <DependentUpon>AlbumForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Artist\SongForm.resx">
       <DependentUpon>SongForm.cs</DependentUpon>

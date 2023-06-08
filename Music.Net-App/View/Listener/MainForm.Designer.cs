@@ -250,6 +250,7 @@
             this.Button_Album.Text = "Your Albums";
             this.Button_Album.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Button_Album.UseVisualStyleBackColor = true;
+            this.Button_Album.Click += new System.EventHandler(this.Button_Album_Click);
             // 
             // MainLayout
             // 

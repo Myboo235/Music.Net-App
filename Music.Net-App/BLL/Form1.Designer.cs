@@ -1,4 +1,4 @@
-﻿namespace Music.Net_App.BLL
+﻿/*namespace Music.Net_App.BLL
 {
     partial class Form1
     {
@@ -165,4 +165,4 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
     }
-}
+}*/

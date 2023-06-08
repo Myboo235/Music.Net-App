@@ -458,5 +458,18 @@ namespace Music.Net_App.View
                 Button_Repeat.IconColor = Color.FromArgb(232, 119, 45); // Set the icon to indicate repeat mode on
             }
         }
+
+        private void Button_Album_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(User.TypeUser);
+            if (User.TypeUser == "Artist")
+            {
+                AlbumForm f = new AlbumForm(User);
+
+                OpenChildForm(f);
+            }
+
+
+        }
     }
 }

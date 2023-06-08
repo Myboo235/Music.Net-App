@@ -211,7 +211,7 @@ namespace Music.Net_App.View
 
                     Label ArtistName = new Label
                     {
-                        Text = a.ArtistName,
+                        //Text = a.ArtistName,
                         ForeColor = Color.WhiteSmoke,
                         Width = 100,
                         Font = new Font("Segoe UI", 10, FontStyle.Bold | FontStyle.Underline),

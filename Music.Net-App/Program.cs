@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using Music.Net_App.BLL;
 using Music.Net_App.View;
 using Music.Net_App.View.Admin;
+using Music.Net_App.View.Artist;
 using Music.Net_App.View.Listener;
 
 namespace Music.Net_App
