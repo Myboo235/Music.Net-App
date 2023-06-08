@@ -3,8 +3,10 @@ using Music.Net_App.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel.Channels;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Xml.Linq;
 
 namespace Music.Net_App.BLL
@@ -274,19 +276,21 @@ namespace Music.Net_App.BLL
         }
 
 
-        public bool ModifyAlbum(AlbumDTO albumDTO)
+        public bool ModifyAlbum(AlbumDTO albumDTO )
         {
             try
             {
                 var album = (from p in db.Albums
                                 where p.AlbumID == albumDTO.AlbumID
                                 select p).FirstOrDefault();
+                MessageBox.Show(albumDTO.AlbumID.ToString());
                 if (album != null)
                 {
                    // .PlaylistTyped = playlistDTO.PlaylistType;
                     album.AlbumName = albumDTO.AlbumName;
-                    album.ReleaseDate = albumDTO.ReleaseDate;
+                    album.Duration = albumDTO.Duration;
                     album.PopularityScore = albumDTO.PopularityScore;
+                    album.GenreID = albumDTO.GenreID;
 
                     db.SaveChanges();
                     return true;

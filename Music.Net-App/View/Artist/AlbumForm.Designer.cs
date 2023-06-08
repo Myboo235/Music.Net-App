@@ -37,8 +37,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.guna2TextBox4 = new Guna.UI2.WinForms.Guna2TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2ButtonOK = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2ButtonCancel = new Guna.UI2.WinForms.Guna2Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -67,8 +67,8 @@
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.guna2TextBox4);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.guna2Button3);
-            this.panel1.Controls.Add(this.guna2Button2);
+            this.panel1.Controls.Add(this.guna2ButtonOK);
+            this.panel1.Controls.Add(this.guna2ButtonCancel);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label1);
@@ -77,7 +77,7 @@
             this.panel1.Controls.Add(this.Button_Add_ALbum);
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1215, 584);
+            this.panel1.Size = new System.Drawing.Size(1215, 100);
             this.panel1.TabIndex = 4;
             // 
             // guna2ComboBoxGenre
@@ -120,7 +120,7 @@
             this.Button_Delete.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.Button_Delete.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Button_Delete.ForeColor = System.Drawing.Color.White;
-            this.Button_Delete.Location = new System.Drawing.Point(502, 540);
+            this.Button_Delete.Location = new System.Drawing.Point(481, 556);
             this.Button_Delete.Name = "Button_Delete";
             this.Button_Delete.Size = new System.Drawing.Size(180, 45);
             this.Button_Delete.TabIndex = 9;
@@ -191,36 +191,36 @@
             this.label5.TabIndex = 4;
             this.label5.Text = "Genre";
             // 
-            // guna2Button3
+            // guna2ButtonOK
             // 
-            this.guna2Button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button3.ForeColor = System.Drawing.Color.White;
-            this.guna2Button3.Location = new System.Drawing.Point(935, 540);
-            this.guna2Button3.Name = "guna2Button3";
-            this.guna2Button3.Size = new System.Drawing.Size(180, 45);
-            this.guna2Button3.TabIndex = 3;
-            this.guna2Button3.Text = "OK";
-            this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click);
+            this.guna2ButtonOK.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2ButtonOK.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2ButtonOK.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2ButtonOK.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2ButtonOK.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2ButtonOK.ForeColor = System.Drawing.Color.White;
+            this.guna2ButtonOK.Location = new System.Drawing.Point(931, 556);
+            this.guna2ButtonOK.Name = "guna2ButtonOK";
+            this.guna2ButtonOK.Size = new System.Drawing.Size(180, 45);
+            this.guna2ButtonOK.TabIndex = 3;
+            this.guna2ButtonOK.Text = "OK";
+            this.guna2ButtonOK.Click += new System.EventHandler(this.guna2ButtonOK_Click);
             // 
-            // guna2Button2
+            // guna2ButtonCancel
             // 
-            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button2.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button2.Location = new System.Drawing.Point(709, 540);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(180, 45);
-            this.guna2Button2.TabIndex = 3;
-            this.guna2Button2.Text = "Cancel";
-            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
+            this.guna2ButtonCancel.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2ButtonCancel.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2ButtonCancel.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2ButtonCancel.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2ButtonCancel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.guna2ButtonCancel.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2ButtonCancel.ForeColor = System.Drawing.Color.Black;
+            this.guna2ButtonCancel.Location = new System.Drawing.Point(709, 556);
+            this.guna2ButtonCancel.Name = "guna2ButtonCancel";
+            this.guna2ButtonCancel.Size = new System.Drawing.Size(180, 45);
+            this.guna2ButtonCancel.TabIndex = 3;
+            this.guna2ButtonCancel.Text = "Cancel";
+            this.guna2ButtonCancel.Click += new System.EventHandler(this.guna2ButtonCancel_Click);
             // 
             // label2
             // 
@@ -336,8 +336,8 @@
 
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
-        private Guna.UI2.WinForms.Guna2Button guna2Button3;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2Button guna2ButtonOK;
+        private Guna.UI2.WinForms.Guna2Button guna2ButtonCancel;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;

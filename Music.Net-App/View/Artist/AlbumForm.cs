@@ -17,8 +17,8 @@ namespace Music.Net_App.View.Artist
 {
     public partial class AlbumForm : Form
     {
-        public delegate void PlaylistDelegate();
-        public PlaylistDelegate pd { get; set; }
+        public delegate void AlbumDelegate();
+        public AlbumDelegate pd { get; set; }
         private UserDTO User;
         public delegate void SetUpMainFormDelegate();
         public SetUpMainFormDelegate su { get; set; }
@@ -69,7 +69,7 @@ namespace Music.Net_App.View.Artist
                 });
                 flowLayoutPanel1.Controls.Add(p);
 
-             
+      
             }
         }
         private void SetComboBoxGenre(int UserID)
@@ -85,29 +85,36 @@ namespace Music.Net_App.View.Artist
             guna2ComboBoxGenre.Items.Clear();
             guna2ComboBoxGenre.Items.AddRange(genreComboboxes.ToArray());
             int size = guna2ComboBoxGenre.Items.Count;
+            
             int index = 0;
 
             for (index = 0; index < size; index++)
             {
                 if (((GenreCombobox)(guna2ComboBoxGenre.Items[index])).GenreID == AlbumBLL.Instance.getGenreIdOfArtist(UserID))
                 {
+                    guna2ComboBoxGenre.SelectedIndex = index;
                     break;
                 }
             }
-            guna2ComboBoxGenre.SelectedIndex = index;
+         
+        
         }
         private void Button_Add_Album_Click(object sender, EventArgs e)
         {
+            guna2TextBox1.Text = "";
+            guna2TextBox2.Text = "";
+            guna2ComboBoxGenre.SelectedIndex = 0;
+            guna2TextBox4.Text = "";
             panel1.Height = 800;
+            Button_Delete.Visible = false;
+
+       
+
             //pd();
         }
 
-        private void guna2Button2_Click(object sender, EventArgs e)
-        {
-            panel1.Height = 100;
-        }
 
-        private void guna2Button3_Click(object sender, EventArgs e)
+        private void guna2ButtonOK_Click(object sender, EventArgs e)
         {
             if(guna2TextBox1.Text == "" || guna2TextBox2.Text == "" || guna2TextBox4.Text == "")
             {
@@ -124,9 +131,7 @@ namespace Music.Net_App.View.Artist
             };
 
       
-        
-           
-           
+        if(!Button_Delete.Visible) {
                 if (AlbumBLL.Instance.AddAlbumOfArtist(album, User.UserId))
                 {
                     MessageBox.Show("The Album has been successfully added.");
@@ -135,16 +140,32 @@ namespace Music.Net_App.View.Artist
                 {
                     MessageBox.Show("An error occurred while adding the Album.");
                 }
-           
+            }
+        else
+            {
+                album.AlbumID = (guna2ComboBox1.SelectedItem as AlbumCombobox).AlbumID;
+                if(AlbumBLL.Instance.ModifyAlbum(album))
+                {
+                    MessageBox.Show("The Album has been successfully modified.");
+                }
+                else
+                {
+                    MessageBox.Show("An error occurred while modify the Album.");
+                }
+            }
 
+
+           
             panel1.Height = 100;
-            SetUpUserAlbum();
-           // pd();
+            
+       
+      
+           
         }
 
         private void Button_Modify_Song_Click(object sender, EventArgs e)
         {
-
+           
             panel1.Height = 800;
             guna2ComboBox1.Visible = true;
 
@@ -157,16 +178,19 @@ namespace Music.Net_App.View.Artist
 
         private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+             
             AlbumDTO albumModify = AlbumBLL.Instance.GetAlbumById((guna2ComboBox1.SelectedItem as AlbumCombobox).AlbumID);
             guna2TextBox1.Text = albumModify.AlbumName;
             guna2TextBox2.Text = albumModify.PopularityScore.ToString();
-            //guna2ComboBoxGenre = albumModify.Combo;
+            guna2ComboBoxGenre.SelectedIndex = albumModify.GenreID;
             guna2TextBox4.Text = albumModify.Duration.ToString();
+}
 
-            MessageBox.Show(albumModify.AlbumName.ToString() + albumModify.AlbumName);
+           // MessageBox.Show(albumModify.AlbumName.ToString() + albumModify.AlbumName);
+      
 
             //    SetUpUserAlbum();
-        }
+        
 
         private void Button_Delete_Click(object sender, EventArgs e)
         {
@@ -183,6 +207,13 @@ namespace Music.Net_App.View.Artist
             }
         }
 
+        private void guna2ButtonCancel_Click(object sender, EventArgs e)
+        {
+            panel1.Height = 100;
+        }
+
+
+    
 
 
 
