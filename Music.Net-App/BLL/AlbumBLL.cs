@@ -311,14 +311,19 @@ namespace Music.Net_App.BLL
 
              var n = from album in db.Albums
                      join artist in db.Artists on album.ArtistID equals artist.ArtistID
-                     select new { album.AlbumName, artist.Name };
+                     select album;
              foreach (var item in n.ToList())
              {
                  re.Add(new AlbumDTO
                  {
-                     AlbumName = item.AlbumName,
-                    
-
+                    AlbumID = item.AlbumID,
+                    AlbumName = item.AlbumName,
+                    Duration = Convert.ToInt32(item.Duration),
+                    GenreID = Convert.ToInt32(item.GenreID),
+                    PopularityScore = Convert.ToInt32(item.PopularityScore),
+                    ReleaseDate = Convert.ToDateTime(item.ReleaseDate),
+                    ArtistID = Convert.ToInt32(item.ArtistID),
+                    ArtistName = item.Artist.Name
                  });
              }
              return re;

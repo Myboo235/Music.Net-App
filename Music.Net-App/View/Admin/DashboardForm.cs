@@ -28,14 +28,16 @@ namespace Music.Net_App.View.Admin
             //guna2DataGridView1.Visible = false;
             guna2DataGridView2.Visible = false;
             iconButtonUser.Visible = false;
-            iconButtonAlbum.Visible = false;
-            iconButtonSong.Visible = false;
+    /*        iconButtonAlbum.Visible = false;
+            iconButtonSong.Visible = false;*/
         }
 
         private void Button_Users_Click(object sender, EventArgs e)
         {
             iconButton6.Visible = false;
+  
             iconButtonUser.Visible = true;
+            iconButtonUser.Text = "Users";
             guna2Panel1.Visible = true;
             guna2Panel2.Visible = false;
             guna2Panel1.Width = this.Width - guna2CustomGradientPanel1.Width - 35;
@@ -56,9 +58,12 @@ namespace Music.Net_App.View.Admin
             guna2Panel2.Width = this.Width - guna2CustomGradientPanel1.Width - 35;
             guna2Panel2.Height = this.Height - flowLayoutPanel1.Height - 100;*/
 
-            iconButtonSong.Visible = true;
+         /*   iconButtonSong.Visible = true;*/
             guna2Panel1.Visible = true;
             guna2Panel2.Visible = false;
+            iconButtonUser.Visible = true;
+            iconButtonUser.Text = "Song";
+
             SongBLL s = new SongBLL();
             guna2DataGridView2.DataSource = s.GetAllSongs();
             guna2DataGridView1.Visible = true;
@@ -67,6 +72,48 @@ namespace Music.Net_App.View.Admin
         }
 
         private void DashboardForm_Resize(object sender, EventArgs e)
+        {
+
+        }
+
+        private void iconButton4_Click(object sender, EventArgs e)
+        {
+            iconButton6.Visible = false;
+            iconButtonUser.Visible = true;
+            iconButtonUser.Text = "Albums";
+            guna2Panel1.Visible = true;
+            guna2Panel2.Visible = false;
+            guna2Panel1.Width = this.Width - guna2CustomGradientPanel1.Width - 35;
+            guna2Panel1.Height = this.Height - flowLayoutPanel1.Height - 100;
+            //guna2Panel2.Height = this.Height - flowLayoutPanel1.Height - 100;
+            AlbumBLL al = new AlbumBLL();
+ 
+            guna2DataGridView2.DataSource = al.GetAllAlbum();
+            guna2DataGridView2.Visible = true;
+
+            guna2Panel3.Visible = false;
+            guna2Panel4.Visible = false;
+        }
+
+        private void Button_Playlist_Click(object sender, EventArgs e)
+        {
+            iconButton6.Visible = false;
+            iconButtonUser.Visible = true;
+            iconButtonUser.Text = "PlayLists";
+            guna2Panel1.Visible = true;
+            guna2Panel2.Visible = false;
+            guna2Panel1.Width = this.Width - guna2CustomGradientPanel1.Width - 35;
+            guna2Panel1.Height = this.Height - flowLayoutPanel1.Height - 100;
+            //guna2Panel2.Height = this.Height - flowLayoutPanel1.Height - 100;
+            PlaylistBLL pb = new PlaylistBLL();
+            guna2DataGridView2.DataSource = pb.GetAllPlaylist();
+            guna2DataGridView2.Visible = true;
+
+            guna2Panel3.Visible = false;
+            guna2Panel4.Visible = false;
+        }
+
+        private void iconButtonUser_Click(object sender, EventArgs e)
         {
 
         }
