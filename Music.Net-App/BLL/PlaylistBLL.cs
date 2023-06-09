@@ -163,6 +163,37 @@ namespace Music.Net_App.BLL
             return result;
         }
 
+
+        public List<PlaylistDTO> GetAllPlaylist()
+        {
+            List<PlaylistDTO> result = new List<PlaylistDTO>();
+        
+
+            var playlists = from p in db.Playlists
+                            select p;
+
+            if (playlists.Any())
+            {
+                foreach (var item in playlists.ToList())
+                {
+                    result.Add(new PlaylistDTO
+                    {
+                        PlaylistName = item.PlaylistName,
+                        PlaylistType = item.PlaylistTyped,
+                        PlaylistId = item.PlaylistID,
+                        DateCreated = Convert.ToDateTime(item.DateCreated),
+                        Description = item.Descriptions,
+                        PopularityScore = Convert.ToInt32(item.PopularityScore)
+                    });
+                }
+
+
+            }
+
+          
+
+            return result;
+        }
         //GetAllSongOfPlaylist
         public List<SongDTO> GetAllSongOfPlaylist(int playlistID)
         {
