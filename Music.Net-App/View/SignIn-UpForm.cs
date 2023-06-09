@@ -1,6 +1,7 @@
 ﻿using Guna.UI2.WinForms;
 using Music.Net_App.BLL;
 using Music.Net_App.DAL;
+using Music.Net_App.View.Admin;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -97,6 +98,14 @@ namespace Music.Net_App.View
             if (Button_SignIn_SignUp.Text == "LOG IN")
             {
                 if (!CheckInformationSignIn()) return;
+                if(guna2TextBox1.Text =="Admin" && guna2TextBox2.Text == "Admin123")
+                {
+                    MessageBox.Show("Welcome Admin");
+                    Hide();
+                    DashboardForm dbf = new DashboardForm();
+                    dbf.ShowDialog(this);
+                    Close();
+                }
                 if (guna2RadioButton1.Checked)
                 {
                     if (UserBLL.Instance.CheckArtist(guna2TextBox1.Text, guna2TextBox2.Text))
