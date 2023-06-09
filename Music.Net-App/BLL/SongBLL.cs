@@ -107,17 +107,17 @@ namespace Music.Net_App.BLL
         {
             List<SongDTO> result = new List<SongDTO>();
 
-            var songs = from p in db.Songs
+            var songs = from p in db.Songs 
+                        join artist in db.Artists on p.ArtistID equals artist.ArtistID
                         where p.ArtistID == artistID
                         select p;
-
             if (songs.Any())
             {
                 foreach (var item in songs.ToList())
                 {
                     result.Add(new SongDTO
                     {
-                        ArtistName = "",
+                        ArtistName = item.Artist.Name,
                         SongName = item.SongName,
                         SongID = item.SongID,
                         ArtistID = item.ArtistID,

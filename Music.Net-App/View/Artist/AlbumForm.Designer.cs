@@ -45,6 +45,8 @@
             this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.Button_Add_ALbum = new FontAwesome.Sharp.IconButton();
+            this.guna2ButtonAddSongToAlbum = new Guna.UI2.WinForms.Guna2Button();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -60,6 +62,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.flowLayoutPanel2);
+            this.panel1.Controls.Add(this.guna2ButtonAddSongToAlbum);
             this.panel1.Controls.Add(this.guna2ComboBoxGenre);
             this.panel1.Controls.Add(this.guna2ComboBox1);
             this.panel1.Controls.Add(this.Button_Delete);
@@ -120,9 +124,9 @@
             this.Button_Delete.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.Button_Delete.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Button_Delete.ForeColor = System.Drawing.Color.White;
-            this.Button_Delete.Location = new System.Drawing.Point(481, 556);
+            this.Button_Delete.Location = new System.Drawing.Point(429, 547);
             this.Button_Delete.Name = "Button_Delete";
-            this.Button_Delete.Size = new System.Drawing.Size(180, 45);
+            this.Button_Delete.Size = new System.Drawing.Size(150, 40);
             this.Button_Delete.TabIndex = 9;
             this.Button_Delete.Text = "Delete";
             this.Button_Delete.Visible = false;
@@ -143,7 +147,7 @@
             this.Button_Modify_Song.Name = "Button_Modify_Song";
             this.Button_Modify_Song.Size = new System.Drawing.Size(249, 47);
             this.Button_Modify_Song.TabIndex = 8;
-            this.Button_Modify_Song.Text = "Modify song";
+            this.Button_Modify_Song.Text = "Modify Album";
             this.Button_Modify_Song.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Button_Modify_Song.UseVisualStyleBackColor = false;
             this.Button_Modify_Song.Click += new System.EventHandler(this.Button_Modify_Song_Click);
@@ -199,9 +203,9 @@
             this.guna2ButtonOK.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.guna2ButtonOK.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2ButtonOK.ForeColor = System.Drawing.Color.White;
-            this.guna2ButtonOK.Location = new System.Drawing.Point(931, 556);
+            this.guna2ButtonOK.Location = new System.Drawing.Point(768, 547);
             this.guna2ButtonOK.Name = "guna2ButtonOK";
-            this.guna2ButtonOK.Size = new System.Drawing.Size(180, 45);
+            this.guna2ButtonOK.Size = new System.Drawing.Size(150, 40);
             this.guna2ButtonOK.TabIndex = 3;
             this.guna2ButtonOK.Text = "OK";
             this.guna2ButtonOK.Click += new System.EventHandler(this.guna2ButtonOK_Click);
@@ -215,9 +219,9 @@
             this.guna2ButtonCancel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.guna2ButtonCancel.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2ButtonCancel.ForeColor = System.Drawing.Color.Black;
-            this.guna2ButtonCancel.Location = new System.Drawing.Point(709, 556);
+            this.guna2ButtonCancel.Location = new System.Drawing.Point(600, 547);
             this.guna2ButtonCancel.Name = "guna2ButtonCancel";
-            this.guna2ButtonCancel.Size = new System.Drawing.Size(180, 45);
+            this.guna2ButtonCancel.Size = new System.Drawing.Size(150, 40);
             this.guna2ButtonCancel.TabIndex = 3;
             this.guna2ButtonCancel.Text = "Cancel";
             this.guna2ButtonCancel.Click += new System.EventHandler(this.guna2ButtonCancel_Click);
@@ -316,6 +320,30 @@
             this.Button_Add_ALbum.UseVisualStyleBackColor = false;
             this.Button_Add_ALbum.Click += new System.EventHandler(this.Button_Add_Album_Click);
             // 
+            // guna2ButtonAddSongToAlbum
+            // 
+            this.guna2ButtonAddSongToAlbum.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2ButtonAddSongToAlbum.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2ButtonAddSongToAlbum.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2ButtonAddSongToAlbum.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2ButtonAddSongToAlbum.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.guna2ButtonAddSongToAlbum.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2ButtonAddSongToAlbum.ForeColor = System.Drawing.Color.White;
+            this.guna2ButtonAddSongToAlbum.Location = new System.Drawing.Point(1025, 547);
+            this.guna2ButtonAddSongToAlbum.Name = "guna2ButtonAddSongToAlbum";
+            this.guna2ButtonAddSongToAlbum.Size = new System.Drawing.Size(150, 40);
+            this.guna2ButtonAddSongToAlbum.TabIndex = 12;
+            this.guna2ButtonAddSongToAlbum.Text = "Add Song";
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.BackColor = System.Drawing.Color.Silver;
+            this.flowLayoutPanel2.ForeColor = System.Drawing.Color.Black;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(912, 132);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(300, 400);
+            this.flowLayoutPanel2.TabIndex = 13;
+            // 
             // AlbumForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -351,5 +379,7 @@
         private Guna.UI2.WinForms.Guna2Button Button_Delete;
         private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
         private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBoxGenre;
+        private Guna.UI2.WinForms.Guna2Button guna2ButtonAddSongToAlbum;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
     }
 }

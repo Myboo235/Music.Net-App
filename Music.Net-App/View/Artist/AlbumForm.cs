@@ -38,6 +38,7 @@ namespace Music.Net_App.View.Artist
             InitializeComponent();
             this.User = User;
             SetUpUserAlbum();
+          
         }
         private void SetUpUserAlbum()
         {
@@ -70,6 +71,7 @@ namespace Music.Net_App.View.Artist
                 });
                 flowLayoutPanel1.Controls.Add(p);
                 loadAlbumComboBox(User.UserId);
+                guna2ButtonAddSongToAlbum.Visible = false;
 
       
             }
@@ -127,6 +129,7 @@ namespace Music.Net_App.View.Artist
             guna2TextBox4.Text = "";
             panel1.Height = 800;
             Button_Delete.Visible = false;
+            guna2ButtonAddSongToAlbum.Visible = false;
 
        
 
@@ -196,8 +199,10 @@ namespace Music.Net_App.View.Artist
             guna2ComboBox1.DisplayMember = "AlbumName";
             guna2ComboBox1.ValueMember = "AlbumID";*/
             loadAlbumComboBox(User.UserId) ;
-
+            SetAlbumSong();
             Button_Delete.Visible = true;
+     
+
         }
 
         private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -208,7 +213,11 @@ namespace Music.Net_App.View.Artist
             guna2TextBox2.Text = albumModify.PopularityScore.ToString();
             guna2ComboBoxGenre.SelectedIndex = albumModify.GenreID;
             guna2TextBox4.Text = albumModify.Duration.ToString();
-}
+            guna2ButtonAddSongToAlbum.Visible = true;
+            MessageBox.Show(((guna2ComboBox1.SelectedItem as AlbumCombobox).AlbumID).ToString());
+          
+     
+        }
 
            // MessageBox.Show(albumModify.AlbumName.ToString() + albumModify.AlbumName);
       
@@ -240,7 +249,55 @@ namespace Music.Net_App.View.Artist
 
     
 
+        public void SetAlbumSong()
+        {
+            foreach(SongDTO item in SongBLL.Instance.GetAllSongOfArtist(User.UserId))
+            {
+                MessageBox.Show(item.ArtistName);
+                
+                Guna2Panel p = new Guna2Panel();
+                FlowLayoutPanel f = new FlowLayoutPanel
+                {
+                    FlowDirection = FlowDirection.TopDown,
+                    Width = p.Width
+                };
+ 
+                Label Songname = new Label
+                {
+                    Text = item.SongName,
+                    //Text = a.AlbumName,
+                    ForeColor = Color.White,
+                    Font = new Font("Segoe UI", 12, FontStyle.Bold),
+                    Padding = new Padding(20, 10, 0, 0),
+                    //Dock = DockStyle.Top,
+                    Height = 40,
+                    Width = 600,
+                };
 
+                Label Artist = new Label
+                {
+                    Text = item.ArtistName,
+                    //Text = a.AlbumName,
+                    ForeColor = Color.White,
+                    Font = new Font("Segoe UI", 12, FontStyle.Bold),
+                    Padding = new Padding(20, 10, 0, 0),
+                    //Dock = DockStyle.Top,
+                    Height = 40,
+                    Width = 600,
+                };
+                f.Controls.Add(Songname);
+                f.Controls.Add(Artist);
+                p.Controls.Add(f);
+              //  p.BackColor = Color.Blue;
+
+              //  flowLayoutPanel2.Height += 80;
+                flowLayoutPanel2.Controls.Add(p);
+               // this.Height += 80;
+               
+            }
+
+     
+        }
 
 
 

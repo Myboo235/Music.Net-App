@@ -111,7 +111,7 @@ namespace Music.Net_App.View.Listener
                 p.BackColor = Color.Transparent;
                 p.FillColor = Color.Transparent;
                 p.BorderColor = Color.White;
-                //p.BorderRadius = 20;
+                p.BorderRadius = 20;
                 p.CustomBorderColor = Color.White;
                 p.CustomBorderThickness = new Padding(0, 1, 0, 0);
                 f.Controls.Add(SongName);
@@ -353,5 +353,7 @@ namespace Music.Net_App.View.Listener
         {
             CancelModify();
         }
+
+    
     }
 }

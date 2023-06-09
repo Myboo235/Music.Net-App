@@ -67,7 +67,7 @@
             this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(0, 18);
             this.guna2CustomGradientPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
-            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(1130, 284);
+            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(1067, 284);
             this.guna2CustomGradientPanel1.TabIndex = 3;
             // 
             // panel2
@@ -83,7 +83,7 @@
             this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(349, 29);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(769, 252);
+            this.panel2.Size = new System.Drawing.Size(706, 252);
             this.panel2.TabIndex = 5;
             // 
             // flowLayoutPanel4
@@ -132,7 +132,7 @@
             this.Button_Modify.IconColor = System.Drawing.Color.White;
             this.Button_Modify.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.Button_Modify.IconSize = 30;
-            this.Button_Modify.Location = new System.Drawing.Point(586, 65);
+            this.Button_Modify.Location = new System.Drawing.Point(523, 65);
             this.Button_Modify.Name = "Button_Modify";
             this.Button_Modify.Size = new System.Drawing.Size(180, 45);
             this.Button_Modify.TabIndex = 8;
@@ -153,7 +153,7 @@
             this.guna2Button1.FillColor = System.Drawing.Color.Transparent;
             this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(586, 126);
+            this.guna2Button1.Location = new System.Drawing.Point(523, 126);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.Size = new System.Drawing.Size(180, 30);
             this.guna2Button1.TabIndex = 6;
@@ -172,7 +172,7 @@
             this.Button_Collapse.FillColor = System.Drawing.Color.Transparent;
             this.Button_Collapse.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Button_Collapse.ForeColor = System.Drawing.Color.White;
-            this.Button_Collapse.Location = new System.Drawing.Point(586, 173);
+            this.Button_Collapse.Location = new System.Drawing.Point(523, 173);
             this.Button_Collapse.Name = "Button_Collapse";
             this.Button_Collapse.Size = new System.Drawing.Size(180, 30);
             this.Button_Collapse.TabIndex = 6;
@@ -192,7 +192,7 @@
             this.Button_Delete_Playlist.IconColor = System.Drawing.Color.White;
             this.Button_Delete_Playlist.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.Button_Delete_Playlist.IconSize = 30;
-            this.Button_Delete_Playlist.Location = new System.Drawing.Point(586, 14);
+            this.Button_Delete_Playlist.Location = new System.Drawing.Point(523, 14);
             this.Button_Delete_Playlist.Name = "Button_Delete_Playlist";
             this.Button_Delete_Playlist.Size = new System.Drawing.Size(180, 45);
             this.Button_Delete_Playlist.TabIndex = 7;
@@ -298,7 +298,7 @@
             this.flowLayoutPanel3.Controls.Add(this.flowLayoutPanel2);
             this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 305);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(1130, 1000);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(1067, 1000);
             this.flowLayoutPanel3.TabIndex = 9;
             // 
             // PlaylistSongsForm
