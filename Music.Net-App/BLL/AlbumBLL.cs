@@ -140,6 +140,7 @@ namespace Music.Net_App.BLL
             return result;
         }
 
+
         public int GetMaxAlbumSongsID()
         {
             var maxColumnValue = (from item in db.Albums
