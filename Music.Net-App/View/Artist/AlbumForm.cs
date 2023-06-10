@@ -29,34 +29,30 @@ namespace Music.Net_App.View.Artist
 
         public delegate void OpenPlaylistSongForm(object sender, EventArgs e);
         public OpenPlaylistSongForm op { get; set; }
-        //string fileNameFull;
-        string destinationFilePath;
-        System.Windows.Forms.OpenFileDialog openFileDialog = new System.Windows.Forms.OpenFileDialog();
-
-        List<AlbumCombobox> albumComboboxes = new List<AlbumCombobox>();
+        List<AlbumCombobox> AlbumComboboxes = new List<AlbumCombobox>();
         List<GenreCombobox> genreComboboxes = new List<GenreCombobox>();
         private List<Guna2Panel> ln = new List<Guna2Panel>();
 
+        string selectedSongNameAdd = "";
+        string selectedSongNameRemove = "";
+        int selectedSongIDAdd = 0;
+        int selectedSongIDRemove = 0;
+        int selectedAlbumID = 0;
         public AlbumForm(UserDTO User)
         {
             InitializeComponent();
             this.User = User;
             SetUpUserAlbum();
-            DisplayAllSongOfAlbum();
-           guna2ButtonAdd.Visible = false;
+            SetUpAlbumComboBox(User.UserId);
+            Button_AddToAlbum.Visible = false;
           
         }
         private void SetUpUserAlbum()
         {
             flowLayoutPanel1.Controls.OfType<FlowLayoutPanel>().ToList().ForEach(f => f.Dispose());
-        
             foreach (AlbumDTO pl in AlbumBLL.Instance.GetAllAlbumOfArtist(User.UserId))
             {
-                albumComboboxes.Add(new AlbumCombobox
-                {
-                    AlbumName = pl.AlbumName,
-                    AlbumID = pl.AlbumID,
-                });
+               
                 SetComboBoxGenre(User.UserId);
                 FlowLayoutPanel p = new FlowLayoutPanel();
                 p.Size = new Size(240, 374);
@@ -76,10 +72,9 @@ namespace Music.Net_App.View.Artist
                     Margin = new Padding(0, 0, 0, 0)
                 });
                 flowLayoutPanel1.Controls.Add(p);
-                loadAlbumComboBox(User.UserId);
-              
             }
-            //setAlbumSongOfArtist(User.UserId);
+            
+
         }
         private void SetComboBoxGenre(int UserID)
         {
@@ -109,12 +104,12 @@ namespace Music.Net_App.View.Artist
         
         }
 
-        public void loadAlbumComboBox(int UserID)
+        public void SetUpAlbumComboBox(int UserID)
         {
-            albumComboboxes.Clear();
+            AlbumComboboxes.Clear();
             foreach (var item in AlbumBLL.Instance.GetAllAlbumOfArtist(UserID))
             {
-                albumComboboxes.Add(new AlbumCombobox
+                AlbumComboboxes.Add(new AlbumCombobox
                 {
                     AlbumName = item.AlbumName,
                     AlbumID = item.AlbumID,
@@ -124,7 +119,7 @@ namespace Music.Net_App.View.Artist
            // guna2ComboBox1.DataSource = null;
            
             guna2ComboBox1.Items.Clear();
-            guna2ComboBox1.Items.AddRange(albumComboboxes.ToArray());
+            guna2ComboBox1.Items.AddRange(AlbumComboboxes.ToArray());
             guna2ComboBox1.SelectedIndex = 0;
         }
         private void Button_Add_Album_Click(object sender, EventArgs e)
@@ -134,10 +129,17 @@ namespace Music.Net_App.View.Artist
             guna2ComboBoxGenre.SelectedIndex = 0;
             guna2TextBox4.Text = "";
             panel1.Height = 800;
-            Button_Delete.Visible = false;
-        
+            guna2ComboBox1.Visible = false ;
+            label2.Visible = false;
+            label3.Visible = false;
+            label8.Visible = false;
+            flowLayoutPanel2.Visible = false;
+            flowLayoutPanel3.Visible = false;
 
-       
+            Buttom_RemoveFromAlbum.Visible = false;
+            Button_Delete.Visible = false;
+            Button_AddToAlbum.Visible = false;
+
 
             //pd();
         }
@@ -184,44 +186,43 @@ namespace Music.Net_App.View.Artist
             }
  
             SetUpUserAlbum();
-        
-
-
-           
-            panel1.Height = 100;
-            
-       
-      
-           
+            panel1.Height = 100;        
         }
 
-        private void Button_Modify_Song_Click(object sender, EventArgs e)
+        private void Button_Modify_Album_Click(object sender, EventArgs e)
         {
            
             panel1.Height = 800;
             guna2ComboBox1.Visible = true;
-            loadAlbumComboBox(User.UserId) ;
+            SetUpAlbumComboBox(User.UserId) ;
             DisplayAllSongOfArtist();
+            DisplayAllSongOfAlbum();
+
+            label2.Visible = true;
+            label3.Visible = true;
+            label8.Visible = true;
+            flowLayoutPanel2.Visible = true;
+            flowLayoutPanel3.Visible = true;
+
+            Buttom_RemoveFromAlbum.Visible = true;
             Button_Delete.Visible = true;
-            guna2ButtonAdd.Visible = true;
+            Button_AddToAlbum.Visible = true;
 
         }
 
         private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (guna2ComboBox1.SelectedIndex == -1) return;
+            if (guna2ComboBox1.SelectedIndex < 0) return;
             AlbumDTO albumModify = AlbumBLL.Instance.GetAlbumById((guna2ComboBox1.SelectedItem as AlbumCombobox).AlbumID);
             guna2TextBox1.Text = albumModify.AlbumName;
             guna2TextBox2.Text = albumModify.PopularityScore.ToString();
             guna2ComboBoxGenre.SelectedIndex = albumModify.GenreID;
             guna2TextBox4.Text = albumModify.Duration.ToString();
+            selectedAlbumID = (guna2ComboBox1.SelectedItem as AlbumCombobox).AlbumID;
+            DisplayAllSongOfAlbum();
+
         }
-
-      
-
-            //    SetUpUserAlbum();
         
-
         private void Button_Delete_Click(object sender, EventArgs e)
         {
             if (guna2ComboBox1.SelectedItem != null)
@@ -235,7 +236,7 @@ namespace Music.Net_App.View.Artist
                     MessageBox.Show("Error occurs when delete album");
                 }
             }
-            loadAlbumComboBox(User.UserId);
+            SetUpAlbumComboBox(User.UserId);
         }
 
         private void guna2ButtonCancel_Click(object sender, EventArgs e)
@@ -252,32 +253,21 @@ namespace Music.Net_App.View.Artist
             foreach (SongDTO item in SongBLL.Instance.GetAllSongOfArtist(User.UserId))
             {
                 Guna2Panel p = new Guna2Panel {
-                    Width = 300,
-                    Height = 300
+                    Width = flowLayoutPanel2.Width - 10,
                                     
-                };
-                FlowLayoutPanel f = new FlowLayoutPanel
-                {
-                    FlowDirection = FlowDirection.TopDown,
-                    Width = p.Width,
                 };
                 Label Songname = new Label
                 {
+                    Name = item.SongID+"",
                     Text = item.SongName,
-                    //Text = a.AlbumName,
                     ForeColor = Color.White,
                     Font = new Font("Segoe UI", 12, FontStyle.Bold),
-                    Padding = new Padding(20, 10, 0, 0),
-                    //Dock = DockStyle.Top,
-                    Height = 40,
-                    Width = 250,
+                    Height = 50,
+                    Width = p.Width - 10,
+                    
                 };
-                Songname.Click += new EventHandler(songClicked);
-
-
-
-                f.Controls.Add(Songname);
-
+                Songname.Click += new EventHandler(SongClickedAdd);
+                p.Controls.Add(Songname);
                 p.BackColor = Color.Transparent;
                 p.FillColor = Color.Transparent;
                 p.BorderColor = Color.White;
@@ -286,10 +276,8 @@ namespace Music.Net_App.View.Artist
                 p.CustomBorderThickness = new Padding(0, 1, 0, 0);
                 ln.Add(p);
                 p.Height = 40;
-                p.Controls.Add(f);
+
                 flowLayoutPanel2.Controls.Add(p);
- 
-               
             }
 
      
@@ -299,126 +287,89 @@ namespace Music.Net_App.View.Artist
         public void DisplayAllSongOfAlbum()
         {
             flowLayoutPanel3.Controls.Clear();
-            foreach (SongDTO item in AlbumBLL.Instance.GetAllSongOfAlbum((guna2ComboBox1.SelectedItem as AlbumCombobox).AlbumID))
+            foreach (SongDTO item in AlbumBLL.Instance.GetAllSongOfAlbum(selectedAlbumID))
             {
                 Guna2Panel p = new Guna2Panel
                 {
-                    Width = 300,
-                    Height = 300
+                    Width = flowLayoutPanel2.Width - 10,
 
                 };
-                FlowLayoutPanel f = new FlowLayoutPanel
+                Label Songname = new Label
                 {
-                    FlowDirection = FlowDirection.TopDown,
-                    Width = p.Width,
-                };
-                FlowLayoutPanel fb = new FlowLayoutPanel
-                {
-                    FlowDirection = FlowDirection.BottomUp,
-                    Size = new Size(100, 30),
-                    Dock = DockStyle.Right,
-                };
-                Label SongName = new Label
-                {
+                    Name = item.SongID + "",
                     Text = item.SongName,
-                    //Text = a.AlbumName,
                     ForeColor = Color.White,
                     Font = new Font("Segoe UI", 12, FontStyle.Bold),
-                    Padding = new Padding(20, 10, 0, 0),
-                    //Dock = DockStyle.Top,
-                    Height = 40,
-                    Width = 250,
-                };
-
-
-
-
-                Guna2Button b = new Guna2Button
-                {
-                    Name = item.SongID.ToString(),
-                    Text = "Remove from playlist",
-                    Font = new Font("Segoe UI", 9),
-                    Size = new Size(206, 52),
-                    FillColor = Color.Transparent,
-                    BorderColor = Color.White,
-                    BorderRadius = 20,
-                    BorderThickness = 2,
+                    Height = 50,
+                    Width = p.Width - 10,
 
                 };
-                b.Click += new EventHandler(Button_Remove_Song_Click);
-                ln.Add(p);
-                p.Height = 80;
-                p.Width = flowLayoutPanel1.Width - 30;
+
+                Songname.Click += new EventHandler(SongClickedRemove);
+
+                p.Controls.Add(Songname);
                 p.BackColor = Color.Transparent;
                 p.FillColor = Color.Transparent;
                 p.BorderColor = Color.White;
                 p.BorderRadius = 20;
                 p.CustomBorderColor = Color.White;
                 p.CustomBorderThickness = new Padding(0, 1, 0, 0);
-                f.Controls.Add(SongName);
-                fb.Controls.Add(b);
-                p.Controls.Add(f);
-                p.Controls.Add(fb);
+                ln.Add(p);
+                p.Height = 40;
 
                 flowLayoutPanel3.Controls.Add(p);
             }
 
-
         }
 
 
-        private void Button_Remove_Song_Click(object sender, EventArgs e)
+        
+
+        private void SongClickedAdd(object sender, EventArgs e)
         {
-            int songID = Convert.ToInt32((sender as Guna2Button).Name);
-            if (AlbumBLL.Instance.RemoveSongFromAlbum(Convert.ToInt32((guna2ComboBox1.SelectedItem as AlbumDTO).AlbumID),songID))
-            {
-                MessageBox.Show("Remove from " + album.AlbumName + " successfully");
-                int thisformheight = this.Height;
-                int songinplaylistheight = flowLayoutPanel3.Height;
-               // SetAlbumSong();
-                flowLayoutPanel3.Height = songinplaylistheight - 100;
-                this.Height = thisformheight - 40;
-            }
-            else
-                MessageBox.Show("An error occurred while remove song from playlist");
-
+            selectedSongNameAdd = (sender as Label).Text;
+            label8.Text = "You're choosing: "+ selectedSongNameAdd;
+            selectedSongIDAdd = Convert.ToInt32((sender as Label).Name);
         }
 
-        string selectedSongName = "";
-
-        private void songClicked(object sender, EventArgs e)
-        {
-            selectedSongName = (sender as Label).Text;
-            label3.Text = "You're choosing: "+selectedSongName;
-       
-        }
-
-        private void guna2ButtonAdd_Click(object sender, EventArgs e)
+        private void Button_AddToAlbum_Click(object sender, EventArgs e)
         {
             
-            if (selectedSongName.Length == 0) return;
-
-            //find songid by artistid and songname
-            MessageBox.Show("SONGNAME : <" + selectedSongName + "> ; ID: " + User.UserId);
-            int songID = SongBLL.Instance.GetSongByIDAndArtistID(selectedSongName.Trim(), User.UserId);
-            SongDTO songAdd = SongBLL.Instance.GetSongByID(songID);
-            MessageBox.Show("SongID: " + songID.ToString());
-            MessageBox.Show((guna2ComboBox1.SelectedItem as AlbumCombobox).AlbumID.ToString() + "- name : " + (guna2ComboBox1.SelectedItem as AlbumCombobox).AlbumName.ToString());
-            if (AlbumBLL.Instance.AddSongToAlbum((guna2ComboBox1.SelectedItem as AlbumCombobox).AlbumID, songID))
+            if (selectedSongNameAdd.Length == 0) return;
+            if (AlbumBLL.Instance.AddSongToAlbum((guna2ComboBox1.SelectedItem as AlbumCombobox).AlbumID, selectedSongIDAdd))
             {
                 MessageBox.Show("Add to " + album.AlbumName + " successfully");
             }
             else
-                MessageBox.Show("An error occurred while adding song to album or it's already in " + album.AlbumName);  
+            {
+                MessageBox.Show("An error occurred while adding song to album or it's already in " + album.AlbumName);
+            }
 
-            selectedSongName = "";
-
+            selectedSongNameAdd = "";
+            DisplayAllSongOfAlbum();
         }
 
-
-       
-
-       
+        private void SongClickedRemove(object sender, EventArgs e)
+        {
+            selectedSongNameRemove = (sender as Label).Text;
+            selectedSongIDRemove = Convert.ToInt32((sender as Label).Name);
+            label3.Text = "You're choosing: " + selectedSongNameRemove;
+        }
+        private void Buttom_RemoveFromAlbum_Click(object sender, EventArgs e)
+        {
+            if (selectedSongNameRemove.Length == 0) return;
+            MessageBox.Show(selectedSongNameRemove + " " + selectedSongIDRemove);
+            if (AlbumBLL.Instance.RemoveSongFromAlbum(selectedAlbumID, selectedSongIDRemove))
+            {
+                MessageBox.Show("Remove from " + album.AlbumName + " successfully");
+            }
+            else
+            {
+                MessageBox.Show("An error occurred while removing song to album");
+            }
+            DisplayAllSongOfAlbum();
+            selectedSongNameRemove = "";
+        }
     }
 
 }

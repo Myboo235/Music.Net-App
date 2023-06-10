@@ -415,10 +415,11 @@ namespace Music.Net_App.View
 
         private void Button_Song_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(User.TypeUser);
-            if(User.TypeUser == "Artist")
+
+            if (currentChildForm.GetType().Name.ToString() != "SongForm")
             {
                 SongForm f = new SongForm(User);
+                f.Width = MainLayout.Width - 40;
                 OpenChildForm(f);
             }
         }
@@ -459,12 +460,12 @@ namespace Music.Net_App.View
 
         private void Button_Album_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(User.TypeUser);
-            if (User.TypeUser == "Artist")
-            {
-                AlbumForm f = new AlbumForm(User);
 
-                OpenChildForm(f);
+            if (currentChildForm.GetType().Name.ToString() != "AlbumForm")
+            {
+                AlbumForm af = new AlbumForm(User);
+                af.Width = MainLayout.Width - 40;
+                OpenChildForm(af);
             }
 
 

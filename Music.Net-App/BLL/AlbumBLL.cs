@@ -53,7 +53,7 @@ namespace Music.Net_App.BLL
                 return ad;
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return ad;
             }
@@ -111,10 +111,10 @@ namespace Music.Net_App.BLL
         {
             List<SongDTO> result = new List<SongDTO>();
             var songs = (from s in db.Songs
-                         join ps in db.Albums on s.ArtistID equals ps.ArtistID
-                         join p in db.Albums on ps.AlbumID equals p.AlbumID
+                         join abs in db.AlbumSongs on s.SongID equals abs.SongID
+                         join ab in db.Albums on abs.AlbumID equals ab.AlbumID
                          join a in db.Artists on s.ArtistID equals a.ArtistID
-                         where p.AlbumID == albumID
+                         where ab.AlbumID == albumID
                          select new { s.SongID, s.SongName, s.DateCreated, s.Duration, a.ArtistID, a.Name })
                          .ToList();
 
