@@ -3,11 +3,7 @@ using Music.Net_App.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.ServiceModel.Channels;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Xml.Linq;
 
 namespace Music.Net_App.BLL
 {
@@ -35,15 +31,15 @@ namespace Music.Net_App.BLL
             try
             {
                 var album = (from p in db.Albums
-                            where p.AlbumID == albumID
-                            select p).First();
+                             where p.AlbumID == albumID
+                             select p).First();
                 if (album != null)
                 {
                     ad = new AlbumDTO
                     {
 
                         AlbumID = album.AlbumID,
-                   
+
                         GenreID = Convert.ToInt32(album.GenreID),
                         AlbumName = album.AlbumName,
                         ReleaseDate = Convert.ToDateTime(album.ReleaseDate),
@@ -56,20 +52,21 @@ namespace Music.Net_App.BLL
 
                 return ad;
 
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 return ad;
             }
         }
-       
-        
+
+
         public List<AlbumDTO> GetAllAlbumOfArtist(int artistID)
         {
             List<AlbumDTO> result = new List<AlbumDTO>();
 
             var albums = from p in db.Albums
-                        where p.ArtistID == artistID
-                        select p;
+                         where p.ArtistID == artistID
+                         select p;
 
             if (albums.Any())
             {
@@ -77,10 +74,10 @@ namespace Music.Net_App.BLL
                 {
                     result.Add(new AlbumDTO
                     {
-                       
+
                         AlbumID = item.AlbumID,
                         AlbumName = item.AlbumName,
-              
+
                         GenreID = Convert.ToInt32(item.GenreID),
                         PopularityScore = Convert.ToInt32(item.PopularityScore),
                         ReleaseDate = Convert.ToDateTime(item.ReleaseDate),
@@ -97,16 +94,16 @@ namespace Music.Net_App.BLL
         public int getGenreIdOfArtist(int artistID)
         {
             int genreID = -1;
-            foreach(var album in db.Albums)
+            foreach (var album in db.Albums)
             {
-                if(album.GenreID == artistID) 
-                genreID = Convert.ToInt32(album.GenreID);
+                if (album.GenreID == artistID)
+                    genreID = Convert.ToInt32(album.GenreID);
                 break;
             }
             return genreID;
         }
 
-      
+
 
 
 
@@ -143,8 +140,8 @@ namespace Music.Net_App.BLL
 
         public int GetMaxAlbumSongsID()
         {
-            var maxColumnValue = (from item in db.Albums
-                                  select item.AlbumID).Max();
+            var maxColumnValue = (from item in db.AlbumSongs
+                                  select item.AlbumSongID).Max();
 
             return maxColumnValue;
         }
@@ -154,8 +151,8 @@ namespace Music.Net_App.BLL
         {
 
             var album = (from p in db.Albums
-                            where p.AlbumID == AlbumID
-                            select p).FirstOrDefault();
+                         where p.AlbumID == AlbumID
+                         select p).FirstOrDefault();
             var song = (from s in db.Songs
                         where s.SongID == songID
                         select s).FirstOrDefault();
@@ -167,7 +164,10 @@ namespace Music.Net_App.BLL
             var existingSong = (from ps in db.AlbumSongs
                                 where ps.AlbumID == AlbumID && ps.SongID == songID
                                 select ps).FirstOrDefault();
-            if (existingSong != null) return false;
+            if (existingSong != null)
+            {
+                return false;
+            }
 
 
             try
@@ -176,9 +176,12 @@ namespace Music.Net_App.BLL
                 {
                     AlbumSongID = GetMaxAlbumSongsID() + 1,
                     AlbumID = album.AlbumID,
-                    SongID = song.SongID
+                    SongID = song.SongID,
+                    DateAdded = DateTime.Now,
                 };
+
                 db.AlbumSongs.Add(newAlbumSong);
+
                 db.SaveChanges();
 
                 return true;
@@ -202,15 +205,15 @@ namespace Music.Net_App.BLL
         {
             try
             {
-               Album album= new Album
+                Album album = new Album
                 {
-                  ArtistID = ArtistID,
-                  AlbumID = GetMaxAlbumID() +1,
-                  AlbumName = albumDTO.AlbumName,
-                  GenreID = albumDTO.GenreID,
-                  PopularityScore  = Convert.ToInt32(albumDTO.PopularityScore),
-                  ReleaseDate = albumDTO.ReleaseDate,
-                  Duration = albumDTO.Duration,
+                    ArtistID = ArtistID,
+                    AlbumID = GetMaxAlbumID() + 1,
+                    AlbumName = albumDTO.AlbumName,
+                    GenreID = albumDTO.GenreID,
+                    PopularityScore = Convert.ToInt32(albumDTO.PopularityScore),
+                    ReleaseDate = albumDTO.ReleaseDate,
+                    Duration = albumDTO.Duration,
 
 
 
@@ -233,8 +236,8 @@ namespace Music.Net_App.BLL
             try
             {
                 var album = (from p in db.Albums
-                                where p.AlbumID == albumID
-                                select p).FirstOrDefault();
+                             where p.AlbumID == albumID
+                             select p).FirstOrDefault();
 
                 if (album != null)
                 {
@@ -257,8 +260,8 @@ namespace Music.Net_App.BLL
             try
             {
                 var AlbumSong = (from As in db.AlbumSongs
-                                    where As.AlbumID == albumID && As.SongID == songID
-                                    select As).FirstOrDefault();
+                                 where As.AlbumID == albumID && As.SongID == songID
+                                 select As).FirstOrDefault();
                 if (AlbumSong != null)
                 {
                     db.AlbumSongs.Remove(AlbumSong);
@@ -277,17 +280,17 @@ namespace Music.Net_App.BLL
         }
 
 
-        public bool ModifyAlbum(AlbumDTO albumDTO )
+        public bool ModifyAlbum(AlbumDTO albumDTO)
         {
             try
             {
                 var album = (from p in db.Albums
-                                where p.AlbumID == albumDTO.AlbumID
-                                select p).FirstOrDefault();
+                             where p.AlbumID == albumDTO.AlbumID
+                             select p).FirstOrDefault();
                 MessageBox.Show(albumDTO.AlbumID.ToString());
                 if (album != null)
                 {
-                   // .PlaylistTyped = playlistDTO.PlaylistType;
+                    // .PlaylistTyped = playlistDTO.PlaylistType;
                     album.AlbumName = albumDTO.AlbumName;
                     album.Duration = albumDTO.Duration;
                     album.PopularityScore = albumDTO.PopularityScore;
@@ -305,18 +308,18 @@ namespace Music.Net_App.BLL
             }
         }
 
-        
-         public List<AlbumDTO> GetAllAlbum()
-         {
-             List<AlbumDTO> re = new List<AlbumDTO>();
 
-             var n = from album in db.Albums
-                     join artist in db.Artists on album.ArtistID equals artist.ArtistID
-                     select album;
-             foreach (var item in n.ToList())
-             {
-                 re.Add(new AlbumDTO
-                 {
+        public List<AlbumDTO> GetAllAlbum()
+        {
+            List<AlbumDTO> re = new List<AlbumDTO>();
+
+            var n = from album in db.Albums
+                    join artist in db.Artists on album.ArtistID equals artist.ArtistID
+                    select album;
+            foreach (var item in n.ToList())
+            {
+                re.Add(new AlbumDTO
+                {
                     AlbumID = item.AlbumID,
                     AlbumName = item.AlbumName,
                     Duration = Convert.ToInt32(item.Duration),
@@ -325,22 +328,23 @@ namespace Music.Net_App.BLL
                     ReleaseDate = Convert.ToDateTime(item.ReleaseDate),
                     ArtistID = Convert.ToInt32(item.ArtistID),
                     ArtistName = item.Artist.Name
-                 });
-             }
-             return re;
+                });
+            }
+            return re;
 
-         }
+        }
 
 
 
-        public string  GetGenreByIDGenre(int genreID)
+        public string GetGenreByIDGenre(int genreID)
         {
             string s = "";
-                foreach (var item in db.Genres) {
-            
-            if(item.GenreID == genreID)
+            foreach (var item in db.Genres)
+            {
+
+                if (item.GenreID == genreID)
                 {
-                s = item.GenreName;
+                    s = item.GenreName;
                 }
                 break;
             }
@@ -355,10 +359,10 @@ namespace Music.Net_App.BLL
             List<Genre> re = new List<Genre>();
             var getAllGenre = from Genre genre in db.Genres
                               select new { genre.GenreID, genre.GenreName };
-            foreach(var item in getAllGenre)
+            foreach (var item in getAllGenre)
             {
-               re.Add(new Genre
-               {
+                re.Add(new Genre
+                {
                     GenreID = item.GenreID,
                     GenreName = item.GenreName
                 });
