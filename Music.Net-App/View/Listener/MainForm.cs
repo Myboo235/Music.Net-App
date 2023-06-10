@@ -44,9 +44,7 @@ namespace Music.Net_App.View
             }
             else
             {
-                MessageBox.Show(email);
-                User = UserBLL.Instance.GetArtistByEmail(email);
-                MessageBox.Show(User.TypeUser);
+                User = UserBLL.Instance.GetArtistByEmail(email);    
             }
             
             this.FormBorderStyle = FormBorderStyle.None;

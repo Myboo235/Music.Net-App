@@ -21,12 +21,9 @@ namespace Music.Net_App
         {
             
             Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(true);
-            Application.Run(new SignIn_UpForm());
-            Application.EnableVisualStyles();
-           
-            Application.Run(new DashboardForm());
-            //Application.Run(new MainForm("Edsheeran@gmail.com", "Artist"));
+            Application.SetCompatibleTextRenderingDefault(false);          
+            //Application.Run(new DashboardForm());
+            Application.Run(new MainForm("Edsheeran@gmail.com", "Artist"));
         }
     }
 }

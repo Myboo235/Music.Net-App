@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,16 +19,23 @@ namespace Music.Net_App.View.Listener
     {
         UserDTO User = new UserDTO(); 
         CountryBLL Countrybll = new CountryBLL();
+        string directory = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug\", "");
         public AccountForm(UserDTO user)
         {
             InitializeComponent();
 
             User = user;
-            //MessageBox.Show(user.CountryName);
+            guna2CirclePictureBox1.Image = resizeImage(Image.FromFile(directory + @"\Assets\Images\Profile-picture.png"),
+                new Size(guna2CirclePictureBox1.Width, guna2CirclePictureBox1.Height));
+            guna2CirclePictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
             SetUpAccount();
-            //this.HorizontalScroll.Value = true;
+            
         }
 
+        public static Image resizeImage(Image imgToResize, Size size)
+        {
+            return (Image)(new Bitmap(imgToResize, size));
+        }
         private void SetUpAccount()
         {
             iconButton1.Text = "Hello "+ User.Name;
@@ -42,8 +50,6 @@ namespace Music.Net_App.View.Listener
                 guna2ComboBox1.Items.Add(c.CountryName);
             }
             guna2ComboBox1.SelectedIndex = User.CountryId;
-            //guna2ComboBox1.val
-            //guna2ComboBox1.ForeColor = Color.Red;
             guna2ComboBox2.Items.AddRange(new string[]{
                 "Women","Men"
             });
