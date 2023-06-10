@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Messaging;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using Music.Net_App.DAL;
 using Music.Net_App.DTO;
 
@@ -47,6 +49,7 @@ namespace Music.Net_App.BLL
             return songDTOs;
         }
 
+
         //GetSongByName
         public List<SongDTO> GetSongByName(string name)
         {
@@ -69,6 +72,27 @@ namespace Music.Net_App.BLL
                 });
             }
             return songDTOs;
+        }
+
+        public int GetSongByIDAndArtistID(string songName, int artistID)
+        {
+            List<SongDTO> songs = GetSongByName(songName);
+            int result = -1;
+
+          
+                foreach (SongDTO s in songs)
+                {
+                    if (s.ArtistID == artistID)
+                    {
+                        result = s.SongID;
+                        MessageBox.Show(s.SongID.ToString());
+                        return result;
+                    }
+                }
+                return result;
+     
+      
+
         }
 
         public SongDTO GetSongByID(int songID)
