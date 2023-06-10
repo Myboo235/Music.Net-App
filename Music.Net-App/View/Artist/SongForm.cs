@@ -82,6 +82,7 @@ namespace Music.Net_App.View.Artist
             Button_Delete_Song.Height = 800;
             guna2ComboBox1.Visible = false;
             //label2.Visible = true;
+            Button_Delete.Visible = false;
         }
 
         private void Button_Cancel_Click(object sender, EventArgs e)

@@ -57,30 +57,6 @@ namespace Music.Net_App.View
             }
         }
 
-        private void iconButton1_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show(((flowLayoutPanel3.Width - 30) / 4).ToString());
-
-            
-
-            for (int i = 0; i < 5; i++)
-            {
-                PictureBox t = new PictureBox();
-                //tb.Add(t);
-                t.Height = 200;
-                t.Width = (flowLayoutPanel3.Width - 30)/4 ;
-                t.BackColor = Color.Red;
-
-                string directory = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug\", "");
-                t.Image = Image.FromFile(directory + @"\Assets\Images\Song-icon.jpg");
-
-                t.SizeMode = PictureBoxSizeMode.CenterImage;
-                t.Anchor = AnchorStyles.None;
-
-                flowLayoutPanel3.Controls.Add(t);
-            }
-        }
-
         private void Label_Click(object sender, EventArgs e)
         {
             //MessageBox.Show("Click");

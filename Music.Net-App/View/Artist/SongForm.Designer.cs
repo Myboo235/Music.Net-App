@@ -80,7 +80,7 @@
             this.Button_Delete_Song.Controls.Add(this.Button_Add_Song);
             this.Button_Delete_Song.Location = new System.Drawing.Point(3, 3);
             this.Button_Delete_Song.Name = "Button_Delete_Song";
-            this.Button_Delete_Song.Size = new System.Drawing.Size(1200, 100);
+            this.Button_Delete_Song.Size = new System.Drawing.Size(1200, 108);
             this.Button_Delete_Song.TabIndex = 3;
             // 
             // Button_Delete
@@ -300,7 +300,7 @@
             // 
             this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 109);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 117);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1200, 488);
             this.flowLayoutPanel1.TabIndex = 4;

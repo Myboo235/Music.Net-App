@@ -60,7 +60,7 @@
             this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 1);
             this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(1218, 676);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(1366, 676);
             this.flowLayoutPanel3.TabIndex = 2;
             // 
             // panel1
@@ -282,7 +282,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.ClientSize = new System.Drawing.Size(1237, 675);
+            this.ClientSize = new System.Drawing.Size(1385, 675);
             this.Controls.Add(this.flowLayoutPanel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "PlaylistForm";

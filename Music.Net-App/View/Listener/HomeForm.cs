@@ -16,6 +16,8 @@ namespace Music.Net_App.View
 {
     public partial class HomeForm : Form
     {
+        public delegate void SongDelegate(string SongName);
+        public SongDelegate sd { get; set; }
         public HomeForm(UserDTO User)
         {
 
@@ -43,17 +45,37 @@ namespace Music.Net_App.View
                     Guna2Panel gp = new Guna2Panel
                     {
                         BackColor = Color.DimGray,
-                        Size = new Size(182, 152)
+                        Size = new Size(182, 152),
+                        BorderRadius = 20,
                     };
                     Label l = new Label
                     {
-                        Text = c.ItemName + "\n" + c.TimeStamp,
+                        Text = c.ItemName,
+                        Width = gp.Width,
+                        Height = 100,
                         ForeColor = Color.White,
                     };
+                    Label t = new Label
+                    {
+                        Text = c.TimeStamp +"",
+                        Width = gp.Width,
+                        Height = 100,
+                        ForeColor = Color.White,
+                    };
+                    l.Click += new EventHandler(Label_Click);                    
                     gp.Controls.Add(l);
+                    gp.Controls.Add(t);
                     RecentPlayed.Controls.Add(gp);
                 }
             
+        }
+
+        private void Label_Click(object sender, EventArgs e)
+        {
+            //MessageBox.Show("Click");
+            string song = (sender as Label).Text;
+            MessageBox.Show(song);
+            sd(song);
         }
         private void resize()
         {

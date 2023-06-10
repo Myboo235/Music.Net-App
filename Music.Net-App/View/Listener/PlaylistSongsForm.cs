@@ -354,6 +354,5 @@ namespace Music.Net_App.View.Listener
             CancelModify();
         }
 
-    
     }
 }

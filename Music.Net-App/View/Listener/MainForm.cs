@@ -49,6 +49,7 @@ namespace Music.Net_App.View
             
             this.FormBorderStyle = FormBorderStyle.None;
             currentChildForm = new HomeForm(User);
+            ((HomeForm)currentChildForm).sd += SetMusicPlayer;
             OpenChildForm(currentChildForm);
             SetUpMainForm();
         }
@@ -275,8 +276,14 @@ namespace Music.Net_App.View
         }
         private void Button_Home_Click(object sender, EventArgs e)
         {
+
             if (currentChildForm.GetType().Name.ToString() != "HomeForm")
-                OpenChildForm(new HomeForm(User));
+            {
+                HomeForm f = new HomeForm(User);
+                OpenChildForm(f);
+                f.sd += SetMusicPlayer;
+            }
+                
             resize();
         }
 
