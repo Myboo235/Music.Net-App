@@ -56,7 +56,9 @@ namespace Music.Net_App.View.Listener
                 {
                     Size = new Size(172, 156),
                     SizeMode = PictureBoxSizeMode.AutoSize,
-                    BorderRadius = 20
+                    BorderRadius = 20,
+                    Image = resizeImage(Image.FromFile(directory + @"\Assets\Images\muzira-banner.png"), new Size(150, 150))
+
                 };
                 Label l = new Label
                 {
@@ -127,7 +129,8 @@ namespace Music.Net_App.View.Listener
                     {
                         Size = new Size(172, 156),
                         SizeMode = PictureBoxSizeMode.AutoSize,
-                        BorderRadius = 20
+                        BorderRadius = 20,
+                        Image = resizeImage(Image.FromFile(directory + @"\Assets\Images\muzira-banner.png"), new Size(150, 150))
                     };
                     Label l = new Label
                     {
