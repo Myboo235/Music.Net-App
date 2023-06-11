@@ -193,6 +193,7 @@ namespace Music.Net_App.BLL
                        where s.SongID == songDTO.SongID
                        select s).FirstOrDefault();
 
+
             if (song != null)
             {
                 song.SongName = songDTO.SongName;
@@ -211,10 +212,9 @@ namespace Music.Net_App.BLL
         {
             try
             {
-                var song = (from s in db.Songs
-                                where s.SongID == songID
-                                select s).FirstOrDefault();
+                var song = db.Songs.FirstOrDefault(s => s.SongID == songID);
 
+                MessageBox.Show(song.SongName);
                 if (song != null)
                 {
                     db.Songs.Remove(song);

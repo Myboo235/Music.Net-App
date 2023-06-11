@@ -210,6 +210,7 @@ namespace Music.Net_App.View.Artist
         {
             if (guna2ComboBox1.SelectedItem != null)
             {
+                MessageBox.Show((guna2ComboBox1.SelectedItem as SongCombobox).SongID.ToString());
                 if (SongBLL.Instance.RemoveSong((guna2ComboBox1.SelectedItem as SongCombobox).SongID))
                 {
                     MessageBox.Show("Delete song successful");
