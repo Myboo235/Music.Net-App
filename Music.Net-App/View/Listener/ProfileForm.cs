@@ -29,27 +29,118 @@ namespace Music.Net_App.View.Listener
 
             SetUpUserProfile();
         }
-
         private void SetUpUserProfile()
         {
 
             label2.Text = User.Name;
-            label2.Width = guna2CustomGradientPanel1.Width;   
+            label2.Width = guna2CustomGradientPanel1.Width;
+            panel1.Height = flowLayoutPanel1.Height - 9;
 
             foreach (PlaylistDTO c in PlaylistBLL.Instance.GetAllPlaylistOfListener(User.UserId))
             {
                 Guna2Panel gp = new Guna2Panel
                 {
-                    BackColor = Color.AntiqueWhite,
+                    BackColor = Color.Transparent,
+                    FillColor = Color.FromArgb(25,20,20),
+                    BorderRadius = 20,
+                    Size = new Size(182, 250),
+                };
+                FlowLayoutPanel f = new FlowLayoutPanel
+                {
+                    Height = gp.Height,
+                    Width = gp.Width,
+                    BackColor = Color.Transparent,
+                    RightToLeft = RightToLeft.Yes,
+                };
+                Guna2PictureBox pb = new Guna2PictureBox
+                {
+                    Size = new Size(172, 156),
+                    SizeMode = PictureBoxSizeMode.AutoSize,
+                    BorderRadius = 20
                 };
                 Label l = new Label
                 {
                     Width = gp.Width,
-                    Height = gp.Height,
-                    Text = c.PlaylistName + "\n" ,
+                    Height = 100,
+                    Text = c.PlaylistName + "\n" +"playlist\n"+ User.Name,
+                    ForeColor = Color.White
                 };
-                gp.Controls.Add(l);
+                f.Controls.Add(pb);
+                f.Controls.Add(l);
+                gp.Controls.Add(f);
                 flowLayoutPanel1.Controls.Add(gp);
+            }
+            if(User.TypeUser == "Artist")
+            {
+                foreach (AlbumDTO c in AlbumBLL.Instance.GetAllAlbumOfArtist(User.UserId))
+                {
+                    Guna2Panel gp = new Guna2Panel
+                    {
+                        BackColor = Color.Transparent,
+                        FillColor = Color.FromArgb(25, 20, 20),
+                        BorderRadius = 20,
+                        Size = new Size(182, 250),
+                    };
+                    FlowLayoutPanel f = new FlowLayoutPanel
+                    {
+                        Height = gp.Height,
+                        Width = gp.Width,
+                        BackColor = Color.Transparent,
+                        RightToLeft = RightToLeft.Yes,
+                    };
+                    Guna2PictureBox pb = new Guna2PictureBox
+                    {
+                        Size = new Size(172, 156),
+                        SizeMode = PictureBoxSizeMode.AutoSize,
+                        BorderRadius = 20,
+                        Image = resizeImage(Image.FromFile(directory + @"\Assets\Images\muzira-banner.png"), new Size(150, 150))
+                    };
+                    Label l = new Label
+                    {
+                        Width = gp.Width,
+                        Height = 100,
+                        Text = c.AlbumName + "\n" + "album\n" + User.Name,
+                        ForeColor = Color.White
+                    };
+                    f.Controls.Add(pb);
+                    f.Controls.Add(l);
+                    gp.Controls.Add(f);
+                    flowLayoutPanel1.Controls.Add(gp);
+                }
+                foreach (SongDTO c in SongBLL.Instance.GetAllSongOfArtist(User.UserId))
+                {
+                    Guna2Panel gp = new Guna2Panel
+                    {
+                        BackColor = Color.Transparent,
+                        FillColor = Color.FromArgb(25, 20, 20),
+                        BorderRadius = 20,
+                        Size = new Size(182, 250),
+                    };
+                    FlowLayoutPanel f = new FlowLayoutPanel
+                    {
+                        Height = gp.Height,
+                        Width = gp.Width,
+                        BackColor = Color.Transparent,
+                        RightToLeft = RightToLeft.Yes,
+                    };
+                    Guna2PictureBox pb = new Guna2PictureBox
+                    {
+                        Size = new Size(172, 156),
+                        SizeMode = PictureBoxSizeMode.AutoSize,
+                        BorderRadius = 20
+                    };
+                    Label l = new Label
+                    {
+                        Width = gp.Width,
+                        Height = 100,
+                        Text = c.SongName + "\n" + "song\n" + User.Name,
+                        ForeColor = Color.White
+                    };
+                    f.Controls.Add(pb);
+                    f.Controls.Add(l);
+                    gp.Controls.Add(f);
+                    flowLayoutPanel1.Controls.Add(gp);
+                }
             }
         }
         public static Image resizeImage(Image imgToResize, Size size)

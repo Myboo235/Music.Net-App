@@ -105,6 +105,7 @@ namespace Music.Net_App.View
                     DashboardForm dbf = new DashboardForm();
                     dbf.ShowDialog(this);
                     Close();
+                    return;
                 }
                 if (guna2RadioButton1.Checked)
                 {

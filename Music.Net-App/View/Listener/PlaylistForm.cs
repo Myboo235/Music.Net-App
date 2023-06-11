@@ -115,10 +115,6 @@ namespace Music.Net_App.View
             flowLayoutPanel3.Height = this.Height - 10;
            
             panel1.Width = flowLayoutPanel3.Width - 30;
-            /*foreach (FlowLayoutPanel f in tb)
-            {
-                f.Size = new Size(240, 374);
-            }*/
         }
 
         private void Button_Add_Playlist_Click(object sender, EventArgs e)
@@ -167,10 +163,6 @@ namespace Music.Net_App.View
             panel1.Height = 100;
             SetUpUserPlaylist();
             pd();
-            /*foreach (FlowLayoutPanel f in tb)
-            {
-                MessageBox.Show(f.Size + "");
-            }*/
         }
 
         private void panel2_Click(object sender, EventArgs e)

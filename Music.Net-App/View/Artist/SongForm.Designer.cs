@@ -59,7 +59,7 @@
             this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(1215, 628);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(1398, 628);
             this.flowLayoutPanel3.TabIndex = 3;
             // 
             // Button_Delete_Song
@@ -80,7 +80,7 @@
             this.Button_Delete_Song.Controls.Add(this.Button_Add_Song);
             this.Button_Delete_Song.Location = new System.Drawing.Point(3, 3);
             this.Button_Delete_Song.Name = "Button_Delete_Song";
-            this.Button_Delete_Song.Size = new System.Drawing.Size(1200, 108);
+            this.Button_Delete_Song.Size = new System.Drawing.Size(1383, 108);
             this.Button_Delete_Song.TabIndex = 3;
             // 
             // Button_Delete
@@ -260,7 +260,7 @@
             // Button_Modify_Song
             // 
             this.Button_Modify_Song.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Button_Modify_Song.BackColor = System.Drawing.Color.Transparent;
+            this.Button_Modify_Song.BackColor = System.Drawing.Color.IndianRed;
             this.Button_Modify_Song.FlatAppearance.BorderSize = 0;
             this.Button_Modify_Song.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Button_Modify_Song.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -268,7 +268,7 @@
             this.Button_Modify_Song.IconChar = FontAwesome.Sharp.IconChar.PersonBooth;
             this.Button_Modify_Song.IconColor = System.Drawing.Color.White;
             this.Button_Modify_Song.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.Button_Modify_Song.Location = new System.Drawing.Point(931, 27);
+            this.Button_Modify_Song.Location = new System.Drawing.Point(1095, 27);
             this.Button_Modify_Song.Name = "Button_Modify_Song";
             this.Button_Modify_Song.Size = new System.Drawing.Size(249, 47);
             this.Button_Modify_Song.TabIndex = 0;
@@ -302,7 +302,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 117);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1200, 488);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1383, 488);
             this.flowLayoutPanel1.TabIndex = 4;
             // 
             // SongForm
@@ -310,7 +310,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1215, 628);
+            this.ClientSize = new System.Drawing.Size(1398, 628);
             this.Controls.Add(this.flowLayoutPanel3);
             this.Name = "SongForm";
             this.Text = "SongForm";

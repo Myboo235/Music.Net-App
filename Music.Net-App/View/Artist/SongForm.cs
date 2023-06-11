@@ -204,7 +204,6 @@ namespace Music.Net_App.View.Artist
             SongDTO songModify = SongBLL.Instance.GetSongByID((guna2ComboBox1.SelectedItem as SongCombobox).SongID);
             guna2TextBox1.Text = songModify.SongName;
             guna2TextBox2.Text = songModify.Duration.ToString();
-            MessageBox.Show(songModify.Duration.ToString() + songModify.SongID);
         }
 
         private void Button_Delete_Click(object sender, EventArgs e)

@@ -89,7 +89,7 @@
             this.panel1.Controls.Add(this.Button_Add_ALbum);
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1215, 644);
+            this.panel1.Size = new System.Drawing.Size(1215, 94);
             this.panel1.TabIndex = 4;
             // 
             // Buttom_RemoveFromAlbum

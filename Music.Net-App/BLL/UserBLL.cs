@@ -262,15 +262,15 @@ namespace Music.Net_App.BLL
                 {
                     ListenerID = GetListenerCount() + 1,
                     Name = Listener.Name,
-                    /*Email = Listener.Email,
+                    Email = Listener.Email,
                     Password = Listener.Password,
                     Gender = true,
                     DateJoin = Listener.DateJoin,
                     CountryID = 0,
-                    Descriptions = "",*/
-                    
+                    Descriptions = "",
+
                 };
-                //db.Listeners.Add(listener);
+                db.Listeners.Add(listener);
                 db.SaveChanges();
                 return true;
             }
